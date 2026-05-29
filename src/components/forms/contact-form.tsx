@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label";
 import { getCrmServiceName } from "@/constants";
 import { IconSend } from "@tabler/icons-react";
 import { useSearchParams } from "next/navigation";
-import { useState } from "react";
+import { Suspense, useState } from "react";
 
 interface ContactFormProps {
   serviceName: string;
@@ -21,7 +21,7 @@ const UTM_PARAMS = [
   "utm_content",
 ] as const;
 
-const ContactForm = ({ serviceName }: ContactFormProps) => {
+const ContactFormInner = ({ serviceName }: ContactFormProps) => {
   const searchParams = useSearchParams();
 
   const [formData, setFormData] = useState({
@@ -149,5 +149,11 @@ const ContactForm = ({ serviceName }: ContactFormProps) => {
     </form>
   );
 };
+
+const ContactForm = ({ serviceName }: ContactFormProps) => (
+  <Suspense>
+    <ContactFormInner serviceName={serviceName} />
+  </Suspense>
+);
 
 export default ContactForm;

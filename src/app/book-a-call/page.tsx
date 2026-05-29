@@ -14,7 +14,7 @@ import {
 } from "@tabler/icons-react";
 import { motion, useInView } from "motion/react";
 import { useSearchParams } from "next/navigation";
-import { useRef, useState } from "react";
+import { Suspense, useRef, useState } from "react";
 
 const benefits = [
   {
@@ -45,7 +45,7 @@ const UTM_PARAMS = [
   "utm_content",
 ] as const;
 
-const BookACall = () => {
+const BookACallContent = () => {
   const searchParams = useSearchParams();
   const benefitsRef = useRef(null);
   const benefitsInView = useInView(benefitsRef, { once: true, amount: 0.2 });
@@ -427,5 +427,11 @@ const BookACall = () => {
     </div>
   );
 };
+
+const BookACall = () => (
+  <Suspense>
+    <BookACallContent />
+  </Suspense>
+);
 
 export default BookACall;
