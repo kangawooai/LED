@@ -29,13 +29,19 @@ const categories = [
 ];
 
 const CookieBanner = () => {
-  const { bannerOpen, preferences, acceptAll, rejectAll, updatePreferences } =
+  const { bannerOpen, hasConsented, preferences, acceptAll, rejectAll, updatePreferences } =
     useCookieConsent();
   const [showPreferences, setShowPreferences] = useState(false);
-  const [draft, setDraft] = useState({ analytics: false, marketing: false });
+  const [draft, setDraft] = useState({ analytics: true, marketing: true });
 
   const handleOpenPreferences = () => {
-    setDraft({ analytics: preferences.analytics, marketing: preferences.marketing });
+    // If user already consented (reopening from footer), show their current choices.
+    // Otherwise (first visit), default all to checked.
+    setDraft(
+      hasConsented
+        ? { analytics: preferences.analytics, marketing: preferences.marketing }
+        : { analytics: true, marketing: true },
+    );
     setShowPreferences(true);
   };
 
