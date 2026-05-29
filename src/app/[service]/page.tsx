@@ -109,7 +109,7 @@ const ServicePage = () => {
             src={`/${slug}.webp`}
             alt={service.name}
             fill
-            className="object-cover object-right"
+            className="object-cover object-right-top"
             priority
           />
           <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 via-40% to-transparent" />

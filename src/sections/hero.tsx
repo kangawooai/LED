@@ -52,7 +52,7 @@ const Hero = () => {
           src="/hero-crop.webp"
           alt="Tradesperson at work"
           fill
-          className="object-cover"
+          className="object-cover object-top"
           priority
         />
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 via-40% to-transparent" />
