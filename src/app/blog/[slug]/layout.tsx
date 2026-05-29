@@ -12,6 +12,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: post.title,
     description: post.excerpt,
+    openGraph: {
+      images: [{ url: "/hero.webp", width: 1200, height: 630, alt: post.title }],
+    },
   };
 }
 

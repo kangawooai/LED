@@ -17,6 +17,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.leadseveryday.co.uk"),
   title: {
     default: "Leads Everyday | Lead Generation for UK Trades & Services",
     template: "%s | Leads Everyday",
@@ -39,12 +40,21 @@ export const metadata: Metadata = {
     siteName: "Leads Everyday",
     locale: "en_GB",
     type: "website",
+    images: [
+      {
+        url: "/hero.webp",
+        width: 1200,
+        height: 630,
+        alt: "Leads Everyday — Lead Generation for UK Trades & Services",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Leads Everyday | Lead Generation for UK Trades & Services",
     description:
       "Get more leads for your business, every single day. 15,000+ successful campaigns across 60+ industries.",
+    images: ["/hero.webp"],
   },
 };
 

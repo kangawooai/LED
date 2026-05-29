@@ -12,6 +12,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: service.metaTitle || `${service.name} Lead Generation`,
     description: service.metaDescription || service.description,
+    openGraph: {
+      images: [
+        {
+          url: `/${slug}.webp`,
+          width: 1200,
+          height: 630,
+          alt: `${service.name} Lead Generation — Leads Everyday`,
+        },
+      ],
+    },
   };
 }
 
