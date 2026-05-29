@@ -1,6 +1,7 @@
 "use client";
 
 import { COMPANY, SOCIAL_LINKS } from "@/constants";
+import { useCookieConsent } from "@/contexts/cookie-consent";
 import Image from "next/image";
 import Link from "next/link";
 import { FaLinkedin, FaFacebook, FaInstagram, FaXTwitter, FaYoutube } from "react-icons/fa6";
@@ -13,6 +14,8 @@ const footerNav = [
 ];
 
 const Footer = () => {
+  const { openBanner } = useCookieConsent();
+
   return (
     <footer className="w-full border-t border-white/10 py-12">
       <div className="max-w-7xl mx-auto px-6 lg:px-20 2xl:px-0">
@@ -126,6 +129,12 @@ const Footer = () => {
             reserved.
           </span>
           <div className="flex items-center gap-4">
+            <button
+              onClick={openBanner}
+              className="text-sm text-foreground/50 hover:text-primary transition-colors cursor-pointer"
+            >
+              Cookie Settings
+            </button>
             <Link href="/cookie-policy" className="text-sm text-foreground/50 hover:text-primary transition-colors">
               Cookie Policy
             </Link>

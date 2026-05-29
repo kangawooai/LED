@@ -1,5 +1,8 @@
 import { BubbleBackground } from "@/components/ui/bubble";
 import LenisWrapper from "@/components/common/lenis-wrapper";
+import ConditionalScripts from "@/components/common/conditional-scripts";
+import CookieBanner from "@/components/cookie-banner";
+import { CookieConsentProvider } from "@/contexts/cookie-consent";
 import Footer from "@/sections/footer";
 import Navigation from "@/sections/navigation";
 import type { Metadata, Viewport } from "next";
@@ -76,23 +79,22 @@ export default function RootLayout({
             `,
           }}
         />
-        <script
-          type="text/javascript"
-          src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js"
-          async
-        />
       </head>
       <body
         className={`${montserrat.variable} antialiased select-none font-sans`}
       >
-        <BubbleBackground className="fixed inset-0 opacity-30 pointer-events-none" />
-        <LenisWrapper>
-          <Navigation />
-          <main className="relative min-h-screen overflow-x-clip">
-            {children}
-          </main>
-          <Footer />
-        </LenisWrapper>
+        <CookieConsentProvider>
+          <BubbleBackground className="fixed inset-0 opacity-30 pointer-events-none" />
+          <LenisWrapper>
+            <Navigation />
+            <main className="relative min-h-screen overflow-x-clip">
+              {children}
+            </main>
+            <Footer />
+          </LenisWrapper>
+          <ConditionalScripts />
+          <CookieBanner />
+        </CookieConsentProvider>
       </body>
     </html>
   );
