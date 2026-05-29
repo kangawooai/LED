@@ -112,7 +112,7 @@ const ServicePage = () => {
             className="object-cover object-right-top"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 via-40% to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 via-50% to-transparent" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-20 2xl:px-0 pt-20 md:pt-44 pb-12 md:pb-20">
