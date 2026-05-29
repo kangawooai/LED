@@ -48,7 +48,7 @@ const Navigation = () => {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm text-foreground/70 hover:text-primary transition-colors duration-600"
+                className="text-sm text-white hover:text-primary transition-colors duration-600"
               >
                 {link.label}
               </Link>
@@ -106,7 +106,7 @@ const Navigation = () => {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="block py-2.5 text-foreground/80 hover:text-primary transition-colors duration-600"
+                    className="block py-2.5 text-white hover:text-primary transition-colors duration-600"
                     onClick={() => setOpen(false)}
                   >
                     {link.label}
