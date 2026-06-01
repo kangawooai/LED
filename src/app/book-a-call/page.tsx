@@ -85,14 +85,17 @@ const BookACallContent = () => {
     }
 
     try {
-      await fetch("https://hooks.zapier.com/hooks/catch/24449961/4b3cuby/", {
+      const res = await fetch("/api/enquiry", {
         method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           ...formData,
           ...utmData,
           service: formData.trade,
         }),
       });
+
+      if (!res.ok) throw new Error("Failed");
 
       setSubmitted(true);
     } catch {

@@ -17,13 +17,27 @@ const Cta = () => {
             Let&apos;s talk about how we can help you grow your business.
           </p>
 
-          <div className="mt-6">
-            <Link href="/book-a-call">
+          <div className="mt-6 flex flex-col items-center gap-3">
+            {/* Mobile: Book a Call with phone icon */}
+            <a href="tel:+443330424424" className="md:hidden">
               <Button size="lg">
                 <IconPhone className="size-4" />
-                Book a Call
+                Call Now
+              </Button>
+            </a>
+
+            {/* Desktop: Enquire Now + or call text */}
+            <Link href="/book-a-call" className="hidden md:block">
+              <Button size="lg">
+                Enquire Now
               </Button>
             </Link>
+            <span className="hidden md:inline text-sm text-foreground/60">
+              or call{" "}
+              <a href="tel:+443330424424" className="text-primary hover:text-primary/80 font-medium">
+                0333 0 424 424
+              </a>
+            </span>
           </div>
         </div>
       </div>

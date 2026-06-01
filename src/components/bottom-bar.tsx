@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { IconPhone } from "@tabler/icons-react";
+import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
 
 const BottomBar = () => {
@@ -47,13 +48,31 @@ const BottomBar = () => {
             )}
           </div>
 
-          {/* Call Now button */}
-          <a href="tel:+443330424424" className="shrink-0">
+          {/* Mobile: Call Now */}
+          <a href="tel:+443330424424" className="shrink-0 md:hidden">
             <Button size="sm" className="px-5">
               <IconPhone className="size-4" />
               Call Now
             </Button>
           </a>
+
+          {/* Desktop: text + Enquire Now + or call */}
+          <div className="shrink-0 hidden md:flex items-center gap-3">
+            <span className="text-2xl font-bold text-white">Begin growing your business today!</span>
+            <div className="flex flex-col items-end">
+              <Link href="/book-a-call">
+                <Button size="sm" className="px-5">
+                  Enquire Now
+                </Button>
+              </Link>
+              <span className="text-sm text-foreground/60 mt-1">
+                or call{" "}
+                <a href="tel:+443330424424" className="text-primary hover:text-primary/80 font-medium">
+                  0333 0 424 424
+                </a>
+              </span>
+            </div>
+          </div>
         </div>
       </div>
     </div>

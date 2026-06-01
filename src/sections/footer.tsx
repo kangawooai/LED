@@ -17,7 +17,7 @@ const Footer = () => {
   const { openBanner } = useCookieConsent();
 
   return (
-    <footer className="w-full border-t border-white/10 py-12">
+    <footer className="w-full border-t border-white/10 pt-12 pb-36">
       <div className="max-w-7xl mx-auto px-6 lg:px-20 2xl:px-0">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>

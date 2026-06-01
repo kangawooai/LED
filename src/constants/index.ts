@@ -21,6 +21,7 @@ export const SOCIAL_LINKS = {
 export const NAV_LINKS = [
   { label: "Services", href: "/services" },
   { label: "About Us", href: "/about" },
+  { label: "Careers", href: "/careers" },
   { label: "FAQs", href: "/faqs" },
 ] as const;
 
@@ -44,11 +45,6 @@ export const HOW_IT_WORKS = [
   },
   {
     step: 3,
-    title: "Engage & Qualify",
-    description: "We start conversations and qualify the best prospects.",
-  },
-  {
-    step: 4,
     title: "Deliver Results",
     description: "You receive high-quality, ready-to-book leads that convert.",
   },

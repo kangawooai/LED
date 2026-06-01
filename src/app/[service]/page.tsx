@@ -11,14 +11,11 @@ import ContactForm from "@/components/forms/contact-form";
 import { HOW_IT_WORKS, STATS } from "@/constants";
 import { faqs } from "@/data/faqs";
 import { services } from "@/data/services";
-import { testimonials } from "@/data/testimonials";
 import {
   IconPhone,
-  IconStar,
   IconCheck,
   IconSearch,
   IconTargetArrow,
-  IconMessages,
   IconRocket,
 } from "@tabler/icons-react";
 import {
@@ -33,7 +30,7 @@ import Link from "next/link";
 import { notFound, useParams } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
 
-const processIcons = [IconSearch, IconTargetArrow, IconMessages, IconRocket];
+const processIcons = [IconSearch, IconTargetArrow, IconRocket];
 
 const ServicePage = () => {
   const params = useParams();
@@ -55,13 +52,23 @@ const ServicePage = () => {
     offset: ["start start", "end end"],
   });
 
-  const lineHeight = useTransform(scrollYProgress, [0.05, 0.85], ["0%", "100%"]);
-
   useEffect(() => {
     setMounted(true);
   }, []);
 
   const trustpilotRef = useCallback((el: HTMLDivElement | null) => {
+    if (el && window.Trustpilot) {
+      window.Trustpilot.loadFromElement(el, true);
+    }
+  }, []);
+
+  const trustpilotReviewsRef = useCallback((el: HTMLDivElement | null) => {
+    if (el && window.Trustpilot) {
+      window.Trustpilot.loadFromElement(el, true);
+    }
+  }, []);
+
+  const trustpilotReviewsDesktopRef = useCallback((el: HTMLDivElement | null) => {
     if (el && window.Trustpilot) {
       window.Trustpilot.loadFromElement(el, true);
     }
@@ -97,12 +104,15 @@ const ServicePage = () => {
           />
         </div>
 
-        {/* Desktop: full-width background image with left fade */}
+        {/* Desktop: background image clipped to container area with fades */}
         <div
-          className="absolute inset-0 -right-[10%] hidden md:block"
+          className="absolute inset-y-0 left-0 hidden md:block"
           style={{
-            maskImage: "linear-gradient(to bottom, white 60%, transparent 100%)",
-            WebkitMaskImage: "linear-gradient(to bottom, white 60%, transparent 100%)",
+            right: "max(0px, calc(50% - 50rem))",
+            maskImage: "linear-gradient(to bottom, white 60%, transparent 100%), linear-gradient(to left, transparent 0rem, white 12rem)",
+            WebkitMaskImage: "linear-gradient(to bottom, white 60%, transparent 100%), linear-gradient(to left, transparent 0rem, white 12rem)",
+            maskComposite: "intersect",
+            WebkitMaskComposite: "destination-in",
           }}
         >
           <Image
@@ -167,19 +177,33 @@ const ServicePage = () => {
                 visible: { opacity: 1, y: 0 },
               }}
               transition={{ duration: 0.6, ease: "easeOut" }}
-              className="flex flex-row items-start gap-4 mt-8"
+              className="flex flex-row items-center gap-4 mt-8"
             >
-              <a href="tel:+443330424424">
+              {/* Mobile: Call Now + Enquire Now */}
+              <a href="tel:+443330424424" className="md:hidden">
                 <Button size="default">
                   <IconPhone className="size-4" />
                   Call Now
                 </Button>
               </a>
-              <Link href="/book-a-call">
+              <Link href="/book-a-call" className="md:hidden">
                 <Button variant="muted" size="default">
                   Enquire Now
                 </Button>
               </Link>
+
+              {/* Desktop: Enquire Now + or call text */}
+              <Link href="/book-a-call" className="hidden md:block">
+                <Button size="default">
+                  Enquire Now
+                </Button>
+              </Link>
+              <span className="hidden md:inline text-sm text-foreground/60">
+                or call{" "}
+                <a href="tel:+443330424424" className="text-primary hover:text-primary/80 font-medium">
+                  0333 0 424 424
+                </a>
+              </span>
             </motion.div>
 
             {/* Mobile stats */}
@@ -330,17 +354,10 @@ const ServicePage = () => {
               Hear From Our {service.name} Clients
             </h2>
 
-            <div className="max-w-3xl mx-auto mt-8 md:mt-12 bg-white/5 backdrop-blur-md border border-white/10 rounded-md overflow-hidden">
-              <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
-                <iframe
-                  className="absolute inset-0 w-full h-full"
-                  src={`https://www.youtube.com/embed/videoseries?list=${service.youtubePlaylistId}&rel=0`}
-                  title={`${service.name} video testimonials`}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
-              </div>
-            </div>
+            <VideoEmbed
+              src={`https://www.youtube.com/embed/videoseries?list=${service.youtubePlaylistId}&rel=0`}
+              title={`${service.name} video testimonials`}
+            />
           </div>
         </section>
       )}
@@ -356,13 +373,27 @@ const ServicePage = () => {
               Book a free call and we&apos;ll tell you exactly how many{" "}
               {service.name.toLowerCase()} leads we can deliver in your area.
             </p>
-            <div className="mt-6">
-              <a href="tel:+443330424424">
+            <div className="mt-6 flex flex-col items-center gap-3">
+              {/* Mobile: Call Now */}
+              <a href="tel:+443330424424" className="md:hidden">
                 <Button size="lg">
                   <IconPhone className="size-4" />
                   Call Now
                 </Button>
               </a>
+
+              {/* Desktop: Enquire Now + or call text */}
+              <Link href="/book-a-call" className="hidden md:block">
+                <Button size="lg">
+                  Enquire Now
+                </Button>
+              </Link>
+              <span className="hidden md:inline text-sm text-foreground/60">
+                or call{" "}
+                <a href="tel:+443330424424" className="text-primary hover:text-primary/80 font-medium">
+                  0333 0 424 424
+                </a>
+              </span>
             </div>
           </div>
         </div>
@@ -370,14 +401,14 @@ const ServicePage = () => {
 
       {/* How It Works */}
       <section ref={processRef} id="process" className="relative w-full h-[350vh]">
-        <div className="sticky top-0 h-screen flex flex-col items-center justify-center">
+        <div className="sticky top-0 h-screen flex flex-col items-center justify-start pt-24 md:justify-center md:pt-0 overflow-hidden">
           <div className="max-w-5xl mx-auto px-6 lg:px-20 2xl:px-0 w-full">
-            <div className="text-center mb-12 md:mb-16">
+            <div className="text-center mb-6 md:mb-16">
               <p className="text-sm uppercase tracking-widest text-primary font-semibold">
                 Our Process
               </p>
               <h2 className="text-4xl md:text-5xl tracking-tight text-foreground mt-3">
-                Four Simple Steps to More {service.name} Jobs
+                Three Simple Steps to More {service.name} Jobs
               </h2>
             </div>
 
@@ -387,12 +418,12 @@ const ServicePage = () => {
                 <div className="w-0 h-full border-l-2 border-dashed border-border/30" />
                 <motion.div
                   className="absolute top-0 left-0 w-0 border-l-2 border-dashed border-primary"
-                  style={{ height: lineHeight }}
+                  style={{ height: useTransform(scrollYProgress, [0.05, 0.85], ["0%", "100%"]) }}
                 />
               </div>
 
               {/* Steps */}
-              <div className="flex flex-col gap-8 md:gap-6">
+              <div className="flex flex-col gap-4 md:gap-6">
                 {HOW_IT_WORKS.map((item, index) => {
                   const Icon = processIcons[index];
                   return (
@@ -440,83 +471,57 @@ const ServicePage = () => {
             Real Results. Real Feedback.
           </motion.h2>
 
-          {/* Mobile carousel */}
+          {/* Trustpilot Carousel */}
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={reviewsInView ? { opacity: 1 } : { opacity: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={reviewsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
-            className="flex gap-4 mt-8 overflow-x-auto snap-x snap-mandatory -mx-4 px-4 md:hidden"
+            className="mt-8 md:mt-12"
           >
-            {testimonials.map((testimonial) => (
-              <div
-                key={testimonial.id}
-                className="bg-white/5 backdrop-blur-md border border-white/10 rounded-md px-6 py-8 flex flex-col min-w-[85vw] snap-center"
+            {/* Mobile: Mini Carousel */}
+            <div
+              ref={trustpilotReviewsRef}
+              className="trustpilot-widget md:hidden"
+              data-locale="en-US"
+              data-template-id="539ad0ffdec7e10e686debd7"
+              data-businessunit-id="606ea5a74e740b0001398b05"
+              data-style-height="350px"
+              data-style-width="100%"
+              data-theme="dark"
+              data-token="0c4b27aa-ddb5-49a6-9f25-9facd86690fd"
+              data-stars="4,5"
+              data-review-languages="en"
+            >
+              <a
+                href="https://www.trustpilot.com/review/leadseveryday.co.uk"
+                target="_blank"
+                rel="noopener"
               >
-                <div className="flex gap-0.5 text-primary mb-4">
-                  <IconStar className="size-4 fill-primary" />
-                  <IconStar className="size-4 fill-primary" />
-                  <IconStar className="size-4 fill-primary" />
-                  <IconStar className="size-4 fill-primary" />
-                  <IconStar className="size-4 fill-primary" />
-                </div>
-                <p className="text-foreground/90 text-balance leading-relaxed flex-1">
-                  &ldquo;{testimonial.quote}&rdquo;
-                </p>
-                <div className="flex flex-col mt-6 pt-4 border-t border-border">
-                  <span className="text-sm font-medium text-foreground">
-                    {testimonial.name}
-                  </span>
-                  <span className="text-xs text-foreground/70">
-                    {testimonial.industry}
-                  </span>
-                </div>
-              </div>
-            ))}
-          </motion.div>
-
-          {/* Desktop grid */}
-          <motion.div
-            initial="hidden"
-            animate={reviewsInView ? "visible" : "hidden"}
-            variants={{
-              hidden: { opacity: 0 },
-              visible: {
-                opacity: 1,
-                transition: { staggerChildren: 0.15, delayChildren: 0.3 },
-              },
-            }}
-            className="hidden md:grid md:grid-cols-3 gap-4 mt-12"
-          >
-            {testimonials.map((testimonial) => (
-              <motion.div
-                key={testimonial.id}
-                variants={{
-                  hidden: { opacity: 0, y: 50 },
-                  visible: { opacity: 1, y: 0 },
-                }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-                className="bg-white/5 backdrop-blur-md border border-white/10 rounded-md px-6 py-8 flex flex-col"
+                Trustpilot
+              </a>
+            </div>
+            {/* Desktop: Carousel */}
+            <div
+              ref={trustpilotReviewsDesktopRef}
+              className="trustpilot-widget hidden md:block"
+              data-locale="en-US"
+              data-template-id="53aa8912dec7e10d38f59f36"
+              data-businessunit-id="606ea5a74e740b0001398b05"
+              data-style-height="140px"
+              data-style-width="100%"
+              data-theme="dark"
+              data-token="cf2bd426-bc84-4c7b-b20a-42491efbf7c6"
+              data-stars="4,5"
+              data-review-languages="en"
+            >
+              <a
+                href="https://www.trustpilot.com/review/leadseveryday.co.uk"
+                target="_blank"
+                rel="noopener"
               >
-                <div className="flex gap-0.5 text-primary mb-4">
-                  <IconStar className="size-4 fill-primary" />
-                  <IconStar className="size-4 fill-primary" />
-                  <IconStar className="size-4 fill-primary" />
-                  <IconStar className="size-4 fill-primary" />
-                  <IconStar className="size-4 fill-primary" />
-                </div>
-                <p className="text-foreground/90 text-balance leading-relaxed flex-1">
-                  &ldquo;{testimonial.quote}&rdquo;
-                </p>
-                <div className="flex flex-col mt-6 pt-4 border-t border-border">
-                  <span className="text-sm font-medium text-foreground">
-                    {testimonial.name}
-                  </span>
-                  <span className="text-xs text-foreground/70">
-                    {testimonial.industry}
-                  </span>
-                </div>
-              </motion.div>
-            ))}
+                Trustpilot
+              </a>
+            </div>
           </motion.div>
         </div>
       </section>
@@ -617,6 +622,7 @@ function TimelineStep({
   const opacity = useTransform(scrollYProgress, [start, mid], [0.15, 1]);
   const y = useTransform(scrollYProgress, [start, mid], [12, 0]);
   const nodeScale = useTransform(scrollYProgress, [start, mid], [0.8, 1]);
+
   const isEven = index % 2 === 0;
 
   return (
@@ -673,6 +679,32 @@ function TimelineStep({
           </motion.div>
         ) : (
           <div />
+        )}
+      </div>
+    </div>
+  );
+}
+
+function VideoEmbed({ src, title }: { src: string; title: string }) {
+  const [active, setActive] = useState(false);
+
+  return (
+    <div className="max-w-3xl mx-auto mt-8 md:mt-12 bg-white/5 backdrop-blur-md border border-white/10 rounded-md overflow-hidden">
+      <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
+        <iframe
+          className="absolute inset-0 w-full h-full"
+          style={{ pointerEvents: active ? "auto" : "none" }}
+          src={active ? `${src}&autoplay=1` : src}
+          title={title}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        />
+        {!active && (
+          <button
+            className="absolute inset-0 z-10 cursor-pointer"
+            onClick={() => setActive(true)}
+            aria-label="Play video"
+          />
         )}
       </div>
     </div>

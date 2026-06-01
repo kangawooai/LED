@@ -1570,7 +1570,6 @@ export const services: Service[] = [
     metaDescription:
       "Get exclusive garden service leads delivered daily. We build your landing page, run targeted Google Ads, and send qualified customers straight to your phone. No commission, no contracts.",
     mobileImagePosition: "110% center",
-    youtubePlaylistId: "PL-3NYjfWPyFLzXJmD6YSfHFlPnIg9td_x",
   },
   // Other Industries
   {
@@ -1898,6 +1897,28 @@ export const services: Service[] = [
     metaDescription:
       "Get exclusive pest control leads delivered daily. We build your landing page, run targeted Google Ads, and send qualified customers straight to your phone. No commission, no contracts.",
     youtubePlaylistId: "PL-3NYjfWPyFK2jbktCQnzHSmE6RXxYlVW",
+  },
+  {
+    slug: "tree-surgeon",
+    name: "Tree Surgeon",
+    category: "other",
+    headline: "Get More Tree Surgery Jobs. Every Single Day.",
+    description:
+      "We generate exclusive, high-quality leads for tree surgeons across the UK. Whether you specialise in tree felling, crown reduction, stump grinding, hedge trimming, or emergency tree removal, we connect you with homeowners and businesses who need a qualified tree surgeon they can trust.",
+    benefits: [
+      "Exclusive leads sent directly to your phone — never shared with competitors",
+      "Customers actively searching for tree surgeons in your area",
+      "Bespoke landing page built specifically for your tree surgery business",
+      "Targeted Google Ads that reach customers when they need you most",
+      "No commission on any jobs — every penny you earn is yours",
+      "Full transparency with real-time reporting on your campaign",
+      "Campaign live within 48 hours on average",
+      "Cancel anytime — no long-term contracts",
+    ],
+    metaTitle: "Tree Surgeon Leads | Get More Tree Surgery Jobs | Leads Everyday",
+    metaDescription:
+      "Get exclusive tree surgeon leads delivered daily. We build your landing page, run targeted Google Ads, and send qualified customers straight to your phone. No commission, no contracts.",
+    youtubePlaylistId: "PL-3NYjfWPyFLzXJmD6YSfHFlPnIg9td_x",
   },
 ];
 

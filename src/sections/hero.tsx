@@ -120,17 +120,31 @@ const Hero = () => {
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="flex flex-row items-start gap-4 mt-8"
           >
-            <a href="tel:+443330424424">
+            {/* Mobile: Call Now + Enquire Now */}
+            <a href="tel:+443330424424" className="md:hidden">
               <Button size="default">
                 <IconPhone className="size-4" />
                 Call Now
               </Button>
             </a>
-            <Link href="/book-a-call">
+            <Link href="/book-a-call" className="md:hidden">
               <Button variant="muted" size="default">
                 Enquire Now
               </Button>
             </Link>
+
+            {/* Desktop: Enquire Now + or call text */}
+            <Link href="/book-a-call" className="hidden md:block">
+              <Button size="default">
+                Enquire Now
+              </Button>
+            </Link>
+            <span className="hidden md:inline text-sm text-foreground/60">
+              or call{" "}
+              <a href="tel:+443330424424" className="text-primary hover:text-primary/80 font-medium">
+                0333 0 424 424
+              </a>
+            </span>
           </motion.div>
 
           {/* Mobile stats */}

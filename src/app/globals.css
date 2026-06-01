@@ -268,3 +268,9 @@
 }
 
 /* End Scrollbar */
+
+/* Prevent iframes from capturing scroll events (fixes Lenis glitch).
+   pointer-events re-enabled on click via JS in iframe-unlock.tsx */
+.trustpilot-widget iframe {
+  pointer-events: none;
+}

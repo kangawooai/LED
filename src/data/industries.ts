@@ -59,7 +59,7 @@ export const industries: Industry[] = [
     ],
   },
   {
-    slug: "other-industries-home",
+    slug: "other-industries",
     name: "Other Industries",
     category: "other",
     description: "Beauty, legal, driving, logistics, and beyond. Whatever your industry, we know how to get you leads.",
@@ -68,7 +68,7 @@ export const industries: Industry[] = [
       "beauty-therapy", "teeth-whitening", "tattoo-removals", "opticians",
       "solicitors", "driving-instructor", "taxi-and-airport-transfers",
       "line-marking", "skip-hire", "grab-hire", "waste-clearance",
-      "house-and-garage-clearance", "removals", "plant-hire", "pest-control",
+      "house-and-garage-clearance", "removals", "plant-hire", "pest-control", "tree-surgeon",
     ],
   },
 ];

@@ -4,7 +4,6 @@ import { HOW_IT_WORKS } from "@/constants";
 import {
   IconSearch,
   IconTargetArrow,
-  IconMessages,
   IconRocket,
 } from "@tabler/icons-react";
 import {
@@ -15,7 +14,7 @@ import {
 } from "motion/react";
 import { useRef } from "react";
 
-const processIcons = [IconSearch, IconTargetArrow, IconMessages, IconRocket];
+const processIcons = [IconSearch, IconTargetArrow, IconRocket];
 
 const Process = () => {
   const sectionRef = useRef<HTMLDivElement>(null);

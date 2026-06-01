@@ -57,6 +57,12 @@ const FaqsSection = () => {
               Enquire Now
             </Button>
           </Link>
+          <span className="hidden md:inline text-sm text-foreground/60">
+            or call{" "}
+            <a href="tel:+443330424424" className="text-primary hover:text-primary/80 font-medium">
+              0333 0 424 424
+            </a>
+          </span>
           <Button
             variant="muted"
             onClick={() => setOpen((pv) => !pv)}
