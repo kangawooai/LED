@@ -1,6 +1,5 @@
 "use client"
 
-import { motion } from "motion/react"
 import { cn } from "@/lib/utils"
 
 export interface BubbleBackgroundProps {
@@ -33,23 +32,7 @@ export function BubbleBackground({
     <div
       className={cn("absolute inset-0 overflow-hidden", className)}
     >
-      {/* SVG goo filter */}
-      <svg className="hidden" aria-hidden="true">
-        <defs>
-          <filter id="bubble-goo">
-            <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10" />
-            <feColorMatrix
-              in="blur"
-              mode="matrix"
-              result="goo"
-              values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8"
-            />
-            <feBlend in="SourceGraphic" in2="goo" />
-          </filter>
-        </defs>
-      </svg>
-
-      {/* Mobile: CSS animations, lighter filter (no goo), fewer bubbles */}
+      {/* Mobile: CSS animations, lighter blur, fewer bubbles */}
       <div
         className="absolute inset-0 md:hidden"
         style={{ filter: "blur(20px)" }}
@@ -94,28 +77,28 @@ export function BubbleBackground({
         />
       </div>
 
-      {/* Desktop: Framer Motion animations, full goo filter, all 5 bubbles */}
+      {/* Desktop: CSS animations, all 5 bubbles */}
       <div
         className="absolute inset-0 hidden md:block"
-        style={{ filter: "url(#bubble-goo) blur(40px)" }}
+        style={{ filter: "blur(40px)" }}
       >
-        <motion.div
-          className="absolute rounded-full mix-blend-hard-light"
+        <div
+          className="absolute rounded-full mix-blend-hard-light will-change-transform"
           style={{
             width: "80%",
             height: "80%",
             top: "10%",
             left: "10%",
             background: makeGradient(colors.first),
+            animation: "bubble-float-y 30s ease-in-out infinite",
           }}
-          animate={{ y: [-50, 50, -50] }}
-          transition={{ duration: 30, ease: "easeInOut", repeat: Number.POSITIVE_INFINITY }}
         />
-        <motion.div
-          className="absolute inset-0 flex justify-center items-center"
-          style={{ transformOrigin: "calc(50% - 400px) center" }}
-          animate={{ rotate: 360 }}
-          transition={{ duration: 20, ease: "linear", repeat: Number.POSITIVE_INFINITY }}
+        <div
+          className="absolute inset-0 flex justify-center items-center will-change-transform"
+          style={{
+            transformOrigin: "calc(50% - 400px) center",
+            animation: "bubble-rotate 20s linear infinite",
+          }}
         >
           <div
             className="rounded-full mix-blend-hard-light"
@@ -125,12 +108,13 @@ export function BubbleBackground({
               background: makeGradient(colors.second),
             }}
           />
-        </motion.div>
-        <motion.div
-          className="absolute inset-0 flex justify-center items-center"
-          style={{ transformOrigin: "calc(50% + 400px) center" }}
-          animate={{ rotate: 360 }}
-          transition={{ duration: 40, ease: "linear", repeat: Number.POSITIVE_INFINITY }}
+        </div>
+        <div
+          className="absolute inset-0 flex justify-center items-center will-change-transform"
+          style={{
+            transformOrigin: "calc(50% + 400px) center",
+            animation: "bubble-rotate 40s linear infinite",
+          }}
         >
           <div
             className="absolute rounded-full mix-blend-hard-light"
@@ -142,24 +126,24 @@ export function BubbleBackground({
               background: makeGradient(colors.third),
             }}
           />
-        </motion.div>
-        <motion.div
-          className="absolute rounded-full mix-blend-hard-light opacity-70"
+        </div>
+        <div
+          className="absolute rounded-full mix-blend-hard-light opacity-70 will-change-transform"
           style={{
             width: "80%",
             height: "80%",
             top: "10%",
             left: "10%",
             background: makeGradient(colors.fourth),
+            animation: "bubble-float-x 40s ease-in-out infinite",
           }}
-          animate={{ x: [-50, 50, -50] }}
-          transition={{ duration: 40, ease: "easeInOut", repeat: Number.POSITIVE_INFINITY }}
         />
-        <motion.div
-          className="absolute inset-0 flex justify-center items-center"
-          style={{ transformOrigin: "calc(50% - 800px) calc(50% + 200px)" }}
-          animate={{ rotate: 360 }}
-          transition={{ duration: 20, ease: "linear", repeat: Number.POSITIVE_INFINITY }}
+        <div
+          className="absolute inset-0 flex justify-center items-center will-change-transform"
+          style={{
+            transformOrigin: "calc(50% - 800px) calc(50% + 200px)",
+            animation: "bubble-rotate 20s linear infinite",
+          }}
         >
           <div
             className="absolute rounded-full mix-blend-hard-light"
@@ -171,7 +155,7 @@ export function BubbleBackground({
               background: makeGradient(colors.fifth),
             }}
           />
-        </motion.div>
+        </div>
       </div>
 
       {children && <div className="relative z-10 h-full w-full">{children}</div>}

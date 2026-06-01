@@ -2,73 +2,47 @@
 
 import { Button } from "@/components/ui/button";
 import { blogPosts } from "@/data/blog-posts";
+import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { IconArrowRight, IconPhone } from "@tabler/icons-react";
-import { motion, useInView } from "motion/react";
 import Link from "next/link";
-import { useRef } from "react";
 
 const Blog = () => {
-  const postsRef = useRef(null);
-  const postsInView = useInView(postsRef, { once: true, amount: 0.1 });
+  const { ref: postsRef, visible: postsVisible } = useScrollReveal(0.1);
 
   return (
     <div>
       {/* Hero */}
       <section className="pt-36 md:pt-44 pb-12 md:pb-20">
         <div className="max-w-7xl mx-auto px-6 lg:px-20 2xl:px-0">
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="text-sm uppercase tracking-widest text-primary font-semibold"
-          >
+          <p className="hero-animate text-sm uppercase tracking-widest text-primary font-semibold">
             Blog
-          </motion.p>
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-            className="mt-4 text-4xl md:text-5xl lg:text-6xl tracking-tight"
+          </p>
+          <h1
+            className="hero-animate mt-4 text-4xl md:text-5xl lg:text-6xl tracking-tight"
+            style={{ animationDelay: "0.1s" }}
           >
             Insights & <span className="text-primary">Tips</span>
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-            className="mt-4 max-w-2xl text-foreground/70 text-sm lg:text-base"
+          </h1>
+          <p
+            className="hero-animate mt-4 max-w-2xl text-foreground/70 text-sm lg:text-base"
+            style={{ animationDelay: "0.2s" }}
           >
             Practical advice and insights to help tradespeople get more
             customers, grow their businesses and make the most of lead
             generation.
-          </motion.p>
+          </p>
         </div>
       </section>
 
       {/* Blog Posts Grid */}
       <section ref={postsRef} className="pb-20">
         <div className="max-w-7xl mx-auto px-6 lg:px-20 2xl:px-0">
-          <motion.div
-            initial="hidden"
-            animate={postsInView ? "visible" : "hidden"}
-            variants={{
-              hidden: { opacity: 0 },
-              visible: {
-                opacity: 1,
-                transition: { staggerChildren: 0.15, delayChildren: 0.3 },
-              },
-            }}
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-4"
-          >
-            {blogPosts.map((post) => (
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {blogPosts.map((post, index) => (
               <Link key={post.slug} href={`/blog/${post.slug}`}>
-                <motion.div
-                  variants={{
-                    hidden: { opacity: 0, y: 40 },
-                    visible: { opacity: 1, y: 0 },
-                  }}
-                  transition={{ duration: 0.6, ease: "easeOut" }}
-                  className="bg-white/5 backdrop-blur-md border border-white/10 rounded-md p-6 lg:p-8 flex flex-col h-full group"
+                <div
+                  className={`scroll-fade-in${postsVisible ? " visible" : ""} bg-white/5 backdrop-blur-md border border-white/10 rounded-md p-6 lg:p-8 flex flex-col h-full group`}
+                  style={{ transitionDelay: `${0.3 + index * 0.15}s` }}
                 >
                   <p className="text-xs text-foreground/50 uppercase tracking-wider">
                     {new Date(post.date).toLocaleDateString("en-GB", {
@@ -87,10 +61,10 @@ const Blog = () => {
                     Read More
                     <IconArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
                   </div>
-                </motion.div>
+                </div>
               </Link>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 

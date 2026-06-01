@@ -3,14 +3,13 @@
 import { Button } from "@/components/ui/button";
 import { COMPANY } from "@/constants";
 import { testimonials } from "@/data/testimonials";
+import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import {
   IconPhone,
   IconStar,
   IconQuote,
 } from "@tabler/icons-react";
-import { motion, useInView } from "motion/react";
 import Link from "next/link";
-import { useRef } from "react";
 
 const caseStudies = [
   {
@@ -70,43 +69,32 @@ const caseStudies = [
 ];
 
 const CaseStudies = () => {
-  const studiesRef = useRef(null);
-  const reviewsRef = useRef(null);
-  const studiesInView = useInView(studiesRef, { once: true, amount: 0.1 });
-  const reviewsInView = useInView(reviewsRef, { once: true, amount: 0.2 });
+  const { ref: studiesRef, visible: studiesVisible } = useScrollReveal(0.1);
+  const { ref: reviewsRef, visible: reviewsVisible } = useScrollReveal(0.2);
 
   return (
     <div>
       {/* Hero */}
       <section className="pt-36 md:pt-44 pb-12 md:pb-20">
         <div className="max-w-7xl mx-auto px-6 lg:px-20 2xl:px-0">
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="text-sm uppercase tracking-widest text-primary font-semibold"
-          >
+          <p className="hero-animate text-sm uppercase tracking-widest text-primary font-semibold">
             Case Studies
-          </motion.p>
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-            className="mt-4 text-4xl md:text-5xl lg:text-6xl tracking-tight"
+          </p>
+          <h1
+            className="hero-animate mt-4 text-4xl md:text-5xl lg:text-6xl tracking-tight"
+            style={{ animationDelay: "0.1s" }}
           >
             Real Results From{" "}
             <span className="text-primary">Real Businesses</span>
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-            className="mt-4 max-w-2xl text-foreground/70 text-sm lg:text-base"
+          </h1>
+          <p
+            className="hero-animate mt-4 max-w-2xl text-foreground/70 text-sm lg:text-base"
+            style={{ animationDelay: "0.2s" }}
           >
             See how tradespeople across the UK are using {COMPANY.name} to fill
             their diaries and grow their businesses. No fluff -- just the
             numbers.
-          </motion.p>
+          </p>
         </div>
       </section>
 
@@ -120,18 +108,15 @@ const CaseStudies = () => {
               { value: COMPANY.averageRoi, label: "Average ROI" },
               { value: COMPANY.clientRetention, label: "Client Retention" },
             ].map((stat) => (
-              <motion.div
+              <div
                 key={stat.label}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-                className="bg-white/5 backdrop-blur-md border border-white/10 rounded-md p-5 text-center"
+                className="hero-animate bg-white/5 backdrop-blur-md border border-white/10 rounded-md p-5 text-center"
               >
                 <span className="text-3xl md:text-4xl tracking-tight text-primary">
                   {stat.value}
                 </span>
                 <p className="text-foreground/70 text-sm mt-1">{stat.label}</p>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -140,27 +125,12 @@ const CaseStudies = () => {
       {/* Case Studies */}
       <section ref={studiesRef} className="pb-20">
         <div className="max-w-7xl mx-auto px-6 lg:px-20 2xl:px-0">
-          <motion.div
-            initial="hidden"
-            animate={studiesInView ? "visible" : "hidden"}
-            variants={{
-              hidden: { opacity: 0 },
-              visible: {
-                opacity: 1,
-                transition: { staggerChildren: 0.2, delayChildren: 0.1 },
-              },
-            }}
-            className="flex flex-col gap-6"
-          >
-            {caseStudies.map((study) => (
-              <motion.div
+          <div className="flex flex-col gap-6">
+            {caseStudies.map((study, index) => (
+              <div
                 key={study.business}
-                variants={{
-                  hidden: { opacity: 0, y: 40 },
-                  visible: { opacity: 1, y: 0 },
-                }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-                className="bg-white/5 backdrop-blur-md border border-white/10 rounded-md p-6 lg:p-8"
+                className={`scroll-fade-in${studiesVisible ? " visible" : ""} bg-white/5 backdrop-blur-md border border-white/10 rounded-md p-6 lg:p-8`}
+                style={{ transitionDelay: `${0.1 + index * 0.2}s` }}
               >
                 <div className="grid md:grid-cols-2 gap-8">
                   <div>
@@ -224,57 +194,33 @@ const CaseStudies = () => {
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* More Reviews */}
       <section ref={reviewsRef} className="pb-20">
         <div className="max-w-7xl mx-auto px-6 lg:px-20 2xl:px-0">
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={
-              reviewsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
-            }
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="text-sm uppercase tracking-widest text-primary font-semibold text-center"
+          <p
+            className={`scroll-fade-in${reviewsVisible ? " visible" : ""} text-sm uppercase tracking-widest text-primary font-semibold text-center`}
           >
             What Our Clients Say
-          </motion.p>
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            animate={
-              reviewsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }
-            }
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-            className="text-4xl md:text-5xl tracking-tight text-foreground text-center mt-3"
+          </p>
+          <h2
+            className={`scroll-fade-in${reviewsVisible ? " visible" : ""} text-4xl md:text-5xl tracking-tight text-foreground text-center mt-3`}
+            style={{ transitionDelay: "0.1s" }}
           >
             Trusted by {COMPANY.businessesGrown} Businesses
-          </motion.h2>
+          </h2>
 
-          <motion.div
-            initial="hidden"
-            animate={reviewsInView ? "visible" : "hidden"}
-            variants={{
-              hidden: { opacity: 0 },
-              visible: {
-                opacity: 1,
-                transition: { staggerChildren: 0.15, delayChildren: 0.3 },
-              },
-            }}
-            className="grid md:grid-cols-3 gap-4 mt-8 md:mt-12"
-          >
-            {testimonials.map((testimonial) => (
-              <motion.div
+          <div className="grid md:grid-cols-3 gap-4 mt-8 md:mt-12">
+            {testimonials.map((testimonial, index) => (
+              <div
                 key={testimonial.id}
-                variants={{
-                  hidden: { opacity: 0, y: 40 },
-                  visible: { opacity: 1, y: 0 },
-                }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-                className="bg-white/5 backdrop-blur-md border border-white/10 rounded-md px-6 py-8 flex flex-col"
+                className={`scroll-fade-in${reviewsVisible ? " visible" : ""} bg-white/5 backdrop-blur-md border border-white/10 rounded-md px-6 py-8 flex flex-col`}
+                style={{ transitionDelay: `${0.3 + index * 0.15}s` }}
               >
                 <div className="flex gap-0.5 text-primary mb-4">
                   <IconStar className="size-4 fill-primary" />
@@ -294,9 +240,9 @@ const CaseStudies = () => {
                     {testimonial.industry}
                   </span>
                 </div>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 

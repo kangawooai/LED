@@ -1,35 +1,26 @@
-"use client";
-
 import { COMPANY } from "@/constants";
-import { motion } from "motion/react";
 
 const CookiePolicy = () => {
   return (
     <div>
       <section className="pt-36 md:pt-44 pb-12 md:pb-28">
         <div className="max-w-3xl mx-auto px-6 lg:px-20 2xl:px-0">
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="text-sm uppercase tracking-widest text-primary font-semibold"
+          <p
+            className="hero-animate text-sm uppercase tracking-widest text-primary font-semibold"
+            style={{ animationDelay: "0s" }}
           >
             Legal
-          </motion.p>
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-            className="mt-4 text-4xl md:text-5xl tracking-tight"
+          </p>
+          <h1
+            className="hero-animate mt-4 text-4xl md:text-5xl tracking-tight"
+            style={{ animationDelay: "0.1s" }}
           >
             Cookie Policy
-          </motion.h1>
+          </h1>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-            className="mt-8 space-y-8 text-foreground/70 text-sm lg:text-base leading-relaxed"
+          <div
+            className="hero-animate mt-8 space-y-8 text-foreground/70 text-sm lg:text-base leading-relaxed"
+            style={{ animationDelay: "0.2s" }}
           >
             <p>
               This Cookie Policy explains how {COMPANY.name} (&ldquo;we&rdquo;,
@@ -193,7 +184,7 @@ const CookiePolicy = () => {
             <p className="text-foreground/50 text-xs">
               Last updated: May 2025
             </p>
-          </motion.div>
+          </div>
         </div>
       </section>
     </div>

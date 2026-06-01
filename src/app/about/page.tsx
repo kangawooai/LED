@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { COMPANY, STATS } from "@/constants";
 import { staff } from "@/data/staff";
+import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import {
   IconPhone,
   IconTarget,
@@ -10,10 +11,8 @@ import {
   IconTrendingUp,
   IconShieldCheck,
 } from "@tabler/icons-react";
-import { motion, useInView } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
-import { useRef } from "react";
 
 const values = [
   {
@@ -43,44 +42,33 @@ const values = [
 ];
 
 const About = () => {
-  const valuesRef = useRef(null);
-  const teamRef = useRef(null);
-  const valuesInView = useInView(valuesRef, { once: true, amount: 0.2 });
-  const teamInView = useInView(teamRef, { once: true, amount: 0.1 });
+  const { ref: valuesRef, visible: valuesVisible } = useScrollReveal(0.2);
+  const { ref: teamRef, visible: teamVisible } = useScrollReveal(0.1);
 
   return (
     <div>
       {/* Hero */}
       <section className="pt-36 md:pt-44 pb-12 md:pb-20">
         <div className="max-w-7xl mx-auto px-6 lg:px-20 2xl:px-0">
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="text-sm uppercase tracking-widest text-primary font-semibold"
-          >
+          <p className="hero-animate text-sm uppercase tracking-widest text-primary font-semibold">
             About Us
-          </motion.p>
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-            className="mt-4 text-4xl md:text-5xl lg:text-6xl tracking-tight"
+          </p>
+          <h1
+            className="hero-animate mt-4 text-4xl md:text-5xl lg:text-6xl tracking-tight"
+            style={{ animationDelay: "0.1s" }}
           >
             We Help Tradespeople{" "}
             <span className="text-primary">Grow</span>
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-            className="mt-4 max-w-2xl text-foreground/70 text-sm lg:text-base"
+          </h1>
+          <p
+            className="hero-animate mt-4 max-w-2xl text-foreground/70 text-sm lg:text-base"
+            style={{ animationDelay: "0.2s" }}
           >
             {COMPANY.name} was built with one goal: give tradespeople a
             reliable, honest way to get more customers. No commissions, no
             shared leads, no long contracts. Just real enquiries from real
             people who need your services.
-          </motion.p>
+          </p>
         </div>
       </section>
 
@@ -88,11 +76,9 @@ const About = () => {
       <section className="pb-20">
         <div className="max-w-7xl mx-auto px-6 lg:px-20 2xl:px-0">
           <div className="grid md:grid-cols-2 gap-8 md:gap-12">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
-              className="bg-white/5 backdrop-blur-md border border-white/10 rounded-md p-6 lg:p-8"
+            <div
+              className="hero-animate bg-white/5 backdrop-blur-md border border-white/10 rounded-md p-6 lg:p-8"
+              style={{ animationDelay: "0.3s" }}
             >
               <h2 className="text-2xl md:text-3xl tracking-tight mb-4">
                 Our Story
@@ -116,13 +102,11 @@ const About = () => {
                   because the results speak for themselves.
                 </p>
               </div>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
-              className="bg-white/5 backdrop-blur-md border border-white/10 rounded-md p-6 lg:p-8"
+            <div
+              className="hero-animate bg-white/5 backdrop-blur-md border border-white/10 rounded-md p-6 lg:p-8"
+              style={{ animationDelay: "0.4s" }}
             >
               <h2 className="text-2xl md:text-3xl tracking-tight mb-4">
                 How It Works
@@ -146,7 +130,7 @@ const About = () => {
                   within 24 hours.
                 </p>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
@@ -156,12 +140,7 @@ const About = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-20 2xl:px-0">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-12 text-left md:text-center">
             {STATS.map((stat) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-              >
+              <div key={stat.label} className="hero-animate">
                 <p className="text-3xl md:text-4xl font-bold text-primary">
                   {stat.value}
                 </p>
@@ -169,7 +148,7 @@ const About = () => {
                   {stat.label}
                 </p>
                 <p className="text-xs text-muted-foreground">{stat.sublabel}</p>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -178,46 +157,26 @@ const About = () => {
       {/* Values */}
       <section ref={valuesRef} className="pb-20">
         <div className="max-w-7xl mx-auto px-6 lg:px-20 2xl:px-0">
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={valuesInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="text-sm uppercase tracking-widest text-primary font-semibold text-center"
+          <p
+            className={`scroll-fade-in${valuesVisible ? " visible" : ""} text-sm uppercase tracking-widest text-primary font-semibold text-center`}
           >
             Why Choose Us
-          </motion.p>
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            animate={valuesInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-            className="text-4xl md:text-5xl tracking-tight text-foreground text-center mt-3"
+          </p>
+          <h2
+            className={`scroll-fade-in${valuesVisible ? " visible" : ""} text-4xl md:text-5xl tracking-tight text-foreground text-center mt-3`}
+            style={{ transitionDelay: "0.1s" }}
           >
             Built Different
-          </motion.h2>
+          </h2>
 
-          <motion.div
-            initial="hidden"
-            animate={valuesInView ? "visible" : "hidden"}
-            variants={{
-              hidden: { opacity: 0 },
-              visible: {
-                opacity: 1,
-                transition: { staggerChildren: 0.15, delayChildren: 0.3 },
-              },
-            }}
-            className="grid md:grid-cols-2 gap-4 mt-8 md:mt-12"
-          >
-            {values.map((item) => {
+          <div className="grid md:grid-cols-2 gap-4 mt-8 md:mt-12">
+            {values.map((item, index) => {
               const Icon = item.icon;
               return (
-                <motion.div
+                <div
                   key={item.title}
-                  variants={{
-                    hidden: { opacity: 0, y: 50 },
-                    visible: { opacity: 1, y: 0 },
-                  }}
-                  transition={{ duration: 0.6, ease: "easeOut" }}
-                  className="bg-white/5 backdrop-blur-md border border-white/10 rounded-md px-6 py-6 lg:px-8 lg:py-8"
+                  className={`scroll-fade-in${valuesVisible ? " visible" : ""} bg-white/5 backdrop-blur-md border border-white/10 rounded-md px-6 py-6 lg:px-8 lg:py-8`}
+                  style={{ transitionDelay: `${0.3 + index * 0.15}s` }}
                 >
                   <div className="size-10 rounded-sm bg-primary/10 border border-primary/20 flex items-center justify-center mb-4">
                     <Icon className="size-5 text-primary" />
@@ -228,63 +187,41 @@ const About = () => {
                   <p className="text-foreground/70 mt-2 text-sm lg:text-[15px]">
                     {item.description}
                   </p>
-                </motion.div>
+                </div>
               );
             })}
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Team */}
       <section ref={teamRef} className="pb-20">
         <div className="max-w-7xl mx-auto px-6 lg:px-20 2xl:px-0">
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={teamInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="text-sm uppercase tracking-widest text-primary font-semibold text-center"
+          <p
+            className={`scroll-fade-in${teamVisible ? " visible" : ""} text-sm uppercase tracking-widest text-primary font-semibold text-center`}
           >
             Our Team
-          </motion.p>
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            animate={teamInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-            className="text-4xl md:text-5xl tracking-tight text-foreground text-center mt-3"
+          </p>
+          <h2
+            className={`scroll-fade-in${teamVisible ? " visible" : ""} text-4xl md:text-5xl tracking-tight text-foreground text-center mt-3`}
+            style={{ transitionDelay: "0.1s" }}
           >
             The People Behind Your Leads
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={teamInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
-            className="text-foreground/70 text-sm lg:text-base text-center mt-4 max-w-2xl mx-auto"
+          </h2>
+          <p
+            className={`scroll-fade-in${teamVisible ? " visible" : ""} text-foreground/70 text-sm lg:text-base text-center mt-4 max-w-2xl mx-auto`}
+            style={{ transitionDelay: "0.15s" }}
           >
             A dedicated team of marketing specialists working to fill your diary
             every single day.
-          </motion.p>
+          </p>
 
-          <motion.div
-            initial="hidden"
-            animate={teamInView ? "visible" : "hidden"}
-            variants={{
-              hidden: { opacity: 0 },
-              visible: {
-                opacity: 1,
-                transition: { staggerChildren: 0.1, delayChildren: 0.3 },
-              },
-            }}
-            className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-8 md:mt-12"
-          >
-            {staff.map((member) => (
-              <motion.div
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-8 md:mt-12">
+            {staff.map((member, index) => (
+              <div
                 key={member.slug}
-                variants={{
-                  hidden: { opacity: 0, y: 40 },
-                  visible: { opacity: 1, y: 0 },
-                }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-                className="bg-white/5 backdrop-blur-md border border-white/10 rounded-md p-5 flex flex-col items-center text-center"
+                className={`scroll-fade-in${teamVisible ? " visible" : ""} bg-white/5 backdrop-blur-md border border-white/10 rounded-md p-5 flex flex-col items-center text-center`}
+                style={{ transitionDelay: `${0.3 + index * 0.1}s` }}
               >
                 <div className="size-32 md:size-40 rounded-full bg-primary/10 border border-primary/20 overflow-hidden mb-4 relative">
                   <div
@@ -311,9 +248,9 @@ const About = () => {
                 <h3 className="text-sm md:text-base font-semibold tracking-tight">
                   {member.name}
                 </h3>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 

@@ -1,11 +1,10 @@
 "use client";
 
-import { motion, useInView } from "motion/react";
-import { useCallback, useRef } from "react";
+import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+import { useCallback } from "react";
 
 const Reviews = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.2 });
+  const { ref, visible } = useScrollReveal(0.2);
 
   const trustpilotRef = useCallback((el: HTMLDivElement | null) => {
     if (el && window.Trustpilot) {
@@ -22,28 +21,21 @@ const Reviews = () => {
   return (
     <section id="reviews-section" ref={ref} className="w-full py-20">
       <div className="max-w-7xl mx-auto px-4 md:px-0 lg:px-20 2xl:px-0">
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          className="text-sm uppercase tracking-widest text-primary font-semibold text-center"
+        <p
+          className={`scroll-fade-in${visible ? " visible" : ""} text-sm uppercase tracking-widest text-primary font-semibold text-center`}
         >
           What Our Clients Say
-        </motion.p>
-        <motion.h3
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-          className="text-4xl md:text-5xl tracking-tight text-foreground text-center mt-3"
+        </p>
+        <h3
+          className={`scroll-fade-in${visible ? " visible" : ""} text-4xl md:text-5xl tracking-tight text-foreground text-center mt-3`}
+          style={{ transitionDelay: "0.1s" }}
         >
           Real Results. Real Feedback.
-        </motion.h3>
+        </h3>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
-          className="mt-8 md:mt-12"
+        <div
+          className={`scroll-fade-in${visible ? " visible" : ""} mt-8 md:mt-12`}
+          style={{ transitionDelay: "0.3s" }}
         >
           {/* Mobile: Mini Carousel */}
           <div
@@ -89,7 +81,7 @@ const Reviews = () => {
               Trustpilot
             </a>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

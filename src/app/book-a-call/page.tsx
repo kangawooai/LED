@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { STATS, CRM_SERVICE_OPTIONS } from "@/constants";
+import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import {
   IconPhone,
   IconSend,
@@ -12,9 +13,8 @@ import {
   IconUserCheck,
   IconChartBar,
 } from "@tabler/icons-react";
-import { motion, useInView } from "motion/react";
 import { useSearchParams } from "next/navigation";
-import { Suspense, useRef, useState } from "react";
+import { Suspense, useState } from "react";
 
 const benefits = [
   {
@@ -47,8 +47,7 @@ const UTM_PARAMS = [
 
 const BookACallContent = () => {
   const searchParams = useSearchParams();
-  const benefitsRef = useRef(null);
-  const benefitsInView = useInView(benefitsRef, { once: true, amount: 0.2 });
+  const { ref: benefitsRef, visible: benefitsVisible } = useScrollReveal(0.2);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -110,32 +109,23 @@ const BookACallContent = () => {
       {/* Hero */}
       <section className="pt-36 md:pt-44 pb-12 md:pb-20">
         <div className="max-w-7xl mx-auto px-6 lg:px-20 2xl:px-0">
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="text-sm uppercase tracking-widest text-primary font-semibold"
-          >
+          <p className="hero-animate text-sm uppercase tracking-widest text-primary font-semibold">
             Get Started
-          </motion.p>
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-            className="mt-4 text-4xl md:text-5xl lg:text-6xl tracking-tight"
+          </p>
+          <h1
+            className="hero-animate mt-4 text-4xl md:text-5xl lg:text-6xl tracking-tight"
+            style={{ animationDelay: "0.1s" }}
           >
             Book a <span className="text-primary">Free Call</span>
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-            className="mt-4 max-w-2xl text-foreground/70 text-sm lg:text-base"
+          </h1>
+          <p
+            className="hero-animate mt-4 max-w-2xl text-foreground/70 text-sm lg:text-base"
+            style={{ animationDelay: "0.2s" }}
           >
             Tell us about your business and we&apos;ll show you exactly how many
             leads we can deliver. No obligations, no hard sell -- just a
             straightforward conversation about growing your business.
-          </motion.p>
+          </p>
         </div>
       </section>
 
@@ -144,11 +134,9 @@ const BookACallContent = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-20 2xl:px-0">
           <div className="grid md:grid-cols-2 gap-12 items-start">
             {/* Form */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
-              className="bg-white/5 backdrop-blur-md border border-white/10 rounded-md p-6 md:p-8"
+            <div
+              className="hero-animate bg-white/5 backdrop-blur-md border border-white/10 rounded-md p-6 md:p-8"
+              style={{ animationDelay: "0.3s" }}
             >
               {submitted ? (
                 <div className="text-center py-12">
@@ -290,14 +278,12 @@ const BookACallContent = () => {
                   </Button>
                 </form>
               )}
-            </motion.div>
+            </div>
 
             {/* Info */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
-              className="flex flex-col gap-6"
+            <div
+              className="hero-animate flex flex-col gap-6"
+              style={{ animationDelay: "0.4s" }}
             >
               <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-md p-6 md:p-8">
                 <h3 className="text-2xl md:text-3xl tracking-tight mb-4">
@@ -358,7 +344,7 @@ const BookACallContent = () => {
                   </li>
                 </ol>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
@@ -366,29 +352,14 @@ const BookACallContent = () => {
       {/* Benefits */}
       <section ref={benefitsRef} className="pb-20">
         <div className="max-w-7xl mx-auto px-6 lg:px-20 2xl:px-0">
-          <motion.div
-            initial="hidden"
-            animate={benefitsInView ? "visible" : "hidden"}
-            variants={{
-              hidden: { opacity: 0 },
-              visible: {
-                opacity: 1,
-                transition: { staggerChildren: 0.15, delayChildren: 0.1 },
-              },
-            }}
-            className="grid md:grid-cols-3 gap-4"
-          >
-            {benefits.map((benefit) => {
+          <div className="grid md:grid-cols-3 gap-4">
+            {benefits.map((benefit, index) => {
               const Icon = benefit.icon;
               return (
-                <motion.div
+                <div
                   key={benefit.title}
-                  variants={{
-                    hidden: { opacity: 0, y: 40 },
-                    visible: { opacity: 1, y: 0 },
-                  }}
-                  transition={{ duration: 0.6, ease: "easeOut" }}
-                  className="bg-white/5 backdrop-blur-md border border-white/10 rounded-md p-6"
+                  className={`scroll-fade-in${benefitsVisible ? " visible" : ""} bg-white/5 backdrop-blur-md border border-white/10 rounded-md p-6`}
+                  style={{ transitionDelay: `${0.1 + index * 0.15}s` }}
                 >
                   <div className="size-10 rounded-sm bg-primary/10 border border-primary/20 flex items-center justify-center mb-4">
                     <Icon className="size-5 text-primary" />
@@ -397,10 +368,10 @@ const BookACallContent = () => {
                   <p className="text-foreground/70 mt-2 text-sm lg:text-[15px]">
                     {benefit.description}
                   </p>
-                </motion.div>
+                </div>
               );
             })}
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -409,12 +380,7 @@ const BookACallContent = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-20 2xl:px-0">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-12 text-left md:text-center">
             {STATS.map((stat) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-              >
+              <div key={stat.label} className="hero-animate">
                 <p className="text-3xl md:text-4xl font-bold text-primary">
                   {stat.value}
                 </p>
@@ -422,7 +388,7 @@ const BookACallContent = () => {
                   {stat.label}
                 </p>
                 <p className="text-xs text-muted-foreground">{stat.sublabel}</p>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>

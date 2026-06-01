@@ -2,6 +2,7 @@
 
 import CareersForm from "@/components/forms/careers-form";
 import { COMPANY } from "@/constants";
+import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import {
   IconCoffee,
   IconBallTennis,
@@ -13,8 +14,6 @@ import {
   IconShieldCheck,
   IconFriends,
 } from "@tabler/icons-react";
-import { motion, useInView } from "motion/react";
-import { useRef } from "react";
 
 const perks = [
   {
@@ -56,41 +55,31 @@ const perks = [
 ];
 
 const WhyWorkHere = () => {
-  const perksRef = useRef(null);
-  const perksInView = useInView(perksRef, { once: true, amount: 0.1 });
+  const { ref: perksRef, visible: perksVisible } = useScrollReveal(0.1);
 
   return (
     <div>
       {/* Hero */}
       <section className="pt-36 md:pt-44 pb-12 md:pb-20">
         <div className="max-w-7xl mx-auto px-6 lg:px-20 2xl:px-0">
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="text-sm uppercase tracking-widest text-primary font-semibold"
-          >
+          <p className="hero-animate text-sm uppercase tracking-widest text-primary font-semibold">
             Careers
-          </motion.p>
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-            className="mt-4 text-4xl md:text-5xl lg:text-6xl tracking-tight"
+          </p>
+          <h1
+            className="hero-animate mt-4 text-4xl md:text-5xl lg:text-6xl tracking-tight"
+            style={{ animationDelay: "0.1s" }}
           >
             What We Do &{" "}
             <span className="text-primary">Why You Should Too</span>
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-            className="mt-4 max-w-2xl text-foreground/70 text-sm lg:text-base"
+          </h1>
+          <p
+            className="hero-animate mt-4 max-w-2xl text-foreground/70 text-sm lg:text-base"
+            style={{ animationDelay: "0.2s" }}
           >
             Be a part of this dynamic business, and feel proud of the part you
             will play in building a more prosperous Britain -- for you and for
             our customers.
-          </motion.p>
+          </p>
         </div>
       </section>
 
@@ -98,11 +87,9 @@ const WhyWorkHere = () => {
       <section className="pb-20">
         <div className="max-w-7xl mx-auto px-6 lg:px-20 2xl:px-0">
           <div className="grid md:grid-cols-2 gap-8 md:gap-12">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
-              className="bg-white/5 backdrop-blur-md border border-white/10 rounded-md p-6 lg:p-8"
+            <div
+              className="hero-animate bg-white/5 backdrop-blur-md border border-white/10 rounded-md p-6 lg:p-8"
+              style={{ animationDelay: "0.3s" }}
             >
               <h2 className="text-2xl md:text-3xl tracking-tight mb-4">
                 Who We Are
@@ -121,13 +108,11 @@ const WhyWorkHere = () => {
                   tradesmen&apos;s services right now.
                 </p>
               </div>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
-              className="bg-white/5 backdrop-blur-md border border-white/10 rounded-md p-6 lg:p-8"
+            <div
+              className="hero-animate bg-white/5 backdrop-blur-md border border-white/10 rounded-md p-6 lg:p-8"
+              style={{ animationDelay: "0.4s" }}
             >
               <h2 className="text-2xl md:text-3xl tracking-tight mb-4">
                 Why Join Us
@@ -155,7 +140,7 @@ const WhyWorkHere = () => {
                   feel good every day.
                 </p>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
@@ -163,46 +148,26 @@ const WhyWorkHere = () => {
       {/* Perks */}
       <section ref={perksRef} className="pb-20">
         <div className="max-w-7xl mx-auto px-6 lg:px-20 2xl:px-0">
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={perksInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="text-sm uppercase tracking-widest text-primary font-semibold text-center"
+          <p
+            className={`scroll-fade-in${perksVisible ? " visible" : ""} text-sm uppercase tracking-widest text-primary font-semibold text-center`}
           >
             Our Perks
-          </motion.p>
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            animate={perksInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-            className="text-4xl md:text-5xl tracking-tight text-foreground text-center mt-3"
+          </p>
+          <h2
+            className={`scroll-fade-in${perksVisible ? " visible" : ""} text-4xl md:text-5xl tracking-tight text-foreground text-center mt-3`}
+            style={{ transitionDelay: "0.1s" }}
           >
             What You Get
-          </motion.h2>
+          </h2>
 
-          <motion.div
-            initial="hidden"
-            animate={perksInView ? "visible" : "hidden"}
-            variants={{
-              hidden: { opacity: 0 },
-              visible: {
-                opacity: 1,
-                transition: { staggerChildren: 0.07, delayChildren: 0.3 },
-              },
-            }}
-            className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 mt-8 md:mt-12"
-          >
-            {perks.map((perk) => {
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 mt-8 md:mt-12">
+            {perks.map((perk, index) => {
               const Icon = perk.icon;
               return (
-                <motion.div
+                <div
                   key={perk.title}
-                  variants={{
-                    hidden: { opacity: 0, y: 30 },
-                    visible: { opacity: 1, y: 0 },
-                  }}
-                  transition={{ duration: 0.5, ease: "easeOut" }}
-                  className="bg-white/5 backdrop-blur-md border border-white/10 rounded-md px-5 py-5 flex items-center gap-4"
+                  className={`scroll-fade-in${perksVisible ? " visible" : ""} bg-white/5 backdrop-blur-md border border-white/10 rounded-md px-5 py-5 flex items-center gap-4`}
+                  style={{ transitionDelay: `${0.3 + index * 0.07}s` }}
                 >
                   <div className="size-10 rounded-sm bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
                     <Icon className="size-5 text-primary" />
@@ -210,22 +175,17 @@ const WhyWorkHere = () => {
                   <span className="text-sm md:text-base font-medium text-foreground">
                     {perk.title}
                   </span>
-                </motion.div>
+                </div>
               );
             })}
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Application Form */}
       <section className="w-full mb-28 px-4 md:px-0 lg:px-20 2xl:px-0">
         <div className="max-w-2xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="bg-white/5 backdrop-blur-md border border-white/10 rounded-md p-6 lg:p-8"
-          >
+          <div className="hero-animate bg-white/5 backdrop-blur-md border border-white/10 rounded-md p-6 lg:p-8">
             <h3 className="text-2xl md:text-3xl tracking-tight text-foreground mb-2">
               Interested in Joining Us?
             </h3>
@@ -233,7 +193,7 @@ const WhyWorkHere = () => {
               Upload your CV here in confidence and we&apos;ll be in touch.
             </p>
             <CareersForm />
-          </motion.div>
+          </div>
         </div>
       </section>
     </div>

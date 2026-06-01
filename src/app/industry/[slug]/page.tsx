@@ -1,5 +1,6 @@
 "use client";
 
+import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { Button } from "@/components/ui/button";
 import { getIndustryBySlug } from "@/data/industries";
 import { getServicesByCategory } from "@/data/services";
@@ -12,10 +13,8 @@ import {
   IconPhone,
   IconArrowRight,
 } from "@tabler/icons-react";
-import { motion, useInView } from "motion/react";
 import Link from "next/link";
 import { notFound, useParams } from "next/navigation";
-import { useRef } from "react";
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   IconBuildingSkyscraper,
@@ -39,8 +38,7 @@ const IndustryPage = () => {
   const params = useParams<{ slug: string }>();
   const industry = getIndustryBySlug(params.slug);
 
-  const servicesRef = useRef(null);
-  const servicesInView = useInView(servicesRef, { once: true, amount: 0.1 });
+  const { ref: servicesRef, visible: servicesVisible } = useScrollReveal(0.1);
 
   if (!industry) {
     notFound();
@@ -54,11 +52,9 @@ const IndustryPage = () => {
       {/* Hero */}
       <section className="pt-36 md:pt-44 pb-12 md:pb-20">
         <div className="max-w-7xl mx-auto px-6 lg:px-20 2xl:px-0">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="flex items-center gap-3"
+          <div
+            className="hero-animate flex items-center gap-3"
+            style={{ animationDelay: "0s" }}
           >
             <div className="size-10 rounded-sm bg-primary/10 border border-primary/20 flex items-center justify-center">
               <Icon className="size-5 text-primary" />
@@ -66,78 +62,44 @@ const IndustryPage = () => {
             <p className="text-sm uppercase tracking-widest text-primary font-semibold">
               {industry.name}
             </p>
-          </motion.div>
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-            className="mt-4 text-4xl md:text-5xl lg:text-6xl tracking-tight"
+          </div>
+          <h1
+            className="hero-animate mt-4 text-4xl md:text-5xl lg:text-6xl tracking-tight"
+            style={{ animationDelay: "0.1s" }}
           >
             Lead Generation for{" "}
             <span className="text-primary">{industry.name}</span>
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-            className="mt-4 max-w-2xl text-foreground/70 text-sm lg:text-base"
+          </h1>
+          <p
+            className="hero-animate mt-4 max-w-2xl text-foreground/70 text-sm lg:text-base"
+            style={{ animationDelay: "0.2s" }}
           >
             {industry.description}
-          </motion.p>
+          </p>
         </div>
       </section>
 
       {/* Services Grid */}
       <section ref={servicesRef} className="pb-20">
         <div className="max-w-7xl mx-auto px-6 lg:px-20 2xl:px-0">
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={
-              servicesInView
-                ? { opacity: 1, y: 0 }
-                : { opacity: 0, y: 20 }
-            }
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="text-sm uppercase tracking-widest text-primary font-semibold"
+          <p
+            className={`scroll-fade-in${servicesVisible ? " visible" : ""} text-sm uppercase tracking-widest text-primary font-semibold`}
           >
             Our Services
-          </motion.p>
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            animate={
-              servicesInView
-                ? { opacity: 1, y: 0 }
-                : { opacity: 0, y: 30 }
-            }
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-            className="text-3xl md:text-4xl tracking-tight text-foreground mt-3"
+          </p>
+          <h2
+            className={`scroll-fade-in${servicesVisible ? " visible" : ""} text-3xl md:text-4xl tracking-tight text-foreground mt-3`}
+            style={{ transitionDelay: "0.1s" }}
           >
             {categoryServices.length} Services Available
-          </motion.h2>
+          </h2>
 
-          <motion.div
-            initial="hidden"
-            animate={servicesInView ? "visible" : "hidden"}
-            variants={{
-              hidden: { opacity: 0 },
-              visible: {
-                opacity: 1,
-                transition: {
-                  staggerChildren: 0.06,
-                  delayChildren: 0.2,
-                },
-              },
-            }}
-            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-8 md:mt-12"
-          >
-            {categoryServices.map((service) => (
-              <motion.div
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-8 md:mt-12">
+            {categoryServices.map((service, index) => (
+              <div
                 key={service.slug}
-                variants={{
-                  hidden: { opacity: 0, y: 40 },
-                  visible: { opacity: 1, y: 0 },
-                }}
-                transition={{ duration: 0.5, ease: "easeOut" }}
+                className={`scroll-fade-in${servicesVisible ? " visible" : ""}`}
+                style={{ transitionDelay: `${0.2 + index * 0.06}s` }}
               >
                 <Link href={`/${service.slug}`} className="block h-full">
                   <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-md p-5 lg:p-6 h-full hover:border-primary/30 transition-colors group">
@@ -153,9 +115,9 @@ const IndustryPage = () => {
                     </div>
                   </div>
                 </Link>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 

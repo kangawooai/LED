@@ -3,7 +3,6 @@
 import { Button } from "@/components/ui/button";
 import { blogPosts } from "@/data/blog-posts";
 import { IconArrowLeft, IconPhone } from "@tabler/icons-react";
-import { motion } from "motion/react";
 import Link from "next/link";
 import { notFound, useParams } from "next/navigation";
 
@@ -23,10 +22,9 @@ const BlogPostPage = () => {
       {/* Hero */}
       <section className="pt-36 md:pt-44 pb-12 md:pb-20">
         <div className="max-w-7xl mx-auto px-6 lg:px-20 2xl:px-0">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
+          <div
+            className="hero-animate"
+            style={{ animationDelay: "0s" }}
           >
             <Link
               href="/blog"
@@ -35,45 +33,39 @@ const BlogPostPage = () => {
               <IconArrowLeft className="size-4" />
               Back to Blog
             </Link>
-          </motion.div>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-            className="text-sm uppercase tracking-widest text-primary font-semibold"
+          </div>
+          <p
+            className="hero-animate text-sm uppercase tracking-widest text-primary font-semibold"
+            style={{ animationDelay: "0.1s" }}
           >
             {new Date(post.date).toLocaleDateString("en-GB", {
               day: "numeric",
               month: "long",
               year: "numeric",
             })}
-          </motion.p>
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-            className="mt-4 text-4xl md:text-5xl lg:text-6xl tracking-tight"
+          </p>
+          <h1
+            className="hero-animate mt-4 text-4xl md:text-5xl lg:text-6xl tracking-tight"
+            style={{ animationDelay: "0.2s" }}
           >
             {post.title}
-          </motion.h1>
+          </h1>
         </div>
       </section>
 
       {/* Content */}
       <section className="pb-20">
         <div className="max-w-7xl mx-auto px-6 lg:px-20 2xl:px-0">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
-            className="bg-white/5 backdrop-blur-md border border-white/10 rounded-md p-6 lg:p-8 max-w-3xl"
+          <div
+            className="hero-animate bg-white/5 backdrop-blur-md border border-white/10 rounded-md p-6 lg:p-8 max-w-3xl"
+            style={{ animationDelay: "0.3s" }}
           >
             <div className="space-y-4 text-foreground/70 text-sm lg:text-base leading-relaxed">
               {paragraphs.map((paragraph, index) => (
                 <p key={index}>{paragraph}</p>
               ))}
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 

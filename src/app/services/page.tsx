@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { industries } from "@/data/industries";
 import { getServiceBySlug } from "@/data/services";
+import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import {
   IconBuildingSkyscraper,
   IconCar,
@@ -12,9 +13,7 @@ import {
   IconPhone,
   IconArrowRight,
 } from "@tabler/icons-react";
-import { motion, useInView } from "motion/react";
 import Link from "next/link";
-import { useRef } from "react";
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   IconBuildingSkyscraper,
@@ -35,73 +34,45 @@ function slugToName(slug: string): string {
 }
 
 const Services = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.1 });
+  const { ref, visible } = useScrollReveal(0.1);
 
   return (
     <div>
       {/* Hero */}
       <section className="pt-28 md:pt-44 pb-6 md:pb-20">
         <div className="max-w-7xl mx-auto px-6 lg:px-20 2xl:px-0">
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="text-sm uppercase tracking-widest text-primary font-semibold"
-          >
+          <p className="hero-animate text-sm uppercase tracking-widest text-primary font-semibold">
             Our Services
-          </motion.p>
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-            className="mt-4 text-4xl md:text-5xl lg:text-6xl tracking-tight"
+          </p>
+          <h1
+            className="hero-animate mt-4 text-4xl md:text-5xl lg:text-6xl tracking-tight"
+            style={{ animationDelay: "0.1s" }}
           >
             Lead Generation for{" "}
             <span className="text-primary">Every Trade</span>
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-            className="mt-4 max-w-2xl text-foreground/70 text-sm lg:text-base"
+          </h1>
+          <p
+            className="hero-animate mt-4 max-w-2xl text-foreground/70 text-sm lg:text-base"
+            style={{ animationDelay: "0.2s" }}
           >
             We work with over 60 industries across the UK. Find your trade
             below and discover how we can fill your diary with high-quality
             leads.
-          </motion.p>
+          </p>
         </div>
       </section>
 
       {/* Industry Categories */}
       <section ref={ref} className="pt-6 md:pt-0 pb-20">
         <div className="max-w-7xl mx-auto px-6 lg:px-20 2xl:px-0">
-          <motion.div
-            initial="hidden"
-            animate={isInView ? "visible" : "hidden"}
-            variants={{
-              hidden: { opacity: 0 },
-              visible: {
-                opacity: 1,
-                transition: {
-                  staggerChildren: 0.15,
-                  delayChildren: 0.1,
-                },
-              },
-            }}
-            className="flex flex-col gap-10"
-          >
-            {industries.map((industry) => {
+          <div className="flex flex-col gap-10">
+            {industries.map((industry, index) => {
               const Icon = iconMap[industry.icon] || IconCategory;
               return (
-                <motion.div
+                <div
                   key={industry.slug}
-                  variants={{
-                    hidden: { opacity: 0, y: 40 },
-                    visible: { opacity: 1, y: 0 },
-                  }}
-                  transition={{ duration: 0.6, ease: "easeOut" }}
-                  className="bg-white/5 backdrop-blur-md border border-white/10 rounded-md p-6 lg:p-8"
+                  className={`scroll-fade-in${visible ? " visible" : ""} bg-white/5 backdrop-blur-md border border-white/10 rounded-md p-6 lg:p-8`}
+                  style={{ transitionDelay: `${0.1 + index * 0.15}s` }}
                 >
                   <div className="flex items-center gap-3 mb-2">
                     <div className="size-10 rounded-sm bg-primary/10 border border-primary/20 flex items-center justify-center">
@@ -127,10 +98,10 @@ const Services = () => {
                       );
                     })}
                   </div>
-                </motion.div>
+                </div>
               );
             })}
-          </motion.div>
+          </div>
         </div>
       </section>
 

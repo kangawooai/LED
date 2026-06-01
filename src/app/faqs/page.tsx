@@ -7,58 +7,46 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
+import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { faqs } from "@/data/faqs";
 import { IconPhone } from "@tabler/icons-react";
-import { motion, useInView } from "motion/react";
 import Link from "next/link";
-import { useRef } from "react";
 
 const Faqs = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.1 });
+  const { ref, visible } = useScrollReveal(0.1);
 
   return (
     <div>
       {/* Hero */}
       <section className="pt-36 md:pt-44 pb-12 md:pb-20">
         <div className="max-w-7xl mx-auto px-6 lg:px-20 2xl:px-0">
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="text-sm uppercase tracking-widest text-primary font-semibold"
+          <p
+            className="hero-animate text-sm uppercase tracking-widest text-primary font-semibold"
+            style={{ animationDelay: "0s" }}
           >
             FAQs
-          </motion.p>
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-            className="mt-4 text-4xl md:text-5xl lg:text-6xl tracking-tight"
+          </p>
+          <h1
+            className="hero-animate mt-4 text-4xl md:text-5xl lg:text-6xl tracking-tight"
+            style={{ animationDelay: "0.1s" }}
           >
             Frequently Asked{" "}
             <span className="text-primary">Questions</span>
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-            className="mt-4 max-w-2xl text-foreground/70 text-sm lg:text-base"
+          </h1>
+          <p
+            className="hero-animate mt-4 max-w-2xl text-foreground/70 text-sm lg:text-base"
+            style={{ animationDelay: "0.2s" }}
           >
             Everything you need to know about how Leads Everyday works, what
             to expect, and how we help tradespeople grow.
-          </motion.p>
+          </p>
         </div>
       </section>
 
       {/* Accordion */}
       <section ref={ref} className="pb-20">
         <div className="max-w-3xl mx-auto px-6 lg:px-20 2xl:px-0">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-          >
+          <div className={`scroll-fade-in${visible ? " visible" : ""}`}>
             <Accordion className="w-full">
               {faqs.map((faq, index) => (
                 <AccordionItem key={index} value={index}>
@@ -71,7 +59,7 @@ const Faqs = () => {
                 </AccordionItem>
               ))}
             </Accordion>
-          </motion.div>
+          </div>
         </div>
       </section>
 

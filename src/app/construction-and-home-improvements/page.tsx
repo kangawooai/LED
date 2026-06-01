@@ -1,12 +1,12 @@
 "use client";
 
+import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { Button } from "@/components/ui/button";
 import { getServiceBySlug } from "@/data/services";
 import { IconPhone, IconArrowRight } from "@tabler/icons-react";
-import { motion, useInView } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 const services = [
   "plastering", "scaffolding", "house-extension", "loft-conversion",
@@ -28,8 +28,7 @@ function slugToName(slug: string): string {
 }
 
 const ConstructionHome = () => {
-  const servicesRef = useRef(null);
-  const servicesInView = useInView(servicesRef, { once: true, amount: 0.1 });
+  const { ref: servicesRef, visible: servicesVisible } = useScrollReveal(0.1);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => setMounted(true), []);
@@ -89,61 +88,34 @@ const ConstructionHome = () => {
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-20 2xl:px-0 pt-28 md:pt-44 pb-12 md:pb-20">
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={{
-              hidden: { opacity: 0 },
-              visible: {
-                opacity: 1,
-                transition: { staggerChildren: 0.2, delayChildren: 0.1 },
-              },
-            }}
-            className="flex flex-col items-start"
-          >
-            <motion.p
-              variants={{
-                hidden: { opacity: 0, y: 20 },
-                visible: { opacity: 1, y: 0 },
-              }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-              className="text-sm uppercase tracking-widest text-primary font-semibold"
+          <div className="flex flex-col items-start">
+            <p
+              className="hero-animate text-sm uppercase tracking-widest text-primary font-semibold"
+              style={{ animationDelay: "0.1s" }}
             >
               Construction & Home Improvements
-            </motion.p>
+            </p>
 
-            <motion.h1
-              variants={{
-                hidden: { opacity: 0, y: 30 },
-                visible: { opacity: 1, y: 0 },
-              }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-              className="mt-4 text-3xl leading-9 md:text-5xl lg:text-6xl tracking-tight lg:leading-14 w-[70%] md:w-1/2"
+            <h1
+              className="hero-animate mt-4 text-3xl leading-9 md:text-5xl lg:text-6xl tracking-tight lg:leading-14 w-[70%] md:w-1/2"
+              style={{ animationDelay: "0.3s" }}
             >
               Leads for Every Construction Trade
-            </motion.h1>
+            </h1>
 
-            <motion.p
-              variants={{
-                hidden: { opacity: 0, y: 20 },
-                visible: { opacity: 1, y: 0 },
-              }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-              className="mt-4 text-foreground/70 text-sm lg:text-base w-[70%] md:w-1/2"
+            <p
+              className="hero-animate mt-4 text-foreground/70 text-sm lg:text-base w-[70%] md:w-1/2"
+              style={{ animationDelay: "0.5s" }}
             >
               From plastering to roofing, we generate leads for every
               construction trade. We build bespoke landing pages and run
               targeted Google Ads to get homeowners contacting you directly
               for quotes.
-            </motion.p>
+            </p>
 
-            <motion.div
-              variants={{
-                hidden: { opacity: 0, y: 30 },
-                visible: { opacity: 1, y: 0 },
-              }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-              className="flex flex-row items-center gap-4 mt-8"
+            <div
+              className="hero-animate flex flex-row items-center gap-4 mt-8"
+              style={{ animationDelay: "0.7s" }}
             >
               {/* Mobile: Call Now + Enquire Now */}
               <a href="tel:+443330424424" className="md:hidden">
@@ -170,14 +142,12 @@ const ConstructionHome = () => {
                   0333 0 424 424
                 </a>
               </span>
-            </motion.div>
+            </div>
 
             {mounted && (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-                className="hidden md:block"
+              <div
+                className="hero-animate hidden md:block"
+                style={{ animationDelay: "0.9s" }}
               >
                 <div
                   ref={trustpilotRef}
@@ -199,54 +169,35 @@ const ConstructionHome = () => {
                     Trustpilot
                   </a>
                 </div>
-              </motion.div>
+              </div>
             )}
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Services Grid */}
       <section ref={servicesRef} className="w-full py-12 md:py-20">
         <div className="max-w-7xl mx-auto px-6 lg:px-20 2xl:px-0">
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={servicesInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="text-sm uppercase tracking-widest text-primary font-semibold text-center"
+          <p
+            className={`scroll-fade-in${servicesVisible ? " visible" : ""} text-sm uppercase tracking-widest text-primary font-semibold text-center`}
           >
             Our Services
-          </motion.p>
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            animate={servicesInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-            className="text-4xl md:text-5xl tracking-tight text-foreground text-center mt-3"
+          </p>
+          <h2
+            className={`scroll-fade-in${servicesVisible ? " visible" : ""} text-4xl md:text-5xl tracking-tight text-foreground text-center mt-3`}
+            style={{ transitionDelay: "0.1s" }}
           >
             Construction & Home Improvement Services
-          </motion.h2>
+          </h2>
 
-          <motion.div
-            initial="hidden"
-            animate={servicesInView ? "visible" : "hidden"}
-            variants={{
-              hidden: { opacity: 0 },
-              visible: {
-                opacity: 1,
-                transition: { staggerChildren: 0.05, delayChildren: 0.3 },
-              },
-            }}
-            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4 mt-8 md:mt-12"
-          >
-            {services.map((slug) => {
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4 mt-8 md:mt-12">
+            {services.map((slug, index) => {
               const service = getServiceBySlug(slug);
               return (
-                <motion.div
+                <div
                   key={slug}
-                  variants={{
-                    hidden: { opacity: 0, y: 20 },
-                    visible: { opacity: 1, y: 0 },
-                  }}
-                  transition={{ duration: 0.4, ease: "easeOut" }}
+                  className={`scroll-fade-in${servicesVisible ? " visible" : ""}`}
+                  style={{ transitionDelay: `${0.3 + index * 0.05}s` }}
                 >
                   <Link
                     href={`/${slug}`}
@@ -257,10 +208,10 @@ const ConstructionHome = () => {
                     </span>
                     <IconArrowRight className="size-4 text-foreground/30 group-hover:text-primary transition-colors shrink-0" />
                   </Link>
-                </motion.div>
+                </div>
               );
             })}
-          </motion.div>
+          </div>
         </div>
       </section>
 

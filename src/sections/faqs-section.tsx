@@ -8,7 +8,6 @@ import {
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { faqs } from "@/data/faqs";
-import { motion } from "motion/react";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -21,15 +20,9 @@ const FaqsSection = () => {
         <h3 className="text-4xl md:text-5xl tracking-tight bg-gradient-to-b from-secondary to-primary bg-clip-text text-transparent w-full text-start">
           Frequently asked questions
         </h3>
-        <motion.div
-          initial={false}
-          animate={open ? "open" : "closed"}
-          style={{ overflow: "hidden" }}
-          variants={{
-            open: { height: "fit-content" },
-            closed: { height: 380 },
-          }}
-          className="relative w-full h-fit mt-12"
+        <div
+          className="relative w-full h-fit mt-12 overflow-hidden transition-[max-height] duration-500 ease-in-out"
+          style={{ maxHeight: open ? "2000px" : "380px" }}
         >
           <Accordion className="w-full">
             {faqs.map((faq, index) => (
@@ -43,14 +36,14 @@ const FaqsSection = () => {
               </AccordionItem>
             ))}
           </Accordion>
-          <motion.div
-            variants={{
-              open: { bottom: "0%", zIndex: -10 },
-              closed: { bottom: "0%" },
+          <div
+            className="absolute inset-x-0 bottom-0 left-0 right-0 bg-gradient-to-b from-transparent to-background h-1/2 transition-[opacity,z-index] duration-500"
+            style={{
+              zIndex: open ? -10 : 10,
+              opacity: open ? 0 : 1,
             }}
-            className="absolute inset-x-0 bottom-0 left-0 right-0 bg-gradient-to-b from-transparent to-background h-1/2"
           />
-        </motion.div>
+        </div>
         <div className="flex items-center gap-3 mt-4">
           <Link href="/book-a-call">
             <Button className="w-fit">

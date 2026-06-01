@@ -11,6 +11,7 @@ import ContactForm from "@/components/forms/contact-form";
 import { HOW_IT_WORKS, STATS } from "@/constants";
 import { faqs } from "@/data/faqs";
 import { services } from "@/data/services";
+import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import {
   IconPhone,
   IconCheck,
@@ -20,7 +21,6 @@ import {
 } from "@tabler/icons-react";
 import {
   motion,
-  useInView,
   useScroll,
   useTransform,
   type MotionValue,
@@ -37,15 +37,12 @@ const ServicePage = () => {
   const slug = params.service as string;
   const service = services.find((s) => s.slug === slug);
 
-  const benefitsRef = useRef(null);
   const processRef = useRef<HTMLDivElement>(null);
-  const reviewsRef = useRef(null);
-  const faqsRef = useRef(null);
   const [mounted, setMounted] = useState(false);
 
-  const benefitsInView = useInView(benefitsRef, { once: true, amount: 0.2 });
-  const reviewsInView = useInView(reviewsRef, { once: true, amount: 0.2 });
-  const faqsInView = useInView(faqsRef, { once: true, amount: 0.2 });
+  const { ref: benefitsRef, visible: benefitsVisible } = useScrollReveal(0.2);
+  const { ref: reviewsRef, visible: reviewsVisible } = useScrollReveal(0.2);
+  const { ref: faqsRef, visible: faqsVisible } = useScrollReveal(0.2);
 
   const { scrollYProgress } = useScroll({
     target: processRef,
@@ -127,58 +124,31 @@ const ServicePage = () => {
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-20 2xl:px-0 pt-20 md:pt-44 pb-12 md:pb-20">
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={{
-              hidden: { opacity: 0 },
-              visible: {
-                opacity: 1,
-                transition: { staggerChildren: 0.2, delayChildren: 0.1 },
-              },
-            }}
-            className="flex flex-col items-start"
-          >
-            <motion.p
-              variants={{
-                hidden: { opacity: 0, y: 20 },
-                visible: { opacity: 1, y: 0 },
-              }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-              className="text-sm uppercase tracking-widest text-primary font-semibold"
+          <div className="flex flex-col items-start">
+            <p
+              className="hero-animate text-sm uppercase tracking-widest text-primary font-semibold"
+              style={{ animationDelay: "0.1s" }}
             >
               {service.name} Lead Generation
-            </motion.p>
+            </p>
 
-            <motion.h1
-              variants={{
-                hidden: { opacity: 0, y: 30 },
-                visible: { opacity: 1, y: 0 },
-              }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-              className="mt-4 text-3xl leading-9 md:text-5xl lg:text-6xl tracking-tight lg:leading-14 w-[70%] md:w-1/2"
+            <h1
+              className="hero-animate mt-4 text-3xl leading-9 md:text-5xl lg:text-6xl tracking-tight lg:leading-14 w-[70%] md:w-1/2"
+              style={{ animationDelay: "0.3s" }}
             >
               {service.headline}
-            </motion.h1>
+            </h1>
 
-            <motion.p
-              variants={{
-                hidden: { opacity: 0, y: 20 },
-                visible: { opacity: 1, y: 0 },
-              }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-              className="mt-4 text-foreground/70 text-sm lg:text-base w-[70%] md:w-1/2"
+            <p
+              className="hero-animate mt-4 text-foreground/70 text-sm lg:text-base w-[70%] md:w-1/2"
+              style={{ animationDelay: "0.5s" }}
             >
               {service.description}
-            </motion.p>
+            </p>
 
-            <motion.div
-              variants={{
-                hidden: { opacity: 0, y: 30 },
-                visible: { opacity: 1, y: 0 },
-              }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-              className="flex flex-row items-center gap-4 mt-8"
+            <div
+              className="hero-animate flex flex-row items-center gap-4 mt-8"
+              style={{ animationDelay: "0.7s" }}
             >
               {/* Mobile: Call Now + Enquire Now */}
               <a href="tel:+443330424424" className="md:hidden">
@@ -205,16 +175,12 @@ const ServicePage = () => {
                   0333 0 424 424
                 </a>
               </span>
-            </motion.div>
+            </div>
 
             {/* Mobile stats */}
-            <motion.div
-              variants={{
-                hidden: { opacity: 0, y: 20 },
-                visible: { opacity: 1, y: 0 },
-              }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-              className="grid grid-cols-2 gap-4 mt-8 md:hidden"
+            <div
+              className="hero-animate grid grid-cols-2 gap-4 mt-8 md:hidden"
+              style={{ animationDelay: "0.9s" }}
             >
               {STATS.map((stat) => (
                 <div key={stat.label}>
@@ -223,14 +189,12 @@ const ServicePage = () => {
                   <p className="text-xs text-muted-foreground">{stat.sublabel}</p>
                 </div>
               ))}
-            </motion.div>
+            </div>
 
             {mounted && (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-                className="hidden md:block"
+              <div
+                className="hero-animate hidden md:block"
+                style={{ animationDelay: "1.1s" }}
               >
                 <div
                   ref={trustpilotRef}
@@ -252,20 +216,18 @@ const ServicePage = () => {
                     Trustpilot
                   </a>
                 </div>
-              </motion.div>
+              </div>
             )}
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Stats */}
       <section className="hidden md:block w-full py-12 md:py-16">
         <div className="max-w-7xl mx-auto px-6 lg:px-20 2xl:px-0">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-12 text-left md:text-center"
+          <div
+            className="hero-animate grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-12 text-left md:text-center"
+            style={{ animationDelay: "0.4s" }}
           >
             {STATS.map((stat) => (
               <div key={stat.label}>
@@ -278,59 +240,31 @@ const ServicePage = () => {
                 <p className="text-xs text-muted-foreground">{stat.sublabel}</p>
               </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Benefits */}
       <section ref={benefitsRef} className="w-full py-12 md:py-16">
         <div className="max-w-7xl mx-auto px-6 lg:px-20 2xl:px-0">
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={
-              benefitsInView
-                ? { opacity: 1, y: 0 }
-                : { opacity: 0, y: 20 }
-            }
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="text-sm uppercase tracking-widest text-primary font-semibold text-center"
+          <p
+            className={`scroll-fade-in${benefitsVisible ? " visible" : ""} text-sm uppercase tracking-widest text-primary font-semibold text-center`}
           >
             Why Choose Us
-          </motion.p>
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            animate={
-              benefitsInView
-                ? { opacity: 1, y: 0 }
-                : { opacity: 0, y: 30 }
-            }
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-            className="text-4xl md:text-5xl tracking-tight text-foreground text-center mt-3"
+          </p>
+          <h2
+            className={`scroll-fade-in${benefitsVisible ? " visible" : ""} text-4xl md:text-5xl tracking-tight text-foreground text-center mt-3`}
+            style={{ transitionDelay: "0.1s" }}
           >
             What You Get With Our {service.name} Leads
-          </motion.h2>
+          </h2>
 
-          <motion.div
-            initial="hidden"
-            animate={benefitsInView ? "visible" : "hidden"}
-            variants={{
-              hidden: { opacity: 0 },
-              visible: {
-                opacity: 1,
-                transition: { staggerChildren: 0.1, delayChildren: 0.3 },
-              },
-            }}
-            className="grid md:grid-cols-2 gap-4 mt-8 md:mt-12"
-          >
-            {service.benefits.map((benefit) => (
-              <motion.div
+          <div className="grid md:grid-cols-2 gap-4 mt-8 md:mt-12">
+            {service.benefits.map((benefit, index) => (
+              <div
                 key={benefit}
-                variants={{
-                  hidden: { opacity: 0, y: 30 },
-                  visible: { opacity: 1, y: 0 },
-                }}
-                transition={{ duration: 0.5, ease: "easeOut" }}
-                className="flex items-start gap-3 bg-white/5 backdrop-blur-md border border-white/10 rounded-md px-5 py-4"
+                className={`scroll-fade-in${benefitsVisible ? " visible" : ""} flex items-start gap-3 bg-white/5 backdrop-blur-md border border-white/10 rounded-md px-5 py-4`}
+                style={{ transitionDelay: `${0.3 + index * 0.1}s` }}
               >
                 <div className="size-6 shrink-0 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center mt-0.5">
                   <IconCheck className="size-3.5 text-primary" />
@@ -338,9 +272,9 @@ const ServicePage = () => {
                 <span className="text-foreground/90 text-sm lg:text-[15px]">
                   {benefit}
                 </span>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -447,37 +381,22 @@ const ServicePage = () => {
       {/* Reviews */}
       <section ref={reviewsRef} className="w-full py-12 md:py-16">
         <div className="max-w-7xl mx-auto px-4 md:px-0 lg:px-20 2xl:px-0">
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={
-              reviewsInView
-                ? { opacity: 1, y: 0 }
-                : { opacity: 0, y: 20 }
-            }
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="text-sm uppercase tracking-widest text-primary font-semibold text-center"
+          <p
+            className={`scroll-fade-in${reviewsVisible ? " visible" : ""} text-sm uppercase tracking-widest text-primary font-semibold text-center`}
           >
             What Our Clients Say
-          </motion.p>
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            animate={
-              reviewsInView
-                ? { opacity: 1, y: 0 }
-                : { opacity: 0, y: 30 }
-            }
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-            className="text-4xl md:text-5xl tracking-tight text-foreground text-center mt-3"
+          </p>
+          <h2
+            className={`scroll-fade-in${reviewsVisible ? " visible" : ""} text-4xl md:text-5xl tracking-tight text-foreground text-center mt-3`}
+            style={{ transitionDelay: "0.1s" }}
           >
             Real Results. Real Feedback.
-          </motion.h2>
+          </h2>
 
           {/* Trustpilot Carousel */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={reviewsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
-            className="mt-8 md:mt-12"
+          <div
+            className={`scroll-fade-in${reviewsVisible ? " visible" : ""} mt-8 md:mt-12`}
+            style={{ transitionDelay: "0.3s" }}
           >
             {/* Mobile: Mini Carousel */}
             <div
@@ -523,41 +442,28 @@ const ServicePage = () => {
                 Trustpilot
               </a>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* FAQs */}
       <section ref={faqsRef} className="w-full py-12 md:py-16">
         <div className="max-w-3xl mx-auto px-6 lg:px-20 2xl:px-0">
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={
-              faqsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
-            }
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="text-sm uppercase tracking-widest text-primary font-semibold text-center"
+          <p
+            className={`scroll-fade-in${faqsVisible ? " visible" : ""} text-sm uppercase tracking-widest text-primary font-semibold text-center`}
           >
             FAQs
-          </motion.p>
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            animate={
-              faqsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }
-            }
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-            className="text-4xl md:text-5xl tracking-tight text-foreground text-center mt-3"
+          </p>
+          <h2
+            className={`scroll-fade-in${faqsVisible ? " visible" : ""} text-4xl md:text-5xl tracking-tight text-foreground text-center mt-3`}
+            style={{ transitionDelay: "0.1s" }}
           >
             Common Questions
-          </motion.h2>
+          </h2>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={
-              faqsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }
-            }
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
-            className="mt-8 md:mt-12"
+          <div
+            className={`scroll-fade-in${faqsVisible ? " visible" : ""} mt-8 md:mt-12`}
+            style={{ transitionDelay: "0.3s" }}
           >
             <Accordion className="w-full">
               {faqs.slice(0, 5).map((faq, index) => (
@@ -571,7 +477,7 @@ const ServicePage = () => {
                 </AccordionItem>
               ))}
             </Accordion>
-          </motion.div>
+          </div>
         </div>
       </section>
 
