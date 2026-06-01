@@ -74,8 +74,8 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
-        source: "/meet-the-team",
-        destination: "/about",
+        source: "/staff",
+        destination: "/meet-the-team",
         permanent: true,
       },
     ];

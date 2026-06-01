@@ -26,7 +26,7 @@ const StaffMemberPage = () => {
             style={{ animationDelay: "0s" }}
           >
             <Link
-              href="/staff"
+              href="/meet-the-team"
               className="inline-flex items-center gap-1.5 text-sm text-foreground/70 hover:text-foreground transition-colors mb-8"
             >
               <IconArrowLeft className="size-4" />
