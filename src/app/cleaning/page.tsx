@@ -67,7 +67,7 @@ const CleaningHome = () => {
         <div
           className="absolute inset-y-0 left-0 hidden md:block"
           style={{
-            right: "max(0px, calc(50% - 50rem))",
+            right: "max(0px, calc(50% - 40rem))",
             maskImage: "linear-gradient(to bottom, white 60%, transparent 100%), linear-gradient(to left, transparent 0rem, white 12rem)",
             WebkitMaskImage: "linear-gradient(to bottom, white 60%, transparent 100%), linear-gradient(to left, transparent 0rem, white 12rem)",
             maskComposite: "intersect",

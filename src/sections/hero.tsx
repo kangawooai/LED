@@ -36,7 +36,7 @@ const Hero = () => {
         }}
       >
         <Image
-          src="/plastering.webp"
+          src="/tree-surgeon.webp"
           alt="Tradesperson at work"
           fill
           className="object-cover"
@@ -45,13 +45,19 @@ const Hero = () => {
         />
       </div>
 
-      {/* Desktop: full-width background image with left fade */}
+      {/* Desktop: background image clipped to container with fades */}
       <div
-        className="absolute inset-0 hidden md:block"
-        style={{ maskImage: "linear-gradient(to bottom, white 60%, transparent 100%)", WebkitMaskImage: "linear-gradient(to bottom, white 60%, transparent 100%)" }}
+        className="absolute inset-y-0 left-0 hidden md:block"
+        style={{
+          right: "max(0px, calc(50% - 40rem))",
+          maskImage: "linear-gradient(to bottom, white 60%, transparent 100%), linear-gradient(to left, transparent 0rem, white 12rem)",
+          WebkitMaskImage: "linear-gradient(to bottom, white 60%, transparent 100%), linear-gradient(to left, transparent 0rem, white 12rem)",
+          maskComposite: "intersect",
+          WebkitMaskComposite: "destination-in",
+        }}
       >
         <Image
-          src="/plastering.webp"
+          src="/tree-surgeon.webp"
           alt="Tradesperson at work"
           fill
           className="object-cover object-right-top"
@@ -118,7 +124,7 @@ const Hero = () => {
               visible: { opacity: 1, y: 0 },
             }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="flex flex-row items-start gap-4 mt-8"
+            className="flex flex-row items-center gap-4 mt-8"
           >
             {/* Mobile: Call Now + Enquire Now */}
             <a href="tel:+443330424424" className="md:hidden">
