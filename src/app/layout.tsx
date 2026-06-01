@@ -1,3 +1,4 @@
+import BottomBar from "@/components/bottom-bar";
 import { BubbleBackground } from "@/components/ui/bubble";
 import LenisWrapper from "@/components/common/lenis-wrapper";
 import ConditionalScripts from "@/components/common/conditional-scripts";
@@ -93,6 +94,7 @@ export default function RootLayout({
             <Footer />
           </LenisWrapper>
           <ConditionalScripts />
+          <BottomBar />
           <CookieBanner />
         </CookieConsentProvider>
       </body>

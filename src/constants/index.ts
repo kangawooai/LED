@@ -1,7 +1,7 @@
 export const COMPANY = {
   name: "Leads Every Day",
   url: "https://www.leadseveryday.co.uk",
-  description: "We help trade & home service businesses grow with a constant flow of high-quality, pre-qualified leads",
+  description: "We help trade & home service businesses grow with a constant flow of high-quality, unique leads",
   phone: "",
   email: "",
   leadsDelivered: "25,000+",
@@ -64,8 +64,8 @@ export const SERVICES = [
     description: "Email, LinkedIn, SMS & more to maximise reach and engagement.",
   },
   {
-    title: "Qualified & Verified Leads",
-    description: "Every lead is pre-qualified and verified so you only speak to decision makers.",
+    title: "Unique Leads",
+    description: "Every lead is exclusive to you, we never sell the same lead to your competitors.",
   },
   {
     title: "Reporting & Insights",

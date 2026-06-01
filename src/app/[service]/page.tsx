@@ -175,11 +175,29 @@ const ServicePage = () => {
                   Call Now
                 </Button>
               </a>
-              <Link href="/faqs">
+              <Link href="/book-a-call">
                 <Button variant="muted" size="default">
-                  FAQs
+                  Enquire Now
                 </Button>
               </Link>
+            </motion.div>
+
+            {/* Mobile stats */}
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0 },
+              }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="grid grid-cols-2 gap-4 mt-8 md:hidden"
+            >
+              {STATS.map((stat) => (
+                <div key={stat.label}>
+                  <p className="text-2xl font-bold text-primary">{stat.value}</p>
+                  <p className="text-sm font-medium text-foreground mt-0.5">{stat.label}</p>
+                  <p className="text-xs text-muted-foreground">{stat.sublabel}</p>
+                </div>
+              ))}
             </motion.div>
 
             {mounted && (
@@ -187,6 +205,7 @@ const ServicePage = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
+                className="hidden md:block"
               >
                 <div
                   ref={trustpilotRef}
@@ -215,7 +234,7 @@ const ServicePage = () => {
       </section>
 
       {/* Stats */}
-      <section className="w-full py-12 md:py-16">
+      <section className="hidden md:block w-full py-12 md:py-16">
         <div className="max-w-7xl mx-auto px-6 lg:px-20 2xl:px-0">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

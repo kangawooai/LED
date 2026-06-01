@@ -220,6 +220,22 @@
   }
 }
 
+/* Bubble background CSS animations (GPU compositor-friendly) */
+@keyframes bubble-float-y {
+  0%, 100% { transform: translateY(-50px); }
+  50% { transform: translateY(50px); }
+}
+
+@keyframes bubble-float-x {
+  0%, 100% { transform: translateX(-50px); }
+  50% { transform: translateX(50px); }
+}
+
+@keyframes bubble-rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;

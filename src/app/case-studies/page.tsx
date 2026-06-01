@@ -22,7 +22,7 @@ const caseStudies = [
     solution:
       "We built a dedicated landing page for plumbing and heating services in Manchester and launched targeted Google Ads within 48 hours.",
     results: [
-      "First leads within 24 hours of going live",
+      "Campaign live within 48 hours on average",
       "Diary fully booked 2-3 weeks in advance",
       "Averaging 30+ qualified enquiries per month",
       "Stopped paying for shared lead platforms entirely",

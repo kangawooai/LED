@@ -1,77 +1,37 @@
 "use client"
 
-import { motion, type SpringOptions, useMotionValue, useSpring } from "motion/react"
-import { useCallback, useEffect, useRef } from "react"
+import { motion } from "motion/react"
 import { cn } from "@/lib/utils"
 
 export interface BubbleBackgroundProps {
   className?: string
   children?: React.ReactNode
-  interactive?: boolean
-  transition?: SpringOptions
   colors?: {
     first: string
     second: string
     third: string
     fourth: string
     fifth: string
-    sixth: string
   }
 }
 
 export function BubbleBackground({
   className,
   children,
-  interactive = false,
-  transition = { stiffness: 100, damping: 20 },
   colors = {
     first: "34,197,94",
     second: "16,185,129",
     third: "5,150,105",
     fourth: "20,184,166",
     fifth: "74,222,128",
-    sixth: "34,197,94",
   },
 }: BubbleBackgroundProps) {
-  const containerRef = useRef<HTMLDivElement>(null)
-
-  const mouseX = useMotionValue(0)
-  const mouseY = useMotionValue(0)
-  const springX = useSpring(mouseX, transition)
-  const springY = useSpring(mouseY, transition)
-
-  const handleMouseMove = useCallback(
-    (e: MouseEvent) => {
-      if (!containerRef.current) return
-      const rect = containerRef.current.getBoundingClientRect()
-      const centerX = rect.left + rect.width / 2
-      const centerY = rect.top + rect.height / 2
-      mouseX.set(e.clientX - centerX)
-      mouseY.set(e.clientY - centerY)
-    },
-    [mouseX, mouseY],
-  )
-
-  useEffect(() => {
-    if (!interactive) return
-    const container = containerRef.current
-    if (!container) return
-
-    container.addEventListener("mousemove", handleMouseMove)
-    return () => container.removeEventListener("mousemove", handleMouseMove)
-  }, [interactive, handleMouseMove])
-
-  // Create gradient style functions to avoid CSS variables on :root
   const makeGradient = (color: string) =>
     `radial-gradient(circle at center, rgba(${color}, 0.8) 0%, rgba(${color}, 0) 50%)`
 
   return (
     <div
-      ref={containerRef}
-      className={cn(
-        "absolute inset-0 overflow-hidden",
-        className,
-      )}
+      className={cn("absolute inset-0 overflow-hidden", className)}
     >
       {/* SVG goo filter */}
       <svg className="hidden" aria-hidden="true">
@@ -89,9 +49,56 @@ export function BubbleBackground({
         </defs>
       </svg>
 
-      {/* Bubbles container with goo filter */}
-      <div className="absolute inset-0" style={{ filter: "url(#bubble-goo) blur(40px)" }}>
-        {/* Bubble 1 - vertical float */}
+      {/* Mobile: CSS animations, lighter filter (no goo), fewer bubbles */}
+      <div
+        className="absolute inset-0 md:hidden"
+        style={{ filter: "blur(20px)" }}
+      >
+        <div
+          className="absolute rounded-full mix-blend-hard-light will-change-transform"
+          style={{
+            width: "80%",
+            height: "80%",
+            top: "10%",
+            left: "10%",
+            background: makeGradient(colors.first),
+            animation: "bubble-float-y 30s ease-in-out infinite",
+          }}
+        />
+        <div
+          className="absolute inset-0 flex justify-center items-center will-change-transform"
+          style={{
+            transformOrigin: "calc(50% - 200px) center",
+            animation: "bubble-rotate 20s linear infinite",
+          }}
+        >
+          <div
+            className="rounded-full mix-blend-hard-light"
+            style={{
+              width: "80%",
+              height: "80%",
+              background: makeGradient(colors.second),
+            }}
+          />
+        </div>
+        <div
+          className="absolute rounded-full mix-blend-hard-light opacity-70 will-change-transform"
+          style={{
+            width: "80%",
+            height: "80%",
+            top: "10%",
+            left: "10%",
+            background: makeGradient(colors.fourth),
+            animation: "bubble-float-x 40s ease-in-out infinite",
+          }}
+        />
+      </div>
+
+      {/* Desktop: Framer Motion animations, full goo filter, all 5 bubbles */}
+      <div
+        className="absolute inset-0 hidden md:block"
+        style={{ filter: "url(#bubble-goo) blur(40px)" }}
+      >
         <motion.div
           className="absolute rounded-full mix-blend-hard-light"
           style={{
@@ -104,8 +111,6 @@ export function BubbleBackground({
           animate={{ y: [-50, 50, -50] }}
           transition={{ duration: 30, ease: "easeInOut", repeat: Number.POSITIVE_INFINITY }}
         />
-
-        {/* Bubble 2 - rotating orbit */}
         <motion.div
           className="absolute inset-0 flex justify-center items-center"
           style={{ transformOrigin: "calc(50% - 400px) center" }}
@@ -121,8 +126,6 @@ export function BubbleBackground({
             }}
           />
         </motion.div>
-
-        {/* Bubble 3 - rotating orbit offset */}
         <motion.div
           className="absolute inset-0 flex justify-center items-center"
           style={{ transformOrigin: "calc(50% + 400px) center" }}
@@ -140,8 +143,6 @@ export function BubbleBackground({
             }}
           />
         </motion.div>
-
-        {/* Bubble 4 - horizontal float */}
         <motion.div
           className="absolute rounded-full mix-blend-hard-light opacity-70"
           style={{
@@ -154,8 +155,6 @@ export function BubbleBackground({
           animate={{ x: [-50, 50, -50] }}
           transition={{ duration: 40, ease: "easeInOut", repeat: Number.POSITIVE_INFINITY }}
         />
-
-        {/* Bubble 5 - large rotating orbit */}
         <motion.div
           className="absolute inset-0 flex justify-center items-center"
           style={{ transformOrigin: "calc(50% - 800px) calc(50% + 200px)" }}
@@ -173,23 +172,8 @@ export function BubbleBackground({
             }}
           />
         </motion.div>
-
-        {/* Interactive bubble - follows mouse */}
-        {interactive && (
-          <motion.div
-            className="absolute rounded-full mix-blend-hard-light opacity-70"
-            style={{
-              width: "100%",
-              height: "100%",
-              background: makeGradient(colors.sixth),
-              x: springX,
-              y: springY,
-            }}
-          />
-        )}
       </div>
 
-      {/* Content layer */}
       {children && <div className="relative z-10 h-full w-full">{children}</div>}
     </div>
   )

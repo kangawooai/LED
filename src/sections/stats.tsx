@@ -9,7 +9,7 @@ const Stats = () => {
   const isInView = useInView(ref, { once: true, amount: 0.3 });
 
   return (
-    <section ref={ref} className="w-full py-4">
+    <section ref={ref} className="hidden md:block w-full py-4">
       <div className="max-w-7xl mx-auto px-6 lg:px-20 2xl:px-0">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

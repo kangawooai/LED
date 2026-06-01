@@ -34,7 +34,7 @@ const Process = () => {
     <section
       ref={sectionRef}
       id="process"
-      className="relative w-full h-[350vh]"
+      className="relative w-full h-[200vh] md:h-[350vh]"
     >
       <div className="sticky top-0 h-screen flex flex-col items-center justify-center">
         <div className="max-w-5xl mx-auto px-6 lg:px-20 2xl:px-0 w-full">

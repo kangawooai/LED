@@ -9,6 +9,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { faqs } from "@/data/faqs";
 import { motion } from "motion/react";
+import Link from "next/link";
 import { useState } from "react";
 
 const FaqsSection = () => {
@@ -50,13 +51,20 @@ const FaqsSection = () => {
             className="absolute inset-x-0 bottom-0 left-0 right-0 bg-gradient-to-b from-transparent to-background h-1/2"
           />
         </motion.div>
-        <Button
-          variant="muted"
-          onClick={() => setOpen((pv) => !pv)}
-          className="mt-4 w-fit"
-        >
-          {open ? "Show less" : "Show all FAQs"}
-        </Button>
+        <div className="flex items-center gap-3 mt-4">
+          <Link href="/book-a-call">
+            <Button className="w-fit">
+              Enquire Now
+            </Button>
+          </Link>
+          <Button
+            variant="muted"
+            onClick={() => setOpen((pv) => !pv)}
+            className="w-fit"
+          >
+            {open ? "Show less" : "Show all FAQs"}
+          </Button>
+        </div>
       </div>
     </section>
   );

@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { STATS } from "@/constants";
 import { IconPhone } from "@tabler/icons-react";
 import { motion } from "motion/react";
 import Image from "next/image";
@@ -24,21 +25,22 @@ const Hero = () => {
     <section className="relative overflow-hidden min-h-svh md:min-h-0">
       {/* Mobile: centered background image with top/left/bottom fade */}
       <div
-        className="absolute top-1/4 bottom-1/4 left-1/4 -right-1/4 md:hidden"
+        className="absolute top-[15%] bottom-1/4 left-1/4 -right-1/4 md:hidden"
         style={{
           maskImage:
-            "linear-gradient(to bottom, transparent 10%, white 50%, white 50%, transparent 90%), linear-gradient(to right, transparent 10%, white 60%)",
+            "linear-gradient(to bottom, transparent 0%, white 25%, white 50%, transparent 90%), linear-gradient(to right, transparent 10%, white 60%)",
           WebkitMaskImage:
-            "linear-gradient(to bottom, transparent 10%, white 50%, white 50%, transparent 90%), linear-gradient(to right, transparent 10%, white 60%)",
+            "linear-gradient(to bottom, transparent 0%, white 25%, white 50%, transparent 90%), linear-gradient(to right, transparent 10%, white 60%)",
           maskComposite: "intersect",
           WebkitMaskComposite: "source-in" as unknown as string,
         }}
       >
         <Image
-          src="/hero-crop.webp"
+          src="/plastering.webp"
           alt="Tradesperson at work"
           fill
-          className="object-cover object-right"
+          className="object-cover"
+          style={{ objectPosition: "75% center" }}
           priority
         />
       </div>
@@ -49,16 +51,16 @@ const Hero = () => {
         style={{ maskImage: "linear-gradient(to bottom, white 60%, transparent 100%)", WebkitMaskImage: "linear-gradient(to bottom, white 60%, transparent 100%)" }}
       >
         <Image
-          src="/hero-crop.webp"
+          src="/plastering.webp"
           alt="Tradesperson at work"
           fill
-          className="object-cover object-top"
+          className="object-cover object-right-top"
           priority
         />
         <div className="absolute inset-0" style={{ background: "linear-gradient(to right, var(--background) 40%, transparent 60%)" }} />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-20 2xl:px-0 pt-32 md:pt-40 pb-8 md:pb-20">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-20 2xl:px-0 pt-24 md:pt-40 pb-8 md:pb-20">
         <motion.div
           initial="hidden"
           animate="visible"
@@ -124,11 +126,29 @@ const Hero = () => {
                 Call Now
               </Button>
             </a>
-            <Link href="/faqs">
+            <Link href="/book-a-call">
               <Button variant="muted" size="default">
-                FAQs
+                Enquire Now
               </Button>
             </Link>
+          </motion.div>
+
+          {/* Mobile stats */}
+          <motion.div
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0 },
+            }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="grid grid-cols-2 gap-4 mt-8 md:hidden"
+          >
+            {STATS.map((stat) => (
+              <div key={stat.label}>
+                <p className="text-2xl font-bold text-primary">{stat.value}</p>
+                <p className="text-sm font-medium text-foreground mt-0.5">{stat.label}</p>
+                <p className="text-xs text-muted-foreground">{stat.sublabel}</p>
+              </div>
+            ))}
           </motion.div>
 
           {mounted && (
@@ -136,6 +156,7 @@ const Hero = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
+              className="hidden md:block"
             >
               <div
                 ref={trustpilotRef}
