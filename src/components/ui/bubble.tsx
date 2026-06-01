@@ -19,11 +19,11 @@ export function BubbleBackground({
   className,
   children,
   colors = {
-    first: "34,197,94",
-    second: "16,185,129",
-    third: "5,150,105",
-    fourth: "20,184,166",
-    fifth: "74,222,128",
+    first: "16,100,54",
+    second: "8,95,68",
+    third: "3,78,56",
+    fourth: "10,95,86",
+    fifth: "34,115,64",
   },
 }: BubbleBackgroundProps) {
   const makeGradient = (color: string) =>
