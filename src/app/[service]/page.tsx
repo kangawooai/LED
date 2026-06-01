@@ -106,8 +106,9 @@ const ServicePage = () => {
 
         {/* Desktop: background image clipped to container area with fades */}
         <div
-          className="absolute inset-y-0 left-0 hidden md:block"
+          className="absolute inset-y-0 hidden md:block"
           style={{
+            left: "max(0px, calc(50% - 60rem))",
             right: "max(0px, calc(50% - 40rem))",
             maskImage: "linear-gradient(to bottom, white 60%, transparent 100%), linear-gradient(to left, transparent 0rem, white 12rem)",
             WebkitMaskImage: "linear-gradient(to bottom, white 60%, transparent 100%), linear-gradient(to left, transparent 0rem, white 12rem)",
@@ -122,7 +123,7 @@ const ServicePage = () => {
             className="object-cover object-right-top"
             priority
           />
-          <div className="absolute inset-0" style={{ background: "linear-gradient(to right, var(--background) 45%, transparent 70%)" }} />
+          <div className="absolute inset-0" style={{ background: "linear-gradient(to right, var(--background) 30%, rgba(0,0,0,0.5) 50%, transparent 75%)" }} />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-20 2xl:px-0 pt-20 md:pt-44 pb-12 md:pb-20">

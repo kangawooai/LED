@@ -25,7 +25,7 @@ const Hero = () => {
     <section className="relative overflow-hidden min-h-svh md:min-h-0">
       {/* Mobile: centered background image with top/left/bottom fade */}
       <div
-        className="absolute top-[15%] bottom-1/4 left-1/4 -right-1/4 md:hidden"
+        className="absolute top-[15%] bottom-1/4 left-1/3 -right-1/4 md:hidden"
         style={{
           maskImage:
             "linear-gradient(to bottom, transparent 0%, white 25%, white 50%, transparent 90%), linear-gradient(to right, transparent 10%, white 60%)",
@@ -47,8 +47,9 @@ const Hero = () => {
 
       {/* Desktop: background image clipped to container with fades */}
       <div
-        className="absolute inset-y-0 left-0 hidden md:block"
+        className="absolute inset-y-0 hidden md:block"
         style={{
+          left: "max(0px, calc(50% - 60rem))",
           right: "max(0px, calc(50% - 40rem))",
           maskImage: "linear-gradient(to bottom, white 60%, transparent 100%), linear-gradient(to left, transparent 0rem, white 12rem)",
           WebkitMaskImage: "linear-gradient(to bottom, white 60%, transparent 100%), linear-gradient(to left, transparent 0rem, white 12rem)",
@@ -63,7 +64,7 @@ const Hero = () => {
           className="object-cover object-right-top"
           priority
         />
-        <div className="absolute inset-0" style={{ background: "linear-gradient(to right, var(--background) 45%, transparent 70%)" }} />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(to right, var(--background) 30%, rgba(0,0,0,0.5) 50%, transparent 75%)" }} />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-20 2xl:px-0 pt-24 md:pt-40 pb-8 md:pb-20">
