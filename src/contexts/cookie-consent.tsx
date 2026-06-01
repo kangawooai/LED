@@ -33,7 +33,7 @@ export function CookieConsentProvider({ children }: { children: React.ReactNode 
     if (stored) {
       try {
         const parsed = JSON.parse(stored) as CookiePreferences;
-        const prefs = { ...parsed, essential: true };
+        const prefs: CookiePreferences = { ...parsed, essential: true };
         setPreferences(prefs);
         setHasConsented(true);
 
