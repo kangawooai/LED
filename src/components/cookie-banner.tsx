@@ -61,7 +61,7 @@ const CookieBanner = () => {
             exit={{ opacity: 0, scale: 0.8 }}
             transition={{ duration: 0.2 }}
             onClick={openBanner}
-            className="fixed bottom-20 right-4 md:bottom-16 md:right-6 z-[51] size-10 rounded-full bg-white/5 backdrop-blur-md border border-white/10 flex items-center justify-center text-foreground/60 hover:text-primary hover:border-primary/30 transition-colors cursor-pointer shadow-lg"
+            className="fixed bottom-24 right-4 md:bottom-8 md:right-6 z-[51] size-10 rounded-full bg-white/5 backdrop-blur-md border border-white/10 flex items-center justify-center text-foreground/60 hover:text-primary hover:border-primary/30 transition-colors cursor-pointer shadow-lg"
             aria-label="Cookie settings"
           >
             <IconCookie className="size-5" />
