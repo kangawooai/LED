@@ -11,6 +11,15 @@ const footerNav = [
   { title: "About Us", href: "/about" },
   { title: "FAQs", href: "/faqs" },
   { title: "Book a Call", href: "/book-a-call" },
+  { title: "Careers", href: "/careers" },
+];
+
+const serviceCategories = [
+  { title: "Construction & Home", href: "/construction-and-home-improvements" },
+  { title: "Motor Trade", href: "/motor-trade" },
+  { title: "Trades", href: "/trades" },
+  { title: "Cleaning", href: "/cleaning" },
+  { title: "Other Industries", href: "/other-industries" },
 ];
 
 const Footer = () => {
@@ -19,7 +28,7 @@ const Footer = () => {
   return (
     <footer className="w-full border-t border-white/10 pt-12 pb-36">
       <div className="max-w-7xl mx-auto px-6 lg:px-20 2xl:px-0">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
             <Link href="/" className="relative block h-8 w-[160px]">
               <Image
@@ -43,8 +52,28 @@ const Footer = () => {
           </div>
 
           <div>
+            <p className="text-sm font-medium text-foreground mb-3">
+              Company
+            </p>
             <nav className="flex flex-col gap-2.5">
               {footerNav.map((item) => (
+                <Link
+                  key={item.href}
+                  className="text-sm text-foreground/70 hover:text-primary transition-colors"
+                  href={item.href}
+                >
+                  {item.title}
+                </Link>
+              ))}
+            </nav>
+          </div>
+
+          <div>
+            <p className="text-sm font-medium text-foreground mb-3">
+              Industries
+            </p>
+            <nav className="flex flex-col gap-2.5">
+              {serviceCategories.map((item) => (
                 <Link
                   key={item.href}
                   className="text-sm text-foreground/70 hover:text-primary transition-colors"
