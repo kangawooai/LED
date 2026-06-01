@@ -53,7 +53,9 @@ const Staff = () => {
                       style={
                         member.slug === "max-young"
                           ? { inset: 0 }
-                          : { inset: "-25%", top: "-10%" }
+                          : member.slug === "maximilian-filipowicz"
+                            ? { inset: "-25%", top: "-10%", left: "-15%" }
+                            : { inset: "-25%", top: "-10%" }
                       }
                     >
                       <Image
@@ -61,11 +63,14 @@ const Staff = () => {
                         alt={member.name}
                         fill
                         className="object-cover"
-                        style={
-                          member.slug === "max-young"
-                            ? { objectPosition: "center -15%" }
-                            : { objectPosition: "center 20%" }
-                        }
+                        style={{
+                          objectPosition:
+                            member.slug === "max-young"
+                              ? "center -15%"
+                              : member.slug === "maximilian-filipowicz"
+                                ? "75% 20%"
+                                : "center 20%",
+                        }}
                       />
                     </div>
                   </div>

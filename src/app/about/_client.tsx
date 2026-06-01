@@ -218,37 +218,43 @@ const About = () => {
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-8 md:mt-12">
             {staff.map((member, index) => (
-              <div
-                key={member.slug}
-                className={`scroll-fade-in${teamVisible ? " visible" : ""} bg-white/5 backdrop-blur-md border border-white/10 rounded-md p-5 flex flex-col items-center text-center`}
-                style={{ transitionDelay: `${0.3 + index * 0.1}s` }}
-              >
-                <div className="size-32 md:size-40 rounded-full bg-primary/10 border border-primary/20 overflow-hidden mb-4 relative">
-                  <div
-                    className="absolute"
-                    style={
-                      member.slug === "max-young"
-                        ? { inset: 0 }
-                        : { inset: "-25%", top: "-10%" }
-                    }
-                  >
-                    <Image
-                      src={member.image}
-                      alt={member.name}
-                      fill
-                      className="object-cover"
+              <Link key={member.slug} href={`/${member.slug}`}>
+                <div
+                  className={`scroll-fade-in${teamVisible ? " visible" : ""} bg-white/5 backdrop-blur-md border border-white/10 rounded-md p-5 flex flex-col items-center text-center h-full`}
+                  style={{ transitionDelay: `${0.3 + index * 0.1}s` }}
+                >
+                  <div className="size-32 md:size-40 rounded-full bg-primary/10 border border-primary/20 overflow-hidden mb-4 relative">
+                    <div
+                      className="absolute"
                       style={
                         member.slug === "max-young"
-                          ? { objectPosition: "center -15%" }
-                          : { objectPosition: "center 20%" }
+                          ? { inset: 0 }
+                          : member.slug === "maximilian-filipowicz"
+                            ? { inset: "-25%", top: "-10%", left: "-15%" }
+                            : { inset: "-25%", top: "-10%" }
                       }
-                    />
+                    >
+                      <Image
+                        src={member.image}
+                        alt={member.name}
+                        fill
+                        className="object-cover"
+                        style={{
+                          objectPosition:
+                            member.slug === "max-young"
+                              ? "center -15%"
+                              : member.slug === "maximilian-filipowicz"
+                                ? "75% 20%"
+                                : "center 20%",
+                        }}
+                      />
+                    </div>
                   </div>
+                  <h3 className="text-sm md:text-base font-semibold tracking-tight">
+                    {member.name}
+                  </h3>
                 </div>
-                <h3 className="text-sm md:text-base font-semibold tracking-tight">
-                  {member.name}
-                </h3>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
