@@ -1177,7 +1177,7 @@ export const services: Service[] = [
     metaDescription:
       "Get exclusive electrician leads delivered daily. We build your landing page, run targeted Google Ads, and send qualified customers straight to your phone. No commission, no contracts.",
     mobileImagePosition: "90% center",
-    youtubePlaylistId: "PL-3NYjfWPyFJR_hvdSpbwUrxyRKbXV7Y1",
+    youtubePlaylistId: "PL-3NYjfWPyFK2jbktCQnzHSmE6RXxYlVW",
   },
   {
     slug: "plumbing-heating",
@@ -1897,7 +1897,7 @@ export const services: Service[] = [
     metaTitle: "Pest Control Leads | Get More Pest Control Jobs | Leads Everyday",
     metaDescription:
       "Get exclusive pest control leads delivered daily. We build your landing page, run targeted Google Ads, and send qualified customers straight to your phone. No commission, no contracts.",
-    youtubePlaylistId: "PL-3NYjfWPyFJR_hvdSpbwUrxyRKbXV7Y1",
+    youtubePlaylistId: "PL-3NYjfWPyFK2jbktCQnzHSmE6RXxYlVW",
   },
 ];
 
