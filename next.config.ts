@@ -2,9 +2,14 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   devIndicators: false,
+  experimental: {
+    optimizeCss: true,
+  },
   images: {
     remotePatterns: [],
-    qualities: [25, 35, 50, 75, 100],
+    qualities: [25, 35, 50, 60, 75, 100],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
   },
   async redirects() {
     return [
@@ -19,11 +24,6 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
-        source: "/max-young",
-        destination: "/",
-        permanent: true,
-      },
-      {
         source: "/why-us",
         destination: "/",
         permanent: true,
@@ -34,8 +34,8 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
-        source: "/robert-o-toole",
-        destination: "/",
+        source: "/staff/:slug",
+        destination: "/:slug",
         permanent: true,
       },
       {
@@ -71,6 +71,11 @@ const nextConfig: NextConfig = {
       {
         source: "/why-work-here",
         destination: "/careers",
+        permanent: true,
+      },
+      {
+        source: "/meet-the-team",
+        destination: "/about",
         permanent: true,
       },
     ];

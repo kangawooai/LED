@@ -1,20 +1,21 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { staff } from "@/data/staff";
+import { blogPosts } from "@/data/blog-posts";
 import { IconArrowLeft, IconPhone } from "@tabler/icons-react";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound, useParams } from "next/navigation";
 
-const StaffMemberPage = () => {
+const BlogPostPage = () => {
   const params = useParams();
-  const slug = params.member as string;
-  const member = staff.find((m) => m.slug === slug);
+  const slug = params.slug as string;
+  const post = blogPosts.find((p) => p.slug === slug);
 
-  if (!member) {
+  if (!post) {
     notFound();
   }
+
+  const paragraphs = post.content.split("\n\n");
 
   return (
     <div>
@@ -26,73 +27,43 @@ const StaffMemberPage = () => {
             style={{ animationDelay: "0s" }}
           >
             <Link
-              href="/staff"
+              href="/blog"
               className="inline-flex items-center gap-1.5 text-sm text-foreground/70 hover:text-foreground transition-colors mb-8"
             >
               <IconArrowLeft className="size-4" />
-              Back to Team
+              Back to Blog
             </Link>
           </div>
           <p
             className="hero-animate text-sm uppercase tracking-widest text-primary font-semibold"
             style={{ animationDelay: "0.1s" }}
           >
-            {member.role}
+            {new Date(post.date).toLocaleDateString("en-GB", {
+              day: "numeric",
+              month: "long",
+              year: "numeric",
+            })}
           </p>
           <h1
             className="hero-animate mt-4 text-4xl md:text-5xl lg:text-6xl tracking-tight"
             style={{ animationDelay: "0.2s" }}
           >
-            {member.name}
+            {post.title}
           </h1>
         </div>
       </section>
 
-      {/* Profile */}
+      {/* Content */}
       <section className="pb-20">
         <div className="max-w-7xl mx-auto px-6 lg:px-20 2xl:px-0">
-          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-start">
-            <div
-              className="hero-animate flex justify-center"
-              style={{ animationDelay: "0.3s" }}
-            >
-              <div className="size-48 md:size-64 rounded-full bg-primary/10 border border-primary/20 overflow-hidden relative">
-                <div
-                  className="absolute"
-                  style={
-                    member.slug === "max-young"
-                      ? { inset: 0 }
-                      : { inset: "-25%", top: "-10%" }
-                  }
-                >
-                  <Image
-                    src={member.image}
-                    alt={member.name}
-                    fill
-                    className="object-cover"
-                    style={
-                      member.slug === "max-young"
-                        ? { objectPosition: "center -15%" }
-                        : { objectPosition: "center 20%" }
-                    }
-                  />
-                </div>
-              </div>
-            </div>
-
-            <div
-              className="hero-animate bg-white/5 backdrop-blur-md border border-white/10 rounded-md p-6 lg:p-8"
-              style={{ animationDelay: "0.4s" }}
-            >
-              <h2 className="text-2xl md:text-3xl tracking-tight mb-2">
-                About {member.name.split(" ")[0]}
-              </h2>
-              <p className="text-sm text-primary font-semibold mb-4">
-                {member.role}
-              </p>
-              <p className="text-foreground/70 text-sm lg:text-base leading-relaxed">
-                {member.bio}
-              </p>
+          <div
+            className="hero-animate bg-white/5 backdrop-blur-md border border-white/10 rounded-md p-6 lg:p-8 max-w-3xl"
+            style={{ animationDelay: "0.3s" }}
+          >
+            <div className="space-y-4 text-foreground/70 text-sm lg:text-base leading-relaxed">
+              {paragraphs.map((paragraph, index) => (
+                <p key={index}>{paragraph}</p>
+              ))}
             </div>
           </div>
         </div>
@@ -103,7 +74,7 @@ const StaffMemberPage = () => {
         <div className="max-w-7xl mx-auto flex flex-col items-center pt-12 pb-12 md:px-12 2xl:px-28 bg-white/5 backdrop-blur-md rounded-md border border-white/10">
           <div className="flex flex-col items-center p-4 md:p-4 w-full">
             <h3 className="text-3xl md:text-5xl tracking-tight text-foreground w-full text-center">
-              Ready to Work With Us?
+              Ready to Get More Leads?
             </h3>
             <p className="mt-4 max-w-prose tracking-tight text-balance text-foreground/70 text-sm lg:text-base text-center">
               Book a free call and we&apos;ll show you exactly how many leads we
@@ -124,4 +95,4 @@ const StaffMemberPage = () => {
   );
 };
 
-export default StaffMemberPage;
+export default BlogPostPage;

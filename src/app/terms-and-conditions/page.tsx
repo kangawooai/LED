@@ -1,4 +1,10 @@
 import { COMPANY } from "@/constants";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Terms & Conditions",
+  description: `Terms and conditions for using ${COMPANY.name} services and website.`,
+};
 
 const TermsAndConditions = () => {
   return (

@@ -41,6 +41,8 @@ const Hero = () => {
           className="object-cover"
           style={{ objectPosition: "75% center" }}
           priority
+          quality={60}
+          sizes="100vw"
         />
       </div>
 
@@ -62,6 +64,8 @@ const Hero = () => {
           fill
           className="object-cover object-right-top"
           priority
+          quality={60}
+          sizes="(max-width: 768px) 0px, 100vw"
         />
         <div className="absolute inset-0" style={{ background: "linear-gradient(to right, var(--background) 30%, rgba(0,0,0,0.5) 50%, transparent 75%)" }} />
       </div>

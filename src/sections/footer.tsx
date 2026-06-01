@@ -39,7 +39,7 @@ const Footer = () => {
                 className="absolute inset-0 h-full w-auto object-contain opacity-0 dark:opacity-100 transition-opacity duration-600"
               />
               <Image
-                src="/leads-everyday-pos.png"
+                src="/leads-everyday-pos.webp"
                 alt="Leads Everyday"
                 width={160}
                 height={40}

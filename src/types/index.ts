@@ -30,9 +30,9 @@ export interface Industry {
 export interface StaffMember {
   slug: string;
   name: string;
-  role: string;
   bio: string;
   image: string;
+  videos?: string[];
 }
 
 export interface Testimonial {

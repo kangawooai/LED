@@ -1,4 +1,10 @@
 import { COMPANY } from "@/constants";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Cookie Policy",
+  description: `Cookie policy for ${COMPANY.name}. Learn about the cookies we use and how to manage your preferences.`,
+};
 
 const CookiePolicy = () => {
   return (

@@ -84,7 +84,7 @@ const Navigation = () => {
               priority
             />
             <Image
-              src="/leads-everyday-pos.png"
+              src="/leads-everyday-pos.webp"
               alt="Leads Everyday"
               width={160}
               height={40}
