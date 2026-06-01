@@ -104,7 +104,7 @@ export default function RootLayout({
         className={`${montserrat.variable} antialiased select-none font-sans`}
       >
         <CookieConsentProvider>
-          <BubbleBackground className="fixed inset-0 opacity-30 pointer-events-none" />
+          <BubbleBackground className="fixed inset-0 z-[1] opacity-30 pointer-events-none" />
           <LenisWrapper>
             <Navigation />
             <main className="relative min-h-screen overflow-x-clip">

@@ -3,7 +3,6 @@
 import { Button } from "@/components/ui/button";
 import { STATS } from "@/constants";
 import { IconPhone } from "@tabler/icons-react";
-import { motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
@@ -68,64 +67,34 @@ const Hero = () => {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-20 2xl:px-0 pt-24 md:pt-40 pb-8 md:pb-20">
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={{
-            hidden: { opacity: 0 },
-            visible: {
-              opacity: 1,
-              transition: {
-                staggerChildren: 0.2,
-                delayChildren: 0.3,
-              },
-            },
-          }}
-          className="flex flex-col items-start max-w-2xl"
-        >
-          <motion.p
-            variants={{
-              hidden: { opacity: 0, y: 20 },
-              visible: { opacity: 1, y: 0 },
-            }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="text-sm uppercase tracking-widest text-primary font-semibold"
+        <div className="flex flex-col items-start max-w-2xl">
+          <p
+            className="hero-animate text-sm uppercase tracking-widest text-primary font-semibold"
+            style={{ animationDelay: "0.3s" }}
           >
             Premium Lead Generation Services
-          </motion.p>
+          </p>
 
-          <motion.h1
-            variants={{
-              hidden: { opacity: 0, y: 30 },
-              visible: { opacity: 1, y: 0 },
-            }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="mt-4 text-3xl leading-9 md:text-5xl lg:text-6xl tracking-tight lg:leading-14"
+          <h1
+            className="hero-animate mt-4 text-3xl leading-9 md:text-5xl lg:text-6xl tracking-tight lg:leading-14"
+            style={{ animationDelay: "0.5s" }}
           >
             <span className="block md:inline">More Leads.</span>{" "}
             <span className="block md:inline">More Customers.</span>{" "}
             <span className="block md:inline text-primary">More Profit.</span>
-          </motion.h1>
+          </h1>
 
-          <motion.p
-            variants={{
-              hidden: { opacity: 0, y: 20 },
-              visible: { opacity: 1, y: 0 },
-            }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="mt-4 w-1/2 text-foreground/70 text-sm lg:text-base"
+          <p
+            className="hero-animate mt-4 w-1/2 text-foreground/70 text-sm lg:text-base"
+            style={{ animationDelay: "0.7s" }}
           >
             We deliver high-quality, unique leads for tradespeople across the
             UK. Let us chase the customers so you can make the money.
-          </motion.p>
+          </p>
 
-          <motion.div
-            variants={{
-              hidden: { opacity: 0, y: 30 },
-              visible: { opacity: 1, y: 0 },
-            }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="flex flex-row items-center gap-4 mt-8"
+          <div
+            className="hero-animate flex flex-row items-center gap-4 mt-8"
+            style={{ animationDelay: "0.9s" }}
           >
             {/* Mobile: Call Now + Enquire Now */}
             <a href="tel:+443330424424" className="md:hidden">
@@ -152,16 +121,12 @@ const Hero = () => {
                 0333 0 424 424
               </a>
             </span>
-          </motion.div>
+          </div>
 
           {/* Mobile stats */}
-          <motion.div
-            variants={{
-              hidden: { opacity: 0, y: 20 },
-              visible: { opacity: 1, y: 0 },
-            }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="grid grid-cols-2 gap-4 mt-8 md:hidden"
+          <div
+            className="hero-animate grid grid-cols-2 gap-4 mt-8 md:hidden"
+            style={{ animationDelay: "1.1s" }}
           >
             {STATS.map((stat) => (
               <div key={stat.label}>
@@ -170,14 +135,12 @@ const Hero = () => {
                 <p className="text-xs text-muted-foreground">{stat.sublabel}</p>
               </div>
             ))}
-          </motion.div>
+          </div>
 
           {mounted && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-              className="hidden md:block"
+            <div
+              className="hero-animate hidden md:block"
+              style={{ animationDelay: "1.3s" }}
             >
               <div
                 ref={trustpilotRef}
@@ -199,9 +162,9 @@ const Hero = () => {
                   Trustpilot
                 </a>
               </div>
-            </motion.div>
+            </div>
           )}
-        </motion.div>
+        </div>
       </div>
 
     </section>
