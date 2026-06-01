@@ -41,7 +41,7 @@ const Hero = () => {
           className="object-cover"
           style={{ objectPosition: "75% center" }}
           priority
-          quality={60}
+          quality={35}
           sizes="100vw"
         />
       </div>

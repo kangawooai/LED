@@ -70,6 +70,13 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <head>
+        <link
+          rel="preload"
+          as="image"
+          type="image/webp"
+          href="/_next/image?url=%2Ftree-surgeon.webp&w=640&q=35"
+          fetchPriority="high"
+        />
         <script
           dangerouslySetInnerHTML={{
             __html: `
