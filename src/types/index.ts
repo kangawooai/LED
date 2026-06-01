@@ -15,6 +15,7 @@ export interface Service {
   metaTitle: string;
   metaDescription: string;
   mobileImagePosition?: string;
+  youtubePlaylistId?: string;
 }
 
 export interface Industry {

@@ -3,6 +3,7 @@
 import { useCookieConsent } from "@/contexts/cookie-consent";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
+import { IconCookie } from "@tabler/icons-react";
 import { AnimatePresence, motion } from "motion/react";
 import Link from "next/link";
 import { useState } from "react";
@@ -29,7 +30,7 @@ const categories = [
 ];
 
 const CookieBanner = () => {
-  const { bannerOpen, hasConsented, preferences, acceptAll, rejectAll, updatePreferences } =
+  const { bannerOpen, hasConsented, preferences, acceptAll, rejectAll, updatePreferences, openBanner } =
     useCookieConsent();
   const [showPreferences, setShowPreferences] = useState(false);
   const [draft, setDraft] = useState({ analytics: true, marketing: true });
@@ -50,7 +51,26 @@ const CookieBanner = () => {
   };
 
   return (
-    <AnimatePresence>
+    <>
+      {/* Cookie icon toggle — visible when banner is closed and user has already consented */}
+      <AnimatePresence>
+        {!bannerOpen && hasConsented && (
+          <motion.button
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.8 }}
+            transition={{ duration: 0.2 }}
+            onClick={openBanner}
+            className="fixed bottom-20 right-4 md:bottom-16 md:right-6 z-[51] size-10 rounded-full bg-white/5 backdrop-blur-md border border-white/10 flex items-center justify-center text-foreground/60 hover:text-primary hover:border-primary/30 transition-colors cursor-pointer shadow-lg"
+            aria-label="Cookie settings"
+          >
+            <IconCookie className="size-5" />
+          </motion.button>
+        )}
+      </AnimatePresence>
+
+      {/* Cookie consent banner */}
+      <AnimatePresence>
       {bannerOpen && (
         <motion.div
           initial={{ y: "100%" }}
@@ -148,6 +168,7 @@ const CookieBanner = () => {
         </motion.div>
       )}
     </AnimatePresence>
+    </>
   );
 };
 

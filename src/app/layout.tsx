@@ -80,6 +80,25 @@ export default function RootLayout({
             `,
           }}
         />
+        {/* Google Consent Mode v2 — must run before any Google tags */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('consent', 'default', {
+                'ad_storage': 'denied',
+                'ad_user_data': 'denied',
+                'ad_personalization': 'denied',
+                'analytics_storage': 'denied',
+                'functionality_storage': 'granted',
+                'personalization_storage': 'denied',
+                'security_storage': 'granted',
+                'wait_for_update': 500
+              });
+            `,
+          }}
+        />
       </head>
       <body
         className={`${montserrat.variable} antialiased select-none font-sans`}

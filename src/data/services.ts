@@ -21,6 +21,7 @@ export const services: Service[] = [
     metaTitle: "Plastering Leads | Get More Plastering Jobs | Leads Everyday",
     metaDescription:
       "Get exclusive plastering leads delivered daily. We build your landing page, run targeted Google Ads, and send qualified customers straight to your phone. No commission, no contracts.",
+    youtubePlaylistId: "PL-3NYjfWPyFI_qtz3kep-dTQ0zGGKZHPi",
   },
   {
     slug: "scaffolding",
@@ -43,6 +44,7 @@ export const services: Service[] = [
     metaDescription:
       "Get exclusive scaffolding leads delivered daily. We build your landing page, run targeted Google Ads, and send qualified customers straight to your phone. No commission, no contracts.",
     mobileImagePosition: "90% center",
+    youtubePlaylistId: "PL-3NYjfWPyFIULeFniinRz-T0dLP-tFMz",
   },
   {
     slug: "house-extension",
@@ -108,6 +110,7 @@ export const services: Service[] = [
     metaTitle: "Kitchen & Bathroom Leads | Get More Fitting Jobs | Leads Everyday",
     metaDescription:
       "Get exclusive kitchen and bathroom fitting leads delivered daily. We build your landing page, run targeted Google Ads, and send qualified customers straight to your phone. No commission, no contracts.",
+    youtubePlaylistId: "PL-3NYjfWPyFJos5pPHFLT2q1QL9TL-HRV",
   },
   {
     slug: "flooring",
@@ -323,6 +326,7 @@ export const services: Service[] = [
     metaDescription:
       "Get exclusive painting and decorating leads delivered daily. We build your landing page, run targeted Google Ads, and send qualified customers straight to your phone. No commission, no contracts.",
     mobileImagePosition: "90% center",
+    youtubePlaylistId: "PL-3NYjfWPyFLzXJmD6YSfHFlPnIg9td_x",
   },
   {
     slug: "tiler",
@@ -431,6 +435,7 @@ export const services: Service[] = [
     metaDescription:
       "Get exclusive roof repair leads delivered daily. We build your landing page, run targeted Google Ads, and send qualified customers straight to your phone. No commission, no contracts.",
     mobileImagePosition: "85% center",
+    youtubePlaylistId: "PL-3NYjfWPyFIzTVZ1dOdftrIuUbIFQfpe",
   },
   {
     slug: "asbestos-removal",
@@ -518,6 +523,7 @@ export const services: Service[] = [
     metaDescription:
       "Get exclusive landscaping leads delivered daily. We build your landing page, run targeted Google Ads, and send qualified customers straight to your phone. No commission, no contracts.",
     mobileImagePosition: "85% center",
+    youtubePlaylistId: "PL-3NYjfWPyFKW546n3Owh-wOOaYjvUJvS",
   },
   {
     slug: "property-maintenance",
@@ -605,6 +611,7 @@ export const services: Service[] = [
     metaDescription:
       "Get exclusive MOT booking leads delivered daily. We build your landing page, run targeted Google Ads, and send qualified customers straight to your phone. No commission, no contracts.",
     mobileImagePosition: "95% center",
+    youtubePlaylistId: "PL-3NYjfWPyFK_lujJGOvmebIdF2Y381cc",
   },
   {
     slug: "servicing",
@@ -627,6 +634,7 @@ export const services: Service[] = [
     metaDescription:
       "Get exclusive vehicle servicing leads delivered daily. We build your landing page, run targeted Google Ads, and send qualified customers straight to your phone. No commission, no contracts.",
     mobileImagePosition: "100% center",
+    youtubePlaylistId: "PL-3NYjfWPyFK_lujJGOvmebIdF2Y381cc",
   },
   {
     slug: "clutch-repairs-replacement",
@@ -649,6 +657,7 @@ export const services: Service[] = [
     metaDescription:
       "Get exclusive clutch repair leads delivered daily. We build your landing page, run targeted Google Ads, and send qualified customers straight to your phone. No commission, no contracts.",
     mobileImagePosition: "80% center",
+    youtubePlaylistId: "PL-3NYjfWPyFK_lujJGOvmebIdF2Y381cc",
   },
   {
     slug: "suspension-repairs-replacement",
@@ -671,6 +680,7 @@ export const services: Service[] = [
     metaDescription:
       "Get exclusive suspension repair leads delivered daily. We build your landing page, run targeted Google Ads, and send qualified customers straight to your phone. No commission, no contracts.",
     mobileImagePosition: "90% center",
+    youtubePlaylistId: "PL-3NYjfWPyFK_lujJGOvmebIdF2Y381cc",
   },
   {
     slug: "brakes-discs-repair-replacement",
@@ -692,6 +702,7 @@ export const services: Service[] = [
     metaTitle: "Brake Repair Leads | Get More Brake & Disc Jobs | Leads Everyday",
     metaDescription:
       "Get exclusive brake repair leads delivered daily. We build your landing page, run targeted Google Ads, and send qualified customers straight to your phone. No commission, no contracts.",
+    youtubePlaylistId: "PL-3NYjfWPyFK_lujJGOvmebIdF2Y381cc",
   },
   {
     slug: "cambelt-repair-replacement",
@@ -713,6 +724,7 @@ export const services: Service[] = [
     metaTitle: "Cambelt Replacement Leads | Get More Cambelt Jobs | Leads Everyday",
     metaDescription:
       "Get exclusive cambelt replacement leads delivered daily. We build your landing page, run targeted Google Ads, and send qualified customers straight to your phone. No commission, no contracts.",
+    youtubePlaylistId: "PL-3NYjfWPyFK_lujJGOvmebIdF2Y381cc",
   },
   {
     slug: "turbo-repair-replacement",
@@ -734,6 +746,7 @@ export const services: Service[] = [
     metaTitle: "Turbo Repair Leads | Get More Turbo Replacement Jobs | Leads Everyday",
     metaDescription:
       "Get exclusive turbo repair leads delivered daily. We build your landing page, run targeted Google Ads, and send qualified customers straight to your phone. No commission, no contracts.",
+    youtubePlaylistId: "PL-3NYjfWPyFK_lujJGOvmebIdF2Y381cc",
   },
   {
     slug: "gearbox-repair-replacement",
@@ -756,6 +769,7 @@ export const services: Service[] = [
     metaDescription:
       "Get exclusive gearbox repair leads delivered daily. We build your landing page, run targeted Google Ads, and send qualified customers straight to your phone. No commission, no contracts.",
     mobileImagePosition: "90% center",
+    youtubePlaylistId: "PL-3NYjfWPyFK_lujJGOvmebIdF2Y381cc",
   },
   {
     slug: "engine-recon-rebuilds",
@@ -777,6 +791,7 @@ export const services: Service[] = [
     metaTitle: "Engine Rebuild Leads | Get More Engine Recon Jobs | Leads Everyday",
     metaDescription:
       "Get exclusive engine rebuild leads delivered daily. We build your landing page, run targeted Google Ads, and send qualified customers straight to your phone. No commission, no contracts.",
+    youtubePlaylistId: "PL-3NYjfWPyFK_lujJGOvmebIdF2Y381cc",
   },
   {
     slug: "exhausts-repairs-replacements",
@@ -798,6 +813,7 @@ export const services: Service[] = [
     metaTitle: "Exhaust Repair Leads | Get More Exhaust Jobs | Leads Everyday",
     metaDescription:
       "Get exclusive exhaust repair leads delivered daily. We build your landing page, run targeted Google Ads, and send qualified customers straight to your phone. No commission, no contracts.",
+    youtubePlaylistId: "PL-3NYjfWPyFK_lujJGOvmebIdF2Y381cc",
   },
   {
     slug: "dpf-carbon-cleaning",
@@ -820,6 +836,7 @@ export const services: Service[] = [
     metaDescription:
       "Get exclusive DPF and carbon cleaning leads delivered daily. We build your landing page, run targeted Google Ads, and send qualified customers straight to your phone. No commission, no contracts.",
     mobileImagePosition: "90% center",
+    youtubePlaylistId: "PL-3NYjfWPyFK_lujJGOvmebIdF2Y381cc",
   },
   {
     slug: "remapping",
@@ -842,6 +859,7 @@ export const services: Service[] = [
     metaDescription:
       "Get exclusive remapping leads delivered daily. We build your landing page, run targeted Google Ads, and send qualified customers straight to your phone. No commission, no contracts.",
     mobileImagePosition: "90% center",
+    youtubePlaylistId: "PL-3NYjfWPyFK_lujJGOvmebIdF2Y381cc",
   },
   {
     slug: "tyres",
@@ -864,6 +882,7 @@ export const services: Service[] = [
     metaDescription:
       "Get exclusive tyre fitting leads delivered daily. We build your landing page, run targeted Google Ads, and send qualified customers straight to your phone. No commission, no contracts.",
     mobileImagePosition: "100% center",
+    youtubePlaylistId: "PL-3NYjfWPyFK_lujJGOvmebIdF2Y381cc",
   },
   {
     slug: "wheel-repair-alloys",
@@ -886,6 +905,7 @@ export const services: Service[] = [
     metaDescription:
       "Get exclusive alloy wheel repair leads delivered daily. We build your landing page, run targeted Google Ads, and send qualified customers straight to your phone. No commission, no contracts.",
     mobileImagePosition: "90% center",
+    youtubePlaylistId: "PL-3NYjfWPyFK_lujJGOvmebIdF2Y381cc",
   },
   {
     slug: "bodyshop-smart-repairs",
@@ -908,6 +928,7 @@ export const services: Service[] = [
     metaDescription:
       "Get exclusive bodyshop and smart repair leads delivered daily. We build your landing page, run targeted Google Ads, and send qualified customers straight to your phone. No commission, no contracts.",
     mobileImagePosition: "80% center",
+    youtubePlaylistId: "PL-3NYjfWPyFK_lujJGOvmebIdF2Y381cc",
   },
   {
     slug: "auto-electrician",
@@ -929,6 +950,7 @@ export const services: Service[] = [
     metaTitle: "Auto Electrician Leads | Get More Auto Electrical Jobs | Leads Everyday",
     metaDescription:
       "Get exclusive auto electrician leads delivered daily. We build your landing page, run targeted Google Ads, and send qualified customers straight to your phone. No commission, no contracts.",
+    youtubePlaylistId: "PL-3NYjfWPyFK_lujJGOvmebIdF2Y381cc",
   },
   {
     slug: "air-conditioning",
@@ -950,6 +972,7 @@ export const services: Service[] = [
     metaTitle: "Air Conditioning Leads | Get More AC Regas Bookings | Leads Everyday",
     metaDescription:
       "Get exclusive vehicle air conditioning leads delivered daily. We build your landing page, run targeted Google Ads, and send qualified customers straight to your phone. No commission, no contracts.",
+    youtubePlaylistId: "PL-3NYjfWPyFK_lujJGOvmebIdF2Y381cc",
   },
   {
     slug: "electric-hybrid-servicing",
@@ -971,6 +994,7 @@ export const services: Service[] = [
     metaTitle: "EV Servicing Leads | Get More Electric & Hybrid Bookings | Leads Everyday",
     metaDescription:
       "Get exclusive electric and hybrid servicing leads delivered daily. We build your landing page, run targeted Google Ads, and send qualified customers straight to your phone. No commission, no contracts.",
+    youtubePlaylistId: "PL-3NYjfWPyFK_lujJGOvmebIdF2Y381cc",
   },
   {
     slug: "towbar-supply-installation",
@@ -993,6 +1017,7 @@ export const services: Service[] = [
     metaDescription:
       "Get exclusive towbar installation leads delivered daily. We build your landing page, run targeted Google Ads, and send qualified customers straight to your phone. No commission, no contracts.",
     mobileImagePosition: "90% center",
+    youtubePlaylistId: "PL-3NYjfWPyFK_lujJGOvmebIdF2Y381cc",
   },
   {
     slug: "vehicle-immobiliser-installation",
@@ -1015,6 +1040,7 @@ export const services: Service[] = [
     metaDescription:
       "Get exclusive vehicle immobiliser installation leads delivered daily. We build your landing page, run targeted Google Ads, and send qualified customers straight to your phone. No commission, no contracts.",
     mobileImagePosition: "90% center",
+    youtubePlaylistId: "PL-3NYjfWPyFK_lujJGOvmebIdF2Y381cc",
   },
   {
     slug: "detailing",
@@ -1037,6 +1063,7 @@ export const services: Service[] = [
     metaDescription:
       "Get exclusive vehicle detailing leads delivered daily. We build your landing page, run targeted Google Ads, and send qualified customers straight to your phone. No commission, no contracts.",
     mobileImagePosition: "90% center",
+    youtubePlaylistId: "PL-3NYjfWPyFK_lujJGOvmebIdF2Y381cc",
   },
   {
     slug: "car-van-finance-prime-subprime",
@@ -1059,6 +1086,7 @@ export const services: Service[] = [
     metaDescription:
       "Get exclusive car and van finance leads delivered daily. We build your landing page, run targeted Google Ads, and send qualified customers straight to your phone. No commission, no contracts.",
     mobileImagePosition: "100% center",
+    youtubePlaylistId: "PL-3NYjfWPyFK_lujJGOvmebIdF2Y381cc",
   },
   {
     slug: "vehicle-recovery",
@@ -1081,6 +1109,7 @@ export const services: Service[] = [
     metaDescription:
       "Get exclusive vehicle recovery leads delivered daily. We build your landing page, run targeted Google Ads, and send qualified customers straight to your phone. No commission, no contracts.",
     mobileImagePosition: "90% center",
+    youtubePlaylistId: "PL-3NYjfWPyFK_lujJGOvmebIdF2Y381cc",
   },
   {
     slug: "differentials",
@@ -1102,6 +1131,7 @@ export const services: Service[] = [
     metaTitle: "Differential Repair Leads | Get More Diff Rebuild Jobs | Leads Everyday",
     metaDescription:
       "Get exclusive differential repair leads delivered daily. We build your landing page, run targeted Google Ads, and send qualified customers straight to your phone. No commission, no contracts.",
+    youtubePlaylistId: "PL-3NYjfWPyFK_lujJGOvmebIdF2Y381cc",
   },
   {
     slug: "mobile-mechanic",
@@ -1123,6 +1153,7 @@ export const services: Service[] = [
     metaTitle: "Mobile Mechanic Leads | Get More Mobile Mechanic Bookings | Leads Everyday",
     metaDescription:
       "Get exclusive mobile mechanic leads delivered daily. We build your landing page, run targeted Google Ads, and send qualified customers straight to your phone. No commission, no contracts.",
+    youtubePlaylistId: "PL-3NYjfWPyFK_lujJGOvmebIdF2Y381cc",
   },
   // Trades Services
   {
@@ -1146,6 +1177,7 @@ export const services: Service[] = [
     metaDescription:
       "Get exclusive electrician leads delivered daily. We build your landing page, run targeted Google Ads, and send qualified customers straight to your phone. No commission, no contracts.",
     mobileImagePosition: "90% center",
+    youtubePlaylistId: "PL-3NYjfWPyFJR_hvdSpbwUrxyRKbXV7Y1",
   },
   {
     slug: "plumbing-heating",
@@ -1274,6 +1306,7 @@ export const services: Service[] = [
     metaDescription:
       "Get exclusive locksmith leads delivered daily. We build your landing page, run targeted Google Ads, and send qualified customers straight to your phone. No commission, no contracts.",
     mobileImagePosition: "90% center",
+    youtubePlaylistId: "PL-3NYjfWPyFIzTVZ1dOdftrIuUbIFQfpe",
   },
   {
     slug: "alarms",
@@ -1405,6 +1438,7 @@ export const services: Service[] = [
     metaDescription:
       "Get exclusive carpet cleaning leads delivered daily. We build your landing page, run targeted Google Ads, and send qualified customers straight to your phone. No commission, no contracts.",
     mobileImagePosition: "90% center",
+    youtubePlaylistId: "PL-3NYjfWPyFKW546n3Owh-wOOaYjvUJvS",
   },
   {
     slug: "window-cleaning",
@@ -1491,6 +1525,7 @@ export const services: Service[] = [
     metaTitle: "Exterior Cleaning Leads | Get More Pressure Washing Jobs | Leads Everyday",
     metaDescription:
       "Get exclusive exterior cleaning leads delivered daily. We build your landing page, run targeted Google Ads, and send qualified customers straight to your phone. No commission, no contracts.",
+    youtubePlaylistId: "PL-3NYjfWPyFLd_OePP9ftFFf6yjW-AIDb",
   },
   {
     slug: "roof-cleaning-moss-removal",
@@ -1535,6 +1570,7 @@ export const services: Service[] = [
     metaDescription:
       "Get exclusive garden service leads delivered daily. We build your landing page, run targeted Google Ads, and send qualified customers straight to your phone. No commission, no contracts.",
     mobileImagePosition: "110% center",
+    youtubePlaylistId: "PL-3NYjfWPyFLzXJmD6YSfHFlPnIg9td_x",
   },
   // Other Industries
   {
@@ -1774,6 +1810,7 @@ export const services: Service[] = [
     metaDescription:
       "Get exclusive waste clearance leads delivered daily. We build your landing page, run targeted Google Ads, and send qualified customers straight to your phone. No commission, no contracts.",
     mobileImagePosition: "100% center",
+    youtubePlaylistId: "PL-3NYjfWPyFJSg0EPMDJgeBtqQFm8fJut",
   },
   {
     slug: "house-and-garage-clearance",
@@ -1860,6 +1897,7 @@ export const services: Service[] = [
     metaTitle: "Pest Control Leads | Get More Pest Control Jobs | Leads Everyday",
     metaDescription:
       "Get exclusive pest control leads delivered daily. We build your landing page, run targeted Google Ads, and send qualified customers straight to your phone. No commission, no contracts.",
+    youtubePlaylistId: "PL-3NYjfWPyFJR_hvdSpbwUrxyRKbXV7Y1",
   },
 ];
 

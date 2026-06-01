@@ -319,6 +319,32 @@ const ServicePage = () => {
         </div>
       </section>
 
+      {/* Video Testimonials */}
+      {service.youtubePlaylistId && (
+        <section className="w-full py-12 md:py-16">
+          <div className="max-w-7xl mx-auto px-6 lg:px-20 2xl:px-0">
+            <p className="text-sm uppercase tracking-widest text-primary font-semibold text-center">
+              Video Testimonials
+            </p>
+            <h2 className="text-4xl md:text-5xl tracking-tight text-foreground text-center mt-3">
+              Hear From Our {service.name} Clients
+            </h2>
+
+            <div className="max-w-3xl mx-auto mt-8 md:mt-12 bg-white/5 backdrop-blur-md border border-white/10 rounded-md overflow-hidden">
+              <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
+                <iframe
+                  className="absolute inset-0 w-full h-full"
+                  src={`https://www.youtube.com/embed/videoseries?list=${service.youtubePlaylistId}&rel=0`}
+                  title={`${service.name} video testimonials`}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* CTA */}
       <section className="w-full py-12 md:py-16 px-4 md:px-0 lg:px-20 2xl:px-0">
         <div className="max-w-7xl mx-auto flex flex-col items-center pt-12 pb-12 md:px-12 2xl:px-28 bg-white/5 backdrop-blur-md rounded-md border border-white/10">
