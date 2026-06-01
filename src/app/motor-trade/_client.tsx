@@ -65,7 +65,7 @@ const MotorTradeHome = () => {
             className="object-cover"
             style={{ objectPosition: "95% center" }}
             priority
-            quality={60}
+            quality={35}
             sizes="100vw"
           />
         </div>

@@ -338,8 +338,8 @@ const BookACallContent = () => {
                       4
                     </span>
                     <span>
-                      You start getting leads -- most clients see results within
-                      24 hours
+                      You start getting leads, most clients see results within
+                      a few days
                     </span>
                   </li>
                 </ol>
