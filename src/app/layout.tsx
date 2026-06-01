@@ -74,7 +74,7 @@ export default function RootLayout({
           rel="preload"
           as="image"
           type="image/webp"
-          href="/_next/image?url=%2Ftree-surgeon.webp&w=640&q=35"
+          href="/_next/image?url=%2Fhero-video.webp&w=640&q=35"
           fetchPriority="high"
         />
         <script

@@ -15,7 +15,7 @@ const Features = () => {
   const { ref, visible } = useScrollReveal(0.2);
 
   return (
-    <section id="features-section" ref={ref} className="w-full py-20">
+    <section id="features-section" ref={ref} className="w-full py-20 md:pt-32">
       <div className="max-w-7xl mx-auto px-4 md:px-0 lg:px-20 2xl:px-0">
         <p
           className={`scroll-fade-in${visible ? " visible" : ""} text-sm uppercase tracking-widest text-primary font-semibold text-center`}

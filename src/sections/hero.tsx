@@ -2,13 +2,16 @@
 
 import { Button } from "@/components/ui/button";
 import { STATS } from "@/constants";
-import { IconPhone } from "@tabler/icons-react";
+import { IconPhone, IconPlayerPlayFilled, IconX } from "@tabler/icons-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
 
+const YOUTUBE_VIDEO_ID = "HNWbRc7WZJw";
+
 const Hero = () => {
   const [mounted, setMounted] = useState(false);
+  const [videoOpen, setVideoOpen] = useState(false);
 
   useEffect(() => {
     setMounted(true);
@@ -35,7 +38,7 @@ const Hero = () => {
         }}
       >
         <Image
-          src="/tree-surgeon.webp"
+          src="/hero-video.webp"
           alt="Tradesperson at work"
           fill
           className="object-cover"
@@ -48,7 +51,7 @@ const Hero = () => {
 
       {/* Desktop: background image clipped to container with fades */}
       <div
-        className="absolute inset-y-0 hidden md:block"
+        className={`absolute inset-y-0 hidden md:block transition-opacity duration-500 ${videoOpen ? "opacity-0" : "opacity-100"}`}
         style={{
           left: "max(0px, calc(50% - 60rem))",
           right: "max(0px, calc(50% - 40rem))",
@@ -59,7 +62,7 @@ const Hero = () => {
         }}
       >
         <Image
-          src="/tree-surgeon.webp"
+          src="/hero-video.webp"
           alt="Tradesperson at work"
           fill
           className="object-cover object-right-top"
@@ -70,7 +73,51 @@ const Hero = () => {
         <div className="absolute inset-0" style={{ background: "linear-gradient(to right, var(--background) 30%, rgba(0,0,0,0.5) 50%, transparent 75%)" }} />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-20 2xl:px-0 pt-24 md:pt-40 pb-8 md:pb-20">
+      {/* Desktop play button — centered in right half of the container */}
+      {!videoOpen && (
+        <div className="absolute inset-0 z-20 hidden md:block pointer-events-none">
+          <div className="max-w-7xl mx-auto px-6 lg:px-20 2xl:px-0 h-full relative">
+            <button
+              onClick={() => setVideoOpen(true)}
+              className="hero-animate absolute top-1/2 right-0 -translate-y-1/2 translate-x-[-50%] pointer-events-auto flex items-center justify-center cursor-pointer group"
+              style={{ animationDelay: "1.1s", right: "25%" }}
+              aria-label="Play video"
+            >
+              <span className="absolute size-24 rounded-full bg-primary/20 animate-ping" />
+              <span className="absolute size-20 rounded-full bg-primary/30 animate-pulse" />
+              <span className="relative size-16 rounded-full bg-primary flex items-center justify-center shadow-lg shadow-primary/30 group-hover:scale-110 transition-transform">
+                <IconPlayerPlayFilled className="size-7 text-white ml-0.5" />
+              </span>
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Inline video player — covers the hero section */}
+      {videoOpen && (
+        <div className="absolute inset-0 top-20 z-30 bg-background flex items-center justify-center">
+          <div className="w-full h-full max-w-6xl mx-auto flex items-center px-6 lg:px-20 relative">
+            <button
+              onClick={() => setVideoOpen(false)}
+              className="absolute top-4 right-4 lg:right-20 z-10 size-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-colors cursor-pointer"
+              aria-label="Close video"
+            >
+              <IconX className="size-5" />
+            </button>
+            <div className="w-full aspect-video rounded-md overflow-hidden">
+              <iframe
+                src={`https://www.youtube-nocookie.com/embed/${YOUTUBE_VIDEO_ID}?autoplay=1&rel=0`}
+                title="Leads Everyday — How It Works"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="w-full h-full"
+              />
+            </div>
+          </div>
+        </div>
+      )}
+
+      <div className={`relative z-10 max-w-7xl mx-auto px-6 lg:px-20 2xl:px-0 pt-24 md:pt-40 pb-8 md:pb-20 transition-opacity duration-500 ${videoOpen ? "md:opacity-0 md:pointer-events-none" : ""}`}>
         <div className="flex flex-col items-start max-w-2xl">
           <p
             className="hero-animate text-sm uppercase tracking-widest text-primary font-semibold"
@@ -127,10 +174,29 @@ const Hero = () => {
             </span>
           </div>
 
+          {/* Mobile: play button */}
+          <div
+            className="hero-animate mt-8 md:hidden"
+            style={{ animationDelay: "1.1s" }}
+          >
+            <button
+              onClick={() => setVideoOpen(true)}
+              className="flex items-center gap-3 mb-6 group cursor-pointer"
+              aria-label="Play video"
+            >
+              <span className="relative size-12 rounded-full bg-primary flex items-center justify-center shadow-lg shadow-primary/30 group-hover:scale-110 transition-transform">
+                <IconPlayerPlayFilled className="size-5 text-white ml-0.5" />
+              </span>
+              <span className="text-sm font-medium text-foreground/70 group-hover:text-foreground transition-colors">
+                Watch how it works
+              </span>
+            </button>
+          </div>
+
           {/* Mobile stats */}
           <div
-            className="hero-animate grid grid-cols-2 gap-4 mt-8 md:hidden"
-            style={{ animationDelay: "1.1s" }}
+            className="hero-animate grid grid-cols-2 gap-4 md:hidden"
+            style={{ animationDelay: "1.2s" }}
           >
             {STATS.map((stat) => (
               <div key={stat.label}>
@@ -170,7 +236,6 @@ const Hero = () => {
           )}
         </div>
       </div>
-
     </section>
   );
 };

@@ -227,7 +227,7 @@ const ServicePage = () => {
       </section>
 
       {/* Stats */}
-      <section className="hidden md:block w-full py-12 md:py-16">
+      <section className="hidden md:block w-full py-12 md:py-2">
         <div className="max-w-7xl mx-auto px-6 lg:px-20 2xl:px-0">
           <div
             className="hero-animate grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-12 text-left md:text-center"
