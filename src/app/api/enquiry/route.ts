@@ -67,9 +67,11 @@ export async function POST(request: Request) {
         <p><strong>Service:</strong> ${serviceName}</p>
         ${utmLines ? `<hr><h3>UTM Data</h3>${utmLines}` : ""}
       `,
+    }).catch((err) => {
+      console.error("Email send error:", err);
     });
 
-    // Run both in parallel
+    // Run both in parallel — both are non-fatal so the form always succeeds
     await Promise.all([zapierPromise, emailPromise]);
 
     return NextResponse.json({ success: true });
