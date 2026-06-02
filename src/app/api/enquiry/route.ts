@@ -27,6 +27,7 @@ export async function POST(request: Request) {
     const zapierPayload = { name, email, phone, business, service, industry, trade, ...rest };
     const zapierPromise = fetch(ZAPIER_WEBHOOK, {
       method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(zapierPayload),
     }).catch((err) => {
       console.error("Zapier webhook error:", err);

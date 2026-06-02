@@ -42,6 +42,7 @@ const ContactFormInner = ({ serviceName }: ContactFormProps) => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (submitting || submitted) return;
     setSubmitting(true);
     setError(false);
 

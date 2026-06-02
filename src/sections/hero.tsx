@@ -73,25 +73,6 @@ const Hero = () => {
         <div className="absolute inset-0" style={{ background: "linear-gradient(to right, var(--background) 30%, rgba(0,0,0,0.5) 50%, transparent 75%)" }} />
       </div>
 
-      {/* Desktop play button — centered in right half of the container */}
-      {!videoOpen && (
-        <div className="absolute inset-0 z-20 hidden md:block pointer-events-none">
-          <div className="max-w-7xl mx-auto px-6 lg:px-20 2xl:px-0 h-full relative">
-            <button
-              onClick={() => setVideoOpen(true)}
-              className="hero-animate absolute top-1/2 right-0 -translate-y-1/2 translate-x-[-50%] pointer-events-auto flex items-center justify-center cursor-pointer group"
-              style={{ animationDelay: "1.1s", right: "25%" }}
-              aria-label="Play video"
-            >
-              <span className="absolute size-24 rounded-full bg-primary/20 animate-ping" />
-              <span className="absolute size-20 rounded-full bg-primary/30 animate-pulse" />
-              <span className="relative size-16 rounded-full bg-primary flex items-center justify-center shadow-lg shadow-primary/30 group-hover:scale-110 transition-transform">
-                <IconPlayerPlayFilled className="size-7 text-white ml-0.5" />
-              </span>
-            </button>
-          </div>
-        </div>
-      )}
 
       {/* Inline video player — covers the hero section */}
       {videoOpen && (
@@ -115,6 +96,20 @@ const Hero = () => {
             </div>
           </div>
         </div>
+      )}
+
+      {/* Mobile: play button — absolutely positioned, 25% from right */}
+      {!videoOpen && (
+        <button
+          onClick={() => setVideoOpen(true)}
+          className="hero-animate absolute z-20 md:hidden group cursor-pointer"
+          style={{ animationDelay: "1.1s", right: "20%", top: "30%" }}
+          aria-label="Play video"
+        >
+          <span className="relative size-14 rounded-full bg-primary flex items-center justify-center shadow-lg shadow-primary/30 group-active:scale-95 transition-transform">
+            <IconPlayerPlayFilled className="size-6 text-white ml-0.5" />
+          </span>
+        </button>
       )}
 
       <div className={`relative z-10 max-w-7xl mx-auto px-6 lg:px-20 2xl:px-0 pt-24 md:pt-40 pb-8 md:pb-20 transition-opacity duration-500 ${videoOpen ? "md:opacity-0 md:pointer-events-none" : ""}`}>
@@ -144,7 +139,7 @@ const Hero = () => {
           </p>
 
           <div
-            className="hero-animate flex flex-row items-center gap-4 mt-8"
+            className="hero-animate flex flex-row items-center gap-4 mt-8 mb-6 md:mb-0"
             style={{ animationDelay: "0.9s" }}
           >
             {/* Mobile: Call Now + Enquire Now */}
@@ -172,25 +167,6 @@ const Hero = () => {
                 0333 0 424 424
               </a>
             </span>
-          </div>
-
-          {/* Mobile: play button */}
-          <div
-            className="hero-animate mt-8 md:hidden"
-            style={{ animationDelay: "1.1s" }}
-          >
-            <button
-              onClick={() => setVideoOpen(true)}
-              className="flex items-center gap-3 mb-6 group cursor-pointer"
-              aria-label="Play video"
-            >
-              <span className="relative size-12 rounded-full bg-primary flex items-center justify-center shadow-lg shadow-primary/30 group-hover:scale-110 transition-transform">
-                <IconPlayerPlayFilled className="size-5 text-white ml-0.5" />
-              </span>
-              <span className="text-sm font-medium text-foreground/70 group-hover:text-foreground transition-colors">
-                Watch how it works
-              </span>
-            </button>
           </div>
 
           {/* Mobile stats */}
