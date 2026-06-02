@@ -19,7 +19,7 @@ const BottomBar = () => {
   }, []);
 
   return (
-    <div className="fixed bottom-0 inset-x-0 z-[50] pointer-events-none pb-[env(safe-area-inset-bottom)]">
+    <div className="fixed bottom-0 inset-x-0 z-[100] pointer-events-none pb-[env(safe-area-inset-bottom)]">
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-20 2xl:px-0 pb-2">
         <div className="pointer-events-auto bg-white/5 backdrop-blur-md border border-white/10 rounded-md px-4 py-0 flex items-center justify-between shadow-2xl">
           {/* Trustpilot widget */}

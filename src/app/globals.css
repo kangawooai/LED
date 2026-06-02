@@ -292,6 +292,19 @@
   animation: hero-fade-up 0.6s ease-out forwards;
 }
 
+@keyframes play-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 oklch(0.6331 0.1414 157.9584 / 0.5);
+  }
+  50% {
+    box-shadow: 0 0 0 24px oklch(0.6331 0.1414 157.9584 / 0);
+  }
+}
+
+.play-pulse {
+  animation: play-pulse 2s ease-in-out infinite;
+}
+
 /* Scroll-triggered entrance animation */
 .scroll-fade-in {
   opacity: 0;

@@ -74,42 +74,54 @@ const Hero = () => {
       </div>
 
 
-      {/* Inline video player — covers the hero section */}
+      {/* Fullscreen video player — below nav */}
       {videoOpen && (
-        <div className="absolute inset-0 top-20 z-30 bg-background flex items-center justify-center">
-          <div className="w-full h-full max-w-6xl mx-auto flex items-center px-6 lg:px-20 relative">
-            <button
-              onClick={() => setVideoOpen(false)}
-              className="absolute top-4 right-4 lg:right-20 z-10 size-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-colors cursor-pointer"
-              aria-label="Close video"
-            >
-              <IconX className="size-5" />
-            </button>
-            <div className="w-full aspect-video rounded-md overflow-hidden">
-              <iframe
-                src={`https://www.youtube-nocookie.com/embed/${YOUTUBE_VIDEO_ID}?autoplay=1&rel=0`}
-                title="Leads Everyday — How It Works"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="w-full h-full"
-              />
-            </div>
-          </div>
+        <div className="fixed inset-0 top-20 z-[99] bg-background flex items-center justify-center p-3 md:p-6">
+          <button
+            onClick={() => setVideoOpen(false)}
+            className="absolute top-4 right-4 z-10 size-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-colors cursor-pointer"
+            aria-label="Close video"
+          >
+            <IconX className="size-5" />
+          </button>
+          <iframe
+            src={`https://www.youtube-nocookie.com/embed/${YOUTUBE_VIDEO_ID}?autoplay=1&rel=0&controls=0&modestbranding=1&showinfo=0&iv_load_policy=3`}
+            title="Leads Everyday — How It Works"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            className="w-full h-full rounded-md"
+          />
         </div>
       )}
 
-      {/* Mobile: play button — absolutely positioned, 25% from right */}
+      {/* Play button */}
       {!videoOpen && (
-        <button
-          onClick={() => setVideoOpen(true)}
-          className="hero-animate absolute z-20 md:hidden group cursor-pointer"
-          style={{ animationDelay: "1.1s", right: "20%", top: "30%" }}
-          aria-label="Play video"
-        >
-          <span className="relative size-14 rounded-full bg-primary flex items-center justify-center shadow-lg shadow-primary/30 group-active:scale-95 transition-transform">
-            <IconPlayerPlayFilled className="size-6 text-white ml-0.5" />
-          </span>
-        </button>
+        <div className="absolute inset-0 z-20 pointer-events-none">
+          <div className="relative h-full max-w-7xl mx-auto px-6 lg:px-20 2xl:px-0">
+            {/* Mobile position */}
+            <button
+              onClick={() => setVideoOpen(true)}
+              className="hero-animate absolute pointer-events-auto group cursor-pointer md:hidden"
+              style={{ animationDelay: "1.1s", right: "20%", top: "30%" }}
+              aria-label="Play video"
+            >
+              <span className="play-pulse relative size-14 rounded-full bg-primary flex items-center justify-center shadow-lg shadow-primary/30 group-active:scale-95 transition-transform">
+                <IconPlayerPlayFilled className="size-6 text-white ml-0.5" />
+              </span>
+            </button>
+            {/* Desktop position */}
+            <button
+              onClick={() => setVideoOpen(true)}
+              className="hero-animate absolute pointer-events-auto group cursor-pointer hidden md:flex top-1/2 -translate-y-1/2"
+              style={{ animationDelay: "1.1s", right: "25%" }}
+              aria-label="Play video"
+            >
+              <span className="play-pulse relative size-16 rounded-full bg-primary flex items-center justify-center shadow-lg shadow-primary/30 group-hover:scale-110 group-active:scale-95 transition-transform">
+                <IconPlayerPlayFilled className="size-7 text-white ml-0.5" />
+              </span>
+            </button>
+          </div>
+        </div>
       )}
 
       <div className={`relative z-10 max-w-7xl mx-auto px-6 lg:px-20 2xl:px-0 pt-24 md:pt-40 pb-8 md:pb-20 transition-opacity duration-500 ${videoOpen ? "md:opacity-0 md:pointer-events-none" : ""}`}>
