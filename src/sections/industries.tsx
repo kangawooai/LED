@@ -98,9 +98,9 @@ function TimelineStep({
   const start = 0.05 + index * segmentSize;
   const mid = start + segmentSize * 0.7;
 
-  const opacity = useTransform(scrollYProgress, [start, mid], [0.15, 1]);
-  const y = useTransform(scrollYProgress, [start, mid], [12, 0]);
-  const nodeScale = useTransform(scrollYProgress, [start, mid], [0.8, 1]);
+  const opacity = useTransform(scrollYProgress, [start, mid, 1], [0.15, 1, 1]);
+  const y = useTransform(scrollYProgress, [start, mid, 1], [12, 0, 0]);
+  const nodeScale = useTransform(scrollYProgress, [start, mid, 1], [0.8, 1, 1]);
   const isEven = index % 2 === 0;
 
   return (

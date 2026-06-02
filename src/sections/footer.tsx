@@ -28,8 +28,8 @@ const Footer = () => {
   return (
     <footer className="w-full border-t border-white/10 pt-12 pb-36">
       <div className="max-w-7xl mx-auto px-6 lg:px-20 2xl:px-0">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="col-span-2 md:col-span-1">
             <Link href="/" className="relative block h-8 w-[160px]">
               <Image
                 src="/leads-everyday-neg.webp"

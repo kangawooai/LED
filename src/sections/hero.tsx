@@ -137,9 +137,9 @@ const Hero = () => {
             className="hero-animate mt-4 text-3xl leading-9 md:text-5xl lg:text-6xl tracking-tight lg:leading-14"
             style={{ animationDelay: "0.5s" }}
           >
-            <span className="block md:inline">More Leads.</span>{" "}
-            <span className="block md:inline">More Customers.</span>{" "}
-            <span className="block md:inline text-primary">More Profit.</span>
+            <span className="block">More Leads.</span>
+            <span className="block">More Customers.</span>
+            <span className="block text-primary">More Profit.</span>
           </h1>
 
           <p
