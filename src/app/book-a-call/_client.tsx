@@ -230,7 +230,6 @@ const BookACallContent = () => {
                             {group.group}
                           </option>
                         ))}
-                        <option value="Other">Other</option>
                       </select>
                     </div>
                     <div className="space-y-2">
@@ -250,13 +249,10 @@ const BookACallContent = () => {
                             : "Select industry first"}
                         </option>
                         {filteredServices.map((option) => (
-                          <option key={option} value={option}>
-                            {option}
+                          <option key={option.label} value={option.value}>
+                            {option.label}
                           </option>
                         ))}
-                        {formData.industry && (
-                          <option value="Other">Other</option>
-                        )}
                       </select>
                     </div>
                   </div>
