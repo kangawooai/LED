@@ -10,7 +10,6 @@ const popularLinks = [
   { title: "About Us", href: "/about", description: "Learn about Leads Everyday" },
   { title: "Book a Call", href: "/book-a-call", description: "Book a free consultation" },
   { title: "FAQs", href: "/faqs", description: "Frequently asked questions" },
-  { title: "Case Studies", href: "/case-studies", description: "See real results from our clients" },
   { title: "Contact", href: "/book-a-call", description: "Get in touch with our team" },
 ]
 
