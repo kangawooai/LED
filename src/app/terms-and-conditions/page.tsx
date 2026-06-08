@@ -135,7 +135,7 @@ const TermsAndConditions = () => {
               </h2>
               <ul className="space-y-2 list-disc list-inside">
                 <li>
-                  Responding to leads promptly -- we recommend within 30 minutes
+                  Responding to leads promptly,we recommend within 30 minutes
                   for the best conversion rates
                 </li>
                 <li>

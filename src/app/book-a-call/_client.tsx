@@ -85,13 +85,19 @@ const BookACallContent = () => {
     }
 
     try {
+      // Map the selected label back to the CRM value
+      const selectedOption = CRM_SERVICE_OPTIONS
+        .find((g) => g.group === formData.industry)
+        ?.options.find((o) => o.label === formData.trade);
+      const crmValue = selectedOption?.value ?? formData.trade;
+
       const res = await fetch("/api/enquiry", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           ...formData,
           ...utmData,
-          service: formData.trade,
+          service: crmValue,
         }),
       });
 
@@ -124,7 +130,7 @@ const BookACallContent = () => {
             style={{ animationDelay: "0.2s" }}
           >
             Tell us about your business and we&apos;ll show you exactly how many
-            leads we can deliver. No obligations, no hard sell -- just a
+            leads we can deliver. No obligations, no hard sell,just a
             straightforward conversation about growing your business.
           </p>
         </div>
@@ -249,7 +255,7 @@ const BookACallContent = () => {
                             : "Select industry first"}
                         </option>
                         {filteredServices.map((option) => (
-                          <option key={option.label} value={option.value}>
+                          <option key={option.label} value={option.label}>
                             {option.label}
                           </option>
                         ))}

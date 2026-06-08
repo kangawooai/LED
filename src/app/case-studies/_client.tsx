@@ -39,7 +39,7 @@ const caseStudies = [
     solution:
       "We created an exclusive landing page for roof repairs in Birmingham and ran highly targeted ads so Tom was the only roofer customers contacted.",
     results: [
-      "100% exclusive leads -- no competition",
+      "100% exclusive leads,no competition",
       "Win rate jumped from 15% to over 40%",
       "Consistent flow of 20+ leads per month",
       "Reduced overall marketing spend by 35%",
@@ -92,7 +92,7 @@ const CaseStudies = () => {
             style={{ animationDelay: "0.2s" }}
           >
             See how tradespeople across the UK are using {COMPANY.name} to fill
-            their diaries and grow their businesses. No fluff -- just the
+            their diaries and grow their businesses. No fluff,just the
             numbers.
           </p>
         </div>
@@ -189,7 +189,7 @@ const CaseStudies = () => {
                         &ldquo;{study.quote}&rdquo;
                       </p>
                       <p className="text-foreground/50 text-xs mt-2">
-                        -- {study.name}, {study.business}
+                       ,{study.name}, {study.business}
                       </p>
                     </div>
                   </div>

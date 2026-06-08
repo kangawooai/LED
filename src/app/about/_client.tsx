@@ -19,7 +19,7 @@ const values = [
     icon: IconTarget,
     title: "Results First",
     description:
-      "We tell you how many leads to expect before you start. No guesswork, no empty promises -- just clear forecasts backed by data.",
+      "We tell you how many leads to expect before you start. No guesswork, no empty promises,just clear forecasts backed by data.",
   },
   {
     icon: IconShieldCheck,
@@ -120,7 +120,7 @@ const About = () => {
                 </p>
                 <p>
                   The customer fills in an enquiry form or calls you directly.
-                  You get the lead instantly -- name, number, what they need, and
+                  You get the lead instantly,name, number, what they need, and
                   where they are. No chasing, no cold calls, just warm
                   enquiries.
                 </p>
