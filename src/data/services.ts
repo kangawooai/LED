@@ -9,14 +9,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for plasterers across the UK. Whether you specialise in skimming, rendering, dry lining, or full re-plasters, we connect you with homeowners and businesses who need your skills right now.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Homeowners actively searching for a plasterer in your area",
       "Bespoke landing page built specifically for your plastering business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any jobs,every penny you earn is yours",
+      "No commission on any jobs, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Plastering Leads | Get More Plastering Jobs | Leads Everyday",
     metaDescription:
@@ -31,14 +31,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for scaffolding companies across the UK. Whether you provide domestic scaffolding, commercial projects, temporary roofing, or access solutions, we connect you with customers who need scaffolding erected right now.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Customers actively searching for scaffolding hire in your area",
       "Bespoke landing page built specifically for your scaffolding business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any jobs,every penny you earn is yours",
+      "No commission on any jobs, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Scaffolding Leads | Get More Scaffolding Jobs | Leads Everyday",
     metaDescription:
@@ -54,14 +54,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for house extension builders across the UK. Whether you specialise in single-storey rear extensions, double-storey builds, wrap-around extensions, or garage conversions, we connect you with homeowners ready to invest in expanding their living space.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Homeowners actively searching for extension builders in your area",
       "Bespoke landing page built specifically for your extension business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any jobs,every penny you earn is yours",
+      "No commission on any jobs, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "House Extension Leads | Get More Extension Jobs | Leads Everyday",
     metaDescription:
@@ -76,14 +76,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for loft conversion specialists across the UK. Whether you offer dormer conversions, hip-to-gable, Velux installations, or mansard loft builds, we connect you with homeowners looking to transform their unused loft space into a beautiful new room.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Homeowners actively searching for loft conversion companies in your area",
       "Bespoke landing page built specifically for your loft conversion business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any jobs,every penny you earn is yours",
+      "No commission on any jobs, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Loft Conversion Leads | Get More Loft Jobs | Leads Everyday",
     metaDescription:
@@ -98,14 +98,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for kitchen and bathroom fitters across the UK. Whether you specialise in full kitchen installations, bathroom renovations, wet rooms, or en-suite conversions, we connect you with homeowners ready to upgrade their home.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Homeowners actively searching for kitchen and bathroom fitters in your area",
       "Bespoke landing page built specifically for your fitting business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any jobs,every penny you earn is yours",
+      "No commission on any jobs, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Kitchen & Bathroom Leads | Get More Fitting Jobs | Leads Everyday",
     metaDescription:
@@ -120,14 +120,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for flooring specialists across the UK. Whether you fit laminate, engineered wood, vinyl, carpet, or luxury vinyl tiles, we connect you with homeowners and businesses looking for professional flooring installation.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Customers actively searching for flooring installers in your area",
       "Bespoke landing page built specifically for your flooring business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any jobs,every penny you earn is yours",
+      "No commission on any jobs, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Flooring Leads | Get More Flooring Jobs | Leads Everyday",
     metaDescription:
@@ -141,14 +141,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for garage door companies across the UK. Whether you supply and install roller doors, sectional doors, side-hinged doors, or electric automation systems, we connect you with homeowners ready to upgrade their garage.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Homeowners actively searching for garage door companies in your area",
       "Bespoke landing page built specifically for your garage door business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any jobs,every penny you earn is yours",
+      "No commission on any jobs, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Garage Door Leads | Get More Garage Door Jobs | Leads Everyday",
     metaDescription:
@@ -163,14 +163,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for conservatory roof specialists across the UK. Whether you install solid tiled roofs, glass replacements, polycarbonate upgrades, or insulated panels, we connect you with homeowners looking to transform their conservatory into a year-round living space.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Homeowners actively searching for conservatory roof companies in your area",
       "Bespoke landing page built specifically for your conservatory roof business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any jobs,every penny you earn is yours",
+      "No commission on any jobs, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Conservatory Roof Leads | Get More Roof Replacement Jobs | Leads Everyday",
     metaDescription:
@@ -185,14 +185,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for insulation companies across the UK. Whether you specialise in cavity wall insulation, loft insulation, external wall insulation, or spray foam, we connect you with homeowners and landlords looking to improve their property's energy efficiency.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Homeowners actively searching for insulation installers in your area",
       "Bespoke landing page built specifically for your insulation business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any jobs,every penny you earn is yours",
+      "No commission on any jobs, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Insulation Leads | Get More Insulation Jobs | Leads Everyday",
     metaDescription:
@@ -206,14 +206,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for damp proofing specialists across the UK. Whether you provide rising damp treatment, condensation solutions, tanking, waterproofing, or mould remediation, we connect you with homeowners who need damp problems sorted fast.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Homeowners actively searching for damp proofing specialists in your area",
       "Bespoke landing page built specifically for your damp proofing business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any jobs,every penny you earn is yours",
+      "No commission on any jobs, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Damp Proofing Leads | Get More Damp Treatment Jobs | Leads Everyday",
     metaDescription:
@@ -227,14 +227,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for pointing and repointing specialists across the UK. Whether you work with brick, stone, lime mortar, or cement pointing, we connect you with homeowners who need their brickwork restored to its best.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Homeowners actively searching for pointing specialists in your area",
       "Bespoke landing page built specifically for your pointing business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any jobs,every penny you earn is yours",
+      "No commission on any jobs, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Pointing Leads | Get More Repointing Jobs | Leads Everyday",
     metaDescription:
@@ -248,14 +248,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for masons and bricklayers across the UK. Whether you specialise in brickwork, stonework, blockwork, retaining walls, or garden walls, we connect you with customers who need skilled masonry work done right.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Customers actively searching for masons and bricklayers in your area",
       "Bespoke landing page built specifically for your masonry business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any jobs,every penny you earn is yours",
+      "No commission on any jobs, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Masonry Leads | Get More Bricklaying Jobs | Leads Everyday",
     metaDescription:
@@ -270,14 +270,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for concrete delivery companies across the UK. Whether you supply ready-mix concrete, volumetric concrete, mini-mix loads, or pump hire, we connect you with builders, contractors, and homeowners who need concrete delivered on time.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Customers actively searching for concrete delivery in your area",
       "Bespoke landing page built specifically for your concrete business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any jobs,every penny you earn is yours",
+      "No commission on any jobs, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Concrete Delivery Leads | Get More Concrete Orders | Leads Everyday",
     metaDescription:
@@ -292,14 +292,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for dry lining contractors across the UK. Whether you specialise in plasterboard fitting, metal stud partitioning, dot and dab, or acoustic insulation, we connect you with builders and homeowners who need professional dry lining work.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Customers actively searching for dry liners in your area",
       "Bespoke landing page built specifically for your dry lining business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any jobs,every penny you earn is yours",
+      "No commission on any jobs, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Dry Lining Leads | Get More Dry Lining Jobs | Leads Everyday",
     metaDescription:
@@ -313,14 +313,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for painters and decorators across the UK. Whether you specialise in interior painting, exterior decorating, wallpapering, or commercial repaints, we connect you with customers who want their property looking its absolute best.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Homeowners actively searching for painters and decorators in your area",
       "Bespoke landing page built specifically for your decorating business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any jobs,every penny you earn is yours",
+      "No commission on any jobs, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Painter & Decorator Leads | Get More Decorating Jobs | Leads Everyday",
     metaDescription:
@@ -336,14 +336,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for tilers across the UK. Whether you specialise in bathroom tiling, kitchen splashbacks, floor tiling, mosaic work, or outdoor patio tiles, we connect you with customers who need a professional tiling job done right.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Homeowners actively searching for tilers in your area",
       "Bespoke landing page built specifically for your tiling business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any jobs,every penny you earn is yours",
+      "No commission on any jobs, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Tiling Leads | Get More Tiling Jobs | Leads Everyday",
     metaDescription:
@@ -357,14 +357,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for driveway installers across the UK. Whether you lay block paving, resin-bound surfaces, tarmac, gravel, or pattern-imprinted concrete, we connect you with homeowners looking for a stunning new driveway.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Homeowners actively searching for driveway installers in your area",
       "Bespoke landing page built specifically for your driveway business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any jobs,every penny you earn is yours",
+      "No commission on any jobs, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Driveway Leads | Get More Driveway Installation Jobs | Leads Everyday",
     metaDescription:
@@ -378,14 +378,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for fencing contractors across the UK. Whether you install closeboard fencing, panel fencing, picket fences, security fencing, or garden gates, we connect you with homeowners and businesses who need professional fencing work.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Customers actively searching for fencing contractors in your area",
       "Bespoke landing page built specifically for your fencing business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any jobs,every penny you earn is yours",
+      "No commission on any jobs, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Fencing Leads | Get More Fencing Jobs | Leads Everyday",
     metaDescription:
@@ -400,14 +400,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for guttering specialists across the UK. Whether you install, repair, or replace gutters, fascias, soffits, or downpipes, we connect you with homeowners who need reliable rainwater management solutions.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Homeowners actively searching for guttering specialists in your area",
       "Bespoke landing page built specifically for your guttering business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any jobs,every penny you earn is yours",
+      "No commission on any jobs, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Guttering Leads | Get More Gutter Installation Jobs | Leads Everyday",
     metaDescription:
@@ -422,14 +422,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for roofers across the UK. Whether you specialise in tile replacements, flat roof repairs, chimney flashing, ridge tiles, or emergency leak repairs, we connect you with homeowners who need their roof fixed fast.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Homeowners actively searching for roofers in your area",
       "Bespoke landing page built specifically for your roofing business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any jobs,every penny you earn is yours",
+      "No commission on any jobs, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Roof Repair Leads | Get More Roofing Jobs | Leads Everyday",
     metaDescription:
@@ -445,14 +445,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for licensed asbestos removal companies across the UK. Whether you handle asbestos surveys, testing, encapsulation, or full removal and disposal, we connect you with homeowners and businesses who need safe, professional asbestos management.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Customers actively searching for asbestos removal companies in your area",
       "Bespoke landing page built specifically for your asbestos removal business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any jobs,every penny you earn is yours",
+      "No commission on any jobs, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Asbestos Removal Leads | Get More Asbestos Jobs | Leads Everyday",
     metaDescription:
@@ -466,14 +466,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for demolition contractors across the UK. Whether you provide structural demolition, soft strip, site clearance, or selective internal demolition, we connect you with developers, builders, and homeowners who need professional demolition work.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Customers actively searching for demolition companies in your area",
       "Bespoke landing page built specifically for your demolition business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any jobs,every penny you earn is yours",
+      "No commission on any jobs, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Demolition Leads | Get More Demolition Jobs | Leads Everyday",
     metaDescription:
@@ -488,14 +488,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for artificial grass installers across the UK. Whether you install residential lawns, commercial areas, play surfaces, or pet-friendly turf, we connect you with homeowners and businesses who want a low-maintenance, year-round green space.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Homeowners actively searching for artificial grass installers in your area",
       "Bespoke landing page built specifically for your artificial grass business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any jobs,every penny you earn is yours",
+      "No commission on any jobs, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Artificial Grass Leads | Get More Installation Jobs | Leads Everyday",
     metaDescription:
@@ -510,14 +510,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for landscapers across the UK. Whether you specialise in garden design, hard landscaping, soft landscaping, patios, decking, or complete garden transformations, we connect you with homeowners who want to create their dream outdoor space.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Homeowners actively searching for landscapers in your area",
       "Bespoke landing page built specifically for your landscaping business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any jobs,every penny you earn is yours",
+      "No commission on any jobs, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Landscaping Leads | Get More Landscaping Jobs | Leads Everyday",
     metaDescription:
@@ -533,14 +533,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for property maintenance companies across the UK. Whether you handle general repairs, handyman services, landlord maintenance, commercial upkeep, or facilities management, we connect you with property owners who need reliable ongoing maintenance.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Property owners actively searching for maintenance companies in your area",
       "Bespoke landing page built specifically for your property maintenance business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any jobs,every penny you earn is yours",
+      "No commission on any jobs, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Property Maintenance Leads | Get More Maintenance Jobs | Leads Everyday",
     metaDescription:
@@ -555,14 +555,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for architects and architectural designers across the UK. Whether you specialise in residential extensions, new builds, planning applications, loft conversions, or commercial design, we connect you with clients who need professional architectural services.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Clients actively searching for architects in your area",
       "Bespoke landing page built specifically for your architecture practice",
       "Targeted Google Ads that reach clients when they need you most",
-      "No commission on any projects,every penny you earn is yours",
+      "No commission on any projects, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Architect Leads | Get More Architecture Clients | Leads Everyday",
     metaDescription:
@@ -576,14 +576,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for chimney specialists across the UK. Whether you provide chimney repairs, rebuilds, lining, capping, stack removal, or new fireplace installations, we connect you with homeowners who need professional chimney work done safely.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Homeowners actively searching for chimney specialists in your area",
       "Bespoke landing page built specifically for your chimney business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any jobs,every penny you earn is yours",
+      "No commission on any jobs, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Chimney Leads | Get More Chimney Repair Jobs | Leads Everyday",
     metaDescription:
@@ -598,14 +598,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for MOT testing stations across the UK. Whether you offer Class 4, Class 5, or Class 7 MOTs, combined service and MOT packages, or same-day testing, we connect you with motorists who need their vehicle tested now.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Motorists actively searching for MOT testing stations in your area",
       "Bespoke landing page built specifically for your MOT business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any bookings,every penny you earn is yours",
+      "No commission on any bookings, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "MOT Leads | Get More MOT Bookings | Leads Everyday",
     metaDescription:
@@ -621,14 +621,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for vehicle servicing garages across the UK. Whether you provide interim services, full services, major services, or manufacturer-standard maintenance for cars and vans, we connect you with vehicle owners who want their car looked after by professionals.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Vehicle owners actively searching for car servicing garages in your area",
       "Bespoke landing page built specifically for your servicing business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any bookings,every penny you earn is yours",
+      "No commission on any bookings, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Servicing Leads | Get More Vehicle Servicing Bookings | Leads Everyday",
     metaDescription:
@@ -644,14 +644,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for clutch repair specialists across the UK. Whether you handle clutch replacements, dual mass flywheel repairs, clutch slave cylinder fixes, or concentric bearing failures, we connect you with motorists who need expert clutch work done right.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Motorists actively searching for clutch repair specialists in your area",
       "Bespoke landing page built specifically for your clutch repair business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any jobs,every penny you earn is yours",
+      "No commission on any jobs, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Clutch Repair Leads | Get More Clutch Replacement Jobs | Leads Everyday",
     metaDescription:
@@ -667,14 +667,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for suspension specialists across the UK. Whether you replace shock absorbers, springs, drop links, anti-roll bars, or carry out full suspension overhauls and performance upgrades, we connect you with vehicle owners who need their ride restored.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Vehicle owners actively searching for suspension repair specialists in your area",
       "Bespoke landing page built specifically for your suspension repair business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any jobs,every penny you earn is yours",
+      "No commission on any jobs, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Suspension Repair Leads | Get More Suspension Jobs | Leads Everyday",
     metaDescription:
@@ -690,14 +690,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for brake specialists across the UK. Whether you fit brake pads, replace discs, repair callipers, service handbrake cables, or carry out full braking system overhauls, we connect you with motorists who need safe, reliable stopping power.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Motorists actively searching for brake repair specialists in your area",
       "Bespoke landing page built specifically for your brake repair business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any jobs,every penny you earn is yours",
+      "No commission on any jobs, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Brake Repair Leads | Get More Brake & Disc Jobs | Leads Everyday",
     metaDescription:
@@ -712,14 +712,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for cambelt and timing chain specialists across the UK. Whether you replace cambelts, timing chains, water pumps, or tensioner kits, we connect you with vehicle owners who need this critical maintenance carried out by a trusted professional.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Vehicle owners actively searching for cambelt replacement specialists in your area",
       "Bespoke landing page built specifically for your cambelt repair business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any jobs,every penny you earn is yours",
+      "No commission on any jobs, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Cambelt Replacement Leads | Get More Cambelt Jobs | Leads Everyday",
     metaDescription:
@@ -734,14 +734,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for turbocharger specialists across the UK. Whether you repair, recondition, or replace turbos, fit hybrid upgrades, or diagnose boost leaks and wastegate faults, we connect you with motorists who need expert turbo work at a fair price.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Motorists actively searching for turbo repair specialists in your area",
       "Bespoke landing page built specifically for your turbo repair business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any jobs,every penny you earn is yours",
+      "No commission on any jobs, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Turbo Repair Leads | Get More Turbo Replacement Jobs | Leads Everyday",
     metaDescription:
@@ -756,14 +756,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for gearbox specialists across the UK. Whether you rebuild manual gearboxes, repair automatic transmissions, replace mechatronic units, or service DSG and CVT systems, we connect you with vehicle owners facing gearbox problems who need a specialist they can trust.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Vehicle owners actively searching for gearbox repair specialists in your area",
       "Bespoke landing page built specifically for your gearbox repair business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any jobs,every penny you earn is yours",
+      "No commission on any jobs, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Gearbox Repair Leads | Get More Gearbox Jobs | Leads Everyday",
     metaDescription:
@@ -779,14 +779,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for engine rebuild specialists across the UK. Whether you carry out full engine reconditioning, cylinder head repairs, bottom-end rebuilds, or performance engine builds, we connect you with vehicle owners and enthusiasts who need expert engine work.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Vehicle owners and enthusiasts actively searching for engine rebuild specialists in your area",
       "Bespoke landing page built specifically for your engine rebuild business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any jobs,every penny you earn is yours",
+      "No commission on any jobs, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Engine Rebuild Leads | Get More Engine Recon Jobs | Leads Everyday",
     metaDescription:
@@ -801,14 +801,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for exhaust specialists across the UK. Whether you fit replacement exhaust systems, repair catalytic converters, weld flexi pipes, or install performance exhausts and back boxes, we connect you with motorists who need fast, professional exhaust work.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Motorists actively searching for exhaust repair specialists in your area",
       "Bespoke landing page built specifically for your exhaust business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any jobs,every penny you earn is yours",
+      "No commission on any jobs, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Exhaust Repair Leads | Get More Exhaust Jobs | Leads Everyday",
     metaDescription:
@@ -823,14 +823,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for DPF and carbon cleaning specialists across the UK. Whether you provide DPF cleaning, forced regeneration, carbon intake cleaning, hydrogen decarbonisation, or EGR valve cleaning, we connect you with motorists dealing with warning lights, poor performance, and blocked filters.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Motorists actively searching for DPF and carbon cleaning services in your area",
       "Bespoke landing page built specifically for your DPF cleaning business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any jobs,every penny you earn is yours",
+      "No commission on any jobs, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "DPF Cleaning Leads | Get More Carbon Cleaning Bookings | Leads Everyday",
     metaDescription:
@@ -846,14 +846,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for ECU remapping specialists across the UK. Whether you offer stage 1 and stage 2 remaps, economy tuning, AdBlue and EGR solutions, or custom dyno tuning for performance vehicles, we connect you with motorists who want to unlock their engine's full potential.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Motorists and enthusiasts actively searching for remapping specialists in your area",
       "Bespoke landing page built specifically for your remapping business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any jobs,every penny you earn is yours",
+      "No commission on any jobs, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Remapping Leads | Get More ECU Remapping Bookings | Leads Everyday",
     metaDescription:
@@ -869,14 +869,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for tyre fitting businesses across the UK. Whether you supply and fit budget, mid-range, or premium tyres, offer mobile tyre fitting, puncture repairs, or wheel balancing, we connect you with motorists who need new rubber fitted quickly and professionally.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Motorists actively searching for tyre fitting services in your area",
       "Bespoke landing page built specifically for your tyre business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any jobs,every penny you earn is yours",
+      "No commission on any jobs, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Tyre Fitting Leads | Get More Tyre Sales & Fitting Bookings | Leads Everyday",
     metaDescription:
@@ -892,14 +892,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for alloy wheel repair specialists across the UK. Whether you offer diamond cutting, powder coating, kerb damage repair, colour changes, or buckle straightening, we connect you with vehicle owners who want their wheels looking showroom-fresh.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Vehicle owners actively searching for alloy wheel repair services in your area",
       "Bespoke landing page built specifically for your wheel repair business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any jobs,every penny you earn is yours",
+      "No commission on any jobs, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Alloy Wheel Repair Leads | Get More Wheel Refurb Jobs | Leads Everyday",
     metaDescription:
@@ -915,14 +915,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for bodyshops and smart repair technicians across the UK. Whether you specialise in dent removal, scratch repair, bumper scuff fixes, paintless dent repair, or full panel respray work, we connect you with vehicle owners who need cosmetic damage sorted fast.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Vehicle owners actively searching for bodyshop and smart repair services in your area",
       "Bespoke landing page built specifically for your bodyshop business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any jobs,every penny you earn is yours",
+      "No commission on any jobs, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Bodyshop Leads | Get More Smart Repair Jobs | Leads Everyday",
     metaDescription:
@@ -938,14 +938,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for auto electricians across the UK. Whether you diagnose fault codes, repair wiring looms, fit aftermarket accessories, troubleshoot starting and charging systems, or work with CAN bus networks, we connect you with motorists who need specialist electrical expertise.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Motorists actively searching for auto electricians in your area",
       "Bespoke landing page built specifically for your auto electrical business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any jobs,every penny you earn is yours",
+      "No commission on any jobs, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Auto Electrician Leads | Get More Auto Electrical Jobs | Leads Everyday",
     metaDescription:
@@ -960,14 +960,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for vehicle air conditioning specialists across the UK. Whether you provide AC regas, leak detection, compressor replacement, condenser repairs, or full climate control servicing, we connect you with motorists who need their air con blowing cold again.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Motorists actively searching for car air conditioning services in your area",
       "Bespoke landing page built specifically for your air conditioning business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any jobs,every penny you earn is yours",
+      "No commission on any jobs, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Air Conditioning Leads | Get More AC Regas Bookings | Leads Everyday",
     metaDescription:
@@ -982,14 +982,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for electric and hybrid vehicle specialists across the UK. Whether you service battery electric vehicles, plug-in hybrids, carry out battery health checks, or provide EV-specific brake and coolant maintenance, we connect you with forward-thinking motorists who need an EV-qualified technician.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "EV and hybrid owners actively searching for specialist servicing garages in your area",
       "Bespoke landing page built specifically for your EV servicing business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any jobs,every penny you earn is yours",
+      "No commission on any jobs, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "EV Servicing Leads | Get More Electric & Hybrid Bookings | Leads Everyday",
     metaDescription:
@@ -1004,14 +1004,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for towbar fitting specialists across the UK. Whether you supply and fit fixed, detachable, or swan neck towbars, wire in dedicated electrics, or install towing mirrors and accessories, we connect you with vehicle owners who need a professional towbar fitted for towing caravans, trailers, and bike racks.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Vehicle owners actively searching for towbar fitters in your area",
       "Bespoke landing page built specifically for your towbar installation business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any jobs,every penny you earn is yours",
+      "No commission on any jobs, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Towbar Installation Leads | Get More Towbar Fitting Jobs | Leads Everyday",
     metaDescription:
@@ -1027,14 +1027,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for vehicle immobiliser and security specialists across the UK. Whether you install Ghost immobilisers, Pandora systems, CAN bus deadlocks, or OBD port protection, we connect you with vehicle owners who want to protect their car or van from theft.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Vehicle owners actively searching for immobiliser installers in your area",
       "Bespoke landing page built specifically for your vehicle security business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any jobs,every penny you earn is yours",
+      "No commission on any jobs, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Immobiliser Leads | Get More Vehicle Security Installation Jobs | Leads Everyday",
     metaDescription:
@@ -1050,14 +1050,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for vehicle detailing specialists across the UK. Whether you offer paint correction, ceramic coating, interior deep cleans, machine polishing, or full paint protection film installation, we connect you with vehicle owners who want their pride and joy looking immaculate.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Vehicle owners actively searching for professional detailing services in your area",
       "Bespoke landing page built specifically for your detailing business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any jobs,every penny you earn is yours",
+      "No commission on any jobs, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Detailing Leads | Get More Vehicle Detailing Bookings | Leads Everyday",
     metaDescription:
@@ -1073,14 +1073,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for car and van finance brokers across the UK. Whether you specialise in prime lending, sub-prime finance, hire purchase, PCP deals, or bad credit vehicle finance, we connect you with buyers who are ready to get behind the wheel with the right finance package.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Buyers actively searching for vehicle finance options in your area",
       "Bespoke landing page built specifically for your finance business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any deals,every penny you earn is yours",
+      "No commission on any deals, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Car Finance Leads | Get More Vehicle Finance Enquiries | Leads Everyday",
     metaDescription:
@@ -1096,14 +1096,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for vehicle recovery operators across the UK. Whether you provide roadside breakdown recovery, accident recovery, long-distance transport, or specialist low-loader services, we connect you with stranded motorists and fleet managers who need a vehicle moved quickly and safely.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Motorists and fleet managers actively searching for vehicle recovery in your area",
       "Bespoke landing page built specifically for your recovery business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any jobs,every penny you earn is yours",
+      "No commission on any jobs, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Vehicle Recovery Leads | Get More Recovery Bookings | Leads Everyday",
     metaDescription:
@@ -1119,14 +1119,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for differential repair specialists across the UK. Whether you rebuild rear differentials, repair front diffs, replace bearings and seals, or service limited-slip and locking differentials, we connect you with vehicle owners and 4x4 enthusiasts who need specialist drivetrain expertise.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Vehicle owners and 4x4 enthusiasts actively searching for differential specialists in your area",
       "Bespoke landing page built specifically for your differential repair business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any jobs,every penny you earn is yours",
+      "No commission on any jobs, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Differential Repair Leads | Get More Diff Rebuild Jobs | Leads Everyday",
     metaDescription:
@@ -1141,14 +1141,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for mobile mechanics across the UK. Whether you provide on-site servicing, diagnostics, brake repairs, clutch replacements, or general mechanical work at the customer's home or workplace, we connect you with motorists who need a qualified mechanic to come to them.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Motorists actively searching for mobile mechanics in your area",
       "Bespoke landing page built specifically for your mobile mechanic business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any jobs,every penny you earn is yours",
+      "No commission on any jobs, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Mobile Mechanic Leads | Get More Mobile Mechanic Bookings | Leads Everyday",
     metaDescription:
@@ -1164,14 +1164,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for electricians across the UK. Whether you specialise in domestic rewires, consumer unit upgrades, fault finding, lighting installations, or commercial electrical work, we connect you with customers who need a qualified electrician right now.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Homeowners and businesses actively searching for electricians in your area",
       "Bespoke landing page built specifically for your electrical business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any jobs,every penny you earn is yours",
+      "No commission on any jobs, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Electrician Leads | Get More Electrical Jobs | Leads Everyday",
     metaDescription:
@@ -1187,14 +1187,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for plumbers and heating engineers across the UK. Whether you handle emergency plumbing repairs, central heating installations, radiator replacements, or bathroom plumbing, we connect you with homeowners who need a reliable plumber fast.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Homeowners actively searching for plumbers and heating engineers in your area",
       "Bespoke landing page built specifically for your plumbing and heating business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any jobs,every penny you earn is yours",
+      "No commission on any jobs, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Plumbing & Heating Leads | Get More Plumbing Jobs | Leads Everyday",
     metaDescription:
@@ -1208,14 +1208,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for boiler repair and servicing engineers across the UK. Whether you carry out boiler breakdowns, annual servicing, new boiler installations, powerflush treatments, or landlord gas safety certificates, we connect you with homeowners who need a Gas Safe registered engineer they can trust.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Homeowners actively searching for boiler repair engineers in your area",
       "Bespoke landing page built specifically for your boiler repair business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any jobs,every penny you earn is yours",
+      "No commission on any jobs, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Boiler Repair Leads | Get More Boiler Servicing Jobs | Leads Everyday",
     metaDescription:
@@ -1229,14 +1229,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for EV charger installation specialists across the UK. Whether you install home wallbox chargers, commercial charging stations, workplace charging points, or three-phase rapid chargers, we connect you with electric vehicle owners and businesses ready to go electric.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "EV owners and businesses actively searching for charger installers in your area",
       "Bespoke landing page built specifically for your EV charging business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any jobs,every penny you earn is yours",
+      "No commission on any jobs, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "EV Charging Leads | Get More EV Charger Installation Jobs | Leads Everyday",
     metaDescription:
@@ -1250,14 +1250,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for PAT testing companies across the UK. Whether you provide portable appliance testing for offices, landlords, construction sites, or commercial premises, we connect you with businesses and property owners who need their electrical equipment tested and certified.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Businesses and landlords actively searching for PAT testing services in your area",
       "Bespoke landing page built specifically for your PAT testing business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any jobs,every penny you earn is yours",
+      "No commission on any jobs, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "PAT Testing Leads | Get More PAT Testing Bookings | Leads Everyday",
     metaDescription:
@@ -1271,14 +1271,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for solar panel installers across the UK. Whether you fit domestic rooftop arrays, commercial solar systems, battery storage solutions, or solar panel maintenance and cleaning, we connect you with homeowners and businesses looking to cut their energy bills and go green.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Homeowners and businesses actively searching for solar installers in your area",
       "Bespoke landing page built specifically for your solar panel business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any jobs,every penny you earn is yours",
+      "No commission on any jobs, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Solar Panel Leads | Get More Solar Installation Jobs | Leads Everyday",
     metaDescription:
@@ -1293,14 +1293,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for locksmiths across the UK. Whether you handle emergency lockouts, lock replacements, UPVC door mechanism repairs, safe opening, or master key system installations, we connect you with homeowners and businesses who need a trusted locksmith fast.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Customers actively searching for locksmiths in your area",
       "Bespoke landing page built specifically for your locksmith business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any jobs,every penny you earn is yours",
+      "No commission on any jobs, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Locksmith Leads | Get More Locksmith Jobs | Leads Everyday",
     metaDescription:
@@ -1316,14 +1316,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for alarm installation companies across the UK. Whether you fit burglar alarms, wireless smart alarms, fire alarm systems, or monitored intruder alarm solutions, we connect you with homeowners and businesses who want to protect their property.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Homeowners and businesses actively searching for alarm installers in your area",
       "Bespoke landing page built specifically for your alarm installation business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any jobs,every penny you earn is yours",
+      "No commission on any jobs, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Alarm Installation Leads | Get More Alarm Jobs | Leads Everyday",
     metaDescription:
@@ -1338,14 +1338,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for CCTV installation specialists across the UK. Whether you install domestic camera systems, commercial CCTV, IP camera networks, or remote monitoring solutions, we connect you with homeowners and businesses who need professional security camera installation.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Homeowners and businesses actively searching for CCTV installers in your area",
       "Bespoke landing page built specifically for your CCTV installation business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any jobs,every penny you earn is yours",
+      "No commission on any jobs, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "CCTV Installation Leads | Get More CCTV Jobs | Leads Everyday",
     metaDescription:
@@ -1360,14 +1360,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for chimney sweeps across the UK. Whether you provide standard chimney sweeping, bird nest removal, smoke testing, CCTV flue inspections, or wood burner maintenance, we connect you with homeowners who need their chimney cleaned safely and professionally.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Homeowners actively searching for chimney sweeps in your area",
       "Bespoke landing page built specifically for your chimney sweep business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any jobs,every penny you earn is yours",
+      "No commission on any jobs, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Chimney Sweep Leads | Get More Chimney Sweeping Bookings | Leads Everyday",
     metaDescription:
@@ -1381,14 +1381,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for drain clearance specialists across the UK. Whether you handle blocked drains, CCTV drain surveys, high-pressure jetting, drain relining, or emergency drainage call-outs, we connect you with homeowners and businesses who need their drains unblocked fast.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Customers actively searching for drain clearance services in your area",
       "Bespoke landing page built specifically for your drain clearance business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any jobs,every penny you earn is yours",
+      "No commission on any jobs, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Drain Clearance Leads | Get More Drain Unblocking Jobs | Leads Everyday",
     metaDescription:
@@ -1403,14 +1403,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for cleaning companies across the UK. Whether you provide domestic house cleaning, office cleaning, end-of-tenancy cleans, deep cleaning, or commercial contract cleaning, we connect you with customers who need reliable, professional cleaners.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Customers actively searching for cleaning services in your area",
       "Bespoke landing page built specifically for your cleaning business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any jobs,every penny you earn is yours",
+      "No commission on any jobs, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Cleaning Leads | Get More Cleaning Bookings | Leads Everyday",
     metaDescription:
@@ -1425,14 +1425,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for carpet cleaning specialists across the UK. Whether you offer hot water extraction, dry cleaning, stain removal, upholstery cleaning, or rug cleaning services, we connect you with homeowners and landlords who want their carpets looking fresh and spotless.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Homeowners actively searching for carpet cleaners in your area",
       "Bespoke landing page built specifically for your carpet cleaning business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any jobs,every penny you earn is yours",
+      "No commission on any jobs, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Carpet Cleaning Leads | Get More Carpet Cleaning Bookings | Leads Everyday",
     metaDescription:
@@ -1448,14 +1448,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for window cleaners across the UK. Whether you provide residential window cleaning, commercial window washing, conservatory roof cleaning, or water-fed pole and traditional cleaning methods, we connect you with customers who want sparkling clean windows.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Homeowners and businesses actively searching for window cleaners in your area",
       "Bespoke landing page built specifically for your window cleaning business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any jobs,every penny you earn is yours",
+      "No commission on any jobs, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Window Cleaning Leads | Get More Window Cleaning Bookings | Leads Everyday",
     metaDescription:
@@ -1470,14 +1470,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for oven cleaning specialists across the UK. Whether you clean domestic ovens, Agas, range cookers, hobs, extractor hoods, or microwaves, we connect you with homeowners who want their kitchen appliances restored to pristine condition.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Homeowners actively searching for oven cleaning services in your area",
       "Bespoke landing page built specifically for your oven cleaning business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any jobs,every penny you earn is yours",
+      "No commission on any jobs, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Oven Cleaning Leads | Get More Oven Cleaning Bookings | Leads Everyday",
     metaDescription:
@@ -1491,14 +1491,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for gutter cleaning specialists across the UK. Whether you provide gutter vacuuming, manual clearing, downpipe unblocking, or gutter guard installation, we connect you with homeowners who need their gutters cleared to prevent water damage and blockages.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Homeowners actively searching for gutter cleaning services in your area",
       "Bespoke landing page built specifically for your gutter cleaning business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any jobs,every penny you earn is yours",
+      "No commission on any jobs, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Gutter Cleaning Leads | Get More Gutter Cleaning Bookings | Leads Everyday",
     metaDescription:
@@ -1513,14 +1513,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for exterior cleaning companies across the UK. Whether you provide pressure washing, softwashing, render cleaning, patio cleaning, or driveway jet washing, we connect you with homeowners and businesses who want the outside of their property looking spotless.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Homeowners and businesses actively searching for exterior cleaning services in your area",
       "Bespoke landing page built specifically for your exterior cleaning business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any jobs,every penny you earn is yours",
+      "No commission on any jobs, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Exterior Cleaning Leads | Get More Pressure Washing Jobs | Leads Everyday",
     metaDescription:
@@ -1535,14 +1535,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for roof cleaning and moss removal specialists across the UK. Whether you provide moss scraping, biocide treatments, softwash roof cleaning, or protective sealant coatings, we connect you with homeowners who want their roof restored and protected from further damage.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Homeowners actively searching for roof cleaning and moss removal services in your area",
       "Bespoke landing page built specifically for your roof cleaning business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any jobs,every penny you earn is yours",
+      "No commission on any jobs, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Roof Cleaning Leads | Get More Moss Removal Jobs | Leads Everyday",
     metaDescription:
@@ -1557,14 +1557,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for garden service providers across the UK. Whether you offer lawn mowing, hedge trimming, garden clearance, tree pruning, or regular garden maintenance packages, we connect you with homeowners who want their outdoor space kept neat and tidy all year round.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Homeowners actively searching for garden services in your area",
       "Bespoke landing page built specifically for your garden services business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any jobs,every penny you earn is yours",
+      "No commission on any jobs, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Garden Service Leads | Get More Garden Maintenance Bookings | Leads Everyday",
     metaDescription:
@@ -1580,14 +1580,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for beauty therapists across the UK. Whether you specialise in facials, waxing, lash extensions, microblading, nail treatments, or holistic beauty therapies, we connect you with clients who are looking for a skilled beauty professional they can trust.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Clients actively searching for beauty therapists in your area",
       "Bespoke landing page built specifically for your beauty therapy business",
       "Targeted Google Ads that reach clients when they need you most",
-      "No commission on any bookings,every penny you earn is yours",
+      "No commission on any bookings, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Beauty Therapy Leads | Get More Beauty Bookings | Leads Everyday",
     metaDescription:
@@ -1601,14 +1601,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for teeth whitening professionals across the UK. Whether you offer in-chair laser whitening, LED whitening sessions, take-home whitening kits, or combination treatment packages, we connect you with clients who want a brighter, more confident smile.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Clients actively searching for teeth whitening services in your area",
       "Bespoke landing page built specifically for your teeth whitening business",
       "Targeted Google Ads that reach clients when they need you most",
-      "No commission on any bookings,every penny you earn is yours",
+      "No commission on any bookings, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Teeth Whitening Leads | Get More Whitening Bookings | Leads Everyday",
     metaDescription:
@@ -1623,14 +1623,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for tattoo removal specialists across the UK. Whether you use laser tattoo removal, PicoSure technology, Q-switched lasers, or offer partial fading for cover-up work, we connect you with clients who are ready to remove or fade their unwanted ink.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Clients actively searching for tattoo removal services in your area",
       "Bespoke landing page built specifically for your tattoo removal business",
       "Targeted Google Ads that reach clients when they need you most",
-      "No commission on any bookings,every penny you earn is yours",
+      "No commission on any bookings, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Tattoo Removal Leads | Get More Tattoo Removal Bookings | Leads Everyday",
     metaDescription:
@@ -1644,14 +1644,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for opticians and optical practices across the UK. Whether you provide eye examinations, contact lens fittings, designer frames, prescription sunglasses, or specialist referrals, we connect you with patients who need professional eye care and stylish eyewear.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Patients actively searching for opticians in your area",
       "Bespoke landing page built specifically for your optical practice",
       "Targeted Google Ads that reach patients when they need you most",
-      "No commission on any appointments,every penny you earn is yours",
+      "No commission on any appointments, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Optician Leads | Get More Optician Appointments | Leads Everyday",
     metaDescription:
@@ -1666,14 +1666,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for solicitors and law firms across the UK. Whether you specialise in conveyancing, family law, personal injury, wills and probate, or commercial litigation, we connect you with clients who need expert legal advice and representation.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Clients actively searching for solicitors in your area",
       "Bespoke landing page built specifically for your legal practice",
       "Targeted Google Ads that reach clients when they need you most",
-      "No commission on any cases,every penny you earn is yours",
+      "No commission on any cases, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Solicitor Leads | Get More Legal Clients | Leads Everyday",
     metaDescription:
@@ -1687,14 +1687,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for driving instructors across the UK. Whether you offer manual or automatic lessons, intensive crash courses, motorway tuition, or refresher sessions, we connect you with learner drivers who are ready to book lessons with a patient, qualified instructor.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Learner drivers actively searching for driving instructors in your area",
       "Bespoke landing page built specifically for your driving school business",
       "Targeted Google Ads that reach pupils when they need you most",
-      "No commission on any bookings,every penny you earn is yours",
+      "No commission on any bookings, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Driving Instructor Leads | Get More Lesson Bookings | Leads Everyday",
     metaDescription:
@@ -1708,14 +1708,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for taxi and airport transfer companies across the UK. Whether you provide airport runs, corporate travel, long-distance transfers, or local private hire services, we connect you with passengers who need a reliable, professional driver.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Passengers actively searching for taxi and airport transfer services in your area",
       "Bespoke landing page built specifically for your taxi and transfer business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any bookings,every penny you earn is yours",
+      "No commission on any bookings, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Taxi & Airport Transfer Leads | Get More Taxi Bookings | Leads Everyday",
     metaDescription:
@@ -1730,14 +1730,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for line marking companies across the UK. Whether you provide car park marking, warehouse floor lines, road markings, playground markings, or sports court lining, we connect you with businesses and councils who need professional, durable line marking.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Businesses and facility managers actively searching for line marking services in your area",
       "Bespoke landing page built specifically for your line marking business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any jobs,every penny you earn is yours",
+      "No commission on any jobs, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Line Marking Leads | Get More Line Marking Jobs | Leads Everyday",
     metaDescription:
@@ -1752,14 +1752,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for skip hire companies across the UK. Whether you supply mini skips, midi skips, builders skips, roll-on roll-off containers, or offer wait-and-load services, we connect you with homeowners, builders, and businesses who need waste removed quickly.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Customers actively searching for skip hire services in your area",
       "Bespoke landing page built specifically for your skip hire business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any bookings,every penny you earn is yours",
+      "No commission on any bookings, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Skip Hire Leads | Get More Skip Hire Bookings | Leads Everyday",
     metaDescription:
@@ -1774,14 +1774,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for grab hire operators across the UK. Whether you provide grab lorry hire for muck away, soil removal, aggregate delivery, or site clearance, we connect you with builders, contractors, and homeowners who need heavy waste collected or materials delivered efficiently.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Builders and contractors actively searching for grab hire services in your area",
       "Bespoke landing page built specifically for your grab hire business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any bookings,every penny you earn is yours",
+      "No commission on any bookings, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Grab Hire Leads | Get More Grab Lorry Bookings | Leads Everyday",
     metaDescription:
@@ -1796,14 +1796,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for waste clearance companies across the UK. Whether you handle domestic rubbish removal, commercial waste collection, fly-tipping clearance, or licensed hazardous waste disposal, we connect you with customers who need their waste removed responsibly and efficiently.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Customers actively searching for waste clearance services in your area",
       "Bespoke landing page built specifically for your waste clearance business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any jobs,every penny you earn is yours",
+      "No commission on any jobs, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Waste Clearance Leads | Get More Rubbish Removal Jobs | Leads Everyday",
     metaDescription:
@@ -1819,14 +1819,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for house and garage clearance companies across the UK. Whether you provide full house clearances, probate clearances, garage clear-outs, hoarder property clearances, or furniture disposal, we connect you with homeowners and families who need a thorough, respectful clearance service.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Customers actively searching for house clearance services in your area",
       "Bespoke landing page built specifically for your house clearance business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any jobs,every penny you earn is yours",
+      "No commission on any jobs, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "House Clearance Leads | Get More House & Garage Clearance Jobs | Leads Everyday",
     metaDescription:
@@ -1840,14 +1840,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for removal companies across the UK. Whether you provide domestic house moves, office relocations, packing services, storage solutions, or man-and-van services, we connect you with customers who are moving and need a professional, reliable team.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Customers actively searching for removal companies in your area",
       "Bespoke landing page built specifically for your removals business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any bookings,every penny you earn is yours",
+      "No commission on any bookings, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Removals Leads | Get More Removal Bookings | Leads Everyday",
     metaDescription:
@@ -1862,14 +1862,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for plant hire companies across the UK. Whether you hire out mini diggers, excavators, dumpers, telehandlers, or offer operated plant hire services, we connect you with builders, contractors, and landscapers who need reliable machinery on site.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Builders and contractors actively searching for plant hire services in your area",
       "Bespoke landing page built specifically for your plant hire business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any bookings,every penny you earn is yours",
+      "No commission on any bookings, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Plant Hire Leads | Get More Plant Hire Bookings | Leads Everyday",
     metaDescription:
@@ -1884,14 +1884,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for pest control companies across the UK. Whether you deal with rats, mice, wasps, bed bugs, cockroaches, or offer ongoing commercial pest management contracts, we connect you with homeowners and businesses who need pests dealt with quickly and discreetly.",
     benefits: [
-      "Exclusive leads sent directly to your phone,never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Homeowners and businesses actively searching for pest control services in your area",
       "Bespoke landing page built specifically for your pest control business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any jobs,every penny you earn is yours",
+      "No commission on any jobs, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime,no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Pest Control Leads | Get More Pest Control Jobs | Leads Everyday",
     metaDescription:

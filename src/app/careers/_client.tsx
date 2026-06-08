@@ -77,7 +77,7 @@ const WhyWorkHere = () => {
             style={{ animationDelay: "0.2s" }}
           >
             Be a part of this dynamic business, and feel proud of the part you
-            will play in building a more prosperous Britain,for you and for
+            will play in building a more prosperous Britain, for you and for
             our customers.
           </p>
         </div>
@@ -98,7 +98,7 @@ const WhyWorkHere = () => {
                 <p>
                   For over 10 years we have been generating leads every day for
                   tradespeople. From MOT stations to tree surgeons, electricians
-                  and roofers,whatever your trade, we&apos;ve got it covered.
+                  and roofers, whatever your trade, we&apos;ve got it covered.
                 </p>
                 <p>
                   All the leads we generate are unique and go directly to our
@@ -119,7 +119,7 @@ const WhyWorkHere = () => {
               </h2>
               <div className="space-y-4 text-foreground/70 text-sm lg:text-base">
                 <p>
-                  We don&apos;t take a cut,it&apos;s one affordable payment
+                  We don&apos;t take a cut, it&apos;s one affordable payment
                   per month and we&apos;ve helped grow thousands of businesses
                   all over the UK. If you want to know what our customers think,
                   just check us out on{" "}

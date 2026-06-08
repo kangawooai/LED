@@ -71,7 +71,7 @@ const Faqs = () => {
               Still Have Questions?
             </h3>
             <p className="mt-4 max-w-prose tracking-tight text-balance text-foreground/70 text-sm lg:text-base text-center">
-              Book a free call and we&apos;ll answer everything,no pressure, no
+              Book a free call and we&apos;ll answer everything, no pressure, no
               obligation.
             </p>
             <div className="mt-6">

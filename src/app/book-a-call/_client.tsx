@@ -130,7 +130,7 @@ const BookACallContent = () => {
             style={{ animationDelay: "0.2s" }}
           >
             Tell us about your business and we&apos;ll show you exactly how many
-            leads we can deliver. No obligations, no hard sell,just a
+            leads we can deliver. No obligations, no hard sell, just a
             straightforward conversation about growing your business.
           </p>
         </div>
