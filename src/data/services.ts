@@ -1906,14 +1906,14 @@ export const services: Service[] = [
     description:
       "We generate exclusive, high-quality leads for tree surgeons across the UK. Whether you specialise in tree felling, crown reduction, stump grinding, hedge trimming, or emergency tree removal, we connect you with homeowners and businesses who need a qualified tree surgeon they can trust.",
     benefits: [
-      "Exclusive leads sent directly to your phone — never shared with competitors",
+      "Exclusive leads sent directly to your phone, never shared with competitors",
       "Customers actively searching for tree surgeons in your area",
       "Bespoke landing page built specifically for your tree surgery business",
       "Targeted Google Ads that reach customers when they need you most",
-      "No commission on any jobs — every penny you earn is yours",
+      "No commission on any jobs, every penny you earn is yours",
       "Full transparency with real-time reporting on your campaign",
       "Campaign live within 48 hours on average",
-      "Cancel anytime — no long-term contracts",
+      "Cancel anytime, no long-term contracts",
     ],
     metaTitle: "Tree Surgeon Leads | Get More Tree Surgery Jobs | Leads Everyday",
     metaDescription:

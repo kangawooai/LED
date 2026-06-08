@@ -49,7 +49,7 @@ export const metadata: Metadata = {
         url: "/hero.webp",
         width: 1200,
         height: 630,
-        alt: "Leads Everyday — Lead Generation for UK Trades & Services",
+        alt: "Leads Everyday, Lead Generation for UK Trades & Services",
       },
     ],
   },

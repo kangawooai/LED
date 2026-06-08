@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: { params: Promise<{ service: 
       title: member.name,
       description: member.bio.split("\n\n")[0],
       openGraph: {
-        images: [{ url: "/hero.webp", width: 1200, height: 630, alt: `${member.name} — Leads Everyday` }],
+        images: [{ url: "/hero.webp", width: 1200, height: 630, alt: `${member.name}, Leads Everyday` }],
       },
     };
   }

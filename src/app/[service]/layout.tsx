@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
           url: `/${slug}.webp`,
           width: 1200,
           height: 630,
-          alt: `${service.name} Lead Generation — Leads Everyday`,
+          alt: `${service.name} Lead Generation,Leads Everyday`,
         },
       ],
     },

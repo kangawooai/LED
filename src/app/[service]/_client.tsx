@@ -499,7 +499,7 @@ const ServicePage = () => {
               <p className="mt-4 text-foreground/70 text-sm lg:text-base">
                 Fill in the form and one of our team will get back to you within
                 24 hours to discuss how we can generate {service.name.toLowerCase()} leads
-                in your area. No obligations, no hard sell — just a straightforward
+                in your area. No obligations, no hard sell, just a straightforward
                 conversation about growing your business.
               </p>
             </div>
