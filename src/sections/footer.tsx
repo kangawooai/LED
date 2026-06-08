@@ -87,10 +87,10 @@ const Footer = () => {
               Find Us
             </p>
             <a
-              href="tel:+443330428425"
+              href="tel:+443330424424"
               className="text-sm text-foreground/70 hover:text-primary transition-colors"
             >
-              0333 0428 425
+              0333 0 424 424
             </a>
             <p className="text-sm text-foreground/70 mt-3 max-w-xs">
               Leads Everyday Limited, East Wing, Ground Floor Cams Hall, Cams Hill, Fareham, Hampshire, PO16 8AB
