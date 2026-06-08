@@ -4,7 +4,7 @@ export const staff: StaffMember[] = [
   {
     slug: "max-young",
     name: "Max Young",
-    bio: "MAX Young has the easiest job in the world. With more than 1,000 customers to take care of, Max has to keep each one happy. But it's not as taxing as it sounds. He says: \"I welcome every business on board and make sure we do everything correctly so I don't have any issues to deal with.\" Gillingham fan Max is a keen footballer, playing for a local pub team, and enjoys the odd single malt whisky*.\n\n*Always drink responsibly.",
+    bio: "Max Young has the easiest job in the world. With more than 1,000 customers to take care of, Max has to keep each one happy. But it's not as taxing as it sounds. He says: \"I welcome every business on board and make sure we do everything correctly so I don't have any issues to deal with.\" Gillingham fan Max is a keen footballer, playing for a local pub team, and enjoys the odd single malt whisky*.\n\n*Always drink responsibly.",
     image: "/max_young (1).png",
   },
   {

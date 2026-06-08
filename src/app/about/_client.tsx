@@ -13,6 +13,7 @@ import {
 } from "@tabler/icons-react";
 import Image from "next/image";
 import Link from "next/link";
+import Reviews from "@/sections/reviews";
 
 const values = [
   {
@@ -97,7 +98,7 @@ const About = () => {
                   commission.
                 </p>
                 <p>
-                  Today, we work with over 200 businesses across 60+ industries
+                  Today, we work with over 1,000 businesses across 60+ industries
                   and have delivered tens of thousands of leads. Our clients stay
                   because the results speak for themselves.
                 </p>
@@ -259,6 +260,9 @@ const About = () => {
           </div>
         </div>
       </section>
+
+      {/* Reviews */}
+      <Reviews />
 
       {/* CTA */}
       <section className="w-full mb-28 px-4 md:px-0 lg:px-20 2xl:px-0">

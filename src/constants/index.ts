@@ -5,7 +5,7 @@ export const COMPANY = {
   phone: "",
   email: "",
   leadsDelivered: "25,000+",
-  businessesGrown: "200+",
+  businessesGrown: "1,000+",
   averageRoi: "4.7x",
   clientRetention: "98%",
 } as const;
