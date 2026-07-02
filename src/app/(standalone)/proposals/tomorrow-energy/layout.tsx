@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Proposal — Tomorrow Energy Ltd",
   description: "Private lead generation proposal for Tomorrow Energy Ltd.",
