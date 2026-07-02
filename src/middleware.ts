@@ -2,6 +2,12 @@ import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
 
 export async function middleware(request: NextRequest) {
+  // Skip middleware entirely for public proposal pages
+  const publicPaths = ["/proposals/tomorrow-energy", "/proposal/"];
+  if (publicPaths.some((p) => request.nextUrl.pathname.startsWith(p))) {
+    return NextResponse.next();
+  }
+
   let supabaseResponse = NextResponse.next({ request });
 
   const supabase = createServerClient(
