@@ -1,11 +1,4 @@
-import BottomBar from "@/components/bottom-bar";
 import { BubbleBackground } from "@/components/ui/bubble";
-import LenisWrapper from "@/components/common/lenis-wrapper";
-import ConditionalScripts from "@/components/common/conditional-scripts";
-import CookieBanner from "@/components/cookie-banner";
-import { CookieConsentProvider } from "@/contexts/cookie-consent";
-import Footer from "@/sections/footer";
-import Navigation from "@/sections/navigation";
 import type { Metadata, Viewport } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
@@ -22,6 +15,9 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.leadseveryday.co.uk"),
+  icons: {
+    icon: "/favicon.webp",
+  },
   title: {
     default: "Leads Everyday | Lead Generation for UK Trades & Services",
     template: "%s | Leads Everyday",
@@ -110,19 +106,8 @@ export default function RootLayout({
       <body
         className={`${montserrat.variable} antialiased select-none font-sans`}
       >
-        <CookieConsentProvider>
-          <BubbleBackground className="fixed inset-0 z-[1] opacity-20 md:opacity-25 pointer-events-none" />
-          <LenisWrapper>
-            <Navigation />
-            <main className="relative min-h-screen overflow-x-clip">
-              {children}
-            </main>
-            <Footer />
-          </LenisWrapper>
-          <ConditionalScripts />
-          <BottomBar />
-          <CookieBanner />
-        </CookieConsentProvider>
+        <BubbleBackground className="fixed inset-0 z-[1] opacity-20 md:opacity-25 pointer-events-none" />
+        {children}
       </body>
     </html>
   );
