@@ -1,8 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import Stripe from "stripe";
+import { getStripe } from "@/lib/stripe";
 import { supabase } from "@/lib/supabase";
-
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
 
 /**
  * POST /api/campaigns/[id]/billing/confirm
@@ -27,7 +25,7 @@ export async function POST(
     }
 
     // Retrieve Stripe session
-    const session = await stripe.checkout.sessions.retrieve(session_id);
+    const session = await getStripe().checkout.sessions.retrieve(session_id);
 
     if (session.payment_status !== "paid") {
       return NextResponse.json(

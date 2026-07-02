@@ -1,9 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
-import Stripe from "stripe";
+import { getStripe } from "@/lib/stripe";
 import { supabase } from "@/lib/supabase";
 import { calculateBillingChange } from "@/lib/utils/billing-schedule";
-
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
 
 /**
  * POST /api/campaigns/[id]/billing
@@ -93,7 +91,7 @@ export async function POST(
     const appUrl = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
     const campaignUrlId = campaign.proposal_lead_id || campaign.id;
 
-    const session = await stripe.checkout.sessions.create({
+    const session = await getStripe().checkout.sessions.create({
       mode: "payment",
       currency: "gbp",
       line_items: [
