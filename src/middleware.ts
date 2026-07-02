@@ -29,6 +29,11 @@ export async function middleware(request: NextRequest) {
     data: { user },
   } = await supabase.auth.getUser();
 
+  const publicProposalPaths = ["/proposals/tomorrow-energy"];
+  const isPublicProposal = publicProposalPaths.some((path) =>
+    request.nextUrl.pathname.startsWith(path)
+  );
+
   const protectedPaths = [
     "/dashboard",
     "/proposals",
@@ -37,9 +42,11 @@ export async function middleware(request: NextRequest) {
     "/jobs",
     "/account",
   ];
-  const isProtectedPath = protectedPaths.some((path) =>
-    request.nextUrl.pathname.startsWith(path)
-  );
+  const isProtectedPath =
+    !isPublicProposal &&
+    protectedPaths.some((path) =>
+      request.nextUrl.pathname.startsWith(path)
+    );
 
   if (isProtectedPath && !user) {
     const redirectUrl = request.nextUrl.clone();
