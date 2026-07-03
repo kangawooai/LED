@@ -2,17 +2,35 @@ import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
 
 export async function middleware(request: NextRequest) {
-  // Skip middleware entirely for public proposal pages
-  const publicPaths = ["/proposals/tomorrow-energy", "/proposal/"];
-  if (publicPaths.some((p) => request.nextUrl.pathname.startsWith(p))) {
+  const { pathname } = request.nextUrl;
+
+  const protectedPaths = [
+    "/dashboard",
+    "/campaigns",
+    "/leads",
+    "/jobs",
+    "/account",
+  ];
+  const authPaths = ["/login", "/verify-otp"];
+
+  // Only protected and auth paths need Supabase — everything else passes through
+  const isProtectedPath = protectedPaths.some((p) => pathname.startsWith(p));
+  const isAuthPath = authPaths.some((p) => pathname.startsWith(p));
+
+  if (!isProtectedPath && !isAuthPath) {
+    return NextResponse.next();
+  }
+
+  // Guard: skip auth if Supabase env vars are missing
+  if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
     return NextResponse.next();
   }
 
   let supabaseResponse = NextResponse.next({ request });
 
   const supabase = createServerClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    process.env.NEXT_PUBLIC_SUPABASE_URL,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
     {
       cookies: {
         getAll() {
@@ -35,36 +53,12 @@ export async function middleware(request: NextRequest) {
     data: { user },
   } = await supabase.auth.getUser();
 
-  const publicProposalPaths = ["/proposals/tomorrow-energy"];
-  const isPublicProposal = publicProposalPaths.some((path) =>
-    request.nextUrl.pathname.startsWith(path)
-  );
-
-  const protectedPaths = [
-    "/dashboard",
-    "/proposals",
-    "/campaigns",
-    "/leads",
-    "/jobs",
-    "/account",
-  ];
-  const isProtectedPath =
-    !isPublicProposal &&
-    protectedPaths.some((path) =>
-      request.nextUrl.pathname.startsWith(path)
-    );
-
   if (isProtectedPath && !user) {
     const redirectUrl = request.nextUrl.clone();
     redirectUrl.pathname = "/login";
-    redirectUrl.searchParams.set("redirectedFrom", request.nextUrl.pathname);
+    redirectUrl.searchParams.set("redirectedFrom", pathname);
     return NextResponse.redirect(redirectUrl);
   }
-
-  const authPaths = ["/login", "/verify-otp"];
-  const isAuthPath = authPaths.some((path) =>
-    request.nextUrl.pathname.startsWith(path)
-  );
 
   if (isAuthPath && user) {
     const redirectUrl = request.nextUrl.clone();
