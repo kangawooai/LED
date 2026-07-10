@@ -16,7 +16,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.leadseveryday.co.uk"),
   icons: {
-    icon: "/favicon.webp",
+    icon: "/favicon.jpeg",
   },
   title: {
     default: "Leads Everyday | Lead Generation for UK Trades & Services",

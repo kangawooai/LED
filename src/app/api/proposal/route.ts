@@ -54,6 +54,8 @@ export async function POST(req: NextRequest) {
           required_leads: body.required_leads,
           conversion_rate: body.conversion_rate,
           custom_leads: body.custom_leads || null,
+          avg_job_value: body.avg_job_value ?? 0,
+          desired_return: body.desired_return ?? 0,
         },
         { onConflict: "lead_id" }
       )
@@ -100,6 +102,8 @@ const TRACKED_FIELDS = [
   "company_number",
   "proposal_accepted",
   "billing_day",
+  "avg_job_value",
+  "desired_return",
 ];
 
 const FIELD_LABELS: Record<string, string> = {
@@ -123,6 +127,8 @@ const FIELD_LABELS: Record<string, string> = {
   company_number: "Company Number",
   proposal_accepted: "Proposal Accepted",
   billing_day: "Billing Day",
+  avg_job_value: "Avg Job Value",
+  desired_return: "Desired Return",
 };
 
 /* ── PATCH /api/proposal ── Update step progress */
@@ -161,10 +167,14 @@ export async function PATCH(req: NextRequest) {
       "post_code",
       "company_number",
       "billing_day",
+      "avg_job_value",
+      "desired_return",
       "linked_id",
       "stripe_customer_id",
       "stripe_payment_id",
       "opportunity_id",
+      "veriff_session_id",
+      "veriff_status",
     ];
 
     const safeUpdates: Record<string, unknown> = {};

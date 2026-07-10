@@ -312,6 +312,8 @@ function GetStartedContent() {
             required_leads: preferencesForm.required_leads,
             conversion_rate: preferencesForm.conversion_rate,
             customLeads,
+            avg_job_value: Number(data.average_job_value) || 0,
+            desired_return: Number(data.roi) || 0,
             contact: {
               first_name: contactForm.first_name,
               last_name: contactForm.last_name,
@@ -337,6 +339,8 @@ function GetStartedContent() {
             required_leads: preferencesForm.required_leads,
             conversion_rate: preferencesForm.conversion_rate,
             custom_leads: customLeads || null,
+            avg_job_value: Number(data.average_job_value) || 0,
+            desired_return: Number(data.roi) || 0,
           }),
         }).catch(() => {});
 
