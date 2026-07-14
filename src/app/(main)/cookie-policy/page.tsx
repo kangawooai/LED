@@ -178,10 +178,10 @@ const CookiePolicy = () => {
                 If you have any questions about our use of cookies, please
                 contact us at{" "}
                 <a
-                  href="mailto:info@leadseveryday.co.uk"
+                  href="mailto:sales@leadseveryday.co.uk"
                   className="text-primary hover:underline"
                 >
-                  info@leadseveryday.co.uk
+                  sales@leadseveryday.co.uk
                 </a>
                 .
               </p>

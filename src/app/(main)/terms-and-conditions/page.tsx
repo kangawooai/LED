@@ -224,10 +224,10 @@ const TermsAndConditions = () => {
                 If you have any questions about these Terms and Conditions,
                 please contact us at{" "}
                 <a
-                  href="mailto:info@leadseveryday.co.uk"
+                  href="mailto:sales@leadseveryday.co.uk"
                   className="text-primary hover:underline"
                 >
-                  info@leadseveryday.co.uk
+                  sales@leadseveryday.co.uk
                 </a>
                 .
               </p>

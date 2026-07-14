@@ -174,10 +174,10 @@ const PrivacyPolicy = () => {
               <p className="mt-3">
                 To exercise any of these rights, please contact us at{" "}
                 <a
-                  href="mailto:info@leadseveryday.co.uk"
+                  href="mailto:sales@leadseveryday.co.uk"
                   className="text-primary hover:underline"
                 >
-                  info@leadseveryday.co.uk
+                  sales@leadseveryday.co.uk
                 </a>
                 .
               </p>
@@ -228,10 +228,10 @@ const PrivacyPolicy = () => {
                 If you have any questions about this Privacy Policy or how we
                 handle your data, please contact us at{" "}
                 <a
-                  href="mailto:info@leadseveryday.co.uk"
+                  href="mailto:sales@leadseveryday.co.uk"
                   className="text-primary hover:underline"
                 >
-                  info@leadseveryday.co.uk
+                  sales@leadseveryday.co.uk
                 </a>
                 .
               </p>

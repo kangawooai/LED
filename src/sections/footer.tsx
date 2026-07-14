@@ -93,7 +93,7 @@ const Footer = () => {
               0333 0 424 424
             </a>
             <p className="text-sm text-foreground/70 mt-3 max-w-xs">
-              Leads Everyday Limited, East Wing, Ground Floor Cams Hall, Cams Hill, Fareham, Hampshire, PO16 8AB
+              Leads Everyday Limited, First Corner, Hackett Way, Fareham PO14 1AJ
             </p>
 
             <p className="text-sm font-medium text-foreground mt-6 mb-3">
