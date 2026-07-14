@@ -63,10 +63,12 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ url: session.url });
   } catch (error: unknown) {
     const message = error instanceof Error ? error.message : String(error);
+    const stack = error instanceof Error ? error.stack?.split("\n").slice(0, 5).join("\n") : "";
     const keyPrefix = process.env.STRIPE_SECRET_KEY?.slice(0, 12) || "MISSING";
-    console.error("[create-checkout] error:", message, "key prefix:", keyPrefix);
+    const appUrl = process.env.APP_URL || process.env.NEXT_PUBLIC_APP_URL || "https://www.leadseveryday.co.uk";
+    console.error("[create-checkout] error:", message, "key prefix:", keyPrefix, "appUrl:", appUrl);
     return NextResponse.json(
-      { error: "Failed to create checkout session", detail: message, keyPrefix },
+      { error: "Failed to create checkout session", detail: message, keyPrefix, appUrl, stack },
       { status: 500 }
     );
   }
