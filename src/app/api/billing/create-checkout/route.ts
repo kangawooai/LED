@@ -61,10 +61,12 @@ export async function POST(req: NextRequest) {
     });
 
     return NextResponse.json({ url: session.url });
-  } catch (error) {
-    console.error("[create-checkout] error:", error);
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : String(error);
+    const keyPrefix = process.env.STRIPE_SECRET_KEY?.slice(0, 12) || "MISSING";
+    console.error("[create-checkout] error:", message, "key prefix:", keyPrefix);
     return NextResponse.json(
-      { error: "Failed to create checkout session" },
+      { error: "Failed to create checkout session", detail: message, keyPrefix },
       { status: 500 }
     );
   }

@@ -964,7 +964,7 @@ export default function ProposalClient({ leadId }: { leadId: string }) {
                   <div className="space-y-4">
                     <div className="bg-white/5 border border-white/10 rounded-lg p-4 text-center">
                       <p className="text-[11px] uppercase tracking-widest text-primary font-semibold">Setup Fee</p>
-                      <p className="text-2xl font-bold mt-1">{formatFee(proposal.setup_fee)}</p>
+                      <p className="text-2xl font-bold mt-1">{formatFee(proposal.setup_fee)} <span className="text-sm font-normal text-foreground/50">+ VAT</span></p>
                     </div>
                     <p className="text-xs text-foreground/50 text-center">
                       You&apos;ll be securely redirected to Stripe to pay the one-off setup fee. Monthly payments of <span className="text-primary font-semibold">{formatFee(proposal.monthly_fee)}</span> will begin via Direct Debit.
@@ -981,7 +981,7 @@ export default function ProposalClient({ leadId }: { leadId: string }) {
                         } catch { setRedirectingToStripe(false); }
                       }}
                     >
-                      {redirectingToStripe ? "Redirecting to Stripe..." : verifyingPayment ? "Verifying payment..." : `Pay ${formatFee(proposal.setup_fee)} Setup Fee`}
+                      {redirectingToStripe ? "Redirecting to Stripe..." : verifyingPayment ? "Verifying payment..." : "Pay Setup Fee"}
                     </Button>
                   </div>
                 </AccordionSection>
