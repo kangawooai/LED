@@ -263,9 +263,8 @@ export default function ProposalClient({ leadId }: { leadId: string }) {
   const [error, setError] = useState<string | null>(null);
   const [loaded, setLoaded] = useState(false);
   const [createdAt, setCreatedAt] = useState<string | null>(null);
-  const [veriffStatus, setVeriffStatus] = useState<string>("pending");
-  const [veriffLoading, setVeriffLoading] = useState(false);
-  const veriffContainerRef = useRef<HTMLDivElement>(null);
+  const [pandadocStatus, setPandadocStatus] = useState<string>("pending");
+  const [pandadocLoading, setPandadocLoading] = useState(false);
   const [termsScrolled, setTermsScrolled] = useState(false);
   const termsRef = useRef<HTMLDivElement>(null);
   const [ctaVisible, setCtaVisible] = useState(false);
@@ -328,7 +327,7 @@ export default function ProposalClient({ leadId }: { leadId: string }) {
               setActiveSection(next);
             } else { setActiveSection("details"); }
             if (data.stripe_payment_id) setStripePaymentId(data.stripe_payment_id);
-            if (data.veriff_status) setVeriffStatus(data.veriff_status);
+            if (data.pandadoc_status) setPandadocStatus(data.pandadoc_status);
             if (data.first_name || data.email) {
               setContact({ first_name: data.first_name || "", last_name: data.last_name || "", email: data.email || "", phone: data.phone || "", business_name: data.business_name || "" });
               setDetailsForm({ first_name: data.first_name || "", last_name: data.last_name || "", email: data.email || "", phone: data.phone || "", business_name: data.business_name || "", company_address: data.company_address || "", street_address: data.street_address || "", city: data.city || "", country: data.country || "", post_code: data.post_code || "", company_number: data.company_number || "" });
@@ -414,10 +413,9 @@ export default function ProposalClient({ leadId }: { leadId: string }) {
   const discoveryJobs = hasDiscovery ? Math.max(1, Math.ceil(desiredReturn / avgJobValue)) : 0;
   const discoveryLeads = hasDiscovery ? Math.max(1, Math.ceil(discoveryJobs / (rate / 100))) : 0;
   const isPaid = completedSteps.has("confirm") || !!stripePaymentId;
-  const isVerified = veriffStatus === "approved";
-  const veriffDone = veriffStatus === "approved" || veriffStatus === "declined" || veriffStatus === "resubmission_requested" || veriffStatus === "expired";
-  const needsVeriff = isPaid && !veriffDone;
-  const needsAgreement = isPaid && isVerified;
+  const pandadocDone = pandadocStatus === "document.completed";
+  const pandadocDeclined = pandadocStatus === "document.voided" || pandadocStatus === "document.declined";
+  const needsPandaDoc = isPaid && !pandadocDone && !pandadocDeclined;
   const datePrepared = new Date(createdAt || Date.now()).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
   const todayFormatted = new Date().toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
 
@@ -476,37 +474,37 @@ export default function ProposalClient({ leadId }: { leadId: string }) {
   };
 
   useEffect(() => {
-    if (!isPaid || veriffDone) return;
+    if (!isPaid || pandadocDone || pandadocDeclined) return;
     const interval = setInterval(async () => {
       try {
         const res = await fetch(`/api/proposal?lead_id=${encodeURIComponent(leadId)}`);
         if (!res.ok) return;
         const data = await res.json();
-        if (data.veriff_status && data.veriff_status !== veriffStatus) {
-          setVeriffStatus(data.veriff_status);
+        if (data.pandadoc_status && data.pandadoc_status !== pandadocStatus) {
+          setPandadocStatus(data.pandadoc_status);
         }
       } catch {}
     }, 5000);
     return () => clearInterval(interval);
-  }, [isPaid, veriffDone, leadId, veriffStatus]);
+  }, [isPaid, pandadocDone, pandadocDeclined, leadId, pandadocStatus]);
 
-  const launchVeriff = async () => {
-    if (veriffLoading) return;
-    setVeriffLoading(true);
+  const launchPandaDoc = async () => {
+    if (pandadocLoading) return;
+    setPandadocLoading(true);
     try {
-      const res = await fetch("/api/veriff/create-session", {
+      const res = await fetch("/api/pandadoc/create-document", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ lead_id: leadId, first_name: detailsForm.first_name, last_name: detailsForm.last_name }),
+        body: JSON.stringify({ lead_id: leadId, first_name: detailsForm.first_name, last_name: detailsForm.last_name, email: detailsForm.email }),
       });
       const data = await res.json();
       if (data.sessionUrl) {
         window.location.href = data.sessionUrl;
       } else {
-        setVeriffLoading(false);
+        setPandadocLoading(false);
       }
     } catch {
-      setVeriffLoading(false);
+      setPandadocLoading(false);
     }
   };
 
@@ -523,7 +521,7 @@ export default function ProposalClient({ leadId }: { leadId: string }) {
       </div>
     </div>
   );
-  if (proposal && needsVeriff) return (
+  if (proposal && needsPandaDoc) return (
     <div className="min-h-[80vh] flex items-center justify-center px-6">
       <div className="text-center space-y-6 max-w-md">
         <div className="w-16 h-16 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mx-auto">
@@ -531,43 +529,28 @@ export default function ProposalClient({ leadId }: { leadId: string }) {
         </div>
         <div className="space-y-2">
           <h1 className="text-2xl font-bold">Payment Complete</h1>
-          <p className="text-sm text-foreground/50">Just one more step, we need to verify your identity before we can activate your campaign.</p>
+          <p className="text-sm text-foreground/50">Just one more step, verify your identity and sign the service agreement to activate your campaign.</p>
         </div>
 
-        {(veriffStatus === "created" || veriffStatus === "submitted") ? (
+        {(pandadocStatus === "document.sent" || pandadocStatus === "document.viewed") ? (
           <div className="bg-white/5 border border-white/10 rounded-xl p-6 space-y-3">
             <div className="w-10 h-10 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center mx-auto animate-pulse">
               <IconCheck className="w-5 h-5 text-primary" />
             </div>
-            <p className="font-semibold text-sm">Confirming Identity</p>
-            <p className="text-xs text-foreground/50">We&apos;re verifying your documents. This usually takes a few minutes, please keep this page open.</p>
+            <p className="font-semibold text-sm">Awaiting Signature</p>
+            <p className="text-xs text-foreground/50">We&apos;re waiting for your signed agreement. If you haven&apos;t completed signing, click below to continue.</p>
+            <Button size="lg" onClick={launchPandaDoc} disabled={pandadocLoading} className="w-full gap-2 text-base mt-2">
+              {pandadocLoading ? "Redirecting..." : "Continue Signing"}
+            </Button>
           </div>
         ) : (
           <div className="space-y-3">
-            <Button size="lg" onClick={launchVeriff} disabled={veriffLoading} className="w-full gap-2 text-base">
-              {veriffLoading ? "Redirecting..." : "Verify Your Identity"}
+            <Button size="lg" onClick={launchPandaDoc} disabled={pandadocLoading} className="w-full gap-2 text-base">
+              {pandadocLoading ? "Preparing document..." : "Verify Identity & Sign Agreement"}
             </Button>
-            <p className="text-xs text-foreground/40">Quick ID check, takes less than 2 minutes. Powered by Veriff.</p>
+            <p className="text-xs text-foreground/40">Quick ID check and contract signing, powered by PandaDoc.</p>
           </div>
         )}
-      </div>
-    </div>
-  );
-  if (proposal && needsAgreement) return (
-    <div className="min-h-[80vh] flex items-center justify-center px-6">
-      <div className="text-center space-y-6 max-w-md">
-        <div className="w-16 h-16 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mx-auto">
-          <IconCheck className="w-7 h-7 text-emerald-400" />
-        </div>
-        <div className="space-y-2">
-          <h1 className="text-2xl font-bold">Verification Complete</h1>
-          <p className="text-sm text-foreground/50">Your identity has been verified. Please sign the service agreement to activate your campaign.</p>
-        </div>
-
-        <Button size="lg" className="w-full gap-2 text-base">
-          Sign Agreement
-        </Button>
-        <p className="text-xs text-foreground/40">You&apos;ll be redirected to sign your service agreement securely via PandaDoc.</p>
       </div>
     </div>
   );
@@ -831,13 +814,13 @@ export default function ProposalClient({ leadId }: { leadId: string }) {
 
         {/* CTA */}
         <div id="get-started" ref={ctaRef} className="bg-white/5 border border-white/10 rounded-xl p-6 text-center space-y-4">
-          {isPaid && isVerified ? (
+          {isPaid && pandadocDone ? (
             <>
               <div className="w-12 h-12 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mx-auto">
                 <IconCheck className="w-6 h-6 text-emerald-400" />
               </div>
               <h2 className="text-xl font-semibold text-emerald-400">You&apos;re All Set</h2>
-              <p className="text-sm text-foreground/50 max-w-md mx-auto">Payment complete and identity verified. Your campaign is now active &mdash; we&apos;ll be in touch shortly.</p>
+              <p className="text-sm text-foreground/50 max-w-md mx-auto">Payment complete and agreement signed. Your campaign is now active &mdash; we&apos;ll be in touch shortly.</p>
 
               {/* Payment details */}
               <div className="bg-white/5 border border-white/10 rounded-lg p-4 text-left space-y-2 max-w-sm mx-auto">
@@ -858,29 +841,17 @@ export default function ProposalClient({ leadId }: { leadId: string }) {
                 <Button className="mt-2">View Campaign</Button>
               </Link>
             </>
-          ) : needsVeriff ? (
+          ) : needsPandaDoc ? (
             <>
               <div className="w-12 h-12 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mx-auto">
                 <IconCheck className="w-6 h-6 text-emerald-400" />
               </div>
               <h2 className="text-xl font-semibold text-emerald-400">Payment Complete</h2>
-              <p className="text-sm text-foreground/50 max-w-md mx-auto">Just one more step &mdash; we need to verify your identity before we can activate your campaign.</p>
+              <p className="text-sm text-foreground/50 max-w-md mx-auto">Just one more step &mdash; verify your identity and sign the service agreement to activate your campaign.</p>
 
-              {veriffStatus === "submitted" ? (
-                <div className="bg-white/5 border border-white/10 rounded-xl p-6 max-w-sm mx-auto space-y-3">
-                  <div className="w-10 h-10 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center mx-auto animate-pulse">
-                    <IconCheck className="w-5 h-5 text-primary" />
-                  </div>
-                  <p className="font-semibold text-sm">Verification Submitted</p>
-                  <p className="text-xs text-foreground/50">We&apos;re reviewing your documents. This usually takes a few minutes. We&apos;ll notify you once it&apos;s confirmed.</p>
-                </div>
-              ) : (
-                <Button size="lg" onClick={launchVeriff} disabled={veriffLoading} className="gap-2 text-base px-8">
-                  {veriffLoading ? "Loading verification..." : "Verify Your Identity"}
-                </Button>
-              )}
-
-              <div ref={veriffContainerRef} />
+              <Button size="lg" onClick={launchPandaDoc} disabled={pandadocLoading} className="gap-2 text-base px-8">
+                {pandadocLoading ? "Preparing document..." : "Verify Identity & Sign Agreement"}
+              </Button>
             </>
           ) : (
             <>

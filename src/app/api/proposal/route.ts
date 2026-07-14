@@ -173,8 +173,8 @@ export async function PATCH(req: NextRequest) {
       "stripe_customer_id",
       "stripe_payment_id",
       "opportunity_id",
-      "veriff_session_id",
-      "veriff_status",
+      "pandadoc_document_id",
+      "pandadoc_status",
     ];
 
     const safeUpdates: Record<string, unknown> = {};
