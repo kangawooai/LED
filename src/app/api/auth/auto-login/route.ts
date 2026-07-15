@@ -36,7 +36,7 @@ export async function GET(req: NextRequest) {
 
   if (existingUser) {
     userId = existingUser.id;
-    await supabase.auth.admin.updateUser(userId, { password: tempPassword });
+    await supabase.auth.admin.updateUserById(userId, { password: tempPassword });
   } else {
     const { data: newUser, error: createError } =
       await supabase.auth.admin.createUser({
@@ -98,7 +98,7 @@ export async function GET(req: NextRequest) {
     .eq("lead_id", leadId);
 
   // Set needs_password flag on the user
-  await supabase.auth.admin.updateUser(userId, {
+  await supabase.auth.admin.updateUserById(userId, {
     user_metadata: { needs_password: true },
   });
 
