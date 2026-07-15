@@ -46,6 +46,7 @@ export async function POST(req: NextRequest) {
             signing_order: 1,
             verification_settings: {
               auth_type: "id_verification",
+              verification_place: "before_open",
             },
           },
         ],
