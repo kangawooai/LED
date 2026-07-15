@@ -495,7 +495,7 @@ export default function ProposalClient({ leadId }: { leadId: string }) {
       const res = await fetch("/api/pandadoc/create-document", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ lead_id: leadId, first_name: detailsForm.first_name, last_name: detailsForm.last_name, email: detailsForm.email }),
+        body: JSON.stringify({ lead_id: leadId }),
       });
       const data = await res.json();
       if (data.sessionUrl) {

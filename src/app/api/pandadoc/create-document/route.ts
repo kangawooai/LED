@@ -6,15 +6,27 @@ const PANDADOC_BASE = "https://api.pandadoc.com/public/v1";
 
 export async function POST(req: NextRequest) {
   try {
-    const { lead_id, first_name, last_name, email } = await req.json();
+    const { lead_id } = await req.json();
 
-    if (!lead_id || !email) {
-      return NextResponse.json({ error: "lead_id and email are required" }, { status: 400 });
+    if (!lead_id) {
+      return NextResponse.json({ error: "lead_id is required" }, { status: 400 });
     }
 
-    const recipientEmail = email;
-    const recipientFirst = first_name || "";
-    const recipientLast = last_name || "";
+    const { data: proposal } = await supabase
+      .from("proposal_progress")
+      .select("*")
+      .eq("lead_id", lead_id)
+      .single();
+
+    if (!proposal) {
+      return NextResponse.json({ error: "Proposal not found" }, { status: 404 });
+    }
+
+    const recipientEmail = proposal.email || "";
+    const recipientFirst = proposal.first_name || "";
+    const recipientLast = proposal.last_name || "";
+    const fullName = `${recipientFirst} ${recipientLast}`.trim();
+    const address = [proposal.street_address, proposal.city, proposal.post_code, proposal.country].filter(Boolean).join(", ");
 
     const createRes = await fetch(`${PANDADOC_BASE}/documents`, {
       method: "POST",
@@ -35,9 +47,17 @@ export async function POST(req: NextRequest) {
           },
         ],
         tokens: [
-          { name: "lead_id", value: lead_id },
-          { name: "client_name", value: `${recipientFirst} ${recipientLast}`.trim() },
-          { name: "client_email", value: recipientEmail },
+          { name: "RecipientName", value: fullName },
+          { name: "RecipientEmail", value: recipientEmail },
+          { name: "BusinessName", value: proposal.business_name || "" },
+          { name: "Address", value: address },
+          { name: "CustomerName(SF)", value: fullName },
+          { name: "SetupFee(SF)", value: proposal.setup_fee ? `£${proposal.setup_fee}` : "" },
+          { name: "1stMonthMoney", value: proposal.monthly_fee ? `£${proposal.monthly_fee}` : "" },
+          { name: "AverageLeadsRequired", value: String(proposal.required_leads || "") },
+          { name: "PaymentDayofMonth", value: String(proposal.billing_day || "") },
+          { name: "GoLiveDate(SF)", value: "" },
+          { name: "YHC", value: "" },
         ],
         metadata: { lead_id },
         parse_form_fields: false,
@@ -111,6 +131,7 @@ export async function POST(req: NextRequest) {
       body: JSON.stringify({
         recipient: recipientEmail,
         lifetime: 3600,
+        redirect_url: `https://www.leadseveryday.co.uk/proposal/${lead_id}`,
       }),
     });
 

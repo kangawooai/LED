@@ -143,6 +143,7 @@ function GetStartedContent() {
     target_area: "",
     required_leads: "20",
     conversion_rate: "80",
+    avg_job_value: "",
   });
   const [customLeads, setCustomLeads] = useState("");
 
@@ -287,6 +288,7 @@ function GetStartedContent() {
       service_type: resolveCrmValue(contactForm.service),
       LeadID: leadId,
       TargetArea: preferencesForm.target_area,
+      customer_worth: Number(preferencesForm.avg_job_value) || 0,
     };
 
     try {
@@ -312,7 +314,7 @@ function GetStartedContent() {
             required_leads: preferencesForm.required_leads,
             conversion_rate: preferencesForm.conversion_rate,
             customLeads,
-            avg_job_value: Number(data.average_job_value) || 0,
+            avg_job_value: Number(preferencesForm.avg_job_value) || Number(data.average_job_value) || 0,
             desired_return: Number(data.roi) || 0,
             contact: {
               first_name: contactForm.first_name,
@@ -339,7 +341,7 @@ function GetStartedContent() {
             required_leads: preferencesForm.required_leads,
             conversion_rate: preferencesForm.conversion_rate,
             custom_leads: customLeads || null,
-            avg_job_value: Number(data.average_job_value) || 0,
+            avg_job_value: Number(preferencesForm.avg_job_value) || Number(data.average_job_value) || 0,
             desired_return: Number(data.roi) || 0,
           }),
         }).catch(() => {});
@@ -601,6 +603,21 @@ function GetStartedContent() {
                     step={10}
                     displayValue={`${preferencesForm.conversion_rate}%`}
                   />
+
+                  <div>
+                    <Label htmlFor="avg_job_value">Average Job Value (£) *</Label>
+                    <Input
+                      id="avg_job_value"
+                      name="avg_job_value"
+                      type="number"
+                      min={0}
+                      placeholder="e.g. 5000"
+                      value={preferencesForm.avg_job_value}
+                      onChange={(e) => setPreferencesForm((prev) => ({ ...prev, avg_job_value: e.target.value }))}
+                      required
+                      className="mt-1"
+                    />
+                  </div>
 
                   {error && (
                     <p className="text-red-400 text-sm">{error}</p>

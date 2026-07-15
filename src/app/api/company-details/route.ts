@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { supabase } from "@/lib/supabase";
 
 const WEBHOOK_SAVE =
   "https://dwrs.omnitoria.io/webhook/d704dcec-5a71-40ef-b6fe-186fc92b9d9e";
@@ -31,6 +32,24 @@ export async function POST(req: NextRequest) {
       const lid = String(cleanPayload.lead_id).trim();
       if (/^\d+$/.test(lid)) {
         cleanPayload.lead_id = Number(lid);
+      }
+    }
+
+    cleanPayload.status = "Proposal";
+
+    // Enrich with proposal data for Salesforce validation fields
+    if (cleanPayload.lead_id) {
+      const { data: proposal } = await supabase
+        .from("proposal_progress")
+        .select("avg_job_value, conversion_rate, required_leads, monthly_fee, setup_fee")
+        .eq("lead_id", cleanPayload.lead_id)
+        .single();
+      if (proposal) {
+        if (proposal.avg_job_value) cleanPayload.customer_worth = Number(proposal.avg_job_value);
+        if (proposal.conversion_rate) cleanPayload.conversion_rate = Number(proposal.conversion_rate);
+        if (proposal.required_leads) cleanPayload.customers_required = Number(proposal.required_leads);
+        if (proposal.monthly_fee) cleanPayload.monthly_fee = Number(proposal.monthly_fee);
+        if (proposal.setup_fee) cleanPayload.setup_fee = Number(proposal.setup_fee);
       }
     }
 

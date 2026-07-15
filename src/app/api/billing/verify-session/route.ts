@@ -58,6 +58,21 @@ export async function POST(req: NextRequest) {
       console.error("[verify-session] failed to store Stripe IDs:", updateError);
     }
 
+    // Notify Salesforce of payment via Omnitoria
+    const BASIC_AUTH = Buffer.from("leadseveryday:8pH3&9}0`iOZ").toString("base64");
+    fetch("https://dwrs.omnitoria.io/webhook/06bc69b2-299a-4ea1-9883-e2bcf638e07d", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Authorization: `Basic ${BASIC_AUTH}` },
+      body: JSON.stringify({
+        lead_id,
+        customer_id: customerId || "",
+        payment_id: paymentIntentId || "",
+        subscription_date: new Date().toISOString(),
+        subscription_id: "",
+        status: "Converted",
+      }),
+    }).catch((err) => console.error("[verify-session] Salesforce webhook failed:", err));
+
     return NextResponse.json({
       paid: true,
       customer_id: customerId,
