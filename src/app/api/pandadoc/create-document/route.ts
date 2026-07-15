@@ -71,7 +71,7 @@ export async function POST(req: NextRequest) {
 
     if (!createRes.ok) {
       console.error("[pandadoc] create failed:", doc);
-      return NextResponse.json({ error: "Failed to create document" }, { status: 502 });
+      return NextResponse.json({ error: "Failed to create document", detail: doc }, { status: 502 });
     }
 
     const documentId = doc.id;
