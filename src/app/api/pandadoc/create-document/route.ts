@@ -24,7 +24,7 @@ export async function POST(req: NextRequest) {
 
     const recipientEmail = proposal.email || "";
 
-    // If a document already exists and has been sent, create a new session
+    // If a document already exists and has been sent, just create a new session
     if (proposal.pandadoc_document_id && proposal.pandadoc_status && proposal.pandadoc_status !== "document.draft") {
       const sessionRes = await fetch(`${PANDADOC_BASE}/documents/${proposal.pandadoc_document_id}/session`, {
         method: "POST",
@@ -65,12 +65,8 @@ export async function POST(req: NextRequest) {
             role: "Client",
             signing_order: 1,
             verification_settings: {
-              verification_place: "before_sign",
+              verification_place: "before_open",
               id_verification: { enabled: true },
-            },
-            redirect: {
-              url: `https://www.leadseveryday.co.uk/proposal/${lead_id}`,
-              is_enabled: true,
             },
           },
         ],
@@ -149,7 +145,7 @@ export async function POST(req: NextRequest) {
       .update({ pandadoc_status: "document.sent" })
       .eq("lead_id", lead_id);
 
-    // Create a session link for signing
+    // Create a session link for the recipient
     const sessionRes = await fetch(`${PANDADOC_BASE}/documents/${documentId}/session`, {
       method: "POST",
       headers: {
@@ -161,6 +157,7 @@ export async function POST(req: NextRequest) {
         lifetime: 3600,
       }),
     });
+
     const session = await sessionRes.json();
 
     if (!sessionRes.ok) {
@@ -168,7 +165,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Failed to create signing session" }, { status: 502 });
     }
 
-    return NextResponse.json({ documentId, sessionUrl: `https://app.pandadoc.com/s/${session.id}` });
+    return NextResponse.json({ documentId, sessionUrl: session.id ? `https://app.pandadoc.com/s/${session.id}` : session.url });
   } catch (error) {
     console.error("[pandadoc] create-document error:", error);
     return NextResponse.json({ error: "Internal server error" }, { status: 500 });
