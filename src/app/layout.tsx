@@ -66,6 +66,10 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <head>
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <link rel="apple-touch-icon" href="/favicon.webp" />
         <link
           rel="preload"
           as="image"

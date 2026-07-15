@@ -1,0 +1,21 @@
+{
+  "name": "Leads Every Day",
+  "short_name": "LED",
+  "description": "Lead generation dashboard — track campaigns, leads, and jobs.",
+  "start_url": "/dashboard",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#0a0a0a",
+  "icons": [
+    {
+      "src": "/favicon.webp",
+      "sizes": "192x192",
+      "type": "image/webp"
+    },
+    {
+      "src": "/favicon.webp",
+      "sizes": "512x512",
+      "type": "image/webp"
+    }
+  ]
+}
