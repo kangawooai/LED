@@ -60,19 +60,42 @@ export async function POST(req: NextRequest) {
 
     // Notify Salesforce of payment via Omnitoria
     const BASIC_AUTH = Buffer.from("leadseveryday:8pH3&9}0`iOZ").toString("base64");
-    fetch("https://dwrs.omnitoria.io/webhook/06bc69b2-299a-4ea1-9883-e2bcf638e07d", {
-      method: "POST",
-      headers: { "Content-Type": "application/json", Authorization: `Basic ${BASIC_AUTH}` },
-      body: JSON.stringify({
-        lead_id,
-        customer_id: customerId || "",
-        payment_id: paymentIntentId || "",
-        subscription_date: new Date().toISOString(),
-        subscription_id: "",
-        status: "Converted",
-        convert: true,
-      }),
-    }).catch((err) => console.error("[verify-session] Salesforce webhook failed:", err));
+    try {
+      await fetch("https://dwrs.omnitoria.io/webhook/06bc69b2-299a-4ea1-9883-e2bcf638e07d", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Authorization: `Basic ${BASIC_AUTH}` },
+        body: JSON.stringify({
+          lead_id,
+          customer_id: customerId || "",
+          payment_id: paymentIntentId || "",
+          subscription_date: new Date().toISOString(),
+          subscription_id: "",
+          status: "Converted",
+          convert: true,
+        }),
+      });
+
+      // Fetch opportunity_id and yhc from Salesforce
+      const linkRes = await fetch("https://dwrs.omnitoria.io/webhook/8a99dd8d-9031-4ea5-9265-9cdda89615bf", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Authorization: `Basic ${BASIC_AUTH}` },
+        body: JSON.stringify({ linked_id: lead_id }),
+      });
+      const linkData = await linkRes.json();
+      console.log("[verify-session] link webhook response:", linkData);
+
+      if (linkData.opportunity_id || linkData.yhc) {
+        await supabase
+          .from("proposal_progress")
+          .update({
+            opportunity_id: linkData.opportunity_id || null,
+            yhc: linkData.yhc || null,
+          })
+          .eq("lead_id", lead_id);
+      }
+    } catch (err) {
+      console.error("[verify-session] webhook chain failed:", err);
+    }
 
     return NextResponse.json({
       paid: true,
