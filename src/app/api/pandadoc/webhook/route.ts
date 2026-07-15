@@ -11,12 +11,13 @@ export async function POST(req: NextRequest) {
     const events = Array.isArray(body) ? body : [body];
 
     for (const event of events) {
-      const status = event.event || event.status;
+      const eventName = event.event || event.status;
       const documentId = event.data?.id || event.document_id;
+      const status = event.data?.status || eventName;
 
       if (!documentId || !status) continue;
 
-      console.log(`[pandadoc/webhook] document=${documentId} status=${status}`);
+      console.log(`[pandadoc/webhook] document=${documentId} event=${eventName} status=${status}`);
 
       const { data: row } = await supabase
         .from("proposal_progress")
@@ -34,7 +35,7 @@ export async function POST(req: NextRequest) {
         .update({ pandadoc_status: status })
         .eq("lead_id", row.lead_id);
 
-      if (status === "document.completed" && SALESFORCE_WEBHOOK) {
+      if ((status === "document.completed" || eventName === "recipient_completed") && SALESFORCE_WEBHOOK) {
         fetch(SALESFORCE_WEBHOOK, {
           method: "POST",
           headers: { "Content-Type": "application/json", Authorization: `Basic ${BASIC_AUTH}` },
