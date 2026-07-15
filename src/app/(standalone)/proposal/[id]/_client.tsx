@@ -500,7 +500,8 @@ export default function ProposalClient({ leadId }: { leadId: string }) {
       const data = await res.json();
       if (data.sessionUrl) {
         sessionStorage.setItem("pandadoc_return_lead", leadId);
-        window.location.href = data.sessionUrl;
+        window.open(data.sessionUrl, "_blank");
+        setPandadocLoading(false);
       } else {
         setPandadocLoading(false);
       }
@@ -519,6 +520,40 @@ export default function ProposalClient({ leadId }: { leadId: string }) {
         </div>
         <h1 className="text-xl font-semibold">Verifying Payment</h1>
         <p className="text-sm text-foreground/50">Please wait while we confirm your payment...</p>
+      </div>
+    </div>
+  );
+  if (proposal && isPaid && pandadocDone) return (
+    <div className="min-h-[80vh] flex items-center justify-center px-6">
+      <div className="text-center space-y-6 max-w-md">
+        <div className="w-16 h-16 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mx-auto">
+          <IconCheck className="w-7 h-7 text-emerald-400" />
+        </div>
+        <div className="space-y-2">
+          <h1 className="text-2xl font-bold text-emerald-400">You&apos;re All Set</h1>
+          <p className="text-sm text-foreground/50">Payment complete and agreement signed. Your campaign is now active &mdash; we&apos;ll be in touch shortly.</p>
+        </div>
+
+        <div className="bg-white/5 border border-white/10 rounded-xl p-5 text-left space-y-2 mx-auto w-full">
+          {[
+            ["Setup Fee Paid", formatFee(proposal.setup_fee)],
+            ["Monthly Fee (DD)", formatFee(proposal.monthly_fee)],
+            ["Payment Date", todayFormatted],
+          ].map(([l, v], i) => (
+            <div key={i} className={cn("flex justify-between items-center py-1.5 text-sm", i < 2 && "border-b border-white/5")}>
+              <span className="text-foreground/50">{l}</span>
+              <span className="font-medium">{String(v)}</span>
+            </div>
+          ))}
+          <div className="border-t border-white/5 pt-2 space-y-1">
+            <span className="text-foreground/50 text-sm">Payment ID</span>
+            <p className="font-mono text-xs text-foreground/60 break-all">{stripePaymentId || "—"}</p>
+          </div>
+        </div>
+
+        <Link href={`/campaigns/${leadId}`}>
+          <Button className="mt-2">View Campaign</Button>
+        </Link>
       </div>
     </div>
   );
@@ -707,7 +742,7 @@ export default function ProposalClient({ leadId }: { leadId: string }) {
             <AnimatePresence initial={false}>
               {activeSection === "requirements" && (
                 <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.25, ease: "easeInOut" }} className="overflow-hidden">
-                  <div className="mt-2 bg-white/5 border border-white/10 rounded-xl p-6 space-y-4">
+                  <div className="mt-2 bg-white/5 border border-white/10 rounded-xl p-4 sm:p-6 space-y-4">
                     <div className="space-y-2">
                       <Label>Service</Label>
                       <select value={proposalEdits.service_type} onChange={(e) => setProposalEdits((p) => ({ ...p, service_type: e.target.value }))} className="w-full h-9 bg-white/5 border border-white/10 rounded-md px-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary/50">
@@ -955,7 +990,7 @@ export default function ProposalClient({ leadId }: { leadId: string }) {
                     <p className="font-semibold text-foreground mt-4">Leads Every Day</p>
                     <p>Email: cancellations@leadseveryday.co.uk</p>
                   </div>
-                  <Button className="w-full" disabled={!termsScrolled} onClick={handleAcceptTerms}>
+                  <Button className="w-full text-xs sm:text-sm px-3 py-2 whitespace-normal" disabled={!termsScrolled} onClick={handleAcceptTerms}>
                     {termsScrolled ? "I Accept the Terms & Conditions" : "Please scroll to the bottom to accept"}
                   </Button>
                 </AccordionSection>
