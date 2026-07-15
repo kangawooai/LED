@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { supabase } from "@/lib/supabase";
+import { getAuthEmail } from "@/lib/api/auth";
 
 /* GET /api/proposals?status=pending|paid
  *   pending (default) = payment not yet completed (shown in Proposals)
@@ -7,11 +8,17 @@ import { supabase } from "@/lib/supabase";
  */
 export async function GET(req: NextRequest) {
   try {
+    const email = await getAuthEmail();
+    if (!email) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
     const status = req.nextUrl.searchParams.get("status") || "pending";
 
     const { data, error } = await supabase
       .from("proposal_progress")
       .select("*")
+      .eq("email", email)
       .order("created_at", { ascending: false });
 
     if (error) {

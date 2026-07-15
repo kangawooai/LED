@@ -1,19 +1,24 @@
 import { NextRequest, NextResponse } from "next/server";
 import { supabase } from "@/lib/supabase";
+import { getAuthEmail } from "@/lib/api/auth";
 
 /**
  * GET /api/campaigns/[id]
  *
- * Fetches a single campaign by its ID (UUID) or by proposal_lead_id.
+ * Fetches a single campaign by its ID (UUID) or by proposal_lead_id, scoped to the authenticated user.
  */
 export async function GET(
   _req: NextRequest,
   { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const email = await getAuthEmail();
+    if (!email) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
     const { id } = await params;
 
-    // Detect if the id is a UUID or a Salesforce-style lead ID
     const isUuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(id);
 
     let data, error;
@@ -22,6 +27,7 @@ export async function GET(
         .from("campaigns")
         .select("*")
         .eq("id", id)
+        .eq("email", email)
         .maybeSingle());
     }
 
@@ -30,6 +36,7 @@ export async function GET(
         .from("campaigns")
         .select("*")
         .eq("proposal_lead_id", id)
+        .eq("email", email)
         .maybeSingle());
     }
 
@@ -68,6 +75,11 @@ export async function PATCH(
   { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const email = await getAuthEmail();
+    if (!email) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
     const { id } = await params;
     const body = await req.json();
 
@@ -115,6 +127,7 @@ export async function PATCH(
         .from("campaigns")
         .update(safeUpdates)
         .eq("id", id)
+        .eq("email", email)
         .select()
         .maybeSingle());
     }
@@ -124,6 +137,7 @@ export async function PATCH(
         .from("campaigns")
         .update(safeUpdates)
         .eq("proposal_lead_id", id)
+        .eq("email", email)
         .select()
         .maybeSingle());
     }

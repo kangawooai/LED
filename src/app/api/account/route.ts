@@ -1,16 +1,23 @@
 import { NextRequest, NextResponse } from "next/server";
 import { supabase } from "@/lib/supabase";
+import { getAuthEmail } from "@/lib/api/auth";
 
 /* GET /api/account
- *   Returns contact details from the earliest proposal_progress row.
+ *   Returns contact details from the earliest proposal_progress row for the authenticated user.
  */
 export async function GET() {
   try {
+    const email = await getAuthEmail();
+    if (!email) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
     const { data, error } = await supabase
       .from("proposal_progress")
       .select(
         "first_name, last_name, email, phone, business_name, company_address, street_address, city, country, post_code, company_number, created_at"
       )
+      .eq("email", email)
       .order("created_at", { ascending: true })
       .limit(1)
       .single();
@@ -67,11 +74,15 @@ export async function PUT(req: NextRequest) {
       );
     }
 
-    // Update all rows so contact info stays consistent across proposals
+    const email = await getAuthEmail();
+    if (!email) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
     const { error } = await supabase
       .from("proposal_progress")
       .update(updates)
-      .not("id", "is", null); // match all rows
+      .eq("email", email);
 
     if (error) {
       console.error("[account] PUT error:", error);
@@ -81,12 +92,12 @@ export async function PUT(req: NextRequest) {
       );
     }
 
-    // Return the updated data
     const { data: updated } = await supabase
       .from("proposal_progress")
       .select(
         "first_name, last_name, email, phone, business_name, company_address, street_address, city, country, post_code, company_number, created_at"
       )
+      .eq("email", email)
       .order("created_at", { ascending: true })
       .limit(1)
       .single();
