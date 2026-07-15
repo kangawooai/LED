@@ -24,24 +24,19 @@ export async function POST(req: NextRequest) {
 
     const recipientEmail = proposal.email || "";
 
-    // If a document already exists and has been sent, just create a new session
+    // If a document already exists and has been sent, get the shared link
     if (proposal.pandadoc_document_id && proposal.pandadoc_status && proposal.pandadoc_status !== "document.draft") {
-      const sessionRes = await fetch(`${PANDADOC_BASE}/documents/${proposal.pandadoc_document_id}/session`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `API-Key ${PANDADOC_API_KEY}`,
-        },
-        body: JSON.stringify({
-          recipient: recipientEmail,
-          lifetime: 3600,
-        }),
+      const detailRes = await fetch(`${PANDADOC_BASE}/documents/${proposal.pandadoc_document_id}/details`, {
+        headers: { Authorization: `API-Key ${PANDADOC_API_KEY}` },
       });
-      const session = await sessionRes.json();
-      if (sessionRes.ok && session.id) {
-        return NextResponse.json({ documentId: proposal.pandadoc_document_id, sessionUrl: `https://app.pandadoc.com/s/${session.id}` });
+      if (detailRes.ok) {
+        const detail = await detailRes.json();
+        const recipient = detail.recipients?.find((r: any) => r.email === recipientEmail);
+        if (recipient?.shared_link) {
+          return NextResponse.json({ documentId: proposal.pandadoc_document_id, sessionUrl: recipient.shared_link });
+        }
       }
-      // If session creation fails (e.g. doc was deleted), fall through to create a new one
+      // If detail fetch fails (e.g. doc was deleted), fall through to create a new one
     }
     const recipientFirst = proposal.first_name || "";
     const recipientLast = proposal.last_name || "";
@@ -149,27 +144,19 @@ export async function POST(req: NextRequest) {
       .update({ pandadoc_status: "document.sent" })
       .eq("lead_id", lead_id);
 
-    // Create a session link for the recipient
-    const sessionRes = await fetch(`${PANDADOC_BASE}/documents/${documentId}/session`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `API-Key ${PANDADOC_API_KEY}`,
-      },
-      body: JSON.stringify({
-        recipient: recipientEmail,
-        lifetime: 3600,
-      }),
+    // Get the shared link from document details (supports redirect after signing)
+    const detailRes = await fetch(`${PANDADOC_BASE}/documents/${documentId}/details`, {
+      headers: { Authorization: `API-Key ${PANDADOC_API_KEY}` },
     });
+    const detail = await detailRes.json();
+    const recipient = detail.recipients?.find((r: any) => r.email === recipientEmail);
 
-    const session = await sessionRes.json();
-
-    if (!sessionRes.ok) {
-      console.error("[pandadoc] session failed:", session);
-      return NextResponse.json({ error: "Failed to create signing session" }, { status: 502 });
+    if (!recipient?.shared_link) {
+      console.error("[pandadoc] no shared_link found:", detail.recipients);
+      return NextResponse.json({ error: "Failed to get signing link" }, { status: 502 });
     }
 
-    return NextResponse.json({ documentId, sessionUrl: session.id ? `https://app.pandadoc.com/s/${session.id}` : session.url });
+    return NextResponse.json({ documentId, sessionUrl: recipient.shared_link });
   } catch (error) {
     console.error("[pandadoc] create-document error:", error);
     return NextResponse.json({ error: "Internal server error" }, { status: 500 });
