@@ -11,17 +11,21 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useSearchParams } from "next/navigation";
-import { useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 
-export function SetPasswordModal() {
+function SetPasswordForm() {
   const searchParams = useSearchParams();
   const isSetup = searchParams.get("setup") === "true";
-  const [open, setOpen] = useState(isSetup);
+  const [open, setOpen] = useState(false);
   const [password, setPassword] = useState("");
   const [confirm, setConfirm] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [done, setDone] = useState(false);
+
+  useEffect(() => {
+    if (isSetup) setOpen(true);
+  }, [isSetup]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -102,5 +106,13 @@ export function SetPasswordModal() {
         )}
       </DialogContent>
     </Dialog>
+  );
+}
+
+export function SetPasswordModal() {
+  return (
+    <Suspense>
+      <SetPasswordForm />
+    </Suspense>
   );
 }
