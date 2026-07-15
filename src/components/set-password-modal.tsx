@@ -10,7 +10,6 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { createClient } from "@/lib/supabase/client";
 import { useSearchParams } from "next/navigation";
 import { useState } from "react";
 
@@ -38,14 +37,15 @@ export function SetPasswordModal() {
     setLoading(true);
     setError(null);
 
-    const supabase = createClient();
-    const { error: updateError } = await supabase.auth.updateUser({
-      password,
-      data: { needs_password: false },
+    const res = await fetch("/api/auth/set-password", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ password }),
     });
+    const data = await res.json();
 
-    if (updateError) {
-      setError(updateError.message);
+    if (!res.ok) {
+      setError(data.error || "Failed to set password");
       setLoading(false);
       return;
     }
