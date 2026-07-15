@@ -500,8 +500,8 @@ export default function ProposalClient({ leadId }: { leadId: string }) {
       const data = await res.json();
       if (data.sessionUrl) {
         sessionStorage.setItem("pandadoc_return_lead", leadId);
-        window.open(data.sessionUrl, "_blank");
-        setPandadocLoading(false);
+        window.location.href = data.sessionUrl;
+        return;
       } else {
         setPandadocLoading(false);
       }
