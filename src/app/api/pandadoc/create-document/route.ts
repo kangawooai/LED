@@ -65,7 +65,7 @@ export async function POST(req: NextRequest) {
             role: "Client",
             signing_order: 1,
             verification_settings: {
-              verification_place: "before_open",
+              verification_place: "before_sign",
               id_verification: { enabled: true },
             },
             redirect: {
