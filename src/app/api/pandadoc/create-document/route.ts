@@ -35,7 +35,6 @@ export async function POST(req: NextRequest) {
         body: JSON.stringify({
           recipient: recipientEmail,
           lifetime: 3600,
-          redirect_url: `https://www.leadseveryday.co.uk/proposal/${lead_id}`,
         }),
       });
       const session = await sessionRes.json();
@@ -68,6 +67,10 @@ export async function POST(req: NextRequest) {
             verification_settings: {
               verification_place: "before_open",
               id_verification: { enabled: true },
+            },
+            redirect: {
+              url: `https://www.leadseveryday.co.uk/proposal/${lead_id}`,
+              is_enabled: true,
             },
           },
         ],
@@ -156,7 +159,6 @@ export async function POST(req: NextRequest) {
       body: JSON.stringify({
         recipient: recipientEmail,
         lifetime: 3600,
-        redirect_url: `https://www.leadseveryday.co.uk/proposal/${lead_id}`,
       }),
     });
 
