@@ -342,7 +342,7 @@ export default function ProposalClient({ leadId }: { leadId: string }) {
           const data: ProposalData = JSON.parse(raw);
           if (!cancelled) {
             setProposal(data.proposal); setIndustry(data.industry); setTargetArea(data.target_area);
-            const edits = { service_type: data.service, required_leads: data.required_leads, conversion_rate: data.conversion_rate };
+            const edits = { service_type: data.service, required_leads: data.required_leads, conversion_rate: data.conversion_rate, avg_job_value: String(data.avg_job_value || "") };
             setProposalEdits(edits); setQuotedValues({ ...edits, customLeads: data.customLeads || "" });
             if (Number(data.required_leads) > 100) setProposalCustomLeads(data.customLeads);
             if (data.avg_job_value) setAvgJobValue(data.avg_job_value);
