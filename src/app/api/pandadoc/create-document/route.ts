@@ -35,7 +35,7 @@ export async function POST(req: NextRequest) {
         Authorization: `API-Key ${PANDADOC_API_KEY}`,
       },
       body: JSON.stringify({
-        name: `Leads Every Day – Service Agreement – ${recipientFirst} ${recipientLast}`.trim(),
+        name: `Leads Every Day – Terms and Conditions – ${recipientFirst} ${recipientLast}`.trim(),
         template_uuid: "GbQcs2oimexrj3CnbdSkk2",
         recipients: [
           {
@@ -44,6 +44,9 @@ export async function POST(req: NextRequest) {
             last_name: recipientLast,
             role: "Client",
             signing_order: 1,
+            verification_settings: {
+              auth_type: "id_verification",
+            },
           },
         ],
         tokens: [

@@ -241,7 +241,7 @@ export default function ProposalClient({ leadId }: { leadId: string }) {
   const [proposal, setProposal] = useState<Proposal | null>(null);
   const [industry, setIndustry] = useState("");
   const [targetArea, setTargetArea] = useState("");
-  const [proposalEdits, setProposalEdits] = useState({ service_type: "", required_leads: "20", conversion_rate: "80" });
+  const [proposalEdits, setProposalEdits] = useState({ service_type: "", required_leads: "20", conversion_rate: "80", avg_job_value: "" });
   const [proposalCustomLeads, setProposalCustomLeads] = useState("");
   const [quotedValues, setQuotedValues] = useState({ service_type: "", required_leads: "20", conversion_rate: "80", customLeads: "" });
   const [avgJobValue, setAvgJobValue] = useState(0);
@@ -313,7 +313,7 @@ export default function ProposalClient({ leadId }: { leadId: string }) {
             setProposal({ monthly_fee: data.monthly_fee, setup_fee: data.setup_fee, total_fee: data.total_fee });
             if (data.created_at) setCreatedAt(data.created_at);
             setIndustry(data.industry); setTargetArea(data.target_area);
-            const edits = { service_type: data.service, required_leads: data.required_leads, conversion_rate: data.conversion_rate };
+            const edits = { service_type: data.service, required_leads: data.required_leads, conversion_rate: data.conversion_rate, avg_job_value: String(data.avg_job_value || "") };
             setProposalEdits(edits); setQuotedValues({ ...edits, customLeads: data.custom_leads || "" });
             if (Number(data.required_leads) > 100) setProposalCustomLeads(data.custom_leads || "");
             setAvgJobValue(data.avg_job_value || 0); setDesiredReturn(data.desired_return || 0);
@@ -546,7 +546,7 @@ export default function ProposalClient({ leadId }: { leadId: string }) {
         ) : (
           <div className="space-y-3">
             <Button size="lg" onClick={launchPandaDoc} disabled={pandadocLoading} className="w-full gap-2 text-base">
-              {pandadocLoading ? "Preparing document..." : "Verify Identity & Sign Agreement"}
+              {pandadocLoading ? "Preparing document..." : "Verify Identity & Sign Contract"}
             </Button>
             <p className="text-xs text-foreground/40">Quick ID check and contract signing, powered by PandaDoc.</p>
           </div>
@@ -850,7 +850,7 @@ export default function ProposalClient({ leadId }: { leadId: string }) {
               <p className="text-sm text-foreground/50 max-w-md mx-auto">Just one more step &mdash; verify your identity and sign the service agreement to activate your campaign.</p>
 
               <Button size="lg" onClick={launchPandaDoc} disabled={pandadocLoading} className="gap-2 text-base px-8">
-                {pandadocLoading ? "Preparing document..." : "Verify Identity & Sign Agreement"}
+                {pandadocLoading ? "Preparing document..." : "Verify Identity & Sign Contract"}
               </Button>
             </>
           ) : (
