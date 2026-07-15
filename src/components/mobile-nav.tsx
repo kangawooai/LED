@@ -17,7 +17,7 @@ export function MobileNav({ email }: { email: string }) {
 
   return (
     <div className="md:hidden">
-      <header className="flex items-center justify-between p-4 border-b border-white/10 bg-white/[0.02]">
+      <header className="flex items-center justify-between p-4 pt-[max(1rem,env(safe-area-inset-top))] border-b border-white/10 bg-white/[0.02]">
         <Link href="/dashboard">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
