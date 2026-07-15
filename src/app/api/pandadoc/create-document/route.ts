@@ -23,6 +23,27 @@ export async function POST(req: NextRequest) {
     }
 
     const recipientEmail = proposal.email || "";
+
+    // If a document already exists and has been sent, just create a new session
+    if (proposal.pandadoc_document_id && proposal.pandadoc_status && proposal.pandadoc_status !== "document.draft") {
+      const sessionRes = await fetch(`${PANDADOC_BASE}/documents/${proposal.pandadoc_document_id}/session`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `API-Key ${PANDADOC_API_KEY}`,
+        },
+        body: JSON.stringify({
+          recipient: recipientEmail,
+          lifetime: 3600,
+          redirect_url: `https://www.leadseveryday.co.uk/proposal/${lead_id}`,
+        }),
+      });
+      const session = await sessionRes.json();
+      if (sessionRes.ok && session.id) {
+        return NextResponse.json({ documentId: proposal.pandadoc_document_id, sessionUrl: `https://app.pandadoc.com/s/${session.id}` });
+      }
+      // If session creation fails (e.g. doc was deleted), fall through to create a new one
+    }
     const recipientFirst = proposal.first_name || "";
     const recipientLast = proposal.last_name || "";
     const fullName = `${recipientFirst} ${recipientLast}`.trim();
@@ -45,8 +66,8 @@ export async function POST(req: NextRequest) {
             role: "Client",
             signing_order: 1,
             verification_settings: {
-              auth_type: "id_verification",
               verification_place: "before_open",
+              id_verification: { enabled: true },
             },
           },
         ],

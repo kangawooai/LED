@@ -70,6 +70,7 @@ export async function POST(req: NextRequest) {
         subscription_date: new Date().toISOString(),
         subscription_id: "",
         status: "Converted",
+        convert: true,
       }),
     }).catch((err) => console.error("[verify-session] Salesforce webhook failed:", err));
 
