@@ -26,6 +26,8 @@ export async function POST(req: NextRequest) {
       cleanPayload.phone = Number(phone);
     }
 
+    if (step === 1) cleanPayload.status = "Pre Demo NI";
+
     console.log(`[onboarding] Step ${step} payload:`, JSON.stringify(cleanPayload));
 
     const res = await fetch(webhookUrl, {
