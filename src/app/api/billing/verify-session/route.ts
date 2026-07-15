@@ -97,6 +97,54 @@ export async function POST(req: NextRequest) {
       console.error("[verify-session] webhook chain failed:", err);
     }
 
+    // Create campaign from the proposal
+    const { data: proposal } = await supabase
+      .from("proposal_progress")
+      .select("*")
+      .eq("lead_id", lead_id)
+      .single();
+
+    if (proposal) {
+      const campaignName = `${proposal.service} - ${proposal.business_name || [proposal.first_name, proposal.last_name].filter(Boolean).join(" ")}`;
+      const { error: campaignError } = await supabase
+        .from("campaigns")
+        .upsert(
+          {
+            proposal_lead_id: lead_id,
+            name: campaignName,
+            customers_required: parseInt(proposal.custom_leads || proposal.required_leads || "0", 10),
+            service: proposal.service,
+            target_area: proposal.target_area,
+            monthly_fee: proposal.monthly_fee,
+            setup_fee: proposal.setup_fee,
+            total_fee: proposal.total_fee,
+            industry: proposal.industry,
+            required_leads: proposal.required_leads,
+            conversion_rate: proposal.conversion_rate,
+            custom_leads: proposal.custom_leads,
+            first_name: proposal.first_name,
+            last_name: proposal.last_name,
+            email: proposal.email,
+            phone: proposal.phone,
+            business_name: proposal.business_name,
+            company_address: proposal.company_address,
+            company_number: proposal.company_number,
+            stripe_customer_id: customerId,
+            stripe_payment_id: paymentIntentId,
+            linked_id: proposal.linked_id,
+            opportunity_id: proposal.opportunity_id,
+            stage: "campaign",
+            campaign_status: "active",
+            billing_day: proposal.billing_day || 1,
+          },
+          { onConflict: "proposal_lead_id" }
+        );
+
+      if (campaignError) {
+        console.error("[verify-session] failed to create campaign:", campaignError);
+      }
+    }
+
     return NextResponse.json({
       paid: true,
       customer_id: customerId,
