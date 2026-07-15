@@ -2,6 +2,7 @@ import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
 import Link from "next/link";
 import { Providers } from "./providers";
+import { SetPasswordModal } from "@/components/set-password-modal";
 
 const navItems = [
   { label: "Dashboard", href: "/dashboard" },
@@ -55,6 +56,7 @@ export default async function DashboardLayout({
         </aside>
         <main className="flex-1 overflow-auto">
           <div className="p-6 md:p-8">{children}</div>
+          <SetPasswordModal />
         </main>
       </div>
     </Providers>

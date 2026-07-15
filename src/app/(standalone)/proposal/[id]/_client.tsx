@@ -551,7 +551,7 @@ export default function ProposalClient({ leadId }: { leadId: string }) {
           </div>
         </div>
 
-        <Link href={`/campaigns/${leadId}`}>
+        <Link href={`/api/auth/auto-login?lead_id=${leadId}`}>
           <Button className="mt-2">View Campaign</Button>
         </Link>
       </div>
@@ -873,7 +873,7 @@ export default function ProposalClient({ leadId }: { leadId: string }) {
                 ))}
               </div>
 
-              <Link href={`/campaigns/${leadId}`}>
+              <Link href={`/api/auth/auto-login?lead_id=${leadId}`}>
                 <Button className="mt-2">View Campaign</Button>
               </Link>
             </>
