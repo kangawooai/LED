@@ -53,41 +53,43 @@ export function KanbanBoard<TStatus extends string, TItem extends KanbanItem>({
   };
 
   return (
-    <div className="grid gap-4" style={{ gridTemplateColumns: `repeat(${columns.length}, minmax(0, 1fr))` }}>
-      {columns.map((column) => {
-        const columnItems = items.filter((item) => item.status === column.id);
-        return (
-          <div
-            key={column.id}
-            className={cn(
-              "rounded-md border border-white/10 bg-white/[0.02] p-3 min-h-[200px] transition-colors",
-              dragOverColumn === column.id && "border-primary/40 bg-primary/5"
-            )}
-            onDragOver={(e) => handleDragOver(e, column.id)}
-            onDragLeave={handleDragLeave}
-            onDrop={(e) => handleDrop(e, column.id)}
-          >
-            <div className="flex items-center justify-between mb-3">
-              <h3 className="text-xs font-semibold uppercase tracking-widest text-foreground/40">
-                {column.label}
-              </h3>
-              <span className="text-xs text-foreground/30">{columnItems.length}</span>
+    <div className="overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0">
+      <div className="grid gap-4" style={{ gridTemplateColumns: `repeat(${columns.length}, minmax(200px, 1fr))` }}>
+        {columns.map((column) => {
+          const columnItems = items.filter((item) => item.status === column.id);
+          return (
+            <div
+              key={column.id}
+              className={cn(
+                "rounded-md border border-white/10 bg-white/[0.02] p-3 min-h-[200px] transition-colors",
+                dragOverColumn === column.id && "border-primary/40 bg-primary/5"
+              )}
+              onDragOver={(e) => handleDragOver(e, column.id)}
+              onDragLeave={handleDragLeave}
+              onDrop={(e) => handleDrop(e, column.id)}
+            >
+              <div className="flex items-center justify-between mb-3">
+                <h3 className="text-xs font-semibold uppercase tracking-widest text-foreground/40">
+                  {column.label}
+                </h3>
+                <span className="text-xs text-foreground/30">{columnItems.length}</span>
+              </div>
+              <div className="space-y-2">
+                {columnItems.map((item) => (
+                  <div
+                    key={item.id}
+                    draggable
+                    onDragStart={(e) => handleDragStart(e, item.id)}
+                    className="cursor-grab active:cursor-grabbing"
+                  >
+                    {renderItem(item)}
+                  </div>
+                ))}
+              </div>
             </div>
-            <div className="space-y-2">
-              {columnItems.map((item) => (
-                <div
-                  key={item.id}
-                  draggable
-                  onDragStart={(e) => handleDragStart(e, item.id)}
-                  className="cursor-grab active:cursor-grabbing"
-                >
-                  {renderItem(item)}
-                </div>
-              ))}
-            </div>
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
     </div>
   );
 }

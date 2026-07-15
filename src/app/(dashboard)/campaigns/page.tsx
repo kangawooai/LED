@@ -81,7 +81,7 @@ export default function CampaignsPage() {
     <div>
       <h1 className="text-2xl font-semibold tracking-tight mb-6">Campaigns</h1>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-6">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
         <div className="bg-white/5 border border-white/10 rounded-md p-4">
           <p className="text-[10px] uppercase tracking-widest text-foreground/40 mb-1">
             Total Campaigns

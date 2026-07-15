@@ -25,37 +25,37 @@ export async function GET(req: NextRequest) {
   }
 
   const tempPassword = crypto.randomBytes(24).toString("base64url");
-
-  // Try to get existing user first
-  const { data: existingUsers } = await supabase.auth.admin.listUsers();
-  const existingUser = existingUsers?.users?.find(
-    (u) => u.email === proposal.email
-  );
-
   let userId: string;
 
-  if (existingUser) {
-    userId = existingUser.id;
-    await supabase.auth.admin.updateUserById(userId, { password: tempPassword });
-  } else {
-    const { data: newUser, error: createError } =
-      await supabase.auth.admin.createUser({
-        email: proposal.email,
-        password: tempPassword,
-        email_confirm: true,
-        user_metadata: {
-          first_name: proposal.first_name,
-          last_name: proposal.last_name,
-          lead_id: leadId,
-          needs_password: true,
-        },
-      });
+  // Try to create user — if they already exist, update their password
+  const { data: newUser, error: createError } =
+    await supabase.auth.admin.createUser({
+      email: proposal.email,
+      password: tempPassword,
+      email_confirm: true,
+      user_metadata: {
+        first_name: proposal.first_name,
+        last_name: proposal.last_name,
+        lead_id: leadId,
+        needs_password: true,
+      },
+    });
 
-    if (createError || !newUser.user) {
-      console.error("[auto-login] create user failed:", createError);
+  if (createError) {
+    // User already exists — find them and update password
+    const { data: users } = await supabase.auth.admin.listUsers({
+      page: 1,
+      perPage: 1000,
+    });
+    const existing = users?.users?.find((u) => u.email === proposal.email);
+    if (!existing) {
+      console.error("[auto-login] user not found after create failed:", createError);
       return NextResponse.redirect(new URL("/login", req.url));
     }
-    userId = newUser.user.id;
+    userId = existing.id;
+    await supabase.auth.admin.updateUserById(userId, { password: tempPassword });
+  } else {
+    userId = newUser.user!.id;
   }
 
   // Sign in with the temp password using server client to set cookies
@@ -97,7 +97,7 @@ export async function GET(req: NextRequest) {
     .update({ auto_login_used: true })
     .eq("lead_id", leadId);
 
-  // Set needs_password flag on the user
+  // Set needs_password flag
   await supabase.auth.admin.updateUserById(userId, {
     user_metadata: { needs_password: true },
   });

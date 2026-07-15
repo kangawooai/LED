@@ -149,7 +149,7 @@ export default function AccountPage() {
 
       <div className="bg-white/5 border border-white/10 rounded-md p-5">
         <h3 className="text-sm font-semibold mb-3">Profile</h3>
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div className="space-y-2">
             <Label>First Name</Label>
             <Input
@@ -164,7 +164,7 @@ export default function AccountPage() {
               onChange={(e) => setForm((p) => ({ ...p, last_name: e.target.value }))}
             />
           </div>
-          <div className="space-y-2 col-span-2">
+          <div className="space-y-2 sm:col-span-2">
             <Label>Email</Label>
             <Input
               type="email"
@@ -172,7 +172,7 @@ export default function AccountPage() {
               onChange={(e) => setForm((p) => ({ ...p, email: e.target.value }))}
             />
           </div>
-          <div className="space-y-2 col-span-2">
+          <div className="space-y-2 sm:col-span-2">
             <Label>Phone</Label>
             <Input
               value={form.phone}
@@ -203,7 +203,7 @@ export default function AccountPage() {
           </div>
 
           {form.street_address && (
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="space-y-2">
                 <Label>Street Address</Label>
                 <Input

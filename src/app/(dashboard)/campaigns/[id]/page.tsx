@@ -219,7 +219,7 @@ export default function CampaignDetailPage() {
 
       {/* Billing change success banner */}
       {billingSuccess && (
-        <div className="mt-4 bg-emerald-500/10 border border-emerald-500/20 rounded-md px-4 py-3 flex items-center justify-between">
+        <div className="mt-4 bg-emerald-500/10 border border-emerald-500/20 rounded-md px-4 py-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
           <p className="text-sm text-emerald-400 font-medium">
             Billing day updated successfully. Pro-rata payment received.
           </p>
@@ -233,7 +233,7 @@ export default function CampaignDetailPage() {
       )}
 
       {/* Key stats */}
-      <div className="grid grid-cols-3 gap-3 mt-4">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-4">
         <div className="bg-white/5 border border-white/10 rounded-md p-4 text-center">
           <p className="text-2xl font-bold text-primary">{customers}</p>
           <p className="text-[11px] text-foreground/40 mt-1">customers/mo</p>
@@ -325,7 +325,7 @@ export default function CampaignDetailPage() {
           )}
 
           {/* Billing day with edit */}
-          <div className="flex justify-between items-center">
+          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
             <p className="text-sm font-medium">Billing day</p>
             {!editingBilling ? (
               <div className="flex items-center gap-2">
@@ -387,7 +387,7 @@ export default function CampaignDetailPage() {
               <p className="text-sm text-foreground/80">{billingChange.reason}</p>
 
               {billingChange.shouldPauseCampaign && billingChange.pauseDate && billingChange.resumeDate && (
-                <div className="flex gap-3 text-xs">
+                <div className="flex flex-col sm:flex-row gap-3 text-xs">
                   <div className="flex-1 bg-amber-500/10 border border-amber-500/20 rounded px-3 py-2">
                     <p className="text-amber-400 font-medium">Pauses</p>
                     <p className="text-foreground/60 mt-0.5">

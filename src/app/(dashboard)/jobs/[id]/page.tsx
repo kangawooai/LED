@@ -82,12 +82,12 @@ export default function JobDetailPage() {
 
   return (
     <div className="max-w-3xl space-y-6">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
           <Button variant="outline" size="sm" onClick={() => router.push("/jobs")} className="mb-2">
             Back to Jobs
           </Button>
-          <h1 className="text-2xl font-semibold tracking-tight">
+          <h1 className="text-xl sm:text-2xl font-semibold tracking-tight">
             {job.title || `${job.firstName} ${job.lastName}`}
           </h1>
         </div>
@@ -113,7 +113,7 @@ export default function JobDetailPage() {
 
       <div className="bg-white/5 border border-white/10 rounded-md p-5">
         <h3 className="text-sm font-semibold mb-3">Details</h3>
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div className="space-y-2">
             <Label>Job Title</Label>
             <Input value={form.title} onChange={(e) => setForm((p) => ({ ...p, title: e.target.value }))} />

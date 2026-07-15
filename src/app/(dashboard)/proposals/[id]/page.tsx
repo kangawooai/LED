@@ -47,7 +47,7 @@ export default function DashboardProposalDetailPage() {
       <ProposalClient leadId={leadId} />
 
       {/* Edit History — admin only */}
-      {isAdmin && <div className="max-w-2xl mx-auto px-6 mt-8">
+      {isAdmin && <div className="max-w-2xl mx-auto px-0 sm:px-6 mt-8">
         <h2 className="text-lg font-semibold tracking-tight mb-4">Edit History</h2>
         <div className="bg-white/5 border border-white/10 rounded-md p-5">
           {!editHistory || editHistory.length === 0 ? (
