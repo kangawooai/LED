@@ -40,6 +40,7 @@ export async function POST(req: NextRequest) {
     const goLive = new Date();
     goLive.setDate(goLive.getDate() + 7);
     cleanPayload.preferred_go_live = goLive.toISOString().split("T")[0];
+    cleanPayload.day_of_payment = "1st";
 
     // Enrich with proposal data for Salesforce validation fields
     if (cleanPayload.lead_id) {

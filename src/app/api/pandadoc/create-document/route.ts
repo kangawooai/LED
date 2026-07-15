@@ -80,7 +80,7 @@ export async function POST(req: NextRequest) {
           { name: "SetupFee(SF)", value: proposal.setup_fee ? `£${proposal.setup_fee}` : "" },
           { name: "1stMonthMoney", value: proposal.monthly_fee ? `£${proposal.monthly_fee}` : "" },
           { name: "AverageLeadsRequired", value: String(proposal.required_leads || "") },
-          { name: "PaymentDayofMonth", value: String(proposal.billing_day || "") },
+          { name: "PaymentDayofMonth", value: "1st" },
           { name: "GoLiveDate(SF)", value: (() => { const d = new Date(); d.setDate(d.getDate() + 7); return d.toLocaleDateString("en-GB"); })() },
           { name: "YHC", value: proposal.yhc || "" },
         ],
