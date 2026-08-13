@@ -123,18 +123,21 @@ export async function POST(request: Request) {
       .filter((k) => body[k] === "Yes")
       .map((k) => FIELD_LABELS[k].replace("Consent — ", ""));
 
+    // Env vars can carry stray whitespace/newlines from the dashboard — trim defensively
+    const env = (key: string) => (process.env[key] || "").trim();
+
     let emailPromise: Promise<unknown> = Promise.resolve();
-    if (process.env.SMTP_HOST) {
+    if (env("SMTP_HOST")) {
       const transporter = nodemailer.createTransport({
-        host: process.env.SMTP_HOST,
-        port: Number(process.env.SMTP_PORT) || 587,
-        secure: Number(process.env.SMTP_PORT) === 465,
-        auth: { user: process.env.SMTP_USER, pass: process.env.SMTP_PASS },
+        host: env("SMTP_HOST"),
+        port: Number(env("SMTP_PORT")) || 587,
+        secure: Number(env("SMTP_PORT")) === 465,
+        auth: { user: env("SMTP_USER"), pass: env("SMTP_PASS") },
       });
 
       emailPromise = transporter
         .sendMail({
-          from: `Leads Every Day <${process.env.SMTP_FROM || process.env.SMTP_USER}>`,
+          from: `Leads Every Day <${env("SMTP_FROM") || env("SMTP_USER")}>`,
           to: EMAIL_RECIPIENTS.join(", "),
           replyTo: email,
           subject: `Growth Review: ${body.company || name}`,
