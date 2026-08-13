@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
-const EMAIL_RECIPIENTS = ["leads@leadseveryday.co.uk"];
+const EMAIL_RECIPIENTS = ["max.young@leadseveryday.co.uk"];
 
 // Existing Google Apps Script sheet endpoint (keeps the current spreadsheet in sync)
 const SCRIPT_URL =
