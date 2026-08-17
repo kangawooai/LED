@@ -30,8 +30,10 @@ const DEFAULT_MEMBER = TEAM[0]; // Robert O'Toole
 
 /** Resolve the account manager to display / notify from the stored name + email. */
 export function resolveManager(managerName?: string | null, managerEmail?: string | null): Manager {
-  const n = (managerName || "").toLowerCase();
-  const found = TEAM.find((m) => m.match.some((t) => n.includes(t))) || DEFAULT_MEMBER;
+  // Match against the name AND the email's local part (e.g. sean.chambers@… → Sean)
+  const emailLocal = (managerEmail || "").split("@")[0];
+  const hay = `${managerName || ""} ${emailLocal}`.toLowerCase();
+  const found = TEAM.find((m) => m.match.some((t) => hay.includes(t))) || DEFAULT_MEMBER;
   return {
     name: found.name,
     email: (managerEmail || "").trim() || DEFAULT_EMAIL,
