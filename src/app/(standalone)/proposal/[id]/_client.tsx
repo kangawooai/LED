@@ -849,9 +849,18 @@ export default function ProposalClient({ leadId }: { leadId: string }) {
 
             <p className="text-xs text-foreground/40">All figures exclude VAT. No long-term contract, after your first month you&apos;re free to give 30 days&apos; notice at any time.</p>
 
-            {!isPaid && (
-              <Button size="lg" onClick={() => document.getElementById("get-started")?.scrollIntoView({ behavior: "smooth" })} className="gap-2 text-base px-8 py-3">
-                Get My Campaign
+            {!isPaid && !(ACCEPT_ONLY && proposalAccepted) && (
+              <Button
+                size="lg"
+                onClick={
+                  ACCEPT_ONLY
+                    ? () => { handleAcceptProposal(); document.getElementById("get-started")?.scrollIntoView({ behavior: "smooth" }); }
+                    : () => document.getElementById("get-started")?.scrollIntoView({ behavior: "smooth" })
+                }
+                disabled={ACCEPT_ONLY && submitting}
+                className="gap-2 text-base px-8 py-3"
+              >
+                {ACCEPT_ONLY ? (submitting ? "Accepting..." : "Accept Proposal") : "Get My Campaign"}
               </Button>
             )}
           </div>
@@ -1090,9 +1099,14 @@ export default function ProposalClient({ leadId }: { leadId: string }) {
             <div className="flex gap-3 w-full sm:w-auto">
               <Button
                 className="flex-1 sm:flex-none gap-2"
-                onClick={() => document.getElementById("get-started")?.scrollIntoView({ behavior: "smooth" })}
+                onClick={
+                  ACCEPT_ONLY
+                    ? () => { handleAcceptProposal(); document.getElementById("get-started")?.scrollIntoView({ behavior: "smooth" }); }
+                    : () => document.getElementById("get-started")?.scrollIntoView({ behavior: "smooth" })
+                }
+                disabled={ACCEPT_ONLY && submitting}
               >
-                Get My Campaign
+                {ACCEPT_ONLY ? (submitting ? "Accepting..." : "Accept Proposal") : "Get My Campaign"}
               </Button>
               <Button variant="outline" className="flex-1 sm:flex-none gap-2" onClick={handleDiscussProposal} disabled={submitting || discussSent}>
                 <IconMessageCircle className="size-4" /> {discussSent ? "Sent" : "Discuss"}

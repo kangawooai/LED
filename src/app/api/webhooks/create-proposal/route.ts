@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
+import nodemailer from "nodemailer";
 import { supabase } from "@/lib/supabase";
 import { CRM_SERVICE_OPTIONS } from "@/constants";
+import { sendSms } from "@/lib/clicksend";
 
 /**
  * POST /api/webhooks/create-proposal
@@ -33,6 +35,72 @@ const PRICING_WEBHOOK =
 const FETCH_WEBHOOK =
   "https://dwrs.omnitoria.io/webhook/c7e7deff-8e45-4185-a8d2-185cb8e8d53b";
 const BASIC_AUTH = Buffer.from("leadseveryday:8pH3&9}0`iOZ").toString("base64");
+
+// Send the customer their proposal link by SMS and email (best-effort, never throws)
+async function sendProposalNotifications(
+  firstName: string,
+  phone: string | undefined,
+  email: string | undefined,
+  proposalUrl: string
+) {
+  const env = (key: string) => (process.env[key] || "").trim();
+  const tasks: Promise<unknown>[] = [];
+
+  // SMS via ClickSend
+  if (phone) {
+    const body = `Hi ${firstName}, your Leads Every Day proposal is ready. View it here: ${proposalUrl}`;
+    tasks.push(
+      sendSms(phone, body).then((r) => {
+        if (!r.success) console.error("[create-proposal] SMS failed:", r.error);
+      })
+    );
+  }
+
+  // Email via SMTP
+  if (email && env("SMTP_HOST")) {
+    const transporter = nodemailer.createTransport({
+      host: env("SMTP_HOST"),
+      port: Number(env("SMTP_PORT")) || 587,
+      secure: Number(env("SMTP_PORT")) === 465,
+      auth: { user: env("SMTP_USER"), pass: env("SMTP_PASS") },
+    });
+    tasks.push(
+      transporter
+        .sendMail({
+          from: `Leads Every Day <${env("SMTP_FROM") || env("SMTP_USER")}>`,
+          to: email,
+          subject: "Your Leads Every Day proposal is ready",
+          html: `<!DOCTYPE html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
+<body style="margin:0;padding:0;background-color:#0f172a;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
+<table width="100%" cellpadding="0" cellspacing="0" style="background-color:#0f172a;padding:24px 16px;">
+<tr><td align="center">
+<table width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;">
+<tr><td style="padding:24px 32px;background-color:#1e293b;border-radius:12px 12px 0 0;border-bottom:2px solid #22c55e;">
+  <img src="https://www.leadseveryday.co.uk/leads-everyday-neg.png" alt="Leads Every Day" width="180" height="21" style="display:block;border:0;" />
+</td></tr>
+<tr><td style="padding:28px 32px 8px;background-color:#1e293b;">
+  <h1 style="margin:0 0 8px;font-size:22px;font-weight:600;color:#f8fafc;">Hi ${firstName}, your proposal is ready</h1>
+  <p style="margin:0 0 20px;font-size:15px;color:#94a3b8;line-height:1.5;">We've put together a tailored lead generation plan for your business. Tap below to view it.</p>
+  <table cellpadding="0" cellspacing="0"><tr>
+    <td style="background-color:#22c55e;border-radius:8px;"><a href="${proposalUrl}" style="display:inline-block;padding:13px 28px;color:#fff;font-size:15px;font-weight:600;text-decoration:none;">View Your Proposal</a></td>
+  </tr></table>
+  <p style="margin:20px 0 0;font-size:13px;color:#64748b;word-break:break-all;">Or paste this link into your browser:<br><a href="${proposalUrl}" style="color:#22c55e;">${proposalUrl}</a></p>
+</td></tr>
+<tr><td style="padding:20px 32px;background-color:#0f172a;border-radius:0 0 12px 12px;text-align:center;">
+  <p style="margin:0;font-size:12px;color:#475569;">Leads Every Day &middot; <a href="https://www.leadseveryday.co.uk" style="color:#22c55e;text-decoration:none;">leadseveryday.co.uk</a></p>
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body></html>`,
+        })
+        .catch((err) => console.error("[create-proposal] email failed:", err))
+    );
+  }
+
+  await Promise.allSettled(tasks);
+}
 
 // Derive the industry (service group) from a CRM service value or label
 function industryFromService(service: string): string | null {
@@ -241,6 +309,13 @@ export async function POST(req: NextRequest) {
     }
 
     const proposalUrl = `${APP_URL}/proposal/${encodeURIComponent(leadIdStr)}`;
+
+    // ── 4. Notify the customer (SMS + email) with their proposal link ──
+    const firstName = (contact.first_name as string) || "there";
+    const notifyPhone = contact.phone as string | undefined;
+    const notifyEmail = contact.email as string | undefined;
+    await sendProposalNotifications(firstName, notifyPhone, notifyEmail, proposalUrl);
+
     return NextResponse.json({
       success: true,
       lead_id: leadIdStr,

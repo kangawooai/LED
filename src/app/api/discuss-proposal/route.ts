@@ -29,7 +29,7 @@ export async function POST(request: Request) {
 
     await transporter.sendMail({
       from: `Leads Every Day <${process.env.SMTP_FROM || process.env.SMTP_USER}>`,
-      to: "pete@leadseveryday.co.uk",
+      to: "robert@leadseveryday.co.uk",
       replyTo: contactEmail !== "Not provided" ? contactEmail : undefined,
       subject: "I would like to discuss my quote",
       html: `<!DOCTYPE html>
