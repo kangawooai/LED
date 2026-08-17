@@ -22,7 +22,7 @@ const DEFAULT_EMAIL = "robert@leadseveryday.co.uk";
 const TEAM: { match: string[]; name: string; photo: string }[] = [
   { match: ["robert", "rob", "toole"], name: "Robert O'Toole", photo: "/team/rob.webp" },
   { match: ["dan", "feltham"], name: "Dan Feltham", photo: "/team/dan.webp" },
-  { match: ["sean", "chamber"], name: "Sean Chamber", photo: "/team/sean.webp" },
+  { match: ["sean", "chamber"], name: "Sean Chambers", photo: "/team/sean.webp" },
   { match: ["kam", "kameron", "bowen"], name: "Kameron James Bowen", photo: "/team/kam.webp" },
 ];
 
