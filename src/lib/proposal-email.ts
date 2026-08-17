@@ -34,9 +34,6 @@ const HEAD = "#f8fafc";
 const MUTED = "#94a3b8";
 const DIM = "#64748b";
 
-// Monochrome (non-emoji) phone glyph: ☎ + U+FE0E variation selector
-const PHONE_ICON = "&#9742;&#65038;";
-
 const BDM = {
   name: "Robert O'Toole",
   role: "Business Development Manager",
@@ -209,7 +206,7 @@ export function buildProposalEmail(d: ProposalEmailData): string {
       <p style="margin:0;font-size:15px;font-weight:700;color:${HEAD};">${BDM.name}</p>
       <p style="margin:0 0 8px;font-size:12px;color:${MUTED};">${BDM.role}</p>
       <p style="margin:0 0 8px;font-size:13px;color:${MUTED};line-height:1.5;">&ldquo;I've prepared this proposal personally for you, ${firstName}. Any questions at all, call me directly &mdash; I'm here to help.&rdquo;</p>
-      <a href="tel:${BDM.phone}" style="font-size:13px;font-weight:600;color:${GREEN};text-decoration:none;">${PHONE_ICON} ${BDM.phoneDisplay}</a>
+      <a href="tel:${BDM.phone}" style="font-size:13px;font-weight:600;color:${GREEN};text-decoration:none;"><img src="https://www.leadseveryday.co.uk/phone.png" width="13" height="13" alt="Call" style="vertical-align:middle;margin-right:6px;border:0;" />${BDM.phoneDisplay}</a>
     </td>
   </tr></table>
 </td></tr>
