@@ -7,7 +7,7 @@ const CLICKSEND_API = "https://rest.clicksend.com/v3/sms/send";
 
 // Alphanumeric sender ID (max 11 chars, no spaces). Replies can't route back to
 // an alphanumeric sender — fine for one-way proposal links.
-const DEFAULT_FROM = "LeadsEvery";
+const DEFAULT_FROM = "LED";
 
 /** Normalise a UK-ish phone number to E.164 (+44…). */
 export function toE164(raw: string): string {
