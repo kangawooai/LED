@@ -1,3 +1,4 @@
+import BookACall from "@/sections/book-a-call";
 import Cta from "@/sections/cta";
 import Features from "@/sections/features";
 import Hero from "@/sections/hero";
@@ -10,6 +11,7 @@ const HomePage = () => {
     <div>
       <Hero />
       <Stats />
+      <BookACall />
       <Features />
       <Process />
       <Reviews />

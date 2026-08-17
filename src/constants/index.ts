@@ -84,7 +84,17 @@ export function getCrmServiceName(serviceName: string): string {
 }
 
 /** Grouped CRM service options for dropdowns (book-a-call) */
-export const CRM_SERVICE_OPTIONS = [
+export type ServiceOption = { label: string; value: string; bespoke?: boolean };
+export type ServiceGroup = { group: string; options: ServiceOption[] };
+
+// Catch-all shown (in green) at the bottom of every industry's service list.
+export const BESPOKE_OPTION: ServiceOption = {
+  label: "I can't find my business service",
+  value: "BESPOKE",
+  bespoke: true,
+};
+
+const RAW_SERVICE_OPTIONS: ServiceGroup[] = [
   {
     group: "Construction & Home Improvements",
     options: [
@@ -195,10 +205,18 @@ export const CRM_SERVICE_OPTIONS = [
       { label: "Plant Hire", value: "Plant Hire" },
       { label: "Pest Control", value: "Pest Control" },
       { label: "Tree Surgeon", value: "Tree Surgeon" },
-      { label: "Other", value: "BESPOKE" },
     ],
   },
-] as const;
+];
+
+// Industries A–Z; services A–Z within each, with the "can't find" catch-all pinned last.
+export const CRM_SERVICE_OPTIONS: ServiceGroup[] = RAW_SERVICE_OPTIONS.map((g) => ({
+  group: g.group,
+  options: [
+    ...g.options.slice().sort((a, b) => a.label.localeCompare(b.label)),
+    BESPOKE_OPTION,
+  ],
+})).sort((a, b) => a.group.localeCompare(b.group));
 
 /**
  * Maps our service names to the exact CRM/Zapier values.

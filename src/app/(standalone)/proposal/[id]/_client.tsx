@@ -782,7 +782,7 @@ export default function ProposalClient({ leadId }: { leadId: string }) {
                     <div className="space-y-2">
                       <Label>Service</Label>
                       <select value={proposalEdits.service_type} onChange={(e) => setProposalEdits((p) => ({ ...p, service_type: e.target.value }))} className="w-full h-9 bg-white/5 border border-white/10 rounded-md px-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary/50">
-                        {proposalServices.map((o) => <option key={o.label} value={o.label}>{o.label}</option>)}
+                        {proposalServices.map((o) => <option key={o.label} value={o.label} style={o.bespoke ? { color: "#16a34a", fontWeight: 600 } : undefined}>{o.label}</option>)}
                       </select>
                     </div>
                     <div className="space-y-2">

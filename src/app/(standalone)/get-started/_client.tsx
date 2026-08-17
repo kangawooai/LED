@@ -495,7 +495,11 @@ function GetStartedContent() {
                             : "Select industry first"}
                         </option>
                         {filteredServices.map((option) => (
-                          <option key={option.label} value={option.label}>
+                          <option
+                            key={option.label}
+                            value={option.label}
+                            style={option.bespoke ? { color: "#16a34a", fontWeight: 600 } : undefined}
+                          >
                             {option.label}
                           </option>
                         ))}

@@ -89,7 +89,7 @@ function industryFromService(service: string): string | null {
   for (const group of CRM_SERVICE_OPTIONS) {
     if (
       group.options.some(
-        (o) => o.value.toLowerCase() === s || o.label.toLowerCase() === s
+        (o) => !o.bespoke && (o.value.toLowerCase() === s || o.label.toLowerCase() === s)
       )
     ) {
       return group.group;
