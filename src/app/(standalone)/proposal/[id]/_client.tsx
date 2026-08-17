@@ -765,7 +765,7 @@ export default function ProposalClient({ leadId }: { leadId: string }) {
         )}
 
         {/* Adjust Requirements */}
-        {!isPaid && (
+        {!isPaid && !ACCEPT_ONLY && (
           <div>
             <button
               type="button"
