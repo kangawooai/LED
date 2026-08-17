@@ -101,6 +101,11 @@ interface ProposalData {
 
 const API_ENDPOINT = "/api/onboarding";
 
+// TEMPORARY: when true, the proposal stops at "Accept" — clicking Accept sends a
+// confirmation email and the Company Details / Terms / Payment / PandaDoc steps are
+// hidden. Set back to false to restore the full accept → pay → sign flow.
+const ACCEPT_ONLY = true;
+
 const BDM = {
   name: "Robert O'Toole",
   role: "Business Development Manager",
@@ -443,7 +448,38 @@ export default function ProposalClient({ leadId }: { leadId: string }) {
     return null;
   };
 
-  const handleAcceptProposal = () => {
+  const handleAcceptProposal = async () => {
+    if (ACCEPT_ONLY) {
+      // Accept-only mode: mark accepted, send the confirmation email, and stop here.
+      if (submitting || proposalAccepted) return;
+      setSubmitting(true);
+      setProposalAccepted(true);
+      const ns = new Set([...completedSteps, "requirements"]);
+      setCompletedSteps(ns); setActiveSection(null);
+      saveProgress({ proposal_accepted: true, completed_steps: [...ns], active_section: null });
+      const setup = Number(proposal?.setup_fee) || 0;
+      const monthly = Number(proposal?.monthly_fee) || 0;
+      try {
+        await fetch("/api/proposals/accept", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            business: companyName || clientName,
+            customer: clientName,
+            service: quotedValues.service_type,
+            targetArea,
+            leadsPerMonth: leadsNeeded,
+            customersPerMonth: customers,
+            conversionRate: rate,
+            setupFee: setup,
+            monthlyFee: monthly,
+            firstPayment: setup + monthly,
+          }),
+        });
+      } catch {}
+      finally { setSubmitting(false); }
+      return;
+    }
     setProposalAccepted(true);
     const ns = new Set([...completedSteps, "requirements"]);
     const next = getNextStep(ns);
@@ -902,8 +938,8 @@ export default function ProposalClient({ leadId }: { leadId: string }) {
                     <IconCheck className="size-4" /> Proposal Accepted
                   </div>
                 ) : (
-                  <Button onClick={handleAcceptProposal} className="gap-2">
-                    <IconCheck className="size-4" /> Accept Proposal
+                  <Button onClick={handleAcceptProposal} disabled={submitting} className="gap-2">
+                    <IconCheck className="size-4" /> {submitting ? "Accepting..." : "Accept Proposal"}
                   </Button>
                 )}
                 <Button variant="outline" onClick={handleDiscussProposal} disabled={submitting || discussSent} className="gap-2">
@@ -911,7 +947,14 @@ export default function ProposalClient({ leadId }: { leadId: string }) {
                 </Button>
               </div>
 
-              {/* Step 1: Company Details */}
+              {ACCEPT_ONLY && proposalAccepted && (
+                <p className="text-sm text-emerald-400/90 max-w-md mx-auto pt-3">
+                  Thank you &mdash; we&apos;ve received your acceptance. A member of the team will be in touch shortly to get everything set up.
+                </p>
+              )}
+
+              {/* Steps 1–3: Company Details / Terms / Payment — hidden in accept-only mode */}
+              {!ACCEPT_ONLY && (
               <div className="space-y-3 mt-4 text-left">
                 <AccordionSection stepNumber={1} title="Company Details" isOpen={activeSection === "details"} isCompleted={completedSteps.has("details")} isLocked={!proposalAccepted} onToggle={() => toggleSection("details")}>
                   <p className="text-sm text-foreground/50 mb-4">Please confirm your details below.</p>
@@ -1022,6 +1065,7 @@ export default function ProposalClient({ leadId }: { leadId: string }) {
                   </div>
                 </AccordionSection>
               </div>
+              )}
             </>
           )}
         </div>
@@ -1033,7 +1077,7 @@ export default function ProposalClient({ leadId }: { leadId: string }) {
       </div>
 
       {/* Sticky Bottom Bar */}
-      {!isPaid && (
+      {!isPaid && !(ACCEPT_ONLY && proposalAccepted) && (
         <div className={cn(
           "fixed bottom-0 left-0 right-0 z-40 bg-background/80 backdrop-blur-xl border-t border-white/10 transition-all duration-300 pb-[env(safe-area-inset-bottom)]",
           ctaVisible ? "translate-y-full opacity-0" : "translate-y-0 opacity-100"
