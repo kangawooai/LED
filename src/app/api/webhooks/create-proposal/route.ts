@@ -4,6 +4,7 @@ import { supabase } from "@/lib/supabase";
 import { CRM_SERVICE_OPTIONS } from "@/constants";
 import { sendSms } from "@/lib/clicksend";
 import { buildProposalEmail, type ProposalEmailData } from "@/lib/proposal-email";
+import { resolveManager } from "@/lib/managers";
 
 /**
  * POST /api/webhooks/create-proposal
@@ -157,6 +158,9 @@ export async function POST(req: NextRequest) {
   // Proposal-specific contact — overrides whatever the CRM fetch returns
   const emailInput = pick(body, "email", "Email");
   const phoneInput = pick(body, "phone", "phone_number", "Phone");
+  // Account manager (who owns the lead)
+  const managerName = pick(body, "manager_name", "managerName");
+  const managerEmail = pick(body, "manager_email", "managerEmail");
 
   const missing = [
     ["lead_id", leadId],
@@ -271,6 +275,8 @@ export async function POST(req: NextRequest) {
       custom_leads: customLeads ?? null,
       avg_job_value: avgOverride ?? Number(pricing.average_job_value) ?? 0,
       desired_return: returnOverride ?? Number(pricing.roi) ?? 0,
+      manager_name: managerName ?? null,
+      manager_email: managerEmail ?? null,
       ...contact,
     };
 
@@ -297,6 +303,10 @@ export async function POST(req: NextRequest) {
       customersNum > 0 && rateNum > 0
         ? Math.ceil(customersNum / (rateNum / 100))
         : customersNum;
+    const mgr = resolveManager(
+      managerName ? String(managerName) : null,
+      managerEmail ? String(managerEmail) : null
+    );
     await sendProposalNotifications({
       firstName: (contact.first_name as string) || "there",
       business: (contact.business_name as string) || "",
@@ -306,6 +316,10 @@ export async function POST(req: NextRequest) {
       conversionRate: rateNum,
       avgJobValue: Number(data.avg_job_value) || 0,
       desiredReturn: Number(data.desired_return) || 0,
+      managerName: mgr.name,
+      managerPhotoUrl: `${APP_URL}${mgr.photo}`,
+      managerPhone: mgr.phone,
+      managerPhoneDisplay: mgr.phoneDisplay,
       phone: contact.phone as string | undefined,
       email: contact.email as string | undefined,
       proposalUrl,

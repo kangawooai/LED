@@ -4,11 +4,13 @@ import nodemailer from "nodemailer";
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { leadId, service, customers, conversionRate, leads, targetArea, setupFee, monthlyFee, contact } = body;
+    const { leadId, service, customers, conversionRate, leads, targetArea, setupFee, monthlyFee, contact, managerEmail } = body;
 
     if (!leadId) {
       return NextResponse.json({ error: "Lead ID is required." }, { status: 400 });
     }
+
+    const recipient = (managerEmail || "").trim() || "robert@leadseveryday.co.uk";
 
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
@@ -29,7 +31,7 @@ export async function POST(request: Request) {
 
     await transporter.sendMail({
       from: `Leads Every Day <${process.env.SMTP_FROM || process.env.SMTP_USER}>`,
-      to: "robert@leadseveryday.co.uk",
+      to: recipient,
       replyTo: contactEmail !== "Not provided" ? contactEmail : undefined,
       subject: "I would like to discuss my quote",
       html: `<!DOCTYPE html>

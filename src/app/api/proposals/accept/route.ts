@@ -3,11 +3,13 @@ import nodemailer from "nodemailer";
 
 export async function POST(request: Request) {
   try {
-    const { business, customer, service, targetArea, leadsPerMonth, customersPerMonth, conversionRate, setupFee, monthlyFee, firstPayment } = await request.json();
+    const { business, customer, service, targetArea, leadsPerMonth, customersPerMonth, conversionRate, setupFee, monthlyFee, firstPayment, managerEmail } = await request.json();
 
     if (!business || !customer) {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
     }
+
+    const recipient = (managerEmail || "").trim() || "robert@leadseveryday.co.uk";
 
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
@@ -30,7 +32,7 @@ export async function POST(request: Request) {
 
     await transporter.sendMail({
       from: `Leads Every Day <${process.env.SMTP_FROM || process.env.SMTP_USER}>`,
-      to: "robert@leadseveryday.co.uk",
+      to: recipient,
       subject: `Proposal Accepted — ${business}`,
       html: `<!DOCTYPE html>
 <html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>

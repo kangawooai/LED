@@ -13,6 +13,10 @@ export interface ProposalEmailData {
   conversionRate?: number;
   avgJobValue?: number;
   desiredReturn?: number;
+  managerName?: string;
+  managerPhotoUrl?: string;
+  managerPhone?: string;
+  managerPhoneDisplay?: string;
 }
 
 const gbp2 = (v: string | number) => {
@@ -34,13 +38,6 @@ const HEAD = "#f8fafc";
 const MUTED = "#94a3b8";
 const DIM = "#64748b";
 
-const BDM = {
-  name: "Robert O'Toole",
-  role: "Business Development Manager",
-  phone: "+443330424424",
-  phoneDisplay: "0333 0 424 424",
-  photo: "https://www.leadseveryday.co.uk/Rob.png",
-};
 
 const STEPS = [
   { n: 1, title: "Your proposal is ready", desc: "Built around your specific business requirements — ready for you to review." },
@@ -72,6 +69,13 @@ export function buildProposalEmail(d: ProposalEmailData): string {
   const grow = business
     ? `your tailored plan to grow <span style="color:${GREEN};">${business}</span>`
     : `your tailored plan to grow your business`;
+
+  // Account manager (defaults to Robert O'Toole)
+  const mgrName = d.managerName || "Robert O'Toole";
+  const mgrRole = "Business Development Manager";
+  const mgrPhoto = d.managerPhotoUrl || "https://www.leadseveryday.co.uk/team/rob.webp";
+  const mgrPhone = d.managerPhone || "+443330424424";
+  const mgrPhoneDisplay = d.managerPhoneDisplay || "0333 0 424 424";
 
   // ── ROI / "how we arrived at this" (only when we have the figures) ──
   const rate = Number(d.conversionRate) || 0;
@@ -199,14 +203,14 @@ export function buildProposalEmail(d: ProposalEmailData): string {
 <tr><td style="padding:20px 32px 4px;background-color:${BG};">
   <table width="100%" cellpadding="0" cellspacing="0" style="background-color:${CARD};border:1px solid ${BORDER};border-radius:10px;"><tr>
     <td width="88" valign="top" style="padding:16px 0 16px 16px;">
-      <img src="${BDM.photo}" alt="${BDM.name}" width="72" height="72" style="display:block;border-radius:50%;border:2px solid ${GREEN};" />
+      <img src="${mgrPhoto}" alt="${mgrName}" width="72" height="72" style="display:block;width:72px;height:72px;border-radius:50%;border:2px solid ${GREEN};object-fit:cover;" />
     </td>
     <td valign="top" style="padding:16px;">
       <p style="margin:0 0 2px;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:${GREEN};">Your point of contact</p>
-      <p style="margin:0;font-size:15px;font-weight:700;color:${HEAD};">${BDM.name}</p>
-      <p style="margin:0 0 8px;font-size:12px;color:${MUTED};">${BDM.role}</p>
+      <p style="margin:0;font-size:15px;font-weight:700;color:${HEAD};">${mgrName}</p>
+      <p style="margin:0 0 8px;font-size:12px;color:${MUTED};">${mgrRole}</p>
       <p style="margin:0 0 8px;font-size:13px;color:${MUTED};line-height:1.5;">&ldquo;I've prepared this proposal personally for you, ${firstName}. Any questions at all, call me directly &mdash; I'm here to help.&rdquo;</p>
-      <a href="tel:${BDM.phone}" style="font-size:13px;font-weight:600;color:${GREEN};text-decoration:none;"><img src="https://www.leadseveryday.co.uk/phone.png" width="13" height="13" alt="Call" style="vertical-align:middle;margin-right:6px;border:0;" />${BDM.phoneDisplay}</a>
+      <a href="tel:${mgrPhone}" style="font-size:13px;font-weight:600;color:${GREEN};text-decoration:none;"><img src="https://www.leadseveryday.co.uk/phone.png" width="13" height="13" alt="Call" style="vertical-align:middle;margin-right:6px;border:0;" />${mgrPhoneDisplay}</a>
     </td>
   </tr></table>
 </td></tr>

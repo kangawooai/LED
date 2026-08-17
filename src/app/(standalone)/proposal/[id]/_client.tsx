@@ -14,6 +14,7 @@ import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import { CRM_SERVICE_OPTIONS } from "@/constants";
 import { cn } from "@/lib/utils";
+import { resolveManager } from "@/lib/managers";
 import {
   IconCheck,
   IconChevronDown,
@@ -106,14 +107,6 @@ const API_ENDPOINT = "/api/onboarding";
 // hidden. Set back to false to restore the full accept → pay → sign flow.
 const ACCEPT_ONLY = true;
 
-const BDM = {
-  name: "Robert O'Toole",
-  role: "Business Development Manager",
-  phone: "+443330424424",
-  phoneDisplay: "0333 0 424 424",
-  email: "hello@leadseveryday.co.uk",
-  photo: "/Rob.png",
-};
 
 
 /* ─── Accordion Section ─── */
@@ -259,6 +252,8 @@ export default function ProposalClient({ leadId }: { leadId: string }) {
   const [completedSteps, setCompletedSteps] = useState<Set<string>>(new Set());
   const [proposalAccepted, setProposalAccepted] = useState(false);
   const [contact, setContact] = useState<ContactData | null>(null);
+  const [managerName, setManagerName] = useState<string>("");
+  const [managerEmail, setManagerEmail] = useState<string>("");
   const [discussOpen, setDiscussOpen] = useState(false);
   const [discussSent, setDiscussSent] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -333,6 +328,8 @@ export default function ProposalClient({ leadId }: { leadId: string }) {
             } else { setActiveSection("details"); }
             if (data.stripe_payment_id) setStripePaymentId(data.stripe_payment_id);
             if (data.pandadoc_status) setPandadocStatus(data.pandadoc_status);
+            if (data.manager_name) setManagerName(data.manager_name);
+            if (data.manager_email) setManagerEmail(data.manager_email);
             if (data.first_name || data.email) {
               setContact({ first_name: data.first_name || "", last_name: data.last_name || "", email: data.email || "", phone: data.phone || "", business_name: data.business_name || "" });
               setDetailsForm({ first_name: data.first_name || "", last_name: data.last_name || "", email: data.email || "", phone: data.phone || "", business_name: data.business_name || "", company_address: data.company_address || "", street_address: data.street_address || "", city: data.city || "", country: data.country || "", post_code: data.post_code || "", company_number: data.company_number || "" });
@@ -408,6 +405,7 @@ export default function ProposalClient({ leadId }: { leadId: string }) {
   const gbp = (n: number) => `£${Math.round(n).toLocaleString("en-GB")}`;
   const toggleSection = (s: string) => setActiveSection((prev) => prev === s ? null : s);
 
+  const bdm = resolveManager(managerName, managerEmail);
   const clientName = contact?.first_name || detailsForm.first_name || "there";
   const companyName = contact?.business_name || detailsForm.business_name || "";
   const displayName = companyName || clientName;
@@ -437,7 +435,7 @@ export default function ProposalClient({ leadId }: { leadId: string }) {
   const handleDiscussProposal = async () => {
     if (submitting) return; setSubmitting(true);
     let cd = contact; if (!cd) { try { const raw = sessionStorage.getItem("proposal_data"); if (raw) { const s = JSON.parse(raw); if (s.contact) cd = s.contact; } } catch {} }
-    try { await fetch("/api/discuss-proposal", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ leadId, service: quotedValues.service_type, customers, conversionRate: rate, leads: leadsNeeded, targetArea, setupFee: proposal ? formatFee(proposal.setup_fee) : "", monthlyFee: proposal ? formatFee(proposal.monthly_fee) : "", contact: cd }) }); } catch {}
+    try { await fetch("/api/discuss-proposal", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ leadId, service: quotedValues.service_type, customers, conversionRate: rate, leads: leadsNeeded, targetArea, setupFee: proposal ? formatFee(proposal.setup_fee) : "", monthlyFee: proposal ? formatFee(proposal.monthly_fee) : "", contact: cd, managerEmail: bdm.email, managerName: bdm.name }) }); } catch {}
     finally { setSubmitting(false); setDiscussSent(true); setDiscussOpen(true); }
   };
 
@@ -474,6 +472,8 @@ export default function ProposalClient({ leadId }: { leadId: string }) {
             setupFee: setup,
             monthlyFee: monthly,
             firstPayment: setup + monthly,
+            managerEmail: bdm.email,
+            managerName: bdm.name,
           }),
         });
       } catch {}
@@ -667,22 +667,22 @@ export default function ProposalClient({ leadId }: { leadId: string }) {
         <div className="bg-white/5 border border-white/10 rounded-xl p-6">
           <div className="grid md:grid-cols-[1fr_2fr] gap-6 items-center">
             <Image
-              src={BDM.photo}
-              alt={BDM.name}
+              src={bdm.photo}
+              alt={bdm.name}
               width={240}
               height={240}
               className="rounded-full border-2 border-primary/30 object-cover w-full aspect-square mx-auto max-w-[200px] md:max-w-none"
             />
             <div className="space-y-2">
               <p className="text-xs uppercase tracking-widest text-primary font-semibold">Dedicated Point of Contact</p>
-              <p className="font-semibold text-lg">{BDM.name}</p>
-              <p className="text-sm text-foreground/50">{BDM.role}</p>
+              <p className="font-semibold text-lg">{bdm.name}</p>
+              <p className="text-sm text-foreground/50">{bdm.role}</p>
               <p className="text-sm text-foreground/50">&ldquo;I have prepared this proposal personally for you, {clientName}. If you have any questions at all, please call me directly, I am here to help get your business in front of more customers.&rdquo;</p>
               <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4 pt-1">
-                <a href={`tel:${BDM.phone}`} className="text-sm text-primary hover:text-primary/80 transition-colors inline-flex items-center gap-1.5">
-                  <IconPhone className="w-3.5 h-3.5" /> {BDM.phoneDisplay}
+                <a href={`tel:${bdm.phone}`} className="text-sm text-primary hover:text-primary/80 transition-colors inline-flex items-center gap-1.5">
+                  <IconPhone className="w-3.5 h-3.5" /> {bdm.phoneDisplay}
                 </a>
-                <a href={`mailto:${BDM.email}?subject=My%20proposal%20-%20a%20question`} className="text-sm text-primary hover:text-primary/80 transition-colors inline-flex items-center gap-1.5">
+                <a href={`mailto:${bdm.email}?subject=My%20proposal%20-%20a%20question`} className="text-sm text-primary hover:text-primary/80 transition-colors inline-flex items-center gap-1.5">
                   <IconMail className="w-3.5 h-3.5" /> Email me directly
                 </a>
               </div>
