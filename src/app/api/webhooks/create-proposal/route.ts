@@ -36,13 +36,27 @@ const FETCH_WEBHOOK =
   "https://dwrs.omnitoria.io/webhook/c7e7deff-8e45-4185-a8d2-185cb8e8d53b";
 const BASIC_AUTH = Buffer.from("leadseveryday:8pH3&9}0`iOZ").toString("base64");
 
+interface ProposalSummary {
+  firstName: string;
+  business: string;
+  leadsNeeded: number;
+  setupFee: string | number;
+  monthlyFee: string | number;
+  phone?: string;
+  email?: string;
+  proposalUrl: string;
+}
+
+const gbp2 = (v: string | number) => {
+  const n = Number(v);
+  return isNaN(n)
+    ? String(v)
+    : `£${n.toLocaleString("en-GB", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+};
+
 // Send the customer their proposal link by SMS and email (best-effort, never throws)
-async function sendProposalNotifications(
-  firstName: string,
-  phone: string | undefined,
-  email: string | undefined,
-  proposalUrl: string
-) {
+async function sendProposalNotifications(s: ProposalSummary) {
+  const { firstName, business, leadsNeeded, setupFee, monthlyFee, phone, email, proposalUrl } = s;
   const env = (key: string) => (process.env[key] || "").trim();
   const tasks: Promise<unknown>[] = [];
 
@@ -64,6 +78,10 @@ async function sendProposalNotifications(
       secure: Number(env("SMTP_PORT")) === 465,
       auth: { user: env("SMTP_USER"), pass: env("SMTP_PASS") },
     });
+    const grow = business
+      ? `your tailored plan to grow <span style="color:#22c55e;">${business}</span>`
+      : `your tailored plan to grow your business`;
+
     tasks.push(
       transporter
         .sendMail({
@@ -76,20 +94,70 @@ async function sendProposalNotifications(
 <table width="100%" cellpadding="0" cellspacing="0" style="background-color:#0f172a;padding:24px 16px;">
 <tr><td align="center">
 <table width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;">
+
+<!-- Header -->
 <tr><td style="padding:24px 32px;background-color:#1e293b;border-radius:12px 12px 0 0;border-bottom:2px solid #22c55e;">
   <img src="https://www.leadseveryday.co.uk/leads-everyday-neg.png" alt="Leads Every Day" width="180" height="21" style="display:block;border:0;" />
 </td></tr>
-<tr><td style="padding:28px 32px 8px;background-color:#1e293b;">
-  <h1 style="margin:0 0 8px;font-size:22px;font-weight:600;color:#f8fafc;">Hi ${firstName}, your proposal is ready</h1>
-  <p style="margin:0 0 20px;font-size:15px;color:#94a3b8;line-height:1.5;">We've put together a tailored lead generation plan for your business. Tap below to view it.</p>
-  <table cellpadding="0" cellspacing="0"><tr>
-    <td style="background-color:#22c55e;border-radius:8px;"><a href="${proposalUrl}" style="display:inline-block;padding:13px 28px;color:#fff;font-size:15px;font-weight:600;text-decoration:none;">View Your Proposal</a></td>
-  </tr></table>
-  <p style="margin:20px 0 0;font-size:13px;color:#64748b;word-break:break-all;">Or paste this link into your browser:<br><a href="${proposalUrl}" style="color:#22c55e;">${proposalUrl}</a></p>
+
+<!-- Title -->
+<tr><td style="padding:28px 32px 4px;background-color:#1e293b;">
+  <p style="margin:0 0 10px;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#22c55e;">Lead Generation Proposal &middot; Prepared for ${firstName}</p>
+  <h1 style="margin:0 0 10px;font-size:26px;line-height:1.2;font-weight:700;color:#f8fafc;">${firstName}, ${grow}.</h1>
+  <p style="margin:0;font-size:15px;color:#94a3b8;line-height:1.55;">More leads, more customers and more profit. Here's a snapshot of your tailored package &mdash; tap through for the full proposal.</p>
 </td></tr>
+
+<!-- Pricing cards -->
+<tr><td style="padding:20px 32px 8px;background-color:#1e293b;">
+  <table width="100%" cellpadding="0" cellspacing="0"><tr>
+    <td width="33%" valign="top" style="padding:4px;">
+      <table width="100%" cellpadding="0" cellspacing="0" style="background-color:#0f172a;border:1px solid #243247;border-radius:10px;"><tr><td style="padding:16px 10px;text-align:center;">
+        <p style="margin:0 0 6px;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#22c55e;">Leads / month</p>
+        <p style="margin:0 0 4px;font-size:26px;font-weight:700;color:#f8fafc;">${leadsNeeded}</p>
+        <p style="margin:0;font-size:11px;color:#64748b;">exclusive leads</p>
+      </td></tr></table>
+    </td>
+    <td width="33%" valign="top" style="padding:4px;">
+      <table width="100%" cellpadding="0" cellspacing="0" style="background-color:#0f172a;border:1px solid #243247;border-radius:10px;"><tr><td style="padding:16px 10px;text-align:center;">
+        <p style="margin:0 0 6px;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#22c55e;">One-off setup</p>
+        <p style="margin:0 0 4px;font-size:22px;font-weight:700;color:#f8fafc;">${gbp2(setupFee)}</p>
+        <p style="margin:0;font-size:11px;color:#64748b;">+ VAT &middot; once</p>
+      </td></tr></table>
+    </td>
+    <td width="33%" valign="top" style="padding:4px;">
+      <table width="100%" cellpadding="0" cellspacing="0" style="background-color:#0b2a17;border:2px solid #22c55e;border-radius:10px;"><tr><td style="padding:16px 10px;text-align:center;">
+        <p style="margin:0 0 6px;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#22c55e;">Ongoing</p>
+        <p style="margin:0 0 4px;font-size:22px;font-weight:700;color:#f8fafc;">${gbp2(monthlyFee)}</p>
+        <p style="margin:0;font-size:11px;color:#64748b;">+ VAT &middot; / month</p>
+      </td></tr></table>
+    </td>
+  </tr></table>
+  <p style="margin:12px 4px 0;font-size:11px;color:#64748b;text-align:center;">Every lead is exclusive to you. No long-term contract &mdash; after month one, 30 days' notice any time.</p>
+</td></tr>
+
+<!-- CTA -->
+<tr><td style="padding:20px 32px 4px;background-color:#1e293b;text-align:center;">
+  <table cellpadding="0" cellspacing="0" align="center"><tr>
+    <td style="background-color:#22c55e;border-radius:8px;"><a href="${proposalUrl}" style="display:inline-block;padding:14px 34px;color:#fff;font-size:16px;font-weight:700;text-decoration:none;">View Your Proposal</a></td>
+  </tr></table>
+  <p style="margin:16px 0 0;font-size:12px;color:#64748b;word-break:break-all;">Or paste this link into your browser:<br><a href="${proposalUrl}" style="color:#22c55e;">${proposalUrl}</a></p>
+</td></tr>
+
+<!-- Social proof -->
+<tr><td style="padding:18px 32px 24px;background-color:#1e293b;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="border-top:1px solid #243247;"><tr>
+    <td style="padding-top:16px;text-align:center;"><p style="margin:0;font-size:18px;font-weight:700;color:#f8fafc;">20,000+</p><p style="margin:2px 0 0;font-size:10px;color:#64748b;">Campaigns</p></td>
+    <td style="padding-top:16px;text-align:center;"><p style="margin:0;font-size:18px;font-weight:700;color:#f8fafc;">1M+</p><p style="margin:2px 0 0;font-size:10px;color:#64748b;">Leads</p></td>
+    <td style="padding-top:16px;text-align:center;"><p style="margin:0;font-size:18px;font-weight:700;color:#f8fafc;">1,200+</p><p style="margin:2px 0 0;font-size:10px;color:#64748b;">Reviews</p></td>
+    <td style="padding-top:16px;text-align:center;"><p style="margin:0;font-size:18px;font-weight:700;color:#f8fafc;">48hrs</p><p style="margin:2px 0 0;font-size:10px;color:#64748b;">Avg go-live</p></td>
+  </tr></table>
+</td></tr>
+
+<!-- Footer -->
 <tr><td style="padding:20px 32px;background-color:#0f172a;border-radius:0 0 12px 12px;text-align:center;">
   <p style="margin:0;font-size:12px;color:#475569;">Leads Every Day &middot; <a href="https://www.leadseveryday.co.uk" style="color:#22c55e;text-decoration:none;">leadseveryday.co.uk</a></p>
 </td></tr>
+
 </table>
 </td></tr>
 </table>
@@ -311,10 +379,22 @@ export async function POST(req: NextRequest) {
     const proposalUrl = `${APP_URL}/proposal/${encodeURIComponent(leadIdStr)}`;
 
     // ── 4. Notify the customer (SMS + email) with their proposal link ──
-    const firstName = (contact.first_name as string) || "there";
-    const notifyPhone = contact.phone as string | undefined;
-    const notifyEmail = contact.email as string | undefined;
-    await sendProposalNotifications(firstName, notifyPhone, notifyEmail, proposalUrl);
+    const customersNum = Number(customersRequired) || 0;
+    const rateNum = Number(conversionRate) || 0;
+    const leadsNeeded =
+      customersNum > 0 && rateNum > 0
+        ? Math.ceil(customersNum / (rateNum / 100))
+        : customersNum;
+    await sendProposalNotifications({
+      firstName: (contact.first_name as string) || "there",
+      business: (contact.business_name as string) || "",
+      leadsNeeded,
+      setupFee: data.setup_fee,
+      monthlyFee: data.monthly_fee,
+      phone: contact.phone as string | undefined,
+      email: contact.email as string | undefined,
+      proposalUrl,
+    });
 
     return NextResponse.json({
       success: true,
