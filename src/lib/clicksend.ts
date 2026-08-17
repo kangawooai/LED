@@ -17,6 +17,7 @@ export function toE164(raw: string): string {
   if (p.startsWith("00")) return "+" + p.slice(2);
   if (p.startsWith("0")) return "+44" + p.slice(1);
   if (p.startsWith("44")) return "+" + p;
+  if (p.startsWith("7")) return "+44" + p; // bare UK mobile, e.g. 7901677798
   return "+" + p;
 }
 
