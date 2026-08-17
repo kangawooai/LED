@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { supabase } from "@/lib/supabase";
+import { CRM_SERVICE_OPTIONS } from "@/constants";
 
 /**
  * POST /api/webhooks/create-proposal
@@ -13,17 +14,18 @@ import { supabase } from "@/lib/supabase";
  * matched against env PROPOSAL_WEBHOOK_SECRET.
  *
  * Body (JSON):
- *   lead_id          (required)  CRM/Salesforce lead id — also the proposal key
- *   service          (required)  CRM service value used for pricing
- *   target_area      (required)  e.g. "Manchester, 20 miles"
- *   required_leads   (required)  number of customers wanted per month
- *   conversion_rate  (required)  % of leads converted to jobs (10–100)
- *   avg_job_value    (optional)  overrides the value returned by pricing
- *   desired_return   (optional)  overrides the ROI returned by pricing
- *   custom_leads     (optional)  exact figure when required_leads > 100
- *   industry         (optional)  service group, used by the requirements editor
+ *   lead_id            (required)  CRM/Salesforce lead id — also the proposal key
+ *   service            (required)  CRM service value (e.g. "Plastering")
+ *   target_area        (required)  location only, e.g. "Manchester"
+ *   radius             (required)  coverage radius, e.g. "20 miles" or 20
+ *   customers_required (required)  number of customers wanted per month
+ *   conversion_rate    (required)  % of leads converted to jobs (10–100)
+ *   avg_job_value      (optional)  drives the "how we arrived at this" section
+ *   desired_return     (optional)  drives the "how we arrived at this" section
+ *   custom_leads       (optional)  exact figure when customers_required > 100
  *
- * (camelCase / LeadID / TargetArea aliases are also accepted.)
+ * industry is derived automatically from `service`.
+ * (camelCase / LeadID / TargetArea / required_leads aliases are also accepted.)
  */
 
 const PRICING_WEBHOOK =
@@ -31,6 +33,21 @@ const PRICING_WEBHOOK =
 const FETCH_WEBHOOK =
   "https://dwrs.omnitoria.io/webhook/c7e7deff-8e45-4185-a8d2-185cb8e8d53b";
 const BASIC_AUTH = Buffer.from("leadseveryday:8pH3&9}0`iOZ").toString("base64");
+
+// Derive the industry (service group) from a CRM service value or label
+function industryFromService(service: string): string | null {
+  const s = service.trim().toLowerCase();
+  for (const group of CRM_SERVICE_OPTIONS) {
+    if (
+      group.options.some(
+        (o) => o.value.toLowerCase() === s || o.label.toLowerCase() === s
+      )
+    ) {
+      return group.group;
+    }
+  }
+  return null;
+}
 
 // .trim() guards against stray whitespace/newlines in the dashboard env value
 const APP_URL = (
@@ -76,18 +93,29 @@ export async function POST(req: NextRequest) {
   const leadId = pick(body, "lead_id", "leadId", "LeadID");
   const service = pick(body, "service", "service_type", "serviceType");
   const targetArea = pick(body, "target_area", "targetArea", "TargetArea");
-  const requiredLeads = pick(body, "required_leads", "requiredLeads", "customers");
+  const radius = pick(body, "radius", "Radius");
+  const customersRequired = pick(
+    body,
+    "customers_required",
+    "customersRequired",
+    "required_leads",
+    "requiredLeads",
+    "customers"
+  );
   const conversionRate = pick(body, "conversion_rate", "conversionRate");
   const customLeads = pick(body, "custom_leads", "customLeads");
-  const industry = pick(body, "industry");
   const avgOverride = pick(body, "avg_job_value", "avgJobValue");
   const returnOverride = pick(body, "desired_return", "desiredReturn");
+  // Proposal-specific contact — overrides whatever the CRM fetch returns
+  const emailInput = pick(body, "email", "Email");
+  const phoneInput = pick(body, "phone", "phone_number", "Phone");
 
   const missing = [
     ["lead_id", leadId],
     ["service", service],
     ["target_area", targetArea],
-    ["required_leads", requiredLeads],
+    ["radius", radius],
+    ["customers_required", customersRequired],
     ["conversion_rate", conversionRate],
   ]
     .filter(([, v]) => v === undefined)
@@ -136,9 +164,13 @@ export async function POST(req: NextRequest) {
       console.error("[create-proposal] contact fetch failed:", err);
     }
 
+    // Proposal-specific email/phone from the payload take precedence
+    if (emailInput) contact.email = String(emailInput);
+    if (phoneInput) contact.phone = String(phoneInput);
+
     // ── 2. Calculate fees via the pricing webhook ──
     const pricingPayload: Record<string, unknown> = {
-      required_leads: Number(requiredLeads),
+      required_leads: Number(customersRequired),
       conversion_rate: Number(conversionRate),
       service_type: service,
       LeadID: leadIdStr,
@@ -182,10 +214,11 @@ export async function POST(req: NextRequest) {
       monthly_fee: pricing.monthly_fee,
       setup_fee: pricing.setup_fee,
       total_fee: pricing.total_fee,
-      industry: industry ?? null,
+      industry: industryFromService(String(service)),
       service,
       target_area: targetArea,
-      required_leads: requiredLeads,
+      radius: String(radius),
+      required_leads: customersRequired,
       conversion_rate: conversionRate,
       custom_leads: customLeads ?? null,
       avg_job_value: avgOverride ?? Number(pricing.average_job_value) ?? 0,
@@ -207,11 +240,11 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const url = `${APP_URL}/proposal/${encodeURIComponent(leadIdStr)}`;
+    const proposalUrl = `${APP_URL}/proposal/${encodeURIComponent(leadIdStr)}`;
     return NextResponse.json({
       success: true,
       lead_id: leadIdStr,
-      url,
+      proposal_url: proposalUrl,
       proposal: {
         monthly_fee: data.monthly_fee,
         setup_fee: data.setup_fee,
