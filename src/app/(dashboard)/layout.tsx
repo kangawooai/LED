@@ -38,7 +38,7 @@ export default async function DashboardLayout({
             <Link href="/dashboard">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/leads-everyday-neg.webp"
+                src="/led_logo_white_green.webp"
                 alt="Leads Everyday"
                 className="max-w-[140px]"
               />

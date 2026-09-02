@@ -76,7 +76,7 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="relative h-7.5 md:h-9 w-[150px] md:w-[175px]">
             <Image
-              src="/leads-everyday-neg.webp"
+              src="/led_logo_white_green.webp"
               alt="Leads Everyday"
               width={160}
               height={40}
@@ -84,7 +84,7 @@ const Navigation = () => {
               priority
             />
             <Image
-              src="/leads-everyday-pos.webp"
+              src="/led_logo_black_green.webp"
               alt="Leads Everyday"
               width={160}
               height={40}

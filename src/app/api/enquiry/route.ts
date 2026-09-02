@@ -68,7 +68,7 @@ export async function POST(request: Request) {
 
 <!-- Header -->
 <tr><td style="padding:24px 32px;background-color:#1e293b;border-radius:12px 12px 0 0;border-bottom:2px solid #22c55e;">
-  <img src="https://www.leadseveryday.co.uk/leads-everyday-neg.png" alt="Leads Every Day" width="180" height="21" style="display:block;border:0;" />
+  <img src="https://www.leadseveryday.co.uk/led_logo_white_green.png" alt="Leads Every Day" width="180" height="21" style="display:block;border:0;" />
 </td></tr>
 
 <!-- Badge -->

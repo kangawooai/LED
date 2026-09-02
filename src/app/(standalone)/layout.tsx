@@ -17,7 +17,7 @@ export default function StandaloneLayout({
         <div className="max-w-4xl mx-auto px-6 flex items-center justify-between h-16">
           <Link href="/" className="relative h-7.5 w-[150px]">
             <Image
-              src="/leads-everyday-neg.webp"
+              src="/led_logo_white_green.webp"
               alt="Leads Everyday"
               width={150}
               height={38}
@@ -25,7 +25,7 @@ export default function StandaloneLayout({
               priority
             />
             <Image
-              src="/leads-everyday-pos.webp"
+              src="/led_logo_black_green.webp"
               alt="Leads Everyday"
               width={150}
               height={38}

@@ -16,7 +16,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.leadseveryday.co.uk"),
   icons: {
-    icon: "/favicon.jpeg",
+    icon: "/led_favicon.png",
   },
   title: {
     default: "Leads Everyday | Lead Generation for UK Trades & Services",
@@ -69,7 +69,7 @@ export default function RootLayout({
         <link rel="manifest" href="/manifest.json" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        <link rel="apple-touch-icon" href="/favicon.webp" />
+        <link rel="apple-touch-icon" href="/led_favicon.png" />
         <link
           rel="preload"
           as="image"

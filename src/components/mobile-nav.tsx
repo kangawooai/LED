@@ -21,7 +21,7 @@ export function MobileNav({ email }: { email: string }) {
         <Link href="/dashboard">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/leads-everyday-neg.webp"
+            src="/led_logo_white_green.webp"
             alt="Leads Everyday"
             className="w-[120px]"
           />

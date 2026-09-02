@@ -188,7 +188,7 @@ export function buildProposalEmail(d: ProposalEmailData): string {
 <!-- Header -->
 <tr><td style="padding:24px 32px;background-color:${BG};border-radius:12px 12px 0 0;">
   <table width="100%" cellpadding="0" cellspacing="0"><tr>
-    <td valign="middle" class="stack-col"><img src="https://www.leadseveryday.co.uk/leads-everyday-neg.png" alt="Leads Every Day" width="160" height="19" style="display:block;border:0;" /></td>
+    <td valign="middle" class="stack-col"><img src="https://www.leadseveryday.co.uk/led_logo_white_green.png" alt="Leads Every Day" width="160" height="19" style="display:block;border:0;" /></td>
     <td valign="middle" align="right" class="hdr-tp">${trustpilotHtml}</td>
   </tr></table>
 </td></tr>

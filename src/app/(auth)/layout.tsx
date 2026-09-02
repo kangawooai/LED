@@ -10,7 +10,7 @@ export default function AuthLayout({
       <Link href="/" className="mb-8">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/leads-everyday-neg.webp"
+          src="/led_logo_white_green.webp"
           alt="Leads Everyday"
           className="w-[160px] sm:w-[200px]"
         />

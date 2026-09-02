@@ -29,14 +29,14 @@ const Footer = () => {
           <div className="col-span-2 md:col-span-1">
             <Link href="/" className="relative block h-8 w-[160px]">
               <Image
-                src="/leads-everyday-neg.webp"
+                src="/led_logo_white_green.webp"
                 alt="Leads Everyday"
                 width={160}
                 height={40}
                 className="absolute inset-0 h-full w-auto object-contain opacity-0 dark:opacity-100 transition-opacity duration-600"
               />
               <Image
-                src="/leads-everyday-pos.webp"
+                src="/led_logo_black_green.webp"
                 alt="Leads Everyday"
                 width={160}
                 height={40}

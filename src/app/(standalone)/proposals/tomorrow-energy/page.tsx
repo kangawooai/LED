@@ -123,14 +123,14 @@ export default function TomorrowEnergyProposal() {
         {/* Header: Both logos */}
         <div className="flex items-center justify-between">
           <Image
-            src="/leads-everyday-neg.webp"
+            src="/led_logo_white_green.webp"
             alt="Leads Everyday"
             width={140}
             height={36}
             className="h-7 w-auto hidden dark:block"
           />
           <Image
-            src="/leads-everyday-pos.webp"
+            src="/led_logo_black_green.webp"
             alt="Leads Everyday"
             width={140}
             height={36}
