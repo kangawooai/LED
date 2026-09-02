@@ -27,7 +27,7 @@ export const faqs: FAQ[] = [
   },
   {
     question: "Is there a contract or minimum term?",
-    answer: "We operate on a pay-as-you-go basis. There are no long-term contracts or tie-ins. You can adjust your budget or pause your campaign at any time. We believe our results keep you coming back, not a contract.",
+    answer: "There are no long-term contracts or tie-ins. You can adjust your budget or pause your campaign at any time. We believe our results keep you coming back, not a contract.",
   },
   {
     question: "What makes you different from other lead generation companies?",
