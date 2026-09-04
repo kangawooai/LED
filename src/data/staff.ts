@@ -45,13 +45,43 @@ export const staff: StaffMember[] = [
   {
     slug: "maximilian-filipowicz",
     name: "Maximilian Filipowicz",
-    bio: "Hey there! I'm currently completing my Business Administration Level 3 Apprenticeship and loving every minute of it. I'm all about keeping things organised, finding smarter ways to work, and bringing positive energy to everything I do at Leads Everyday.\n\nConfidence is my thing, whether I'm managing projects, supporting clients, or learning new skills to help the team grow. I love seeing how small improvements can make a big difference, and I'm never afraid to take on a new challenge.\n\nWhen I'm not in business mode, you'll find me on the field or court, I'm a huge sports fan who thrives on teamwork, competition, and constant improvement. Those same values drive me every day, both in and out of work.\n\nAt the end of the day, I believe success comes from hard work, a good attitude, and enjoying the ride, and that's exactly how I approach every day at Leads Everyday!",
-    image: "/Maximilian.png",
+    bio: "Maximilian is currently completing his Level 3 Business Administration Apprenticeship and is loving every minute of it. He's all about keeping things organised, finding smarter ways to work and bringing positive energy to everything he does at Leads Every Day.\n\nConfidence is one of Maximilian's strengths, whether he's managing projects, supporting clients or learning new skills to help the team grow. He enjoys seeing how small improvements can make a big difference and is always happy to take on a new challenge.\n\nWhen he's not in business mode, you'll usually find Maximilian on the field or court. He's a huge sports fan who thrives on teamwork, competition and constantly improving, values that he brings into both his work and life outside of it.\n\nAt the end of the day, Maximilian believes success comes from hard work, a good attitude and enjoying the ride, and that's exactly how he approaches every day at Leads Every Day!",
+    image: "/maximilian-filipowicz.webp",
   },
   {
     slug: "imogen-blyth",
     name: "Imogen Blyth",
     bio: "Bright, enthusiastic, and always armed with a cuppa, Imogen is one of the newest faces at Leads Everyday, but she's already making her mark. At just 20, she's jumped headfirst into her Business Development Manager apprenticeship, bringing fresh energy, curiosity, and a real passion for learning the ropes.\n\nImogen's natural people skills and keen eye for opportunity make her a great fit for the role. She's all about building genuine relationships and helping our customers find smart ways to grow their business. Don't let the friendly smile fool you, she's got drive, big ambitions, and a head full of ideas.\n\nOutside of work, Imogen's all about good vibes and great company. Whether she's catching up with friends, spending time with family, or doing a bit of retail therapy, she's happiest when she's surrounded by the people she loves (preferably with a strong cup of tea in hand). Kind, approachable, and always up for a laugh, she brings just the right mix of professionalism and personality to the team.",
     image: "/Imogen.png",
+  },
+  {
+    slug: "ella-croft",
+    name: "Ella Croft",
+    bio: "Ella is one of our Business Development Managers at Leads Every Day, working closely with tradespeople across the UK to help them generate high-quality customer enquiries, grow their businesses and make the most of every opportunity.\n\nShe's passionate about building genuine client relationships and ensuring her customers feel supported every step of the way. Ella takes a friendly, proactive approach to her work and loves seeing the businesses she works with achieve real results.\n\nOutside of work, Ella is a big rugby and fitness fan. Having played rugby at a high level and now coaching, she knows a thing or two about teamwork, determination and a bit of healthy competition! Whether she's on the pitch, in the gym or working with a client, she brings plenty of energy, competitiveness and a \"never give up\" attitude to everything she does.\n\nWhen she's not working, you'll probably find Ella either talking about rugby, watching rugby or somehow finding a way to bring rugby into the conversation!",
+    image: "/ella-croft.webp",
+  },
+  {
+    slug: "tallulah-stanley",
+    name: "Tallulah Stanley",
+    bio: "Tallulah is naturally a people person who really enjoys getting to know others, listening to what they need and working out how she can help. She enjoys solving problems, having a good chat and, most importantly, building genuine relationships rather than simply making a sale.\n\nOutside of work, she's usually either raving, sleeping, eating or baking, there's not much in between! She's also a big fan of true crime documentaries and could easily spend far too long going down a rabbit hole of some completely ridiculous case.\n\nWhat makes Tallulah different? She's simply herself. She's straightforward, easy to talk to and doesn't take herself too seriously. She believes that goes a long way, both at work and outside of it.",
+    image: "/tallulah-stanley.webp",
+  },
+  {
+    slug: "sabrina-akram",
+    name: "Sabrina Akram",
+    bio: "Sabrina provides a seamless process to create meaningful change and opportunities for your business!\n\nWith over two years of experience working alongside tradespeople, Sabrina knows that empathy, good time management, and a sense of humour go a long way! She's all about keeping things organised, understanding people's needs, and making sure the job gets done without the chaos.\n\nHer hobbies and interests include proudly embracing her inner couch potato on weekends, binge-watching series and getting plenty of cuddles from her two furry bosses, Akil and Atlas. She also loves dragging her husband along on adventures to home stores (because apparently she can never have too many ideas for the house!) and, most importantly, spending quality time with her family.",
+    image: "/sabrina-akram.webp",
+  },
+  {
+    slug: "luke-usher",
+    name: "Luke Usher",
+    bio: "Luke is a Business Development Manager, focused on building strong relationships with new and existing clients. He enjoys understanding what people need and finding opportunities where he can genuinely help.\n\nOne of Luke's main strengths is his ability to build trust and relate to people. He believes understanding his clients is key to building long-lasting relationships.\n\nOutside of work, Luke is a black belt in Brazilian Jiu-Jitsu and teaches classes outside of working hours. He's also a family man with a young daughter who keeps him on his toes! He also used to be a DJ many moons ago and played a warm-up set for the famous DJ Carl Cox at Gatecrasher back in 2002.\n\nLuke takes his clients' success personally and is committed to helping them achieve their goals, working closely with them to identify new opportunities and deliver long-term results.",
+    image: "/luke-usher.webp",
+  },
+  {
+    slug: "nathan-hydes",
+    name: "Nathan Hydes",
+    bio: "Nathan is a Business Development Manager, focused on talking with clients, understanding their businesses and helping them grow by generating new leads.\n\nOne of Nathan's main strengths is understanding his clients' needs and finding ways to support their business.\n\nOutside of work, Nathan claims to make the best sausage rolls in Hampshire and enjoys throwing kettlebells around in the evenings.\n\nEven though he's 47, Nathan is still holding on to his youth at the skate park with his kids. Tail whips and going down bowls are no stranger to him!",
+    image: "/nathan-hydes.webp",
   },
 ];

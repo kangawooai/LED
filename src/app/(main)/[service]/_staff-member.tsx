@@ -62,9 +62,7 @@ const StaffMemberPage = () => {
                   style={
                     member.slug === "max-young"
                       ? { inset: 0 }
-                      : member.slug === "maximilian-filipowicz"
-                        ? { inset: "-25%", top: "-10%", left: "-15%" }
-                        : { inset: "-25%", top: "-10%" }
+                      : { inset: "-25%", top: "-10%" }
                   }
                 >
                   <Image
@@ -76,9 +74,7 @@ const StaffMemberPage = () => {
                       objectPosition:
                         member.slug === "max-young"
                           ? "center -15%"
-                          : member.slug === "maximilian-filipowicz"
-                            ? "75% 20%"
-                            : "center 20%",
+                          : "center 20%",
                     }}
                   />
                 </div>

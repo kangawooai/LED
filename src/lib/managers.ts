@@ -19,11 +19,19 @@ const ROLE = "Business Development Manager";
 
 const DEFAULT_EMAIL = "robert@leadseveryday.co.uk";
 
+// Match tokens are substring-matched against the name + email local part, so keep
+// them distinctive: "max" would also hit "Maximilian", "dan" would hit "Jordan".
 const TEAM: { match: string[]; name: string; photo: string }[] = [
   { match: ["robert", "rob", "toole"], name: "Robert O'Toole", photo: "/team/rob.webp" },
   { match: ["dan", "feltham"], name: "Dan Feltham", photo: "/team/dan.webp" },
   { match: ["sean", "chamber"], name: "Sean Chambers", photo: "/team/sean.webp" },
   { match: ["kam", "kameron", "bowen"], name: "Kameron James Bowen", photo: "/team/kam.webp" },
+  { match: ["ella", "croft"], name: "Ella Croft", photo: "/team/ella-croft.webp" },
+  { match: ["tallulah", "stanley"], name: "Tallulah Stanley", photo: "/team/tallulah-stanley.webp" },
+  { match: ["sabrina", "akram"], name: "Sabrina Akram", photo: "/team/sabrina-akram.webp" },
+  { match: ["luke", "usher"], name: "Luke Usher", photo: "/team/luke-usher.webp" },
+  { match: ["nathan", "hydes"], name: "Nathan Hydes", photo: "/team/nathan-hydes.webp" },
+  { match: ["maximilian", "filipowicz"], name: "Maximilian Filipowicz", photo: "/team/maximilian-filipowicz.webp" },
 ];
 
 const DEFAULT_MEMBER = TEAM[0]; // Robert O'Toole
