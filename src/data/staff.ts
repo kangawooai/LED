@@ -84,4 +84,10 @@ export const staff: StaffMember[] = [
     bio: "Nathan is a Business Development Manager, focused on talking with clients, understanding their businesses and helping them grow by generating new leads.\n\nOne of Nathan's main strengths is understanding his clients' needs and finding ways to support their business.\n\nOutside of work, Nathan claims to make the best sausage rolls in Hampshire and enjoys throwing kettlebells around in the evenings.\n\nEven though he's 47, Nathan is still holding on to his youth at the skate park with his kids. Tail whips and going down bowls are no stranger to him!",
     image: "/nathan-hydes.webp",
   },
+  {
+    slug: "jordan-miles",
+    name: "Jordan Miles",
+    bio: "Jordan is a Business Development Manager who enjoys building long-term relationships with clients and always going the extra mile to make sure they have a successful journey. He is adaptable, accountable and a professional team player, basically, someone who gets stuck in and gets the job done!\n\nOutside of work, Jordan is a big coffee lover and enjoys Jiu-Jitsu. He is also a Z-list TV celebrity, which definitely gives him some extra bragging rights around the office, although he is yet to let us know what show he was on!\n\nJordan is all about putting his clients first, building relationships that last and making sure they are well looked after along the way.",
+    image: "/jordan-miles.webp",
+  },
 ];
