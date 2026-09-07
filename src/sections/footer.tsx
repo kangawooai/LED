@@ -8,6 +8,9 @@ import { FaLinkedin, FaFacebook, FaInstagram, FaXTwitter, FaYoutube } from "reac
 const footerNav = [
   { title: "Services", href: "/services" },
   { title: "About Us", href: "/about" },
+  { title: "Resources", href: "/resources" },
+  { title: "Case Studies", href: "/case-studies" },
+  { title: "Blog", href: "/blog" },
   { title: "FAQs", href: "/faqs" },
   { title: "Book a Call", href: "/book-a-call" },
   { title: "Careers", href: "/careers" },

@@ -1,5 +1,6 @@
 "use client";
 
+import RichText from "@/components/common/rich-text";
 import { Button } from "@/components/ui/button";
 import { blogPosts } from "@/data/blog-posts";
 import { IconArrowLeft, IconPhone } from "@tabler/icons-react";
@@ -14,8 +15,6 @@ const BlogPostPage = () => {
   if (!post) {
     notFound();
   }
-
-  const paragraphs = post.content.split("\n\n");
 
   return (
     <div>
@@ -38,11 +37,13 @@ const BlogPostPage = () => {
             className="hero-animate text-sm uppercase tracking-widest text-primary font-semibold"
             style={{ animationDelay: "0.1s" }}
           >
+            {post.category ? `${post.category} · ` : ""}
             {new Date(post.date).toLocaleDateString("en-GB", {
               day: "numeric",
               month: "long",
               year: "numeric",
             })}
+            {post.readTime ? ` · ${post.readTime}` : ""}
           </p>
           <h1
             className="hero-animate mt-4 text-4xl md:text-5xl lg:text-6xl tracking-tight"
@@ -60,11 +61,7 @@ const BlogPostPage = () => {
             className="hero-animate bg-white/5 backdrop-blur-md border border-white/10 rounded-md p-6 lg:p-8 max-w-3xl"
             style={{ animationDelay: "0.3s" }}
           >
-            <div className="space-y-4 text-foreground/70 text-sm lg:text-base leading-relaxed">
-              {paragraphs.map((paragraph, index) => (
-                <p key={index}>{paragraph}</p>
-              ))}
-            </div>
+            <RichText content={post.content} />
           </div>
         </div>
       </section>

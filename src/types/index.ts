@@ -53,6 +53,36 @@ export interface BlogPost {
   slug: string;
   title: string;
   excerpt: string;
+  /** Light markup: "## " starts a heading, "- " starts a list item. */
   content: string;
   date: string;
+  category?: string;
+  readTime?: string;
+}
+
+export interface CaseStudyMetric {
+  value: string;
+  label: string;
+}
+
+export interface CaseStudySection {
+  heading: string;
+  body: string;
+  bullets?: string[];
+}
+
+export interface CaseStudy {
+  slug: string;
+  business: string;
+  industry: string;
+  headline: string;
+  summary: string;
+  intro: string;
+  metrics: CaseStudyMetric[];
+  challenge: string;
+  solution: string;
+  results: string;
+  keyResults: string[];
+  sections: CaseStudySection[];
+  quote?: { text: string; attribution: string };
 }

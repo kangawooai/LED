@@ -44,12 +44,18 @@ const Blog = () => {
                   className={`scroll-fade-in${postsVisible ? " visible" : ""} bg-white/5 backdrop-blur-md border border-white/10 rounded-md p-6 lg:p-8 flex flex-col h-full group`}
                   style={{ transitionDelay: `${0.3 + index * 0.15}s` }}
                 >
-                  <p className="text-xs text-foreground/50 uppercase tracking-wider">
+                  {post.category && (
+                    <span className="self-start text-xs uppercase tracking-widest text-primary font-semibold">
+                      {post.category}
+                    </span>
+                  )}
+                  <p className="text-xs text-foreground/50 mt-2">
                     {new Date(post.date).toLocaleDateString("en-GB", {
                       day: "numeric",
                       month: "long",
                       year: "numeric",
                     })}
+                    {post.readTime ? ` · ${post.readTime}` : ""}
                   </p>
                   <h3 className="text-lg md:text-xl tracking-tight mt-3 group-hover:text-primary transition-colors">
                     {post.title}
