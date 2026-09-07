@@ -73,7 +73,7 @@ export function buildProposalEmail(d: ProposalEmailData): string {
   // Account manager (defaults to Robert O'Toole)
   const mgrName = d.managerName || "Robert O'Toole";
   const mgrRole = "Business Development Manager";
-  const mgrPhoto = d.managerPhotoUrl || "https://www.leadseveryday.co.uk/team/rob.webp";
+  const mgrPhoto = d.managerPhotoUrl || "https://www.leadseveryday.co.uk/team/email/rob.jpg";
   const mgrPhone = d.managerPhone || "+443330424424";
   const mgrPhoneDisplay = d.managerPhoneDisplay || "0333 0 424 424";
 

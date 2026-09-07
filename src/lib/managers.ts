@@ -10,6 +10,7 @@ export interface Manager {
   phone: string;
   phoneDisplay: string;
   photo: string; // site-relative path, e.g. /team/rob.webp
+  photoEmail: string; // JPEG copy for email clients, e.g. /team/email/rob.jpg
   role: string;
 }
 
@@ -43,6 +44,14 @@ const DEFAULT_MEMBER = TEAM[0]; // Robert O'Toole
 const matches = (hay: string, token: string) =>
   new RegExp(`\\b${token}`).test(hay);
 
+/**
+ * Outlook on Windows renders mail through Word, which has no WebP support, so
+ * email gets a JPEG copy instead. It is flattened onto the card colour the photo
+ * sits on, which also hides the square edges where border-radius is ignored.
+ */
+const emailPhoto = (photo: string) =>
+  photo.replace("/team/", "/team/email/").replace(/\.webp$/, ".jpg");
+
 /** Resolve the account manager to display / notify from the stored name + email. */
 export function resolveManager(managerName?: string | null, managerEmail?: string | null): Manager {
   // Match against the name AND the email's local part (e.g. sean.chambers@… → Sean).
@@ -56,6 +65,7 @@ export function resolveManager(managerName?: string | null, managerEmail?: strin
     phone: PHONE,
     phoneDisplay: PHONE_DISPLAY,
     photo: found.photo,
+    photoEmail: emailPhoto(found.photo),
     role: ROLE,
   };
 }

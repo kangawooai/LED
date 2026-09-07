@@ -317,7 +317,7 @@ export async function POST(req: NextRequest) {
       avgJobValue: Number(data.avg_job_value) || 0,
       desiredReturn: Number(data.desired_return) || 0,
       managerName: mgr.name,
-      managerPhotoUrl: `${APP_URL}${mgr.photo}`,
+      managerPhotoUrl: `${APP_URL}${mgr.photoEmail}`,
       managerPhone: mgr.phone,
       managerPhoneDisplay: mgr.phoneDisplay,
       phone: contact.phone as string | undefined,
