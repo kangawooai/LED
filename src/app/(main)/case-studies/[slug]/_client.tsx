@@ -56,7 +56,7 @@ const CaseStudyPage = () => {
         <section className="pb-12 md:pb-16">
           <div className="max-w-7xl mx-auto px-6 lg:px-20 2xl:px-0">
             <div
-              className="hero-animate relative aspect-[21/9] rounded-md overflow-hidden border border-white/10"
+              className="hero-animate relative aspect-video rounded-md overflow-hidden border border-white/10 max-w-4xl"
               style={{ animationDelay: "0.28s" }}
             >
               <Image

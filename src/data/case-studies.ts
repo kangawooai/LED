@@ -3,7 +3,7 @@ import { CaseStudy } from "@/types";
 export const caseStudies: CaseStudy[] = [
   {
     slug: "jgm-mobile-mechanical-services",
-    image: "/mobile-mechanic.webp",
+    image: "/case-studies/jgm-mobile-mechanical.webp",
     business: "JGM Mobile Mechanical Services",
     industry: "Motor Trade",
     headline: "From £3,000 to £12,000 Monthly Turnover",
@@ -106,7 +106,7 @@ More work. More staff. More vans. More revenue.`,
   },
   {
     slug: "mk-car-care-ltd",
-    image: "/brakes-discs-repair-replacement.webp",
+    image: "/case-studies/mk-car-care.webp",
     business: "MK Car Care Ltd",
     industry: "Motor Trade",
     headline: "From £6,000 to £9,000 Monthly Turnover in Just 3 Months",

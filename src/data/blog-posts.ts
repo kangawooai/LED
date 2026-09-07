@@ -102,7 +102,7 @@ Call 0333 0 424 424 to find out how Leads Everyday could help grow your business
   },
   {
     slug: "getting-leads-is-only-half-the-battle-lead-conversion",
-    image: "/plumbing-heating.webp",
+    image: "/blog/getting-leads-is-only-half-the-battle.webp",
     title: "Getting Leads Is Only Half the Battle: Why Lead Conversion Matters",
     category: "Conversion",
     readTime: "9 min read",
@@ -255,7 +255,7 @@ Call 0333 0 424 424 to find out how Leads Everyday could help grow your business
   },
   {
     slug: "are-lead-generation-companies-worth-it-for-trades-businesses",
-    image: "/house-extension.webp",
+    image: "/blog/are-lead-generation-companies-worth-it.webp",
     title: "Are Lead Generation Companies Worth It for Trades Businesses?",
     category: "Lead Generation",
     readTime: "9 min read",
@@ -378,7 +378,7 @@ Call 0333 0 424 424 to find out how Leads Everyday could help grow your business
   },
   {
     slug: "how-many-leads-does-a-trades-business-need-to-grow",
-    image: "/landscaping.webp",
+    image: "/blog/how-many-leads-does-a-trades-business-need.webp",
     title: "How Many Leads Does a Trades Business Actually Need to Grow?",
     category: "Strategy",
     readTime: "7 min read",

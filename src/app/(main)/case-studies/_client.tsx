@@ -48,14 +48,16 @@ const CaseStudies = () => {
                   style={{ transitionDelay: `${0.1 + index * 0.15}s` }}
                 >
                   {study.image && (
-                    <div className="relative h-52 md:h-64 overflow-hidden">
-                      <Image
-                        src={study.image}
-                        alt=""
-                        fill
-                        sizes="(max-width: 1280px) 100vw, 1120px"
-                        className="object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
+                    <div className="px-6 lg:px-8 pt-6 lg:pt-8">
+                      <div className="relative aspect-video max-w-xl mx-auto overflow-hidden rounded-md border border-white/10">
+                        <Image
+                          src={study.image}
+                          alt=""
+                          fill
+                          sizes="(max-width: 768px) 100vw, 576px"
+                          className="object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                      </div>
                     </div>
                   )}
                   <div className="grid lg:grid-cols-2 gap-8 p-6 lg:p-8">

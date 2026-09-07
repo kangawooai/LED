@@ -59,7 +59,7 @@ const BlogPostPage = () => {
         <section className="pb-12 md:pb-16">
           <div className="max-w-7xl mx-auto px-6 lg:px-20 2xl:px-0">
             <div
-              className="hero-animate relative aspect-[16/7] rounded-md overflow-hidden border border-white/10 max-w-3xl"
+              className="hero-animate relative aspect-video rounded-md overflow-hidden border border-white/10 max-w-3xl"
               style={{ animationDelay: "0.25s" }}
             >
               <Image
