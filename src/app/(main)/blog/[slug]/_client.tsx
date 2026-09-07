@@ -4,6 +4,7 @@ import RichText from "@/components/common/rich-text";
 import { Button } from "@/components/ui/button";
 import { blogPosts } from "@/data/blog-posts";
 import { IconArrowLeft, IconPhone } from "@tabler/icons-react";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound, useParams } from "next/navigation";
 
@@ -53,6 +54,26 @@ const BlogPostPage = () => {
           </h1>
         </div>
       </section>
+
+      {post.image && (
+        <section className="pb-12 md:pb-16">
+          <div className="max-w-7xl mx-auto px-6 lg:px-20 2xl:px-0">
+            <div
+              className="hero-animate relative aspect-[16/7] rounded-md overflow-hidden border border-white/10 max-w-3xl"
+              style={{ animationDelay: "0.25s" }}
+            >
+              <Image
+                src={post.image}
+                alt=""
+                fill
+                priority
+                sizes="(max-width: 1024px) 100vw, 768px"
+                className="object-cover"
+              />
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Content */}
       <section className="pb-20">

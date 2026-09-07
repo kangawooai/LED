@@ -3,6 +3,7 @@ import { BlogPost } from "@/types";
 export const blogPosts: BlogPost[] = [
   {
     slug: "what-makes-a-good-lead-for-a-trades-business",
+    image: "/property-maintenance.webp",
     title: "What Makes a Good Lead for a Trades Business?",
     category: "Lead Quality",
     readTime: "6 min read",
@@ -101,6 +102,7 @@ Call 0333 0 424 424 to find out how Leads Everyday could help grow your business
   },
   {
     slug: "getting-leads-is-only-half-the-battle-lead-conversion",
+    image: "/plumbing-heating.webp",
     title: "Getting Leads Is Only Half the Battle: Why Lead Conversion Matters",
     category: "Conversion",
     readTime: "9 min read",
@@ -253,6 +255,7 @@ Call 0333 0 424 424 to find out how Leads Everyday could help grow your business
   },
   {
     slug: "are-lead-generation-companies-worth-it-for-trades-businesses",
+    image: "/house-extension.webp",
     title: "Are Lead Generation Companies Worth It for Trades Businesses?",
     category: "Lead Generation",
     readTime: "9 min read",
@@ -375,6 +378,7 @@ Call 0333 0 424 424 to find out how Leads Everyday could help grow your business
   },
   {
     slug: "how-many-leads-does-a-trades-business-need-to-grow",
+    image: "/landscaping.webp",
     title: "How Many Leads Does a Trades Business Actually Need to Grow?",
     category: "Strategy",
     readTime: "7 min read",
@@ -463,6 +467,7 @@ Call 0333 0 424 424 to find out how Leads Everyday could help grow your business
   },
   {
     slug: "why-tradespeople-need-their-own-leads",
+    image: "/electrician.webp",
     title: "Why Tradespeople Need Their Own Leads (Not Shared Ones)",
     category: "Lead Generation",
     readTime: "4 min read",
@@ -483,6 +488,7 @@ If you're tired of fighting over scraps with other tradespeople, it might be tim
   },
   {
     slug: "google-ads-vs-social-media-for-tradespeople",
+    image: "/remapping.webp",
     title: "Google Ads vs Social Media: Which Gets More Leads for Tradespeople?",
     category: "Marketing",
     readTime: "4 min read",
@@ -505,6 +511,7 @@ At Leads Every Day, we specialise in Google Ads for tradespeople. We handle ever
   },
   {
     slug: "five-mistakes-tradespeople-make-with-lead-generation",
+    image: "/painter-and-decorator.webp",
     title: "5 Mistakes Tradespeople Make With Lead Generation (And How to Fix Them)",
     category: "Lead Generation",
     readTime: "5 min read",

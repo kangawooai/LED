@@ -6,6 +6,7 @@ import { blogPosts } from "@/data/blog-posts";
 import { caseStudies } from "@/data/case-studies";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { IconArrowRight, IconPhone } from "@tabler/icons-react";
+import Image from "next/image";
 import Link from "next/link";
 
 const industries = [
@@ -71,9 +72,21 @@ const Resources = () => {
             {blogPosts.slice(0, 3).map((post, index) => (
               <Link key={post.slug} href={`/blog/${post.slug}`}>
                 <div
-                  className={`scroll-fade-in${blogVisible ? " visible" : ""} bg-white/5 backdrop-blur-md border border-white/10 rounded-md p-6 lg:p-8 flex flex-col h-full group`}
+                  className={`scroll-fade-in${blogVisible ? " visible" : ""} bg-white/5 backdrop-blur-md border border-white/10 rounded-md overflow-hidden flex flex-col h-full group`}
                   style={{ transitionDelay: `${0.1 + index * 0.12}s` }}
                 >
+                  {post.image && (
+                    <div className="relative aspect-video overflow-hidden">
+                      <Image
+                        src={post.image}
+                        alt=""
+                        fill
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                    </div>
+                  )}
+                  <div className="p-6 lg:p-8 flex flex-col flex-1">
                   {post.category && (
                     <span className="self-start text-xs uppercase tracking-widest text-primary font-semibold">
                       {post.category}
@@ -89,6 +102,7 @@ const Resources = () => {
                     {formatDate(post.date)}
                     {post.readTime ? ` · ${post.readTime}` : ""}
                   </p>
+                  </div>
                 </div>
               </Link>
             ))}
@@ -116,9 +130,21 @@ const Resources = () => {
             {caseStudies.map((study, index) => (
               <Link key={study.slug} href={`/case-studies/${study.slug}`}>
                 <div
-                  className={`scroll-fade-in${studiesVisible ? " visible" : ""} bg-white/5 backdrop-blur-md border border-white/10 rounded-md p-6 lg:p-8 flex flex-col h-full group`}
+                  className={`scroll-fade-in${studiesVisible ? " visible" : ""} bg-white/5 backdrop-blur-md border border-white/10 rounded-md overflow-hidden flex flex-col h-full group`}
                   style={{ transitionDelay: `${0.1 + index * 0.12}s` }}
                 >
+                  {study.image && (
+                    <div className="relative aspect-video overflow-hidden">
+                      <Image
+                        src={study.image}
+                        alt=""
+                        fill
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                    </div>
+                  )}
+                  <div className="p-6 lg:p-8 flex flex-col flex-1">
                   <span className="self-start text-xs uppercase tracking-widest text-primary font-semibold">
                     {study.industry}
                   </span>
@@ -140,6 +166,7 @@ const Resources = () => {
                         </p>
                       </div>
                     ))}
+                  </div>
                   </div>
                 </div>
               </Link>

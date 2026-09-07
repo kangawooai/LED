@@ -58,6 +58,8 @@ export interface BlogPost {
   date: string;
   category?: string;
   readTime?: string;
+  /** Card + hero image, site-relative (e.g. /electrician.webp). */
+  image?: string;
 }
 
 export interface CaseStudyMetric {
@@ -85,4 +87,6 @@ export interface CaseStudy {
   keyResults: string[];
   sections: CaseStudySection[];
   quote?: { text: string; attribution: string };
+  /** Card + hero image, site-relative (e.g. /mobile-mechanic.webp). */
+  image?: string;
 }

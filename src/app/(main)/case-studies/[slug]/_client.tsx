@@ -4,6 +4,7 @@ import RichText from "@/components/common/rich-text";
 import { Button } from "@/components/ui/button";
 import { caseStudies } from "@/data/case-studies";
 import { IconArrowLeft, IconCheck, IconPhone, IconQuote } from "@tabler/icons-react";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound, useParams } from "next/navigation";
 
@@ -50,6 +51,26 @@ const CaseStudyPage = () => {
           </p>
         </div>
       </section>
+
+      {study.image && (
+        <section className="pb-12 md:pb-16">
+          <div className="max-w-7xl mx-auto px-6 lg:px-20 2xl:px-0">
+            <div
+              className="hero-animate relative aspect-[21/9] rounded-md overflow-hidden border border-white/10"
+              style={{ animationDelay: "0.28s" }}
+            >
+              <Image
+                src={study.image}
+                alt=""
+                fill
+                priority
+                sizes="(max-width: 1280px) 100vw, 1280px"
+                className="object-cover"
+              />
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Headline metrics */}
       <section className="pb-12 md:pb-16">

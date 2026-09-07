@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { blogPosts } from "@/data/blog-posts";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { IconArrowRight, IconPhone } from "@tabler/icons-react";
+import Image from "next/image";
 import Link from "next/link";
 
 const Blog = () => {
@@ -41,9 +42,21 @@ const Blog = () => {
             {blogPosts.map((post, index) => (
               <Link key={post.slug} href={`/blog/${post.slug}`}>
                 <div
-                  className={`scroll-fade-in${postsVisible ? " visible" : ""} bg-white/5 backdrop-blur-md border border-white/10 rounded-md p-6 lg:p-8 flex flex-col h-full group`}
+                  className={`scroll-fade-in${postsVisible ? " visible" : ""} bg-white/5 backdrop-blur-md border border-white/10 rounded-md overflow-hidden flex flex-col h-full group`}
                   style={{ transitionDelay: `${0.3 + index * 0.15}s` }}
                 >
+                  {post.image && (
+                    <div className="relative aspect-video overflow-hidden">
+                      <Image
+                        src={post.image}
+                        alt=""
+                        fill
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                    </div>
+                  )}
+                  <div className="p-6 lg:p-8 flex flex-col flex-1">
                   {post.category && (
                     <span className="self-start text-xs uppercase tracking-widest text-primary font-semibold">
                       {post.category}
@@ -66,6 +79,7 @@ const Blog = () => {
                   <div className="flex items-center gap-1.5 text-primary text-sm font-semibold mt-4">
                     Read More
                     <IconArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
+                  </div>
                   </div>
                 </div>
               </Link>

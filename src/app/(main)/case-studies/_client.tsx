@@ -5,6 +5,7 @@ import { COMPANY } from "@/constants";
 import { caseStudies } from "@/data/case-studies";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { IconArrowRight, IconCheck, IconPhone } from "@tabler/icons-react";
+import Image from "next/image";
 import Link from "next/link";
 import Reviews from "@/sections/reviews";
 
@@ -43,10 +44,21 @@ const CaseStudies = () => {
             {caseStudies.map((study, index) => (
               <Link key={study.slug} href={`/case-studies/${study.slug}`}>
                 <div
-                  className={`scroll-fade-in${studiesVisible ? " visible" : ""} bg-white/5 backdrop-blur-md border border-white/10 rounded-md p-6 lg:p-8 group`}
+                  className={`scroll-fade-in${studiesVisible ? " visible" : ""} bg-white/5 backdrop-blur-md border border-white/10 rounded-md overflow-hidden group`}
                   style={{ transitionDelay: `${0.1 + index * 0.15}s` }}
                 >
-                  <div className="grid lg:grid-cols-2 gap-8">
+                  {study.image && (
+                    <div className="relative h-52 md:h-64 overflow-hidden">
+                      <Image
+                        src={study.image}
+                        alt=""
+                        fill
+                        sizes="(max-width: 1280px) 100vw, 1120px"
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                    </div>
+                  )}
+                  <div className="grid lg:grid-cols-2 gap-8 p-6 lg:p-8">
                     <div>
                       <span className="text-xs uppercase tracking-widest text-primary font-semibold">
                         {study.industry}
