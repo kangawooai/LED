@@ -833,7 +833,7 @@ export default function ProposalClient({ leadId }: { leadId: string }) {
               <div className="bg-white/5 border border-white/10 rounded-xl p-6 text-center space-y-3 backdrop-blur-sm">
                 <p className="text-xs uppercase tracking-widest text-primary font-semibold">One-off setup</p>
                 <p className="text-4xl font-bold text-foreground">{formatFee(proposal.setup_fee)}</p>
-                <p className="text-sm text-foreground/50 font-medium">+ VAT &middot; paid once</p>
+                <p className="text-sm text-foreground/50 font-medium">inc VAT &middot; paid once</p>
                 <p className="text-xs text-foreground/50">Covers campaign build, targeting and go-live, a single upfront cost.</p>
               </div>
 
@@ -842,12 +842,12 @@ export default function ProposalClient({ leadId }: { leadId: string }) {
                 <div className="absolute inset-0 rounded-xl bg-primary/5 blur-xl -z-10" />
                 <p className="text-xs uppercase tracking-widest text-primary font-semibold">Ongoing</p>
                 <p className="text-4xl font-bold text-foreground">{formatFee(proposal.monthly_fee)}</p>
-                <p className="text-sm text-foreground/50 font-medium">+ VAT &middot; per month</p>
+                <p className="text-sm text-foreground/50 font-medium">inc VAT &middot; per month</p>
                 <p className="text-xs text-foreground/50">Your monthly package. Cancel any time after month one with 30 days&apos; notice.</p>
               </div>
             </div>
 
-            <p className="text-xs text-foreground/40">All figures exclude VAT. No long-term contract, after your first month you&apos;re free to give 30 days&apos; notice at any time.</p>
+            <p className="text-xs text-foreground/40">All figures include VAT. No long-term contract, after your first month you&apos;re free to give 30 days&apos; notice at any time.</p>
 
             {!isPaid && !(ACCEPT_ONLY && proposalAccepted) && (
               <Button
@@ -1006,7 +1006,7 @@ export default function ProposalClient({ leadId }: { leadId: string }) {
 
                     <p className="font-semibold text-foreground">1. Package and Pricing</p>
                     <p>1.1. Your Lead Generation package comprises an initial setup fee and an ongoing monthly subscription fee, as agreed at the time of purchase and confirmed in your PandaDoc welcome document.</p>
-                    <p>1.2. All fees quoted are exclusive of VAT, which will be charged at the prevailing rate.</p>
+                    <p>1.2. All fees quoted are inclusive of VAT at the prevailing rate.</p>
 
                     <p className="font-semibold text-foreground">2. Lead Generation Estimates</p>
                     <p>2.1. We will target the geographic areas discussed and agreed upon at the time of sale, with the aim of generating an estimated average number of enquiries per month as outlined in your package confirmation.</p>
@@ -1052,7 +1052,7 @@ export default function ProposalClient({ leadId }: { leadId: string }) {
                   <div className="space-y-4">
                     <div className="bg-white/5 border border-white/10 rounded-lg p-4 text-center">
                       <p className="text-[11px] uppercase tracking-widest text-primary font-semibold">Setup Fee</p>
-                      <p className="text-2xl font-bold mt-1">{formatFee(proposal.setup_fee)} <span className="text-sm font-normal text-foreground/50">+ VAT</span></p>
+                      <p className="text-2xl font-bold mt-1">{formatFee(proposal.setup_fee)} <span className="text-sm font-normal text-foreground/50">inc VAT</span></p>
                     </div>
                     <p className="text-xs text-foreground/50 text-center">
                       You&apos;ll be securely redirected to Stripe to pay the one-off setup fee. Monthly payments of <span className="text-primary font-semibold">{formatFee(proposal.monthly_fee)}</span> will begin via Direct Debit.
@@ -1081,7 +1081,7 @@ export default function ProposalClient({ leadId }: { leadId: string }) {
 
         {/* Footer */}
         <p className="text-center text-[11px] text-foreground/30 pb-6">
-          This proposal is subject to our standard Terms &amp; Conditions of Business. Prices exclude VAT. Final costs are confirmed on approval. No long-term contract &ndash; after your first month you&apos;re free to give 30 days&apos; notice at any time.
+          This proposal is subject to our standard Terms &amp; Conditions of Business. Prices include VAT. Final costs are confirmed on approval. No long-term contract &ndash; after your first month you&apos;re free to give 30 days&apos; notice at any time.
         </p>
       </div>
 

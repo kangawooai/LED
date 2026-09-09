@@ -27,7 +27,6 @@ const TEAM: { match: string[]; name: string; photo: string }[] = [
   { match: ["kam", "kameron", "bowen"], name: "Kameron James Bowen", photo: "/team/kam.webp" },
   { match: ["ella", "croft"], name: "Ella Croft", photo: "/team/ella-croft.webp" },
   { match: ["tallulah", "stanley"], name: "Tallulah Stanley", photo: "/team/tallulah-stanley.webp" },
-  { match: ["sabrina", "akram"], name: "Sabrina Akram", photo: "/team/sabrina-akram.webp" },
   { match: ["luke", "usher"], name: "Luke Usher", photo: "/team/luke-usher.webp" },
   { match: ["nathan", "hydes"], name: "Nathan Hydes", photo: "/team/nathan-hydes.webp" },
   { match: ["jordan", "miles"], name: "Jordan Miles", photo: "/team/jordan-miles.webp" },

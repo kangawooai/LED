@@ -88,15 +88,15 @@ export async function POST(request: Request) {
     </tr>
     <tr>
       <td style="padding:10px 16px;color:#94a3b8;font-size:13px;border-bottom:1px solid #1e293b;">Setup Fee</td>
-      <td style="padding:10px 16px;color:#f8fafc;font-size:14px;font-weight:600;border-bottom:1px solid #1e293b;">&pound;${Number(setupFee).toLocaleString()} + VAT</td>
+      <td style="padding:10px 16px;color:#f8fafc;font-size:14px;font-weight:600;border-bottom:1px solid #1e293b;">&pound;${Number(setupFee).toLocaleString()} inc VAT</td>
     </tr>
     <tr>
       <td style="padding:10px 16px;color:#94a3b8;font-size:13px;border-bottom:1px solid #1e293b;">Monthly Fee</td>
-      <td style="padding:10px 16px;color:#f8fafc;font-size:14px;font-weight:600;border-bottom:1px solid #1e293b;">&pound;${Number(monthlyFee).toLocaleString()} + VAT</td>
+      <td style="padding:10px 16px;color:#f8fafc;font-size:14px;font-weight:600;border-bottom:1px solid #1e293b;">&pound;${Number(monthlyFee).toLocaleString()} inc VAT</td>
     </tr>
     <tr>
       <td style="padding:10px 16px;color:#94a3b8;font-size:13px;">First Payment</td>
-      <td style="padding:10px 16px;color:#22c55e;font-size:16px;font-weight:700;">&pound;${Number(firstPayment).toLocaleString()} + VAT</td>
+      <td style="padding:10px 16px;color:#22c55e;font-size:16px;font-weight:700;">&pound;${Number(firstPayment).toLocaleString()} inc VAT</td>
     </tr>
   </table>
 </td></tr>

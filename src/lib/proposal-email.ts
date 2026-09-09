@@ -238,14 +238,14 @@ ${roiHtml}
       <table width="100%" cellpadding="0" cellspacing="0" style="background-color:${CARD};border:1px solid ${BORDER};border-radius:10px;"><tr><td valign="middle" style="padding:16px 10px;text-align:center;height:104px;">
         <p style="margin:0 0 6px;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:${GREEN};">One-off setup</p>
         <p style="margin:0 0 4px;font-size:22px;font-weight:700;color:${HEAD};">${gbp2(setupFee)}</p>
-        <p style="margin:0;font-size:11px;color:${DIM};">+ VAT &middot; once</p>
+        <p style="margin:0;font-size:11px;color:${DIM};">inc VAT &middot; once</p>
       </td></tr></table>
     </td>
     <td width="33%" valign="top" class="stack-col" style="padding:4px;">
       <table width="100%" cellpadding="0" cellspacing="0" style="background-color:${CARD_HL};border:2px solid ${GREEN};border-radius:10px;"><tr><td valign="middle" style="padding:16px 10px;text-align:center;height:104px;">
         <p style="margin:0 0 6px;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:${GREEN};">Ongoing</p>
         <p style="margin:0 0 4px;font-size:22px;font-weight:700;color:${HEAD};">${gbp2(monthlyFee)}</p>
-        <p style="margin:0;font-size:11px;color:${DIM};">+ VAT &middot; / month</p>
+        <p style="margin:0;font-size:11px;color:${DIM};">inc VAT &middot; / month</p>
       </td></tr></table>
     </td>
   </tr></table>
@@ -278,7 +278,7 @@ ${roiHtml}
 <!-- Footer -->
 <tr><td style="padding:20px 32px;background-color:${BG};border-radius:0 0 12px 12px;border-top:1px solid ${BORDER};text-align:center;">
   <p style="margin:0 0 4px;font-size:12px;color:${DIM};">Leads Every Day &middot; <a href="https://www.leadseveryday.co.uk" style="color:${GREEN};text-decoration:none;">leadseveryday.co.uk</a></p>
-  <p style="margin:0;font-size:11px;color:#475569;">Prices exclude VAT. No long-term contract — after your first month you're free to give 30 days' notice at any time.</p>
+  <p style="margin:0;font-size:11px;color:#475569;">Prices include VAT. No long-term contract — after your first month you're free to give 30 days' notice at any time.</p>
 </td></tr>
 
 </table>

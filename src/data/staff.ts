@@ -67,12 +67,6 @@ export const staff: StaffMember[] = [
     image: "/tallulah-stanley.webp",
   },
   {
-    slug: "sabrina-akram",
-    name: "Sabrina Akram",
-    bio: "Sabrina provides a seamless process to create meaningful change and opportunities for your business!\n\nWith over two years of experience working alongside tradespeople, Sabrina knows that empathy, good time management, and a sense of humour go a long way! She's all about keeping things organised, understanding people's needs, and making sure the job gets done without the chaos.\n\nHer hobbies and interests include proudly embracing her inner couch potato on weekends, binge-watching series and getting plenty of cuddles from her two furry bosses, Akil and Atlas. She also loves dragging her husband along on adventures to home stores (because apparently she can never have too many ideas for the house!) and, most importantly, spending quality time with her family.",
-    image: "/sabrina-akram.webp",
-  },
-  {
     slug: "luke-usher",
     name: "Luke Usher",
     bio: "Luke is a Business Development Manager, focused on building strong relationships with new and existing clients. He enjoys understanding what people need and finding opportunities where he can genuinely help.\n\nOne of Luke's main strengths is his ability to build trust and relate to people. He believes understanding his clients is key to building long-lasting relationships.\n\nOutside of work, Luke is a black belt in Brazilian Jiu-Jitsu and teaches classes outside of working hours. He's also a family man with a young daughter who keeps him on his toes! He also used to be a DJ many moons ago and played a warm-up set for the famous DJ Carl Cox at Gatecrasher back in 2002.\n\nLuke takes his clients' success personally and is committed to helping them achieve their goals, working closely with them to identify new opportunities and deliver long-term results.",
