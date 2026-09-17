@@ -84,4 +84,10 @@ export const staff: StaffMember[] = [
     bio: "Jordan is a Business Development Manager who enjoys building long-term relationships with clients and always going the extra mile to make sure they have a successful journey. He is adaptable, accountable and a professional team player, basically, someone who gets stuck in and gets the job done!\n\nOutside of work, Jordan is a big coffee lover and enjoys Jiu-Jitsu. He is also a Z-list TV celebrity, which definitely gives him some extra bragging rights around the office, although he is yet to let us know what show he was on!\n\nJordan is all about putting his clients first, building relationships that last and making sure they are well looked after along the way.",
     image: "/jordan-miles.webp",
   },
+  {
+    slug: "sean-chambers",
+    name: "Sean Chambers",
+    bio: "As a Business Development Manager at Leads Everyday, Sean helps trades businesses across the UK grow by connecting them with new opportunities and building a stronger pipeline of work. He works closely with business owners to understand their goals and find the right ways to support their growth.\n\nOne of Sean's biggest strengths is adapting to a wide range of different trades and businesses. He takes the time to understand each business, its challenges and what it needs to grow. He's also strong at building relationships, communicating with business owners and tailoring his approach to suit each business.\n\nOutside of work, Sean enjoys keeping active at the gym and spending time with his dog, Joey. He's a big fan of making the most of his time outside of work.\n\nSean is a big believer in keeping things straightforward and building genuine relationships. He takes the time to understand each business he works with and what it's looking to achieve, rather than taking a one-size-fits-all approach. Ultimately, he wants the businesses he works with to feel like they have someone in their corner.",
+    image: "/sean-chambers.webp",
+  },
 ];
