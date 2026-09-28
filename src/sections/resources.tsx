@@ -46,11 +46,13 @@ const Resources = () => {
           {/* Promo */}
           <div className="relative flex min-h-[340px] lg:min-h-[420px]">
             <Image
-              src="/mobile-mechanic.webp"
+              src="/tyres.webp"
               alt=""
               fill
               sizes="(max-width: 1024px) 100vw, 60vw"
-              className="object-cover"
+              /* The panel is near-square on mobile, and a centre crop clips the
+                 subject against the right edge; pull the focal point left. */
+              className="object-cover object-[35%_center] lg:object-center"
             />
             {/* The copy sits over the photo, so it gets a flat wash on mobile
                 and a left-to-right fade on desktop that leaves the subject
