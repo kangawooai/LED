@@ -2,6 +2,7 @@ import { BubbleBackground } from "@/components/ui/bubble";
 import type { Metadata, Viewport } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
+import { BonzaAnalytics } from '@/components/bonza-analytics'
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -112,6 +113,7 @@ export default function RootLayout({
       >
         <BubbleBackground className="fixed inset-0 z-[1] opacity-20 md:opacity-25 pointer-events-none" />
         {children}
+        <BonzaAnalytics />
       </body>
     </html>
   );
