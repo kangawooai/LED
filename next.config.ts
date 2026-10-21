@@ -78,6 +78,31 @@ const nextConfig: NextConfig = {
         destination: "/meet-the-team",
         permanent: true,
       },
+      {
+        source: "/kameron-james-bowen",
+        destination: "/meet-the-team",
+        permanent: true,
+      },
+      {
+        source: "/maximilian-filipowicz",
+        destination: "/meet-the-team",
+        permanent: true,
+      },
+      {
+        source: "/luke-usher",
+        destination: "/meet-the-team",
+        permanent: true,
+      },
+      {
+        source: "/nathan-hydes",
+        destination: "/meet-the-team",
+        permanent: true,
+      },
+      {
+        source: "/jordan-miles",
+        destination: "/meet-the-team",
+        permanent: true,
+      },
     ];
   },
 };
