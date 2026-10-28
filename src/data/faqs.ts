@@ -27,7 +27,7 @@ export const faqs: FAQ[] = [
   },
   {
     question: "Is there a contract or minimum term?",
-    answer: "There are no long-term contracts or tie-ins. You can adjust your budget or pause your campaign at any time. We believe our results keep you coming back, not a contract.",
+    answer: "Yes, there is an initial minimum term of two months. After that your agreement runs on a rolling 30-day basis, so you can cancel any time by emailing cancellations@leadseveryday.co.uk and giving 30 days' notice. There are no long tie-ins beyond that, we would rather our results kept you with us than a contract did.",
   },
   {
     question: "What makes you different from other lead generation companies?",

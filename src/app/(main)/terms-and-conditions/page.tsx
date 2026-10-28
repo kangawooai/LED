@@ -95,14 +95,40 @@ const TermsAndConditions = () => {
 
             <div>
               <h2 className="text-xl md:text-2xl tracking-tight text-foreground mb-3">
-                4. No Minimum Contract
+                4. Minimum Term and Cancellation
               </h2>
-              <p>
-                We operate on a pay-as-you-go basis. There are no long-term
-                contracts or minimum terms. You may cancel your service at any
-                time by giving us written notice. Cancellation will take effect
-                at the end of the current billing period.
-              </p>
+              <ul className="space-y-2 list-disc list-inside">
+                <li>
+                  Your agreement begins with an initial minimum term of two
+                  months from the date your campaign goes live
+                </li>
+                <li>
+                  After the initial term, your agreement continues on a rolling
+                  30-day basis until it is cancelled
+                </li>
+                <li>
+                  Either party may cancel by giving 30 days&apos; written notice
+                </li>
+                <li>
+                  To cancel, email{" "}
+                  <a
+                    href="mailto:cancellations@leadseveryday.co.uk"
+                    className="text-primary hover:underline"
+                  >
+                    cancellations@leadseveryday.co.uk
+                  </a>
+                  , including your business name so we can identify your account
+                </li>
+                <li>
+                  Your campaign remains active and your monthly fee remains
+                  payable throughout the notice period
+                </li>
+                <li>
+                  If you give notice during the initial two-month term, your
+                  cancellation takes effect at the end of that term or at the
+                  end of the 30-day notice period, whichever is later
+                </li>
+              </ul>
             </div>
 
             <div>
@@ -224,17 +250,17 @@ const TermsAndConditions = () => {
                 If you have any questions about these Terms and Conditions,
                 please contact us at{" "}
                 <a
-                  href="mailto:sales@leadseveryday.co.uk"
+                  href="mailto:customer.relations@leadseveryday.co.uk"
                   className="text-primary hover:underline"
                 >
-                  sales@leadseveryday.co.uk
+                  customer.relations@leadseveryday.co.uk
                 </a>
                 .
               </p>
             </div>
 
             <p className="text-foreground/50 text-xs">
-              Last updated: May 2025
+              Last updated: October 2026
             </p>
           </div>
         </div>
