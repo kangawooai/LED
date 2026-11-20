@@ -25,6 +25,13 @@ export const metadata: Metadata = {
   },
   description:
     "Get more leads for your business, every single day. We build landing pages and run targeted ads for tradespeople across 60+ industries. No commission, just results.",
+  verification: {
+    // Google Search Console site-verification code. Set the
+    // NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION environment variable to the token
+    // Google provides; the <meta name="google-site-verification"> tag is then
+    // emitted into the <head> of every page automatically.
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+  },
   keywords: [
     "lead generation",
     "UK trades",
