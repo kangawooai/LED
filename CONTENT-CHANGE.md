@@ -66,13 +66,13 @@ Write no data at all if the request does not clearly ask for it. Say so in your 
 
 ## Proposed Changes
 
-- Create a `JsonLd` component that renders JSON-LD schema markup as a `<script>` tag in the page head
-- Create a `GlobalSchema` component containing exactly the schema code you provided
-- Add the `GlobalSchema` component to the homepage (`src/app/(main)/page.tsx`) only, so it outputs the Organisation and WebSite structured data for that page
+- Create a `JsonLd` component that renders a `<script type="application/ld+json">` tag
+- Create a `GlobalSchema` component with exactly the schema code you provided (Organisation + WebSite)
+- Add `GlobalSchema` to the homepage only
 
 **Estimated cost: £0.30 – £0.60**
 
-Since this is a small, self-contained change, is there anything else you'd like to tweak or bundle in at the same time? Otherwise, click **Accept Plan** to get started, or **Amend Plan** to make changes.
+Click **Accept Plan** to get started, or **Amend Plan** to make changes.
 ## Referenced in this conversation
 
 Exact values named while this change was agreed. Where the plan above refers
@@ -87,20 +87,6 @@ it means one of these.
 
 Reproduce any of these exactly where the plan uses them. They may carry the
 customer's own account or tracking ids.
-
-
-## Calculations and rules must be proved against the worked examples
-
-This work includes a calculation or a rule. It is not done when it builds and it is not done when it looks right: it is done when the real code gives the agreed answers.
-
-- The plan has no worked examples. Write at least three of your own from what was agreed (an ordinary case, an edge such as zero or a missing value, and a case exactly on any threshold) and say in your summary that they are yours and need the customer to confirm them.
-- Put the calculation or rule in a plain function with no database, network or screen in it, and have the screen call that function. One definition, used everywhere the figure appears.
-- Write an automated test for every worked example, calling that same function, using the repository's existing test command (add `node --test` if it has none). Assert the exact figures, to the penny where money is involved.
-- Run the tests. Do not finish while any fail. Do not change an expected figure to make a test pass.
-- If an example cannot be met because it contradicts another, or contradicts the rule as written, stop and say which and why in your summary. That is a question for the customer, not something to resolve by choosing.
-- State the rounding rule you used and where it is applied (each line, or the total).
-- Write `LOGIC-CHECK.md` at the root of the repository and commit it: the function's file and name, the command that runs the tests, and a table with one row per example giving the inputs, the expected answer, the answer the code gave, and pass or fail. Fill the table from the test run, not from the plan.
-- Repeat that table in your summary.
 
 
 ## Signed-in checks
