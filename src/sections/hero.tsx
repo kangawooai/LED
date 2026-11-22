@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { STATS } from "@/constants";
+import { BLACK_FRIDAY_PROMO_ACTIVE } from "@/components/black-friday-promo";
 import { IconPhone, IconPlayerPlayFilled, IconX } from "@tabler/icons-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -76,7 +77,7 @@ const Hero = () => {
 
       {/* Fullscreen video player — below nav */}
       {videoOpen && (
-        <div className="fixed inset-0 top-20 z-[99] bg-background flex items-center justify-center p-3 md:p-6">
+        <div className={`fixed inset-0 ${BLACK_FRIDAY_PROMO_ACTIVE ? "top-29" : "top-20"} z-[99] bg-background flex items-center justify-center p-3 md:p-6`}>
           <button
             onClick={() => setVideoOpen(false)}
             className="absolute top-4 right-4 z-10 size-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-colors cursor-pointer"

@@ -185,7 +185,7 @@ const BlackFriday = () => {
       </section>
 
       {/* Claim form */}
-      <section id="claim" ref={formRef} className="py-20 scroll-mt-24">
+      <section id="claim" ref={formRef} className="py-20 scroll-mt-32">
         <div className="max-w-7xl mx-auto px-6 lg:px-20 2xl:px-0">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className={`scroll-fade-in${formVisible ? " visible" : ""}`}>

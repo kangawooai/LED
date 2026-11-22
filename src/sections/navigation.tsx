@@ -10,6 +10,7 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import { NAV_LINKS } from "@/constants";
+import { BlackFridayBanner } from "@/components/black-friday-promo";
 import {
   IconPhone,
   IconBuildingSkyscraper,
@@ -72,6 +73,7 @@ const Navigation = () => {
       transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
       className="fixed top-0 z-[100] w-full bg-background/70 backdrop-blur-xl border-b border-white/10 transition-colors duration-600 pt-[env(safe-area-inset-top)]"
     >
+      <BlackFridayBanner />
       <nav className="max-w-7xl mx-auto px-6 lg:px-20 2xl:px-0">
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="relative h-7.5 md:h-9 w-[150px] md:w-[175px]">
