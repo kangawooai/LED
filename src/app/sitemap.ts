@@ -12,6 +12,7 @@ export default async function sitemap() {
     { url: `${baseUrl}/about`, changeFrequency: "monthly" as const, priority: 0.7 },
     { url: `${baseUrl}/faqs`, changeFrequency: "monthly" as const, priority: 0.7 },
     { url: `${baseUrl}/book-a-call`, changeFrequency: "monthly" as const, priority: 0.9 },
+    { url: `${baseUrl}/black-friday`, changeFrequency: "weekly" as const, priority: 0.8 },
     { url: `${baseUrl}/meet-the-team`, changeFrequency: "monthly" as const, priority: 0.6 },
     { url: `${baseUrl}/careers`, changeFrequency: "monthly" as const, priority: 0.5 },
     { url: `${baseUrl}/resources`, changeFrequency: "weekly" as const, priority: 0.8 },

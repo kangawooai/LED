@@ -19,8 +19,17 @@ const UTM_PARAMS = [
 const SELECT_CLASS =
   "h-9 w-full rounded-md border border-input bg-transparent px-2.5 py-1 text-sm shadow-xs transition-[color,box-shadow] outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 dark:bg-input/30";
 
-/** Self-contained "Book a Call" enquiry form. Posts to /api/enquiry and captures UTM params. */
-export function BookACallForm({ className }: { className?: string }) {
+/**
+ * Self-contained "Book a Call" enquiry form. Posts to /api/enquiry and captures UTM params.
+ * `defaultUtm` fills in any UTM param the URL doesn't supply (e.g. to tag offer-page enquiries).
+ */
+export function BookACallForm({
+  className,
+  defaultUtm,
+}: {
+  className?: string;
+  defaultUtm?: Partial<Record<(typeof UTM_PARAMS)[number], string>>;
+}) {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -49,7 +58,7 @@ export function BookACallForm({ className }: { className?: string }) {
     setSubmitting(true);
     setError(false);
 
-    const utmData: Record<string, string> = {};
+    const utmData: Record<string, string> = { ...defaultUtm };
     if (typeof window !== "undefined") {
       const sp = new URLSearchParams(window.location.search);
       for (const param of UTM_PARAMS) {
