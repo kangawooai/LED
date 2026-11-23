@@ -8,7 +8,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
 
-const YOUTUBE_VIDEO_ID = "HNWbRc7WZJw";
+const HERO_VIDEO_SRC = "/led-showcase.mp4";
 
 const Hero = () => {
   const [mounted, setMounted] = useState(false);
@@ -85,12 +85,15 @@ const Hero = () => {
           >
             <IconX className="size-5" />
           </button>
-          <iframe
-            src={`https://www.youtube-nocookie.com/embed/${YOUTUBE_VIDEO_ID}?autoplay=1&rel=0&controls=0&modestbranding=1&showinfo=0&iv_load_policy=3`}
-            title="Leads Everyday — How It Works"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            className="w-full h-full rounded-md"
+          <video
+            src={HERO_VIDEO_SRC}
+            title="Leads Everyday Showcase"
+            autoPlay
+            controls
+            playsInline
+            preload="auto"
+            onEnded={() => setVideoOpen(false)}
+            className="w-full h-full rounded-md bg-black object-contain"
           />
         </div>
       )}
