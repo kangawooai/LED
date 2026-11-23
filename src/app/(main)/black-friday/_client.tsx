@@ -96,13 +96,7 @@ const BlackFriday = () => {
             className="hero-animate mt-4 text-4xl md:text-6xl lg:text-7xl tracking-tight font-bold leading-[1.05]"
             style={{ animationDelay: "0.1s" }}
           >
-            <span className="block text-primary">Leads</span>
-            <span className="block text-2xl md:text-3xl lg:text-4xl font-medium uppercase tracking-[0.2em] mt-2">
-              for your business
-            </span>
-            <span className="block mt-4">
-              <span className="text-primary">6 Free</span> Extras
-            </span>
+            <span className="text-primary">6 Free</span> Extras
           </h1>
 
           <p
