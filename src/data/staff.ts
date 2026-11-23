@@ -2,12 +2,6 @@ import { StaffMember } from "@/types";
 
 export const staff: StaffMember[] = [
   {
-    slug: "max-young",
-    name: "Max Young",
-    bio: "Max Young has the easiest job in the world. With more than 1,000 customers to take care of, Max has to keep each one happy. But it's not as taxing as it sounds. He says: \"I welcome every business on board and make sure we do everything correctly so I don't have any issues to deal with.\" Gillingham fan Max is a keen footballer, playing for a local pub team, and enjoys the odd single malt whisky*.\n\n*Always drink responsibly.",
-    image: "/max_young (1).png",
-  },
-  {
     slug: "robert-otoole",
     name: "Robert O'Toole",
     bio: "Originally from Dublin, Robert's background is firmly rooted in life on site. Before joining Leads Every Day, he spent years working on major construction jobs, specialising in piling and steelworks. He was a foreman too, so he knows exactly what it's like being out in all weathers, getting the job done. That experience means he gets where our customers are coming from, and it shows in how he approaches every conversation.\n\nAs our Sales Manager, Robert's the man to talk to when it comes to growing your business through smart, no-nonsense leads. He's a straight-talker, easy to get on with, and always up for a laugh, one of the most popular characters in the office. Away from work, Robert's a big family man. He heads back to Dublin whenever he can (usually managing to \"split the G\" while he's there). And in a past life? He was a keen boxer, with an impressive amateur record to prove it.",

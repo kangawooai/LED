@@ -103,6 +103,11 @@ const nextConfig: NextConfig = {
         destination: "/meet-the-team",
         permanent: true,
       },
+      {
+        source: "/max-young",
+        destination: "/meet-the-team",
+        permanent: true,
+      },
     ];
   },
 };
