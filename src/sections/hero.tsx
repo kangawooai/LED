@@ -10,9 +10,27 @@ import { useCallback, useEffect, useState } from "react";
 
 const HERO_VIDEO_SRC = "/led-showcase.mp4";
 
+/** Seconds into the video when the "Ready to grow? Let's talk." end card appears. */
+const END_CARD_START = 46.5;
+
+/**
+ * Clickable areas over the end card's buttons, as percentages of the 16:9 video frame
+ * (measured on the 1920x1080 source: phone pill 610-1310 x 535-665, book pill 695-1225 x 700-800).
+ */
+const END_CARD_HOTSPOTS = [
+  { href: "tel:+443330424424", label: "Call 0333 0 424 424", left: 31.8, top: 49.5, width: 36.4, height: 12.1 },
+  { href: "/book-a-call", label: "Book a free call", left: 36.2, top: 64.8, width: 27.6, height: 9.3 },
+];
+
 const Hero = () => {
   const [mounted, setMounted] = useState(false);
   const [videoOpen, setVideoOpen] = useState(false);
+  const [showEndCard, setShowEndCard] = useState(false);
+
+  const closeVideo = () => {
+    setVideoOpen(false);
+    setShowEndCard(false);
+  };
 
   useEffect(() => {
     setMounted(true);
@@ -79,22 +97,48 @@ const Hero = () => {
       {videoOpen && (
         <div className={`fixed inset-0 ${BLACK_FRIDAY_PROMO_ACTIVE ? "top-29" : "top-20"} z-[99] bg-background flex items-center justify-center p-3 md:p-6`}>
           <button
-            onClick={() => setVideoOpen(false)}
+            onClick={closeVideo}
             className="absolute top-4 right-4 z-10 size-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-colors cursor-pointer"
             aria-label="Close video"
           >
             <IconX className="size-5" />
           </button>
-          <video
-            src={HERO_VIDEO_SRC}
-            title="Leads Everyday Showcase"
-            autoPlay
-            controls
-            playsInline
-            preload="auto"
-            onEnded={() => setVideoOpen(false)}
-            className="w-full h-full rounded-md bg-black object-contain"
-          />
+          {/* Box sized to the video's 16:9 frame, so the end-card hotspots line up with the buttons in it */}
+          <div className="relative w-full h-full" style={{ containerType: "size" }}>
+            <div
+              className="absolute inset-0 m-auto aspect-video"
+              style={{ width: "min(100cqw, calc(100cqh * 16 / 9))" }}
+            >
+              <video
+                src={HERO_VIDEO_SRC}
+                title="Leads Everyday Showcase"
+                autoPlay
+                controls
+                playsInline
+                preload="auto"
+                onTimeUpdate={(e) =>
+                  setShowEndCard(e.currentTarget.currentTime >= END_CARD_START)
+                }
+                className="w-full h-full rounded-md bg-black object-contain"
+              />
+              {showEndCard &&
+                END_CARD_HOTSPOTS.map((spot) => {
+                  const className =
+                    "absolute rounded-full cursor-pointer outline-none transition-shadow hover:ring-2 hover:ring-white/60 focus-visible:ring-2 focus-visible:ring-white";
+                  const style = {
+                    left: `${spot.left}%`,
+                    top: `${spot.top}%`,
+                    width: `${spot.width}%`,
+                    height: `${spot.height}%`,
+                  };
+                  return spot.href.startsWith("tel:") ? (
+                    <a key={spot.href} href={spot.href} aria-label={spot.label} className={className} style={style} />
+                  ) : (
+                    <Link key={spot.href} href={spot.href} aria-label={spot.label} onClick={closeVideo} className={className} style={style} />
+                  );
+                })}
+            </div>
+          </div>
         </div>
       )}
 
