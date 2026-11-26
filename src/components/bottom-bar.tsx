@@ -50,7 +50,7 @@ const BottomBar = () => {
 
           {/* Mobile: Call Now */}
           <a href="tel:+443330424424" className="shrink-0 md:hidden">
-            <Button size="sm" className="px-5">
+            <Button size="sm" className="px-5 bg-orange-700 text-white hover:bg-orange-800">
               <IconPhone className="size-4" />
               Call Now
             </Button>
