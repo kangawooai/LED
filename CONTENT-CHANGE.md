@@ -66,7 +66,7 @@ Write no data at all if the request does not clearly ask for it. Say so in your 
 
 ## Proposed Changes
 
-- Make the **"Call Now" button** in the sticky bottom bar orange (on mobile, where it currently shows with the default green/primary colour)
+- Make the **"Call Now" button** in the sticky bottom bar orange on mobile
 
 **Estimated cost: £0.30 – £0.50**
 
