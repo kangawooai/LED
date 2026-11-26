@@ -156,12 +156,21 @@ const Navigation = () => {
           </div>
 
           <div className="flex items-center gap-4">
-            <aside className="hidden md:flex items-center">
+            <aside className="hidden md:flex items-center gap-2">
               <Link href="/book-a-call">
                 <Button variant="muted" size="sm" className="px-5">
                   Enquire Now
                 </Button>
               </Link>
+              <a href="tel:+443330424424" aria-label="Call us on 0333 042 4424">
+                <Button
+                  size="sm"
+                  className="px-5 bg-orange-700 text-white hover:bg-orange-800"
+                >
+                  <IconPhone className="size-4" />
+                  0333 042 4424
+                </Button>
+              </a>
             </aside>
 
             <aside className="md:hidden">
