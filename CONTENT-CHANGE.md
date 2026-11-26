@@ -66,8 +66,7 @@ Write no data at all if the request does not clearly ask for it. Say so in your 
 
 ## Proposed Changes
 
-- Add an orange button displaying **0333 042 4424** in the header, sitting right next to the "Enquire Now" button on desktop (hidden on mobile, as the phone button already appears in the mobile menu)
-- Clicking it will dial the number
+- Make the **"Call Now" button** in the sticky bottom bar orange (on mobile, where it currently shows with the default green/primary colour)
 
 **Estimated cost: £0.30 – £0.50**
 
